@@ -1,0 +1,3150 @@
+html {
+    scroll-behavior: smooth
+}
+
+body,
+html {
+    overflow-x: hidden;
+    background: #fff
+}
+
+body {
+    position: relative
+}
+
+// .container--sparklydragon .aboveFoldCon {
+//     padding: 10px 0 5px
+// }
+
+// .container--sparklydragon .chooseMemText {
+//     color: #36322d;
+//     margin-bottom: 10px;
+//     max-width: 320px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     width: 100%
+// }
+
+.container--sparklydragon button {
+    outline: 0!important
+}
+
+.container--sparklydragon .buttonPill {
+    clear: both;
+    display: block;
+    height: 35px;
+    margin: 10px auto;
+    position: relative;
+    width: 210px
+}
+
+.container--sparklydragon .buttonPill #monthPill {
+    left: 0
+}
+
+.container--sparklydragon .aboveFoldCon .buttonPill button.activePill {
+    background-color: #54534f;
+    color: #fff;
+    z-index: 10
+}
+
+.container--sparklydragon .aboveFoldCon .buttonPill button {
+    border: 1px solid #54534f;
+    border-radius: 50px;
+    padding: 7px;
+    position: absolute;
+    text-align: center;
+    width: 118px
+}
+
+.container--sparklydragon .buttonPill #month6Pill {
+    right: 0
+}
+
+.container--sparklydragon .usRecordsCon {
+    background-color: #1c88b0;
+    color: #fff;
+    height: 110px;
+    overflow: hidden;
+    width: 50%
+}
+
+.container--sparklydragon .uaRecordsCon {
+    background-color: #9cbf3b;
+    color: #fff;
+    height: 110px;
+    overflow: hidden;
+    width: 50%
+}
+
+.container--sparklydragon .plans {
+    padding: 5px;
+    text-align: center
+}
+
+.container--sparklydragon .plan-border {
+    border: solid 3px;
+    border-radius: 5px;
+    padding-left: 0!important
+}
+
+.container--sparklydragon .usrecords {
+    border: solid 3px;
+    border-color: #6ba410
+}
+
+.container--sparklydragon .usnintrecords {
+    border: solid 3px;
+    border-color: #1c88b0
+}
+
+.container--sparklydragon .allacc-plan-br-mbl {
+    border: solid 3px #61527e
+}
+
+.container--sparklydragon .ancGrid .ancCol.usnintrecords,
+.container--sparklydragon .ancGrid .ancCol.usrecords {
+    padding: 0
+}
+
+.container--sparklydragon .ancGrid .plan-select-header {
+    padding: 10px
+}
+
+.container--sparklydragon .usrecordsFreeText {
+    color: #6ba410
+}
+
+.container--sparklydragon .usnintrecordsFreeText {
+    color: #1c88b0
+}
+
+.container--sparklydragon .center-grid {
+    margin: 0 auto!important;
+    text-align: center
+}
+
+.container--sparklydragon .planTitle {
+    font-size: 18px!important;
+    min-height: 78px;
+    padding-bottom: 0
+}
+
+.container--sparklydragon .planTitle.inclusions-title {
+    font-size: 20px!important
+}
+
+.container--sparklydragon .guaranteeCon {
+    padding: 20px;
+    margin: 0 auto;
+    width: 320px;
+    display: flex;
+    padding-bottom: 0
+}
+
+.container--sparklydragon .guaranteeSealImg {
+    float: left;
+    margin-left: -16px;
+    margin-top: -8px
+}
+
+.container--sparklydragon .support-timings-txt {
+    color: #777
+}
+
+.container--sparklydragon .cancel-text {
+    padding: 20px 20px 0;
+    text-align: center;
+    color: #777
+}
+
+.container--sparklydragon .svg-img {
+    height: 33px
+}
+
+.container--sparklydragon .usmap-img {
+    height: 35px
+}
+
+.container--sparklydragon .plus {
+    font-weight: 700;
+    color: #ccc
+}
+
+.container--sparklydragon .plus-center {
+    vertical-align: super;
+    font-size: 24px
+}
+
+.container--sparklydragon .hr-line {
+    margin: 10px;
+    border-bottom: solid 1px #cccbca
+}
+
+.container--sparklydragon .plan-inclusions {
+    margin: 10px
+}
+
+.container--sparklydragon .mt-5 {
+    margin-top: 25px
+}
+
+.container--sparklydragon .mt-4 {
+    margin-top: 20px
+}
+
+.container--sparklydragon .leaf-img {
+    margin-left: -25px
+}
+
+.container--sparklydragon .feature-description {
+    color: #8c8f8a
+}
+
+.container--sparklydragon .feature-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-bottom: 50px;
+    position: relative
+}
+
+.container--sparklydragon .feature {
+    width: 202px;
+    position: relative
+}
+
+.container--sparklydragon .top-line {
+    border-top: solid 1px #f1efef;
+    position: absolute;
+    top: -15px;
+    width: 107%
+}
+
+.container--sparklydragon .left-top-line {
+    left: -10px
+}
+
+.container--sparklydragon .ancestry-hints {
+    align-self: flex-end;
+    margin-top: -75px
+}
+
+.container--sparklydragon .feature-title {
+    font-size: 18px
+}
+
+.container--sparklydragon .family-tree-building-img {
+    align-self: flex-end;
+    margin-top: -135px;
+    width: 225px;
+    margin-right: -105px
+}
+
+.container--sparklydragon .family-tree-sharing-img {
+    border-radius: 50%;
+    width: 75px
+}
+
+.container--sparklydragon .overlap-img {
+    margin-left: -25px
+}
+
+.container--sparklydragon .family-tree-sharing {
+    align-self: flex-end;
+    margin-top: 20px
+}
+
+.container--sparklydragon .unlimited-media {
+    float: left;
+    margin-top: 33px
+}
+
+.container--sparklydragon .unlimited-media-img {
+    width: 238px;
+    margin-right: -107px;
+    align-self: flex-end;
+    margin-top: -83px
+}
+
+.container--sparklydragon .member-collab-cust-img {
+    position: absolute;
+    border-radius: 50%;
+    width: 75px
+}
+
+.container--sparklydragon .chat-cust1 {
+    top: 60px;
+    left: 149px
+}
+
+.container--sparklydragon .chat-cust2 {
+    top: 94px;
+    left: -22px
+}
+
+.container--sparklydragon .chat-cust3 {
+    top: 305px;
+    left: 71px
+}
+
+.container--sparklydragon .member-collab {
+    align-self: flex-end;
+    margin-top: -48px;
+    margin-right: -27px;
+    width: 200px
+}
+
+.container--sparklydragon .family-tree-access-img {
+    margin-top: -35px
+}
+
+.container--sparklydragon .family-tree-access-cust-img {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 148px;
+    top: 137px;
+    z-index: 1
+}
+
+.container--sparklydragon .disclaimer-wrap,
+.container--sparklydragon .feedback,
+.container--sparklydragon .seperate-products {
+    margin: 10px
+}
+
+.container--sparklydragon .seperate-products {
+    position: relative;
+    z-index: 10
+}
+
+.container--sparklydragon .logo-dna,
+.container--sparklydragon .logo-health {
+    padding: 15px;
+    border: solid 2px #e5e5e5;
+    width: 100%;
+    border-radius: 6px;
+    margin: 5px 0;
+    height: 75px;
+    vertical-align: middle
+}
+
+.container--sparklydragon .upload-img {
+    position: absolute;
+    left: 193px;
+    top: 88px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px
+}
+
+.container--sparklydragon .tree-img {
+    position: absolute;
+    left: 208px;
+    top: 83px;
+    padding: 18px;
+    background: #fff;
+    border-radius: 5px
+}
+
+.container--sparklydragon .saved-text {
+    padding-top: 8px;
+    font-weight: 700
+}
+
+.container--sparklydragon .us-saved-text {
+    background: #f1f7db;
+    color: #9cbf3b
+}
+
+.container--sparklydragon .usnint-saved-text {
+    background: #eff9f9;
+    color: #1c88b0
+}
+
+.container--sparklydragon .free-trial-button {
+    margin-bottom: 10px
+}
+
+// .container--sparklydragon .hide {
+//     display: none!important
+// }
+
+.container--sparklydragon .us-text-color {
+    color: #9cbf3b
+}
+
+.container--sparklydragon .usnint-text-color {
+    color: #1c88b0
+}
+
+.container--sparklydragon .example-text {
+    margin: 10px 0;
+    display: inline-block
+}
+
+.container--sparklydragon .tree-plus-img {
+    position: absolute;
+    left: 195px;
+    top: 175px;
+    padding: 18px;
+    background: #fff;
+    border-radius: 5px;
+    z-index: 2
+}
+
+.container--sparklydragon .privacy-container {
+    color: #666;
+    background: #f5f5f5;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 20px
+}
+
+.container--sparklydragon .privacy-head-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.container--sparklydragon .activePill {
+    background-color: #18191c!important;
+    font-weight: 600
+}
+
+.container--sparklydragon .inactivePill {
+    background-color: #fff!important
+}
+
+.container--sparklydragon .plan-inclusions-container {
+    position: relative
+}
+
+.container--sparklydragon .plan-inclusions-background {
+    position: absolute;
+    background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/background.svg);
+    background-size: contain;
+    background-position: 1px 36px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%
+}
+
+.container--sparklydragon .exampleWrapper .con {
+    border: none
+}
+
+.container--sparklydragon .back-to-top-wrapper {
+    padding: 30px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff
+}
+
+.container--sparklydragon .back-to-top-btn {
+    width: 175px;
+    padding: 10px;
+    border-radius: 20px;
+    background: #474d54;
+    border: none
+}
+
+.container--sparklydragon .video-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.container--sparklydragon .title {
+    font-size: 24px;
+    font-weight: 700
+}
+
+.container--sparklydragon .subtitle {
+    font-size: 18px;
+    margin-top: 0
+}
+
+.container--sparklydragon .how-tree-ancestry-img {
+    margin-top: 20px
+}
+
+.container--sparklydragon .story3-examples-caption {
+    display: block
+}
+
+@media screen and (-ms-high-contrast:active),
+(-ms-high-contrast:none) {
+    .container--sparklydragon th.triangle-start::before {
+        display: none
+    }
+    .container--sparklydragon th .most-rec-txt {
+        top: -45px
+    }
+}
+
+@supports (-ms-ime-align:auto) {
+    .container--sparklydragon th.triangle-start::before {
+        display: none
+    }
+    .container--sparklydragon th .most-rec-txt {
+        top: -45px
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:767px) {
+    // .container--sparklydragon .chooseMemText .mytimelineWrapper-desk {
+    //     margin-bottom: 50px
+    // }
+    .container--sparklydragon .chooseMemText span.headline-text {
+        max-width: 242px;
+        display: inline-block
+    }
+    .container--sparklydragon .arrow.bounce {
+        right: -90px
+    }
+    .container--sparklydragon .plan-subtitle {
+        font-weight: 400
+    }
+    .container--sparklydragon .extra-bottom-padding-on-mobile {
+        margin-bottom: 20px
+    }
+    .container--sparklydragon .ancGrid .plan-select-header {
+        padding-bottom: 0
+    }
+    .container--sparklydragon .buttonPill {
+        margin-top: 0
+    }
+    .container--sparklydragon .allaccess-plan-detail,
+    .container--sparklydragon .us-plan-detail,
+    .container--sparklydragon .usnint-plan-detail {
+        display: block;
+        line-height: 1
+    }
+    .container--sparklydragon .conBody .saving-plan-sixmonths {
+        margin: 10px 0 0 0
+    }
+    .container--sparklydragon .ancCol,
+    .container--sparklydragon .ancGridPadded.ancGridNoGutters {
+        padding-left: 0
+    }
+    .container--sparklydragon .imageSection .examplesBorder {
+        border-left: 5px solid #6ba410;
+        height: 240px;
+        display: inline-block
+    }
+    .container--sparklydragon .census {
+        width: 100%
+    }
+    .container--sparklydragon .userCardContent {
+        width: 100%
+    }
+    .container--sparklydragon .btnToggle {
+        width: 100%
+    }
+    .container--sparklydragon .btnToggle .ancBtn {
+        width: 100%;
+        cursor: pointer
+    }
+    .container--sparklydragon .memberExpand {
+        margin-top: 25px!important
+    }
+    .container--sparklydragon .userCardPile {
+        float: right
+    }
+    .container--sparklydragon .usercontainer {
+        display: flex;
+        justify-content: space-between
+    }
+    .container--sparklydragon .borderLeft {
+        display: flex
+    }
+    .container--sparklydragon .conHeader {
+        position: relative
+    }
+    .container--sparklydragon .closeIcon {
+        cursor: pointer
+    }
+    .container--sparklydragon .closeIcon::after {
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/close-x.svg) no-repeat;
+        position: absolute;
+        right: 0;
+        cursor: pointer
+    }
+    .container--sparklydragon .grey {
+        color: #a9a9a9
+    }
+    .container--sparklydragon .faq-title {
+        font-size: 20px
+    }
+    .container--sparklydragon .blue-line-mbl,
+    .container--sparklydragon .green-line-mbl {
+        width: 325px
+    }
+    .container--sparklydragon .story-wrap-mbl .example1-signature1,
+    .container--sparklydragon .story-wrap-mbl .example1-signature2 {
+        margin-left: 0
+    }
+    .container--sparklydragon .example1-story-img {
+        margin-left: -100px
+    }
+    .container--sparklydragon .usdis-story-close-mbl {
+        align-self: baseline
+    }
+    .container--sparklydragon .story-wrap-mbl .story1-crocs-img {
+        margin-right: -50px;
+        margin-top: -15px
+    }
+    .container--sparklydragon .story2-notes1-img {
+        width: 118px;
+        height: 151px;
+        max-width: 100%;
+        align-self: baseline;
+        margin-right: -15px
+    }
+    .container--sparklydragon .story2-notes2-img {
+        max-width: 100%;
+        width: 190px;
+        height: 35px
+    }
+    .container--sparklydragon .story2-pen-sign-img {
+        max-width: 100%;
+        width: 182px;
+        height: 182px;
+        align-self: flex-end;
+        margin-right: -95px
+    }
+    .container--sparklydragon .feature-wrapper .plan-feature-img::before {
+        top: -25px
+    }
+    .container--sparklydragon .leaf-container {
+        position: relative;
+        display: inline-block;
+        margin-right: 10px
+    }
+    .container--sparklydragon .example1-story-img .leaf-container .example-circle-leaf {
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        width: 47px
+    }
+    .container--sparklydragon .story2-mbl-img-wrap-new::after {
+        content: "";
+        background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/line-dotted-md-up.png) no-repeat;
+        width: 100%;
+        height: 90%;
+        position: absolute;
+        left: 50%;
+        top: 0
+    }
+    .container--sparklydragon .story2-mbl-img-new {
+        position: relative;
+        z-index: 2
+    }
+    .container--sparklydragon .subs-plan-outer-wrap {
+        padding: 10px;
+        padding-bottom: 0
+    }
+    .container--sparklydragon .subs-plan-outer-wrap:first-child {
+        padding-top: 0
+    }
+    .container--sparklydragon .subs-plan-wrap {
+        display: flex!important;
+        padding: 10px;
+        border-radius: 6px
+    }
+    .container--sparklydragon .us-dis-plan-wrap {
+        display: flex!important;
+        padding: 10px;
+        background-color: #f8faf3
+    }
+    .container--sparklydragon .world-ex-plan-wrap {
+        background-color: #f2f8fa
+    }
+    .container--sparklydragon .allacc-plan-wrap {
+        background-color: #f7f6f9
+    }
+    .container--sparklydragon .plan-hero-img {
+        margin-right: 10px
+    }
+    .container--sparklydragon .subs-plan-desc {
+        flex: 0 0 190px;
+        text-align: left;
+        margin-right: 25px;
+        margin-right: calc(100% - 249px)
+    }
+    .container--sparklydragon .subs-plan-desc .planTitle {
+        min-height: 0;
+        font-size: 16px!important
+    }
+    .container--sparklydragon .subs-plan-desc .plan-subtitle {
+        margin-bottom: 25px;
+        display: inline-block
+    }
+    .container--sparklydragon .allacc-plan-wrap .subs-plan-desc .plan-subtitle,
+    .container--sparklydragon .world-ex-plan-wrap .subs-plan-desc .plan-subtitle {
+        margin-bottom: 10px
+    }
+    .container--sparklydragon .subs-plan-desc.allacc-plan-desc {
+        margin-left: -5px;
+        flex: 0 0 214px;
+        margin-right: 1px;
+        margin-right: calc(100% - 273px)
+    }
+    .container--sparklydragon .right-arrow-wrap {
+        align-self: center;
+        font-size: 30px
+    }
+    .container--sparklydragon .subs-plan-wrap {
+        position: relative;
+        min-height: 104px;
+        max-height: 104px
+    }
+    .container--sparklydragon .subs-plan-wrap .saving-plan-sixmonths {
+        position: absolute;
+        right: 10px;
+        top: -10px;
+        border-radius: 2px;
+        height: 20px;
+        width: 78px;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 0
+    }
+    .container--sparklydragon .plan-detail {
+        position: absolute;
+        bottom: 10px
+    }
+    .container--sparklydragon .subs-plan-container {
+        max-width: 490px
+    }
+}
+
+// .container--sparklydragon .mytimelineWrapper {
+//     width: 225px;
+//     position: relative
+// }
+
+// .container--sparklydragon .mytimelineWrapper-desk {
+//     margin-bottom: 40px
+// }
+
+// .container--sparklydragon .mytimeline {
+//     border-radius: 10px;
+//     width: 214px;
+//     height: 18px;
+//     background: #6ba410;
+//     font-size: 14px;
+//     color: #fff;
+//     text-align: center;
+//     font-weight: 700;
+//     line-height: 18px;
+//     position: relative;
+//     z-index: 100
+// }
+
+// .container--sparklydragon .myleft-circle {
+//     width: 14px;
+//     height: 14px;
+//     background: #fff;
+//     border-radius: 50%;
+//     position: absolute;
+//     top: 2px;
+//     left: 2px
+// }
+
+// .container--sparklydragon .myright-circle {
+//     width: 14px;
+//     height: 14px;
+//     background: #fff;
+//     border-radius: 50%;
+//     position: absolute;
+//     right: 2px;
+//     top: 2px;
+//     z-index: 2
+// }
+
+// .container--sparklydragon .mydot-circle {
+//     width: 6px;
+//     height: 6px;
+//     background: #000;
+//     border-radius: 50%;
+//     position: absolute;
+//     top: 4px;
+//     left: 4px
+// }
+
+// .container--sparklydragon .myposttrial {
+//     background: linear-gradient(90deg, #a9a9a9, #fff);
+//     width: 60px;
+//     position: absolute;
+//     right: -40px;
+//     height: 18px;
+//     top: 0;
+//     z-index: 10
+// }
+
+// .container--sparklydragon .myline {
+//     height: 10px;
+//     position: absolute;
+//     width: 2px;
+//     background: #000;
+//     top: 18px;
+//     left: 8px
+// }
+
+// .container--sparklydragon .mytoday {
+//     position: absolute;
+//     top: 27px;
+//     color: #000
+// }
+
+// .container--sparklydragon .mybilldate {
+//     position: absolute;
+//     right: -65px;
+//     color: #000;
+//     top: 27px
+// }
+
+@media (min-width:480px) and (max-width:767px) {
+    // .container--sparklydragon .hidden-sm {
+    //     display: none
+    // }
+    // .container--sparklydragon .show-sm {
+    //     display: block!important
+    // }
+    .container--sparklydragon .sm-feature-wrapper {
+        display: flex;
+        margin-bottom: 40px;
+        max-width: 450px;
+        width: 100%;
+        position: relative
+    }
+    .container--sparklydragon .sm-leaf-img {
+        width: 142px;
+        height: 139px
+    }
+    .container--sparklydragon .sm-ancestry-hints {
+        align-self: flex-end;
+        flex: 0 0 156px;
+        position: relative
+    }
+    .container--sparklydragon .sm-family-building {
+        align-self: flex-end;
+        flex: 0 0 166px;
+        position: relative;
+        margin-right: 20px
+    }
+    .container--sparklydragon .sm-hints-wrapper {
+        margin-right: auto
+    }
+    .container--sparklydragon .sm-family-tree-building-img {
+        width: 195px;
+        height: 160px
+    }
+    .container--sparklydragon .sm-family-tree-building-img-wrap::before {
+        background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/icon-tree.svg) no-repeat center;
+        background-color: #fff
+    }
+    .container--sparklydragon .sm-fam-build-wrap {
+        margin-left: auto
+    }
+    .container--sparklydragon .plan-feature-img.sm-family-tree-building-img-wrap::before {
+        top: auto;
+        bottom: 15px
+    }
+    .container--sparklydragon .sm-fam-tree-sharing-wrap {
+        flex-direction: column;
+        margin-right: auto
+    }
+    .container--sparklydragon .sm-fam-tree-sharing {
+        align-self: center;
+        margin-top: 20px;
+        width: 141px;
+        position: relative
+    }
+    .container--sparklydragon .sm-unlimited-media {
+        flex: 0 0 166px;
+        position: relative;
+        margin-right: 20px
+    }
+    .container--sparklydragon .sm-unlimited-media-img {
+        width: 231px;
+        height: 151px
+    }
+    .container--sparklydragon .sm-media-wrap {
+        margin-left: auto
+    }
+    .container--sparklydragon .sm-unlimited-media-img-wrap::before {
+        background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/icon-upload.svg) no-repeat center;
+        background-color: #fff
+    }
+    .container--sparklydragon .plan-feature-img.sm-unlimited-media-img-wrap::before {
+        top: auto;
+        bottom: 15px
+    }
+    .container--sparklydragon .sm-member-collab-wrapper {
+        margin-right: auto;
+        margin-bottom: 100px!important
+    }
+    .container--sparklydragon .member-collab-chat-img {
+        margin-left: 10px
+    }
+    .container--sparklydragon .chat-cust2 {
+        top: 92px;
+        left: -10px
+    }
+    .container--sparklydragon .chat-cust3 {
+        top: 301px;
+        left: 71px
+    }
+    .container--sparklydragon .sm-member-collab {
+        align-self: flex-end;
+        position: relative;
+        flex: 0 0 171px
+    }
+    .container--sparklydragon .story2-main-container {
+        margin-top: 10px!important;
+        align-items: flex-start!important
+    }
+    .container--sparklydragon .story2-main-sign-img {
+        margin: 0 auto;
+        text-align: center
+    }
+    .container--sparklydragon .plan-inclusions-background {
+        background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.9/images/background-tablet.svg);
+        background-size: contain;
+        background-position: 124px 36px;
+        background-repeat: no-repeat
+    }
+    .container--sparklydragon .logo-dna-wrap,
+    .container--sparklydragon .logo-health-wrap {
+        width: 50%
+    }
+    .container--sparklydragon .logo-dna-wrap {
+        margin-right: 10px
+    }
+    .container--sparklydragon .free-trial-button-mob {
+        width: calc(100% - 20px)
+    }
+    .container--sparklydragon .examples-full-wrap {
+        max-width: 480px;
+        margin: 0 auto
+    }
+    // .container--sparklydragon .mytimelineWrapper-mbl {
+    //     margin-left: 25px;
+    //     margin-right: auto
+    // }
+}
+
+@media (min-width:576px) and (max-width:767px) {
+    .container--sparklydragon .planTitle {
+        min-height: 48px
+    }
+}
+
+@media (min-width:768px) {
+    // .container--sparklydragon .headlines {
+    //     max-width: 330px
+    // }
+    // .container--sparklydragon .hero-section-container {
+    //     max-width: 494px;
+    //     margin-left: auto;
+    //     margin-right: auto
+    // }
+    // .container--sparklydragon .documentsImg.document-hero-img-tab {
+    //     width: 134px;
+    //     height: 130px
+    // }
+    .container--sparklydragon td span.table-row-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+    .container--sparklydragon .arrow.bounce {
+        right: -100px
+    }
+    // .container--sparklydragon .hidden-md-up {
+    //     display: none
+    // }
+    // .container--sparklydragon .show-md-up {
+    //     display: block!important
+    // }
+    // .container--sparklydragon .show768 {
+    //     display: block!important
+    // }
+    // .container--sparklydragon {
+    //     box-sizing: border-box;
+    //     margin: 0 auto;
+    //     max-width: 100%;
+    //     padding: 12px;
+    //     width: 984px
+    // }
+    .container--sparklydragon .freeTrialTimeline {
+        width: 40%
+    }
+    .container--sparklydragon .postTrial {
+        right: 322px
+    }
+    .container--sparklydragon .ancGridEqual {
+        border-spacing: 8px 0
+    }
+    .container--sparklydragon .plan-select-header {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: space-between
+    }
+    .container--sparklydragon .planTitle {
+        flex-basis: 142px;
+        min-height: auto;
+        padding-bottom: 0
+    }
+    .container--sparklydragon .flex-container {
+        display: flex
+    }
+    .container--sparklydragon .allaccess-plan-detail,
+    .container--sparklydragon .usnint-plan-detail {
+        display: inline-block;
+        margin-left: -10px;
+        margin-right: -10px
+    }
+    .container--sparklydragon .usrecords-img {
+        width: 40px;
+        height: 24px
+    }
+    .container--sparklydragon .p10 {
+        padding: 10px!important
+    }
+    .container--sparklydragon .plan-description {
+        text-align: left;
+        min-height: 80px
+    }
+    .container--sparklydragon .allaccess {
+        border: solid 3px #61527e
+    }
+    .container--sparklydragon .how-does-ancestry-work {
+        margin-bottom: 20px
+    }
+    .container--sparklydragon .hdaw-flex-item {
+        margin-right: 27px
+    }
+    .container--sparklydragon .hdaw-content {
+        flex: 0 0 auto
+    }
+    .container--sparklydragon .how-tree-ancestry-img {
+        width: 497px;
+        margin-top: 0
+    }
+    .container--sparklydragon table {
+        border-collapse: collapse;
+        width: 100%
+    }
+    .container--sparklydragon td,
+    .container--sparklydragon th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px
+    }
+    .container--sparklydragon td:not(:first-child) {
+        text-align: center;
+        text-align: -webkit-center
+    }
+    .container--sparklydragon th.triangle-start::before {
+        position: absolute;
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: -178px;
+        background-image: linear-gradient(to right, #f1f7db, #f1f7db 33.33%, #eff9f9 33.33%, #eff9f8 66.66%, #dcdbe0 66.66%);
+        width: calc(300% + 2px);
+        height: 177px;
+        clip-path: polygon(100% 75%, 0 100%, 100% 100%);
+        -webkit-clip-path: polygon(100% 75%, 0 100%, 100% 100%)
+    }
+    .container--sparklydragon .plan-comparison-chart {
+        margin-bottom: 10px;
+        margin-top: 100px
+    }
+    .container--sparklydragon .least-rec-txt {
+        position: absolute;
+        top: -45px;
+        font-size: 14px;
+        width: 75px;
+        text-align: left;
+        left: 0
+    }
+    .container--sparklydragon .most-rec-txt {
+        position: absolute;
+        top: -87px;
+        font-size: 14px;
+        text-align: right;
+        right: 0;
+        left: 70px
+    }
+    .container--sparklydragon .buttonPill {
+        margin-bottom: 20px
+    }
+    .container--sparklydragon .plan-comp-check-icon,
+    .container--sparklydragon .plan-comp-cross-icon {
+        vertical-align: bottom
+    }
+    .container--sparklydragon .plan-comparison-chart .table-title th:first-child {
+        width: 368px;
+        border-left: 0
+    }
+    .container--sparklydragon .plan-comparison-chart .table-title th:last-child {
+        border-right: 0
+    }
+    .container--sparklydragon .align-base {
+        vertical-align: baseline
+    }
+    .container--sparklydragon .check-wrapper {
+        width: 90px;
+        height: 40px;
+        border-radius: 10px
+    }
+    .container--sparklydragon .examples-head {
+        font-size: 24px
+    }
+    .container--sparklydragon .census {
+        width: 210px;
+        height: 125px
+    }
+    .container--sparklydragon .leaf-img {
+        width: 142px;
+        height: 140px;
+        margin-left: 63px
+    }
+    .container--sparklydragon .inclusions-title {
+        margin-bottom: 30px
+    }
+    .container--sparklydragon .plan-feature-img.family-tree-building-img-wrap::before {
+        top: -10px;
+        width: 70px;
+        height: 70px;
+        left: -35px
+    }
+    .container--sparklydragon .plan-feature-img.unlimited-media-img-wrap::before {
+        top: auto;
+        bottom: 20px;
+        width: 70px;
+        height: 70px;
+        left: -35px
+    }
+    .container--sparklydragon .ancestry-hints {
+        margin-right: 315px
+    }
+    .container--sparklydragon .family-building {
+        margin-left: 233px
+    }
+    .container--sparklydragon .family-tree-building-img {
+        width: 255px;
+        height: 209px;
+        margin-right: 16px
+    }
+    .container--sparklydragon .tree-img {
+        width: 70px;
+        height: 70px;
+        left: 417px;
+        top: 103px
+    }
+    .container--sparklydragon .family-tree-sharing-img {
+        width: 122px;
+        height: 122px
+    }
+    .container--sparklydragon .family-tree-sharing-img-container {
+        margin-top: -100px
+    }
+    .container--sparklydragon .family-tree-sharing {
+        margin-right: 366px
+    }
+    .container--sparklydragon .unlimited-media {
+        margin-left: 184px
+    }
+    .container--sparklydragon .unlimited-media-img {
+        width: 301px;
+        height: 197px;
+        margin-right: 20px;
+        margin-top: -52px
+    }
+    .container--sparklydragon .upload-img {
+        width: 70px;
+        height: 70px;
+        left: 369px;
+        top: 152px
+    }
+    .container--sparklydragon .member-collab-cust-img {
+        width: 117px;
+        height: 117px
+    }
+    .container--sparklydragon .member-collab-wrapper {
+        margin-top: -163px
+    }
+    .container--sparklydragon .chat-cust1 {
+        top: 61px;
+        left: 126px
+    }
+    .container--sparklydragon .chat-cust2 {
+        left: -37px;
+        top: 92px
+    }
+    .container--sparklydragon .chat-cust3 {
+        left: 24px;
+        top: 296px
+    }
+    .container--sparklydragon .member-collab {
+        margin-right: 325px;
+        margin-top: -12px
+    }
+    .container--sparklydragon .family-tree-access {
+        margin-left: 220px
+    }
+    .container--sparklydragon .tree-plus-img {
+        width: 71px;
+        height: 71px;
+        left: 423px;
+        top: 185px
+    }
+    .container--sparklydragon .family-tree-access-cust-img {
+        right: 285px
+    }
+    .container--sparklydragon th {
+        border-bottom: 0
+    }
+    .container--sparklydragon table tr:nth-child(2) td {
+        border-top: none
+    }
+    .container--sparklydragon table tr td:first-child {
+        border-left: none
+    }
+    .container--sparklydragon table tr td:last-child {
+        border-right: none
+    }
+    .container--sparklydragon .support-desc {
+        width: 240px
+    }
+    .container--sparklydragon .fold-img {
+        width: 73px;
+        height: 17px
+    }
+    .container--sparklydragon .newspapers-img {
+        width: 98px;
+        height: 17px
+    }
+    .container--sparklydragon .table-fold-img {
+        width: 103px;
+        height: 24px
+    }
+    .container--sparklydragon .table-newspapers-img {
+        width: 138px;
+        height: 24px
+    }
+    .container--sparklydragon .allaccess-img-container > div:not(:last-child) {
+        margin-right: 10px
+    }
+    .container--sparklydragon .usrecords-border {
+        border: solid 6px #6ba410!important;
+        border-radius: 10px;
+        background-color: #fafff3!important
+    }
+    .container--sparklydragon .usrecords-border .conHeader {
+        margin: 0 0 6px 0!important
+    }
+    .container--sparklydragon .worldex-border {
+        border: solid 6px #1c88b0!important;
+        border-radius: 10px;
+        background-color: #f1fbff!important
+    }
+    .container--sparklydragon .worldex-border .conHeader {
+        margin: 0 0 6px 0!important
+    }
+    .container--sparklydragon .allacc-border {
+        border: solid 6px #61527e!important;
+        border-radius: 10px;
+        background-color: #f8f4ff!important
+    }
+    .container--sparklydragon .usdis-ps-wrap:hover {
+        background-color: #fafff3!important
+    }
+    .container--sparklydragon .worldex-ps-wrap:hover {
+        background-color: #f1fbff!important
+    }
+    .container--sparklydragon .allacc-ps-wrap:hover {
+        background-color: #f8f4ff!important
+    }
+    .container--sparklydragon .allacc-ps-wrap:hover,
+    .container--sparklydragon .usdis-ps-wrap:hover,
+    .container--sparklydragon .worldex-ps-wrap:hover {
+        transition: background .2s
+    }
+    .container--sparklydragon .allacc-border .conHeader {
+        margin: 0 0 6px 0!important
+    }
+    .container--sparklydragon input[type=radio]:checked {
+        background-color: #9cbf3b
+    }
+    .container--sparklydragon .form .radio:checked + label::before {
+        background: 0 0;
+        box-shadow: none;
+        border: solid 1px grey
+    }
+    .container--sparklydragon .form .checkbox + label::before,
+    .container--sparklydragon .form .radio + label::before {
+        background-color: #fff;
+        box-shadow: none;
+        color: #fff;
+        content: "";
+        float: left;
+        font-size: 14px;
+        height: 20px;
+        line-height: 20px;
+        margin: 1px 4px 0 -24px;
+        text-align: center;
+        text-indent: 0;
+        width: 20px
+    }
+    .container--sparklydragon .container {
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+    .container--sparklydragon .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer
+    }
+    .container--sparklydragon .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border: solid 1px grey;
+        border-radius: 50%
+    }
+    .container--sparklydragon .container:hover input ~ .checkmark {
+        background-color: #ccc
+    }
+    .container--sparklydragon .container input:checked ~ .checkmark {
+        background-color: #fff
+    }
+    .container--sparklydragon .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none
+    }
+    .container--sparklydragon .container input:checked ~ .checkmark:after {
+        display: block
+    }
+    .container--sparklydragon .container .checkmark:after {
+        top: 4px;
+        left: 4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: green
+    }
+    .container--sparklydragon .container.allacc-subs-label .checkmark:after {
+        background: #61527e
+    }
+    .container--sparklydragon .container.worldex-subs-label .checkmark:after {
+        background: #0079a3
+    }
+    .container--sparklydragon .container.us-subs-label .checkmark:after {
+        background: #6ba410
+    }
+    .container--sparklydragon .container.us-subs-label > span {
+        white-space: nowrap
+    }
+    .container--sparklydragon .ancGrid .plan-select-header {
+        padding: 4px;
+        margin: 6px
+    }
+    .container--sparklydragon .allacc-sec .plan-select-header {
+        position: relative
+    }
+    .container--sparklydragon .allacc-sec .allacc-plan-img-wrap {
+        position: absolute;
+        right: 0;
+        align-self: flex-end
+    }
+    .container--sparklydragon .radio-text {
+        display: block;
+        width: 114px
+    }
+    .container--sparklydragon .worldex-radio-txt {
+        width: 124px
+    }
+    .container--sparklydragon .conHeader::after {
+        display: none
+    }
+    .container--sparklydragon .us-plan-img-wrap {
+        padding-left: 10px;
+        align-self: baseline
+    }
+    .container--sparklydragon .allacc-plan-img-wrap,
+    .container--sparklydragon .usint-plan-img-wrap {
+        padding-left: 14px
+    }
+    .container--sparklydragon .usint-plan-img-wrap {
+        margin-top: -8px
+    }
+    .container--sparklydragon .conBody {
+        min-height: 216px
+    }
+    .container--sparklydragon .example3-img {
+        border-radius: 5px
+    }
+    .container--sparklydragon .borderLeft.worldex::before {
+        background: #0079a3
+    }
+    .container--sparklydragon .borderLeft.allacc::before {
+        background: #61527e
+    }
+    .container--sparklydragon .usercontainer {
+        display: flex;
+        justify-content: space-between
+    }
+    .container--sparklydragon .plan-inclusions-background {
+        position: absolute;
+        background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/background-tablet.svg);
+        background-size: inherit;
+        background-position: 213px 46px;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%
+    }
+    .container--sparklydragon .logo-dna-wrap,
+    .container--sparklydragon .logo-health-wrap {
+        width: 49%!important
+    }
+    .container--sparklydragon .freetrial-form {
+        margin-bottom: 30px
+    }
+    .container--sparklydragon .ancGrid.ancGridEqual.exampleWrapper {
+        margin-top: 10px
+    }
+    .container--sparklydragon .plan-comparison-chart .usrecords-img {
+        width: 30px;
+        height: 18px
+    }
+    .container--sparklydragon .plan-comparison-chart .usnintrecords-img {
+        width: 20px;
+        height: 20px
+    }
+    .container--sparklydragon .plan-select-header .usnintrecords-img {
+        width: 30px;
+        height: 30px
+    }
+    .container--sparklydragon .plan-comparison-chart .allaccess-img {
+        width: 30px;
+        height: 23px
+    }
+    .container--sparklydragon .example-right-align {
+        float: right;
+        padding-right: 1px
+    }
+    .container--sparklydragon .example-pos {
+        min-height: 221px
+    }
+    .container--sparklydragon .userCardContent .usercontainer {
+        min-height: 66px
+    }
+    .container--sparklydragon .example-user-content {
+        text-align: left!important;
+        margin-bottom: 20px
+    }
+    .container--sparklydragon .userCardContent .member::before {
+        content: "";
+        width: 8px;
+        background-color: #6ba410;
+        display: inline-block;
+        height: 8px;
+        border-radius: 5px;
+        margin-right: 5px
+    }
+    .container--sparklydragon .story1-sign-768 {
+        width: 100%
+    }
+    .container--sparklydragon .mobile-example-title {
+        color: #777;
+        width: 260px;
+        font-size: 14px
+    }
+    .container--sparklydragon .example2-story-sec1-img {
+        padding-right: 28px
+    }
+    .container--sparklydragon .example2-story-sec1-img .story2-notes-img {
+        margin-top: -12px
+    }
+    .container--sparklydragon .expandHeaderClose {
+        margin-bottom: 10px
+    }
+    .container--sparklydragon .example2-story-testimonial-container {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around
+    }
+    .container--sparklydragon .storyCloseBtnContainer {
+        text-align: left!important
+    }
+    .container--sparklydragon .example3-story-sec1 {
+        flex: 2!important;
+        margin-right: 10px
+    }
+    .container--sparklydragon .example3-story-sec1-img {
+        flex: 1
+    }
+    .container--sparklydragon .example3-story-sec1-img .story3-person {
+        border-radius: 50%;
+        height: 270px
+    }
+    .container--sparklydragon .example3-story-sec1-img .figcaption {
+        font-size: 14px;
+        width: 125px;
+        color: #777;
+        margin-left: 70px
+    }
+    .container--sparklydragon .topMargin {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between
+    }
+    .container--sparklydragon .topMargin .example3-story-sec2 {
+        flex-basis: 50%
+    }
+    .container--sparklydragon .topMargin .example3-story-sec2-img {
+        margin-right: 0!important
+    }
+    .container--sparklydragon .article-container {
+        display: flex;
+        justify-content: space-between
+    }
+    .container--sparklydragon .article-container .left-wrapper {
+        flex: 2;
+        padding-right: 10px
+    }
+    .container--sparklydragon .article-container .right-wrapper {
+        flex: 1;
+        padding-left: 10px;
+        padding-top: 0!important
+    }
+    .container--sparklydragon .para-list {
+        list-style: disc;
+        list-style-position: inside
+    }
+    .container--sparklydragon .article-user-info {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 35px
+    }
+    .container--sparklydragon .article-user-info .user {
+        font-weight: 700
+    }
+    .container--sparklydragon .storyCloseBtnContainer.center-btn {
+        text-align: center!important
+    }
+    .container--sparklydragon .story3-person-container {
+        align-items: flex-start!important
+    }
+    .container--sparklydragon .example3-story-sec1 {
+        margin-right: 10!important
+    }
+    .container--sparklydragon .example3-story-sec1-img {
+        margin: -25px 25px 0 0!important
+    }
+    .container--sparklydragon .story3-census-container {
+        margin-top: -100px
+    }
+    .container--sparklydragon .story3-newspaper-wrapper .userCardSubTitle,
+    .container--sparklydragon .story3-persions .userCardSubTitle {
+        display: inline-block
+    }
+    .container--sparklydragon .story3-persions img {
+        display: inline-block!important;
+        width: 60px!important
+    }
+    .container--sparklydragon .story3-newspaper-wrapper img {
+        display: inline-block!important;
+        width: 100px!important;
+        vertical-align: bottom
+    }
+    .container--sparklydragon .story1-sign-768 {
+        max-width: 580px!important
+    }
+    .container--sparklydragon .person-leaf-wrapper {
+        position: relative
+    }
+    .container--sparklydragon .person-leaf-wrapper .example-circle-leaf {
+        position: absolute;
+        right: -17px;
+        top: 50%;
+        width: 46px
+    }
+    .container--sparklydragon .example1-story-img {
+        padding-right: 30px!important
+    }
+    .container--sparklydragon .seperate-products .products-wrapper {
+        display: flex;
+        align-items: center
+    }
+    .container--sparklydragon .products-wrapper .logo-dna-wrap-new {
+        margin-bottom: 0;
+        margin-right: 15px
+    }
+    .container--sparklydragon .example-hero-img {
+        width: 100%;
+        height: auto
+    }
+    .container--sparklydragon .example-hero-wrap {
+        min-height: 216px
+    }
+    .container--sparklydragon .planTitle.inclusions-title {
+        font-size: 20px!important
+    }
+    .container--sparklydragon .plan-inc-head {
+        max-width: 354px;
+        justify-content: space-between
+    }
+    .container--sparklydragon .story1-sign-768-wrap::after {
+        content: "";
+        background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/line-dotted-md-up.png) no-repeat;
+        width: 100%;
+        height: 90%;
+        position: absolute;
+        left: 37px;
+        top: -10px
+    }
+    .container--sparklydragon .story1-sign-768-wrap .story1-sign-768,
+    .container--sparklydragon .story1-sign-768-wrap .story3-sign-768-1 {
+        z-index: 1
+    }
+    .container--sparklydragon .help-contact {
+        margin-left: 3px
+    }
+    .container--sparklydragon .see-example-text {
+        margin-top: 10px;
+        display: block
+    }
+    .container--sparklydragon .img-as-text {
+        height: 16px
+    }
+    .container--sparklydragon .plan-comparison-chart {
+        margin-left: 8px;
+        margin-right: 8px
+    }
+    .container--sparklydragon .plan-comparison-chart tr td:first-child,
+    .container--sparklydragon .plan-comparison-chart tr th:first-child {
+        padding-left: 0
+    }
+    .container--sparklydragon .example-content {
+        padding-left: 0
+    }
+    .container--sparklydragon .text-left {
+        text-align: left
+    }
+    .container--sparklydragon .align-middle {
+        vertical-align: middle
+    }
+    .container--sparklydragon .examples-outer-wrap-desk .example-content {
+        padding-right: 0
+    }
+    .container--sparklydragon .free-trial-btn-md-up {
+        position: absolute;
+        width: calc(100% - 20px)!important;
+        left: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        bottom: 10px
+    }
+    .container--sparklydragon .news-basic-text {
+        top: -.3em;
+        font-size: 1em;
+        margin-left: 3px;
+        color: #181a1c
+    }
+    .container--sparklydragon .news-basic-text-tab {
+        position: absolute;
+        bottom: 16px;
+        color: #181a1c;
+        left: 0;
+        font-size: 16px
+    }
+    .container--sparklydragon .fold-img-wrapper > div:first-child,
+    .container--sparklydragon .newspaper-img-wrapper > div:first-child {
+        padding-bottom: 10px
+    }
+    .container--sparklydragon .news-basic-text-tab {
+        display: block
+    }
+    .container--sparklydragon .news-basic-text {
+        display: none
+    }
+    .container--sparklydragon .tooltip-news-wrap-new {
+        left: 0
+    }
+    .container--sparklydragon .story3-census-container {
+        margin-top: -130px
+    }
+    .container--sparklydragon .example2-story-testimonial-container > div:first-child {
+        flex: 1
+    }
+}
+
+.container--sparklydragon .article-container .left-wrapper {
+    flex: 1
+}
+
+.container--sparklydragon .article-container .right-wrapper {
+    flex: 1;
+    padding-top: 15%
+}
+
+.container--sparklydragon .no-top-margin {
+    margin-top: 0!important
+}
+
+.container--sparklydragon .userCardContent .member::before {
+    content: "";
+    width: 8px;
+    background-color: #6ba410;
+    display: inline-block;
+    height: 8px;
+    border-radius: 5px;
+    margin-right: 5px
+}
+
+.container--sparklydragon .userCardContent .member-blue::before {
+    content: "";
+    width: 8px;
+    background-color: #0079a3;
+    display: inline-block;
+    height: 8px;
+    border-radius: 5px;
+    margin-right: 5px
+}
+
+.container--sparklydragon .userCardContent .member-purple::before {
+    content: "";
+    width: 8px;
+    background-color: #61527e;
+    display: inline-block;
+    height: 8px;
+    border-radius: 5px;
+    margin-right: 5px
+}
+
+.container--sparklydragon .sectionMargin .userCardContent {
+    margin-top: 0
+}
+
+.container--sparklydragon .example-user-content {
+    margin-top: 20px!important;
+    text-align: center
+}
+
+.container--sparklydragon .example-user-content img {
+    width: 100%;
+    display: inline-block;
+    margin: 20px 0 0 0
+}
+
+.container--sparklydragon .example-user-content .img2 {
+    margin: 0
+}
+
+@media screen and (min-width:960px) {
+    .container--sparklydragon .example-pos {
+        min-height: 241px
+    }
+    .container--sparklydragon .userCardContent .usercontainer {
+        min-height: auto
+    }
+}
+
+.container--sparklydragon .plan-para-color {
+    color: #777
+}
+
+.container--sparklydragon .font14 {
+    font-size: 14px
+}
+
+.container--sparklydragon .bamboo4 {
+    color: #43860d
+}
+
+.container--sparklydragon .over-the-top {
+    position: relative;
+    z-index: 10
+}
+
+.container--sparklydragon .bounce {
+    animation: bounce 1.8s infinite;
+    -webkit-animation: bounce 1.8s infinite;
+    -moz-animation: bounce 1.8s infinite;
+    -o-animation: bounce 1.8s infinite
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        -webkit-transform: translateX(-30px)
+    }
+    50% {
+        -webkit-transform: translateX(-20px)
+    }
+    100% {
+        -webkit-transform: translateX(-30px)
+    }
+}
+
+@-moz-keyframes bounce {
+    0% {
+        -moz-transform: translateX(-30px)
+    }
+    50% {
+        -moz-transform: translateX(-20px)
+    }
+    100% {
+        -moz-transform: translateX(-30px)
+    }
+}
+
+@-o-keyframes bounce {
+    0% {
+        -o-transform: translateX(-30px)
+    }
+    50% {
+        -o-transform: translateX(-20px)
+    }
+    100% {
+        -o-transform: translateX(-30px)
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(-30px)
+    }
+    50% {
+        transform: translateX(-20px)
+    }
+    100% {
+        transform: translateX(-30px)
+    }
+}
+
+.container--sparklydragon .tooltip {
+    position: relative;
+    display: inline-block;
+    color: #006080
+}
+
+.container--sparklydragon .basicsubs-wrap:hover + .tooltiptext,
+.container--sparklydragon .saving-plan-sixmonths .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1
+}
+
+.container--sparklydragon .basicsubs-wrap {
+    color: #181a1c
+}
+
+.container--sparklydragon .tooltip .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: 230px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .6s;
+    padding: 10px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, .25);
+    text-align: left
+}
+
+.container--sparklydragon .tooltip .fold-img-wrapper .tooltiptext,
+.container--sparklydragon .tooltip .newspaper-img-wrapper .tooltiptext {
+    width: 270px
+}
+
+.container--sparklydragon .tooltip .show-fold-tooltip {
+    visibility: visible;
+    opacity: 1
+}
+
+.container--sparklydragon .tooltiptext div:not(:last-child) {
+    margin-bottom: 10px
+}
+
+.container--sparklydragon .fold-callout-img-wrap,
+.container--sparklydragon .newspaper-callout-img-wrap {
+    max-height: 140px
+}
+
+.container--sparklydragon .fold-callout-img-inner-wrap::after,
+.container--sparklydragon .newspaper-callout-img-inner-wrap::after {
+    content: "";
+    background: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.container--sparklydragon .tooltip-top {
+    bottom: 125%;
+    margin-left: -126px
+}
+
+.container--sparklydragon .tooltip-bottom {
+    top: 135%;
+    transform: translateX(-50%)
+}
+
+.container--sparklydragon .tooltip-subtext {
+    color: gray
+}
+
+.container--sparklydragon .tooltip-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent
+}
+
+.container--sparklydragon .tooltip-top::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent
+}
+
+.container--sparklydragon .fold-callout-img,
+.container--sparklydragon .newspaper-callout-img {
+    width: 250px;
+    height: 140px;
+    border-radius: 5px;
+    overflow: hidden
+}
+
+.container--sparklydragon .fold-img-wrapper .see-example-btn,
+.container--sparklydragon .newspaper-callout-img-wrap .see-example-btn {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%)
+}
+
+.container--sparklydragon .youtube-img {
+    margin-right: 9px
+}
+
+.container--sparklydragon .products-wrapper {
+    display: block
+}
+
+.container--sparklydragon .logo-dna-wrap-new,
+.container--sparklydragon .logo-health-wrap-new {
+    border: 1px solid rgba(0, 0, 0, .2);
+    flex: 1;
+    border-radius: 6px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.container--sparklydragon .logo-dna-wrap-new:hover,
+.container--sparklydragon .logo-health-wrap-new:hover {
+    background: rgba(0, 0, 0, .1)
+}
+
+.container--sparklydragon .logo-dna-wrap-new {
+    margin-bottom: 10px
+}
+
+.container--sparklydragon .rounded-2 {
+    border-radius: 10px!important
+}
+
+.container--sparklydragon .align-middle {
+    vertical-align: middle
+}
+
+.container--sparklydragon .arrow {
+    position: absolute;
+    background-color: #ffe300;
+    height: 24px!important;
+    width: 60px;
+    right: -50px;
+    top: 4px;
+    border: 1px solid #ffcd00;
+    border-radius: 2px;
+    text-align: center;
+    z-index: 10;
+    cursor: pointer
+}
+
+.container--sparklydragon .arrow:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    right: 0;
+    margin: 0 0;
+    width: 0;
+    height: 0;
+    border-top: solid 12px transparent;
+    border-left: solid 12px #ffe300;
+    border-right: solid 8px transparent;
+    border-bottom: 12px solid transparent;
+    transform: rotate(-180deg);
+    z-index: 10
+}
+
+.container--sparklydragon .buttonPill .arrow.arrow-mv-left {
+    right: -80px
+}
+
+.container--sparklydragon .img-fluid-width {
+    max-width: 100%
+}
+
+.container--sparklydragon .full-width {
+    width: 100%
+}
+
+.container--sparklydragon img.ques-icon {
+    margin-left: 7px
+}
+
+.container--sparklydragon .text-left {
+    text-align: left
+}
+
+.container--sparklydragon .hr-line-mtb10 {
+    margin: 10px 0
+}
+
+.container--sparklydragon .border-bt-cl {
+    border-bottom-color: #c3c3c3
+}
+
+.container--sparklydragon a {
+    text-decoration: none
+}
+
+.container--sparklydragon .plan-select-tiles section {
+    cursor: pointer
+}
+
+.container--sparklydragon .hr-gradient-line {
+    border: none;
+    background: linear-gradient(to right, #cccbca, rgba(195, 195, 195, 0));
+    height: 1px
+}
+
+.container--sparklydragon .m10 {
+    margin: 10px
+}
+
+.container--sparklydragon .pr-6 {
+    padding-right: 30px
+}
+
+.container--sparklydragon .pb-4 {
+    padding-bottom: 20px
+}
+
+.container--sparklydragon .pb-0 {
+    padding-bottom: 0
+}
+
+.container--sparklydragon .pb-2 {
+    padding-bottom: 10px
+}
+
+.container--sparklydragon .watch-now-btn-new {
+    border: solid 1px rgba(0, 0, 0, .6);
+    background: #fff;
+    border-radius: 3px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px
+}
+
+.container--sparklydragon .watch-now-btn-new:hover {
+    background: rgba(0, 0, 0, .1)
+}
+
+.container--sparklydragon .watch-now-btn-new .youtube-img-new {
+    padding: 0 10px
+}
+
+.container--sparklydragon .watch-now-btn-new > span {
+    padding-right: 10px
+}
+
+.container--sparklydragon .mt-2 {
+    margin-top: 10px
+}
+
+.container--sparklydragon .mt-20 {
+    margin-top: 100px
+}
+
+.container--sparklydragon .mt-6 {
+    margin-top: 30px
+}
+
+.container--sparklydragon .mb-4 {
+    margin-bottom: 20px
+}
+
+.container--sparklydragon .mb-2 {
+    margin-bottom: 10px
+}
+
+.container--sparklydragon .mr-1 {
+    margin-right: 5px
+}
+
+.container--sparklydragon .pl-0 {
+    padding-left: 0
+}
+
+.container--sparklydragon .mb-3 {
+    margin-bottom: 15px
+}
+
+.container--sparklydragon .mb-6 {
+    margin-bottom: 30px
+}
+
+.container--sparklydragon .ml-3 {
+    margin-left: 15px
+}
+
+.container--sparklydragon .mt-10 {
+    margin-top: 50px
+}
+
+.container--sparklydragon .mlr-2 {
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.container--sparklydragon .mlr-0 {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.container--sparklydragon .mlr-8 {
+    margin-left: 8px;
+    margin-right: 8px
+}
+
+.container--sparklydragon .mt-0 {
+    margin-top: 0
+}
+
+.container--sparklydragon hr {
+    border-bottom: 1px solid #cccbca
+}
+
+.container--sparklydragon .buttonPill .monthPill.inactivePill {
+    padding-right: 20px
+}
+
+.container--sparklydragon .buttonPill .monthPill.activePill {
+    padding-right: 7px
+}
+
+.container--sparklydragon .buttonPill .month6Pill.inactivePill {
+    padding-left: 20px
+}
+
+.container--sparklydragon .buttonPill .month6Pill.activePill {
+    padding-left: 7px
+}
+
+.container--sparklydragon .border-highlight {
+    border-bottom: solid 2px #ffe300
+}
+
+.container--sparklydragon .text-left {
+    text-align: left
+}
+
+.container--sparklydragon .bamboo3 {
+    color: #6ba410
+}
+
+.container--sparklydragon .Wave3 {
+    color: #0079a3
+}
+
+.container--sparklydragon .worldex-bgcolor {
+    background: #0079a3
+}
+
+// .container--sparklydragon .usdis-bgcolor {
+//     background: #6ba410
+// }
+
+.container--sparklydragon .allaccess-color {
+    color: #61527e
+}
+
+.container--sparklydragon .allaccess-btn-bgcolor,
+.container--sparklydragon .plan-select-tiles .ancBtn.allaccess-btn-bgcolor {
+    background-color: #61527e
+}
+
+.container--sparklydragon .ancBtn.allaccess-btn-bgcolor.see-story-btn:hover,
+.container--sparklydragon .ancBtn.stories-close-btn.allaccess-btn-bgcolor:hover,
+.container--sparklydragon .plan-select-tiles .ancBtn.allaccess-btn-bgcolor:hover {
+    background-color: #3f314f
+}
+
+.container--sparklydragon .feature-img-new {
+    align-self: baseline;
+    margin-right: 10px
+}
+
+.container--sparklydragon .feature-subtitle-new {
+    margin-top: 5px;
+    color: #777
+}
+
+.container--sparklydragon .feature-wrap-new {
+    margin-bottom: 25px
+}
+
+.container--sparklydragon .plan-inc-head {
+    display: flex;
+    align-items: baseline
+}
+
+.container--sparklydragon .plan-inc-head .inclusions-title {
+    flex: 0 0 auto;
+    margin-right: 70px
+}
+
+.container--sparklydragon .showall-plan-inc .toggle-plan-inclusions-txt {
+    text-decoration: none!important
+}
+
+.container--sparklydragon .usdiscovery-bg {
+    background-color: #f1f7db;
+    position: relative;
+    display: inline-block
+}
+
+.container--sparklydragon .usdiscovery-bg > svg {
+    position: absolute;
+    top: calc(50% - 9px);
+    bottom: calc(50% - 9px);
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    width: 18px;
+    height: 18px
+}
+
+.container--sparklydragon .cross-bg {
+    background-color: #fff
+}
+
+.container--sparklydragon .worldexplorer-bg {
+    position: relative;
+    background-color: #eff9f9;
+    display: inline-block
+}
+
+.container--sparklydragon .worldexplorer-bg > svg {
+    position: absolute;
+    top: calc(50% - 9px);
+    bottom: calc(50% - 9px);
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    width: 18px;
+    height: 18px
+}
+
+.container--sparklydragon .allaccess-bg {
+    position: relative;
+    background-color: #dcdbe0;
+    display: inline-block
+}
+
+.container--sparklydragon .allaccess-bg > svg {
+    position: absolute;
+    top: calc(50% - 9px);
+    bottom: calc(50% - 9px);
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    width: 18px;
+    height: 18px
+}
+
+.container--sparklydragon .icon-check-fill-usdis {
+    fill: #6ba410
+}
+
+.container--sparklydragon .icon-check-fill-worldex {
+    fill: #0079a3
+}
+
+.container--sparklydragon .icon-check-fill-allacc {
+    fill: #61527e
+}
+
+.container--sparklydragon .rel-pos {
+    position: relative
+}
+
+.container--sparklydragon .nobold {
+    font-weight: 400
+}
+
+.container--sparklydragon .cancel-txt {
+    color: #777
+}
+
+.container--sparklydragon .privacy-head-wrapper .conTitle {
+    padding-bottom: 0;
+    align-self: center
+}
+
+.container--sparklydragon .usercard-subtitle-new {
+    min-height: 40px;
+    display: flex;
+    align-items: baseline
+}
+
+.container--sparklydragon .user-subtitle-dot {
+    margin-right: 5px
+}
+
+.container--sparklydragon .documentsImg {
+    background: url(https://www.ancestrycdn.com/mars/landing/offer/us/documents.png) no-repeat scroll 0 0 transparent;
+    background-size: 100% auto;
+    height: 261px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%
+}
+
+// .container--sparklydragon .priceGrid .ancCol {
+//     position: relative
+// }
+
+.container--sparklydragon .head-free-text {
+    color: #18191c;
+    font-weight: 700
+}
+
+.container--sparklydragon .world-img {
+    width: 28px;
+    height: 28px
+}
+
+.container--sparklydragon .buttonpill-wrap {
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.container--sparklydragon .buttonpill-wrap::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    border-top: solid 1px #cccbca;
+    top: 50%;
+    position: absolute;
+    z-index: 1
+}
+
+.container--sparklydragon .buttonpill-inner {
+    width: 230px;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
+    z-index: 6
+}
+
+.container--sparklydragon .user-card-img-new {
+    width: 40px;
+    height: 40px
+}
+
+.container--sparklydragon .plan-detail-free-text {
+    font-size: 16px;
+    font-weight: 700
+}
+
+.container--sparklydragon .flex-container {
+    display: flex
+}
+
+.container--sparklydragon .flex-center {
+    align-items: center;
+    justify-items: center
+}
+
+.container--sparklydragon .flex-center-new {
+    align-items: center;
+    justify-content: center
+}
+
+.container--sparklydragon .flex-auto {
+    flex: 0 0 auto
+}
+
+.container--sparklydragon .grey-border {
+    border: 1px solid #c3c3c3
+}
+
+.container--sparklydragon .ancestry-leaf {
+    width: 81px;
+    height: 79px
+}
+
+.container--sparklydragon .back-to-top-txt {
+    margin-left: 8px
+}
+
+.container--sparklydragon .feature-description {
+    font-size: 14px
+}
+
+.container--sparklydragon .exampleWrapper .example-content {
+    padding-top: 0
+}
+
+.container--sparklydragon table {
+    table-layout: fixed
+}
+
+.container--sparklydragon .example-stories-title {
+    font-size: 24px
+}
+
+.container--sparklydragon .example1-story-img {
+    padding-right: 20px
+}
+
+.container--sparklydragon .example1-story-img-desc {
+    width: 196px;
+    margin-top: 20px
+}
+
+.container--sparklydragon .example1-signature1 {
+    margin-top: 20px;
+    margin-left: 126px
+}
+
+.container--sparklydragon .example1-signature2 {
+    margin-top: 10px;
+    margin-left: 126px
+}
+
+.container--sparklydragon .example2-story-sec2 {
+    flex: 0 0 373px
+}
+
+.container--sparklydragon .example2-para {
+    width: 370px
+}
+
+.container--sparklydragon .example3-story-sec1 {
+    flex: 0 0 297px;
+    margin-right: 50px
+}
+
+.container--sparklydragon .example3-story-sec2 {
+    align-self: baseline
+}
+
+.container--sparklydragon .example3-story-sec2-img {
+    flex: 0 0 321px;
+    margin-right: 30px
+}
+
+.container--sparklydragon .story3-table3-img {
+    margin-top: 60px
+}
+
+.container--sparklydragon .story3-person-desc {
+    width: 157px;
+    font-size: 14px;
+    color: #777
+}
+
+.container--sparklydragon .example3-story-sec2 ul {
+    list-style: disc;
+    margin-left: 15px
+}
+
+.container--sparklydragon .inclusions-title {
+    min-height: auto;
+    margin-bottom: 20px
+}
+
+.container--sparklydragon .plan-feature-img {
+    align-self: flex-end;
+    position: relative
+}
+
+.container--sparklydragon .plan-feature-img::before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 9px;
+    left: -25px;
+    top: 0;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, .25)
+}
+
+.container--sparklydragon .family-tree-building-img-wrap::before {
+    background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/icon-tree.svg) no-repeat center;
+    background-color: #fff
+}
+
+.container--sparklydragon .unlimited-media-img-wrap::before {
+    background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/icon-upload.svg) no-repeat center;
+    background-color: #fff
+}
+
+.container--sparklydragon .stories-close-btn {
+    padding: 5px 200px
+}
+
+.container--sparklydragon .circle-img {
+    border-radius: 50%
+}
+
+.container--sparklydragon .expandall-btn,
+.container--sparklydragon .faq-title {
+    align-self: baseline
+}
+
+.container--sparklydragon .faqCon li {
+    margin-bottom: 0
+}
+
+.container--sparklydragon .faq-section button,
+.container--sparklydragon .faq-section button:focus,
+.container--sparklydragon .faq-section button:hover {
+    color: #36322d
+}
+
+.container--sparklydragon .faq-section button {
+    padding-top: 5px
+}
+
+.container--sparklydragon .faq-item-wrap button {
+    padding: 5px 9px
+}
+
+.container--sparklydragon .faq-item-wrap button:hover {
+    padding: 5px 9px!important;
+    background: #dedede;
+    border-radius: 4px
+}
+
+.container--sparklydragon .faq-item-wrap:hover,
+.container--sparklydragon .faq-ques-wrap.rel-pos:hover {
+    cursor: pointer
+}
+
+.container--sparklydragon .lock-img {
+    margin-right: 7px;
+    width: 11px;
+    height: 15px
+}
+
+.container--sparklydragon .faq-ques-wrap {
+    padding-top: 10px
+}
+
+.container--sparklydragon .btn-pointer.expandall-btn,
+.container--sparklydragon .faq-ques-wrap .faQuestion {
+    color: #005c7d!important
+}
+
+.container--sparklydragon .btn-pointer.expandall-btn {
+    padding-right: 9px
+}
+
+.container--sparklydragon .paddingSpan {
+    display: inline-block;
+    padding-top: 10px
+}
+
+.container--sparklydragon .faq-question-head {
+    font-weight: 700
+}
+
+.container--sparklydragon .story1-crocs-img-desk {
+    margin-top: -90px;
+    margin-left: 20px
+}
+
+.container--sparklydragon .example3-story-sec1-img {
+    align-self: baseline
+}
+
+.container--sparklydragon .story2-notes-img-wrap {
+    margin-top: -64px;
+    margin-left: 87px;
+    position: relative
+}
+
+.container--sparklydragon .story2-notes-img-wrap::before {
+    content: '';
+    background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/story3-person-desk.png);
+    display: block;
+    width: 173px;
+    height: 173px;
+    border-radius: 50%;
+    position: absolute;
+    top: 164px;
+    left: -87px
+}
+
+.container--sparklydragon .example1-story-img1.pr-6::before {
+    content: '';
+    background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/story1-crocs-img.png);
+    display: block;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    position: absolute;
+    top: 201px;
+    left: 23px
+}
+
+.container--sparklydragon .closeIcon::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/close-x.svg) no-repeat;
+    position: absolute;
+    right: 0;
+    cursor: pointer
+}
+
+.container--sparklydragon .back-to-top-wrapper {
+    position: relative;
+    z-index: 10
+}
+
+@media (min-width:320px) and (max-width:340px) {
+    .container--sparklydragon .example1-story-subdesc .sub {
+        display: none!important
+    }
+    .container--sparklydragon .example-text-split {
+        display: inline!important
+    }
+}
+
+@media (min-width:320px) and (max-width:374px) {
+    // .container--sparklydragon .chooseMemText {
+    //     padding-left: 12px;
+    //     padding-right: 12px
+    // }
+    .container--sparklydragon .arrow.bounce {
+        top: 3px
+    }
+    .container--sparklydragon .buttonPill {
+        font-size: 14px
+    }
+    .container--sparklydragon .aboveFoldCon .buttonPill button {
+        border-radius: 50px;
+        padding: 5px
+    }
+    .container--sparklydragon .con .conTitle {
+        font-size: 16px!important
+    }
+    .container--sparklydragon .free-trial-button {
+        margin: 0 6px 6px;
+        padding: 5px
+    }
+    .container--sparklydragon .ancGridEqual {
+        border-spacing: 5px 0
+    }
+    .container--sparklydragon .tree-plus-img {
+        padding: 14px;
+        border-radius: 10px;
+        left: 139px
+    }
+    .container--sparklydragon .feature-title {
+        font-size: 16px
+    }
+    .container--sparklydragon .feature-description {
+        font-size: 14px
+    }
+    .container--sparklydragon .member-collab-chat-img {
+        width: 140px;
+        height: 250px
+    }
+    .container--sparklydragon .chat-cust1 {
+        top: 54px;
+        left: 94px
+    }
+    .container--sparklydragon .chat-cust2 {
+        top: 74px;
+        left: -20px
+    }
+    .container--sparklydragon .chat-cust3 {
+        top: 226px;
+        left: 35px
+    }
+    .container--sparklydragon .upload-img {
+        left: 150px;
+        top: 117px;
+        padding: 14px;
+        border-radius: 10px
+    }
+    .container--sparklydragon .tree-img {
+        left: 169px;
+        top: 76px;
+        padding: 14px;
+        border-radius: 10px
+    }
+    .container--sparklydragon .tree-plus-img {
+        top: 137px;
+        left: 173px
+    }
+    .container--sparklydragon .innerTimeLeft {
+        position: absolute;
+        top: -15px;
+        left: 105px
+    }
+    .container--sparklydragon .outerTimeline .dateMarker {
+        top: -14px
+    }
+    .container--sparklydragon .leaf-img {
+        width: 125px;
+        height: 142px
+    }
+    .container--sparklydragon .left-top-line {
+        left: -40px
+    }
+    .container--sparklydragon .unlimited-media-img {
+        width: 231px
+    }
+    .container--sparklydragon .family-tree-building-img {
+        width: 195px;
+        margin-right: -91px;
+        margin-top: -118px
+    }
+    .container--sparklydragon .family-tree-access-img {
+        margin-top: -37px
+    }
+    .container--sparklydragon .member-tree-access-title {
+        width: 215px
+    }
+    .container--sparklydragon .family-tree-access-cust-img {
+        top: 100px;
+        right: 109px
+    }
+    .container--sparklydragon .borderLeft::before {
+        width: 33px
+    }
+    .container--sparklydragon .borderLeft.blue::before {
+        width: 34px
+    }
+    .container--sparklydragon .con .conTitle.examples-head,
+    .container--sparklydragon .plan-inclusions .inclusions-title,
+    .container--sparklydragon .seperate-products .conTitle {
+        font-size: 20px!important
+    }
+    .container--sparklydragon .expandall-btn {
+        flex: 0 0 auto
+    }
+}
+
+// .container--sparklydragon .show490 {
+//     display: none!important
+// }
+
+// .container--sparklydragon .hide490 {
+//     display: inline!important
+// }
+
+// @media (min-width:490px) and (max-width:767px) {
+//     .container--sparklydragon .show490 {
+//         display: inline!important
+//     }
+//     .container--sparklydragon .hide490 {
+//         display: none!important
+//     }
+// }
+
+@media (min-width:320px) and (max-width:479px) {
+    .container--sparklydragon .mob-example-img {
+        width: 100%
+    }
+    .container--sparklydragon .story-wrap-mbl .example1-signature1 {
+        width: 100%;
+        margin: 0 auto
+    }
+    .container--sparklydragon .story-wrap-mbl .example1-signature2 {
+        display: block;
+        margin: 0 auto 20px auto
+    }
+    .container--sparklydragon .mobile-example-title {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #777
+    }
+    .container--sparklydragon .story2-main-sign-img {
+        margin: 10px auto;
+        text-align: right
+    }
+    .container--sparklydragon .modalClose {
+        width: 15px;
+        height: 15px
+    }
+    .container--sparklydragon .saving-plan-sixmonths .tooltip .tooltiptext.offset-margin {
+        margin-left: 37px
+    }
+}
+
+@media (min-width:480px) and (max-width:767px) {
+    .container--sparklydragon .leaf-container .circle-img {
+        width: 200px
+    }
+    .container--sparklydragon .mob-example-img {
+        width: 100%
+    }
+    .container--sparklydragon .story-wrap-mbl .example1-signature1 {
+        width: 100%;
+        margin: 0 auto
+    }
+    .container--sparklydragon .story-wrap-mbl .example1-signature2 {
+        display: block;
+        margin: 0 auto 20px auto
+    }
+    .container--sparklydragon .mobile-example-title {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #777;
+        width: 260px;
+        margin: 0 auto 20px auto
+    }
+    .container--sparklydragon .story-examples-two-panel {
+        display: flex;
+        justify-content: space-between
+    }
+    .container--sparklydragon .story-examples-two-panel .mob-example-img {
+        height: 194px;
+        margin-right: -27px
+    }
+    .container--sparklydragon .story-examples-two-panel .child1 {
+        flex: 1
+    }
+    .container--sparklydragon .story-examples-two-panel .child2 {
+        margin-right: -15px;
+        padding-left: 10px
+    }
+    .container--sparklydragon .story-examples-two-panel.section2 {
+        margin-top: 20px
+    }
+    .container--sparklydragon .story-examples-two-panel.section2 .mob-example-img {
+        width: 175px;
+        height: 175px
+    }
+    .container--sparklydragon .story-examples-two-panel.section2 .child2 {
+        margin-left: -55px;
+        flex: 1
+    }
+    .container--sparklydragon .story2-notes2-img {
+        margin-top: 20px;
+        float: right
+    }
+    .container--sparklydragon .example1-story-desc-wrap {
+        margin-top: 20px
+    }
+    .container--sparklydragon .example-leaf-container {
+        margin-right: 20px;
+        margin-left: -72px
+    }
+    .container--sparklydragon .subs-plan-container .right-arrow-wrap {
+        margin-left: -10px
+    }
+}
+
+@media (min-width:1005px) {
+    // section#memOptions {
+    //     position: relative
+    // }
+    // section#memOptions::before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100vw;
+    //     height: 100%;
+    //     background-image: linear-gradient(179.8deg, rgba(255, 255, 255, .93) .49%, #fff 86.83%), url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/dt-header-bg.png);
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     margin-left: calc(-50vw + 50%);
+    //     margin-top: -10px
+    // }
+    // .container--sparklydragon .hero-section-container {
+    //     max-width: 560px
+    // }
+    // .container--sparklydragon .documentsImg.documentimg-hero-desk {
+    //     width: 150px;
+    //     height: 145px
+    // }
+    // .container--sparklydragon .show-lg-up-block {
+    //     display: block!important
+    // }
+    // .container--sparklydragon .hidden-lg-up {
+    //     display: none!important
+    // }
+    .container--sparklydragon .seperate-products.privacy-container {
+        margin-top: 35px
+    }
+    .container--sparklydragon .postTrial {
+        right: 410px
+    }
+    .container--sparklydragon .freeTrialTimeline {
+        width: 25%;
+        margin-left: 239px
+    }
+    .container--sparklydragon .logo-dna-wrap {
+        margin-right: 15px
+    }
+    .container--sparklydragon .inclusions-title {
+        margin-bottom: 30px
+    }
+    .container--sparklydragon .ancestry-hints {
+        margin-right: 520px
+    }
+    .container--sparklydragon .family-building {
+        margin-left: 445px
+    }
+    .container--sparklydragon .tree-img {
+        left: 632px;
+        top: 118px
+    }
+    .container--sparklydragon .family-tree-sharing {
+        margin-right: 520px;
+        margin-top: 20px
+    }
+    .container--sparklydragon .unlimited-media {
+        margin-left: 415px
+    }
+    .container--sparklydragon .upload-img {
+        left: 584px
+    }
+    .container--sparklydragon .member-collab {
+        margin-right: 540px
+    }
+    .container--sparklydragon .family-tree-access-cust-img {
+        right: 285px;
+        top: 165px
+    }
+    .container--sparklydragon .tree-plus-img {
+        left: 639px;
+        top: 198px
+    }
+    .container--sparklydragon .family-tree-access {
+        margin-left: 465px
+    }
+    .container--sparklydragon .feature-title {
+        font-size: 20px
+    }
+    .container--sparklydragon .tb-plan-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        justify-content: space-evenly
+    }
+    .container--sparklydragon .story1-bot-sec-wrap {
+        margin-bottom: 90px
+    }
+    .container--sparklydragon .example-hero-wrap {
+        min-height: 235px
+    }
+    th.triangle-start::before {
+        width: calc(300% + 2.5px)
+    }
+    .container--sparklydragon .most-rec-txt {
+        left: 140px
+    }
+    .container--sparklydragon .fold-img-wrapper > div:first-child,
+    .container--sparklydragon .newspaper-img-wrapper > div:first-child {
+        padding-bottom: 0
+    }
+    .container--sparklydragon .news-basic-text-tab {
+        display: none
+    }
+    .container--sparklydragon .news-basic-text {
+        display: inline-block
+    }
+    .container--sparklydragon .tooltip-news-wrap-new {
+        left: auto
+    }
+    .container--sparklydragon .story3-census-container {
+        margin-top: -170px
+    }
+}
+
+.container--sparklydragon .example1-story-subdesc .sub {
+    display: inline
+}
+
+.container--sparklydragon .example-text-split {
+    display: none
+}
+
+.container--sparklydragon .saving-plan-sixmonths {
+    height: 34px;
+    background: #ffe300;
+    margin: 10px -10px;
+    padding: 5px;
+    font-weight: 700;
+    cursor: default
+}
+
+.container--sparklydragon .btn-pointer {
+    cursor: pointer
+}
+
+.container--sparklydragon .expand-wrapper {
+    margin-bottom: 20px
+}
+
+.container--sparklydragon .expand-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0
+}
+
+.container--sparklydragon .expand-container.faq-item-wrap:not(.removeBorder) {
+    border-bottom: 1px solid #cccbca;
+    padding: 10px 0
+}
+
+.container--sparklydragon #records-faq-head-wrap {
+    border-bottom: none
+}
+
+.container--sparklydragon .collapse-ans.link {
+    color: #005c7d!important
+}
+
+.container--sparklydragon .anchor-color {
+    color: #005c7d
+}
+
+.container--sparklydragon .isActive {
+    display: block
+}
+
+.container--sparklydragon .pad-spacing-top-none {
+    padding-top: 0
+}
+
+.container--sparklydragon .spacing-bottom-md {
+    padding-bottom: 20px
+}
+
+.container--sparklydragon .rounded-sm {
+    border-radius: 10px
+}
+
+.container--sparklydragon .top-spacing-none {
+    margin-top: 0!important;
+    padding-left: 3px
+}
+
+.container--sparklydragon .spacing-bottom-small {
+    margin-bottom: 10px!important
+}
+
+.container--sparklydragon .saving-plan-sixmonths {
+    position: relative
+}
+
+.container--sparklydragon .saving-plan-sixmonths .tooltip {
+    position: static
+}
+
+.container--sparklydragon .saving-plan-sixmonths .tooltip .tooltiptext {
+    left: 50%;
+    top: 100%
+}
+
+button.modal-close-new {
+    background: #fff;
+    margin: 5px;
+    height: 30px;
+    width: 30px;
+    box-shadow: 0 1px 10px rgba(1, 1, 1, .4)
+}
+
+button.modal-close-new:hover {
+    background: #dedede
+}
+
+.container--sparklydragon .mb-0 {
+    margin-bottom: 0
+}
+
+.container--sparklydragon .mobile-support-img {
+    margin-top: 3px
+}
+
+.container--sparklydragon .grey-color {
+    color: #777
+}
+
+.container--sparklydragon .d-flex {
+    display: flex!important
+}

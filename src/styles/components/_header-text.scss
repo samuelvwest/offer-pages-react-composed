@@ -1,0 +1,10 @@
+.header-text {
+    display: inherit;
+}
+
+.header-text__free-for {
+    display:inline-block;
+    &:before {
+        content: '\2014';
+    }
+}

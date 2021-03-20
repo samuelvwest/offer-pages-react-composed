@@ -1,0 +1,388 @@
+// body, h1, h2, h3, h4, h5, h6 {
+//     letter-spacing: normal;
+//     text-transform: none;
+// }
+
+.container--greentop .fadeVisibility {
+    opacity: 0;
+}
+
+// .container--greentop {
+//     min-width: 600px;
+// }
+
+.container--greentop img {
+    display: block;
+    max-width: 100%;
+}
+
+.container--greentop .ftSubSectionTitle {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.container--greentop .ftSubSectionIntro {
+    font-size: 20px;
+}
+
+.container--greentop .ftSubListContent li,
+.container--greentop .ftSubContentIntro {
+    font-size: 18px;
+}
+
+// .container--greentop .ftSubPageHeader .page {
+//     padding: 20px 10px;
+// }
+
+// .container--greentop .ftSubPageTitle,
+// .container--greentop .ftSubPageIntro {
+//     margin: 0;
+//     max-width: 100%;
+//     text-align: left;
+// }
+
+// .container--greentop .ftSubPageTitle {
+//     font-size: 52px;
+//     font-weight: 300;
+//     line-height: 1.2;
+//     margin-top: 5px;
+//     max-width: 480px;
+//     padding-bottom: 10px;
+//     position: relative;
+// }
+
+// .container--greentop .ftSubPageIntro {
+//     color: #333;
+//     text-shadow: none;
+//     text-transform: uppercase;
+// }
+
+.container--greentop .ftSubPageSection {
+    overflow: hidden;
+    position: relative;
+}
+
+.container--greentop .ftSubPageSection .page {
+    padding: 0 10px;
+}
+
+.container--greentop .ftSubPageGrid > .ancCol {
+    position: relative;
+    vertical-align: middle;
+}
+
+.container--greentop .ftSubPageGrid .ftSubPageBkgCol {
+    height: 465px;
+}
+
+// .container--greentop .mainOfferSection .page {
+//     padding: 35px 10px;
+// }
+
+// .container--greentop .ftSubOfferSection {
+//     background-color: #f0eee9;
+// }
+
+.container--greentop .ftSubOfferForm {
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    width: 480px;
+}
+
+.container--greentop .mainOfferSection .ftSubOfferForm {
+    margin: 0;
+}
+
+.container--greentop .rad2OfferStacked {
+    text-align: left;
+}
+
+.container--greentop .radOffer:first-child {
+    margin-top: 0;
+}
+
+.container--greentop .radOffer {
+    background-color: #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    line-height: normal;
+    margin-top: 10px;
+    padding: 15px 10px 15px 210px;
+    position: relative;
+}
+
+.container--greentop .radOffer.noSmlTxt {
+    padding-bottom: 22px;
+    padding-top: 23px;
+}
+
+.container--greentop .radHeadline {
+    text-shadow: none;
+}
+
+.container--greentop .lrgCheckRadio.iconCheck:before {
+    font-size: 20px;
+}
+
+.container--greentop .savingsFlag {
+    background-color: #1b88b0;
+    display: block;
+    left: 62px;
+    line-height: normal;
+    margin: 0;
+    padding: 3px 7px;
+    position: absolute;
+    top: -11.5px;
+}
+
+.container--greentop .radCheckWrap {
+    display: block;
+    left: 15px;
+    margin-top: -21px;
+    position: absolute;
+    top: 50%;
+}
+
+.container--greentop .radCheckTxt,
+.container--greentop .lrgCheckRadio {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.container--greentop .coloralt1 {
+    color: #6a6865;
+}
+
+.container--greentop .radCheckHidden {
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+
+.container--greentop .radCheckbox {
+    height: 1px;
+    line-height: 0;
+    margin: 2px;
+    opacity: 0;
+    overflow: hidden;
+    width: 1px;
+}
+
+.container--greentop .lrgCheckRadio {
+    background: #fff;
+    border: 3px solid #bbb0a3;
+    border-radius: 50%;
+    font-size: 19px;
+    margin-right: 10px;
+    padding: 18px;
+    position: relative;
+}
+
+.container--greentop .selectedOption .lrgCheckRadio {
+    border-color: #695e48;
+    color: #695e48;
+}
+
+.container--greentop .lrgCheckRadio.iconCheck:before {
+    display: none;
+    left: 50%;
+    line-height: normal;
+    margin-left: -0.5em;
+    margin-top: -0.5em;
+    position: absolute;
+    top: 50%;
+}
+
+.container--greentop .selectedOption .lrgCheckRadio.iconCheck:before {
+    display: block;
+}
+
+.container--greentop .ftSubOfferForm .ancBtn.xlrg {
+    font-size: 30px;
+    line-height: 43.8px;
+    margin-top: 10px;
+    min-height: 80px;
+    padding: 19px 28px 17.5px;
+}
+
+// .container--greentop .pageHeroImg {
+//     background: url('https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-herobkg.png') no-repeat;
+//     background-size: 100% auto;
+//     float: right;
+//     height: 359px;
+//     margin-top: -166px;
+//     max-width: 100%;
+//     width: 375px;
+// }
+
+.container--greentop .ancGrid.seeAllMemSection {
+    margin-top: 45px;
+}
+
+.container--greentop .offerLegalTxt {
+    text-align: right;
+}
+
+.container--greentop .mainOfferSection .offerLegalTxt {
+    margin-left: 40px;
+    text-align: left;
+}
+
+.container--greentop .recordsCon {
+    background-color: #1b88b0;
+}
+
+.container--greentop .recordsImg {
+    background: url('https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-recordbkg.jpg') repeat-y;
+    background-position: 100% 100%;
+    background-size: 100% auto;
+    height: inherit;
+    left: -4.16%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    width: 491px;
+}
+
+.container--greentop .recordsContentWrap {
+    max-width: 410px;
+    width: 100%;
+}
+
+.container--greentop .familyTreeCon {
+    background-color: #534d46;
+}
+
+.container--greentop .familyTreeImg {
+    background: url('https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-familytree.png') no-repeat;
+    display: block;
+    height: 361px;
+    left: 30px;
+    position: absolute;
+    top: 35px;
+    width: 627px;
+}
+
+.container--greentop .timelinesImg {
+    background: url('https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-timelinebkg.png') no-repeat;
+    background-position: 0 100%;
+    background-size: 100% auto;
+    bottom: 0;
+    display: block;
+    height: 430px;
+    left: -20px;
+    max-width: 100%;
+    position: absolute;
+    width: 447px;
+}
+
+.container--greentop .timelinesContentWrap {
+    max-width: 385px;
+    width: 100%;
+}
+
+.container--greentop .footerOfferSection .page {
+    padding: 45px 10px 50px;
+}
+
+.container--greentop .footerOfferSection .ftSubOfferForm {
+    margin-top: 40px;
+}
+
+.container--greentop .radMep {
+    display: inline-block;
+    margin-left: 20px;
+    color: #005c7d;
+    font-weight: bold;
+}
+
+.container--greentop .legalCross {
+    font-size: 61%;
+}
+
+@media only screen and (max-width:799px) {
+    .container--greentop .radMep {
+        position: absolute;
+        right: 10px;
+    }
+}
+
+@media only screen and (max-width:1130px) {
+    .container--greentop .recordsImg {
+        left: -2%;
+    }
+    .container--greentop .timelinesImg {
+        left: -5px;
+    }
+}
+
+// @media only screen and (max-width:1005px) {
+//     .container--greentop .ftSubPageIntro {
+//         font-size: 18px;
+//     }
+// }
+
+@media only screen and (max-width:767px) {
+    // .container--greentop .ftSubSectionTitle {
+    //     font-size: 32px;
+    // }
+    // .container--greentop .ftSubSectionIntro {
+    //     font-size: 18px;
+    // }
+    .container--greentop .ftSubPageGrid .ftSubPageBkgCol {
+        height: 375px;
+    }
+    // .container--greentop .ftSubPageTitle {
+    //     font-size: 36px;
+    //     max-width: 100%;
+    // }
+    // .container--greentop .ftSubPageTitle > span {
+    //     display: inline-block;
+    // }
+    // .container--greentop .ftSubPageHeader .ancCol {
+    //     clear: both;
+    //     padding-right: 0;
+    //     width: 100%;
+    // }
+    .container--greentop .mainOfferSection .ftSubOfferForm {
+        margin: 0 auto;
+    }
+    .container--greentop .radHeadline {
+        padding: 0 5px;
+    }
+    .container--greentop .ftSubOfferForm .ancBtn.xlrg {
+        font-size: 25px;
+        height: 75px;
+        line-height: 75px;
+        padding: 0;
+    }
+    .container--greentop .mainOfferSection .ftSubOfferForm {
+        margin: 0 auto;
+    }
+    .container--greentop .mainOfferSection .offerLegalTxt {
+        margin-left: 0;
+        text-align: right;
+    }
+    .container--greentop .ancGrid.seeAllMemSection {
+        margin-top: 35px;
+    }
+    .container--greentop .familyTreeImg {
+        background-image: url('https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-familytree-tab.png');
+        background-size: 100% auto;
+        height: 361px;
+        left: 0;
+        max-width: 100%;
+        top: 0;
+        width: 391px;
+    }
+    .container--greentop .footerOfferSection .page {
+        padding: 35px 10px 40px;
+    }
+}

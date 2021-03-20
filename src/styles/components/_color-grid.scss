@@ -1,0 +1,525 @@
+body {
+    background-image: none;
+}
+
+.container--colorgrid .bgColorBamboo1 {
+    background-color: #b8d94c;
+}
+
+.container--colorgrid .bgColorBamboo2 {
+    background-color: #9cbe30;
+}
+
+.container--colorgrid .bgColorWave2 {
+    background-color: #64afca;
+}
+
+.container--colorgrid .bgColorWave4 {
+    background-color: #03678b;
+}
+
+.container--colorgrid .bgColorPebbleDk2 {
+    background-color: #53524e;
+}
+
+.container--colorgrid .colorPebbleDk2 {
+    color: #53524e;
+}
+
+.container--colorgrid .bgColorPlusBlue {
+    background-color: #216093;
+}
+
+.container--colorgrid .bgColorPlusBlueLt {
+    background-color: #7aa0be;
+}
+
+.container--colorgrid .coloraltBamboo2 {
+    color: #7A9C0F;
+}
+
+.container--colorgrid .coloraltFuji2 {
+    color: #60527E;
+}
+
+.container--colorgrid .coloraltWave3 {
+    color: #1b88b0;
+}
+
+.container--colorgrid .coloraltWave4 {
+    color: #03678b;
+}
+
+.container--colorgrid .coloraltPlusBlue {
+    color: #216093;
+}
+
+.container--colorgrid .coloraltPlusBlueLt {
+    color: #7aa0be;
+}
+
+/* simple header styles */
+
+#FooterRegion {
+    margin-top: 0px!important;
+}
+
+// .container--colorgrid #smpAncHeaderWrap {
+//     padding: 0 50px 10px;
+//     position: relative;
+//     width: 100%;
+// }
+
+.container--colorgrid #offerPageWrap {
+    display: block;
+    min-width: 600px;
+    position: relative;
+    width: 100%;
+}
+
+// .container--colorgrid .offerHeadlineWrap {
+//     margin: 0 auto;
+//     max-width: 1005px;
+//     padding: 20px 0;
+//     text-align: center;
+//     width: 100%;
+// }
+
+// .container--colorgrid .offerHeadline {
+//     margin-top: 0;
+// }
+
+.container--colorgrid #formCon {
+    display: block;
+    margin: auto;
+    max-width: 1005px;
+}
+
+.container--colorgrid .priceCol {
+    border-right: 10px solid #f8f7f3;
+}
+
+.container--colorgrid #priceFirstCol {
+    padding-right: 10px;
+    text-align: right;
+}
+
+.container--colorgrid .priceHeadRow {
+    box-sizing: border-box;
+    color: #fff;
+    height: 135px;
+    padding: 10px 5px;
+    position: relative;
+    text-align: center;
+}
+
+.container--colorgrid #standardPriceCol .priceHeadRow {
+    background-color: #9CBE30;
+}
+
+.container--colorgrid #plusPriceCol .priceHeadRow {
+    background-color: #1B88B0;
+}
+
+.container--colorgrid #allPriceCol .priceHeadRow {
+    background-color: #60527E;
+}
+
+.container--colorgrid .priceHeadRow .icon {
+    color: #fff;
+    border-radius: 20px;
+    font-size: 21px;
+    left: 7px;
+    padding: 3px 8px 4px 8px;
+    position: absolute;
+    top: -15px;
+}
+
+.container--colorgrid .priceHeadRow .icon.iconSearch {
+    background-color: #7A9C0F;
+}
+
+.container--colorgrid .priceHeadRow .icon.iconPlus {
+    background-color: #03678B;
+}
+
+.container--colorgrid .priceHeadRow .icon.iconStar {
+    background-color: #4D4266;
+}
+
+.container--colorgrid .priceHeadRow h2 {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.container--colorgrid .priceHeadRow p {
+    line-height: 22px;
+    margin-top: 2px;
+}
+
+.container--colorgrid label.priceRow {
+    cursor: pointer;
+}
+
+.container--colorgrid .priceSecondRow {
+    box-sizing: border-box;
+    height: 90px;
+    padding: 20px 5px 0 20px;
+}
+
+.container--colorgrid #standardPriceCol .priceSecondRow {
+    background-color: rgba(184, 217, 76, 0.2);
+    border-bottom: 2px solid #7A9C0F;
+}
+
+.container--colorgrid #plusPriceCol .priceSecondRow {
+    background-color: rgba(134, 202, 227, 0.2);
+    border-bottom: 2px solid #1B88B0;
+}
+
+.container--colorgrid #allPriceCol .priceSecondRow {
+    background-color: rgba(187, 180, 204, 0.2);
+    border-bottom: 2px solid #60527E;
+}
+
+.container--colorgrid .priceThirdRow {
+    box-sizing: border-box;
+    height: 100px;
+    padding: 20px 5px 0 20px;
+}
+
+.container--colorgrid #standardPriceCol .priceThirdRow {
+    background-color: rgba(184, 217, 76, 0.2);
+}
+
+.container--colorgrid #plusPriceCol .priceThirdRow {
+    background-color: rgba(134, 202, 227, 0.2);
+}
+
+.container--colorgrid #allPriceCol .priceThirdRow {
+    background-color: rgba(187, 180, 204, 0.2);
+}
+
+.container--colorgrid .priceRow .ancCol {
+    padding-left: 10px;
+}
+
+.container--colorgrid .checkSelectCon {
+    background-color: #fff;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    height: 35px;
+    position: relative;
+    width: 35px;
+}
+
+.container--colorgrid .checkSelectCon.iconCheck {
+    border-color: #53524e;
+}
+
+.container--colorgrid .checkSelectCon.iconCheck:before {
+    color: #36312d;
+    font-size: 20px;
+    left: 5px;
+    position: absolute;
+    top: 15px;
+}
+
+.container--colorgrid .saveText {
+    color: #c04442;
+    display: block;
+    font-weight: 900;
+    margin-top: -10px;
+}
+
+.container--colorgrid #offerGrid {
+    margin-top: 40px;
+    padding-top: 50px;
+}
+
+.container--colorgrid .offerTableCon {
+    position: relative;
+}
+
+.container--colorgrid #offerGrid .ancGridEqual.ancGridNoGutters {
+    margin: auto;
+    position: relative;
+    max-width: 1005px;
+}
+
+.container--colorgrid #offerGrid #guaranteeSeal {
+    background-image: url('https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/gaurantee-seal.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100px;
+    left: 25%;
+    position: absolute;
+    top: -115px;
+    width: 100px;
+}
+
+.container--colorgrid #offerGrid p {
+    line-height: 1.5em;
+}
+
+.container--colorgrid #offerGrid #gridSelectRows {
+    overflow: hidden;
+}
+
+/* offerGrid borders */
+
+.container--colorgrid #offerGrid tr {
+    border-bottom: 1px solid #fff;
+}
+
+/*#offerGrid column specific rules */
+
+.container--colorgrid #offerGrid td > p > span.textsml {
+    display: block;
+    line-height: 142%;
+}
+
+.container--colorgrid #offerGrid .offerLeftCol.bgColorPebbleDk2 {
+    height: 55px;
+}
+
+.container--colorgrid #offerGrid .offerLeftCol {
+    text-align: right;
+    padding: 10px 20px 10px 5px;
+}
+
+.container--colorgrid #offerGrid .compareCheckCol {
+    text-align: center;
+}
+
+.container--colorgrid #offerGrid .offerLeftCol p {
+    position: relative;
+}
+
+.container--colorgrid #offerGrid .offerLeftCol > .iconHelp.calloutTrigger {
+    margin-top: -0.55em;
+    position: absolute;
+    right: 17.5px;
+    top: 50%;
+}
+
+.container--colorgrid #offerGrid .compareCheckCol {
+    padding: 0;
+}
+
+.container--colorgrid #offerGrid .compareCheckCol > .iconCheck {
+    line-height: 35px;
+}
+
+.container--colorgrid #priceGridCta {
+    display: block;
+    font-size: 24px;
+    margin: auto;
+    padding: 15px 40px;
+    text-transform: inherit;
+}
+
+.container--colorgrid #trustCon {
+    background-color: #fff;
+    padding-bottom: 45px;
+    width: 100%;
+}
+
+.container--colorgrid #quoteCon {
+    color: #534D46;
+    display: block;
+    margin: auto;
+    padding-top: 30px;
+    text-align: center;
+    max-width: 1005px;
+}
+
+.container--colorgrid #quoteCon #quote {
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.container--colorgrid .featured {
+    border-bottom: 1px solid #8e8676;
+    border-top: 1px solid #8e8676;
+    margin: 50px auto 0;
+    padding: 0 20px 0 30px;
+    position: relative;
+    max-width: 877px;
+    width: 100%;
+}
+
+.container--colorgrid .featured p {
+    left: 13px;
+    position: absolute;
+    top: 3%;
+}
+
+.container--colorgrid .beneSprite {
+    background: url('https://www.ancestrycdn.com/mars/landing/deny/2014/denyrad-benefit-sprite.jpg') no-repeat;
+}
+
+/*.featured .featuredImg { background-position:0 97%; background-size:100%; height:1px; padding-top:11.4%; max-width:826px; }*/
+
+.container--colorgrid .featuredLogo {
+    display: block;
+    height: 80px;
+}
+
+.container--colorgrid .featuredLogo.abcNewsLogo {
+    background-position: -300px 92%;
+    width: 100px;
+}
+
+.container--colorgrid .featuredLogo.cnbcLogo {
+    background-position: -180px 92%;
+    width: 100px;
+}
+
+.container--colorgrid .featuredLogo.sicomLogo {
+    background-position: -447px 92%;
+    width: 105px;
+}
+
+.container--colorgrid .featuredLogo.bbbLogo {
+    background-position: -694px 92%;
+    width: 135px;
+}
+
+.container--colorgrid #offerFooter {
+    display: block;
+    padding: 20px 0 50px;
+    text-align: center;
+    width: 100%
+}
+
+.container--colorgrid .ancContactInfo .ancPhoneNumber {
+    margin: 0 10px 0 15px;
+}
+
+.container--colorgrid .ancPhoneNumber.iconPhone:before {
+    margin-right: 15px;
+}
+
+#FooterRegion.footer2 {
+    margin-top: 0!important;
+}
+
+.container--colorgrid .bgDark .link {
+    color: #1b88af;
+}
+
+.container--colorgrid .legalCross {
+    font-size: 61%;
+}
+
+@media only screen and (max-width:1150px) {
+    .container--colorgrid #smpAncHeaderWrap {
+        padding: 0 20px 10px;
+    }
+    .offerHeadlineWrap {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width:1005px) {
+    .container--colorgrid .priceHeadRow {
+        height: 110px;
+    }
+    .container--colorgrid .priceHeadRow h2 {
+        font-size: 18px;
+    }
+    .container--colorgrid .priceHeadRow p {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .container--colorgrid .priceSecondRow,
+    .container--colorgrid .priceThirdRow {
+        padding-left: 5px;
+    }
+    .container--colorgrid .checkSelectCon {
+        height: 25px;
+        width: 25px;
+    }
+    .container--colorgrid .checkSelectCon.iconCheck:before {
+        font-size: 15px;
+        left: 3px;
+        top: 12px;
+    }
+    .container--colorgrid .priceCon .textlrg {
+        font-size: 14px;
+    }
+
+    .container--colorgrid #offerGrid {
+        padding-top: 30px;
+    }
+    .container--colorgrid #offerGrid #guaranteeSeal {
+        height: 90px;
+        top: -85px;
+        width: 90px;
+    }
+    .container--colorgrid #offerGrid .offerLeftCol .text2xlrg {
+        font-size: 16px;
+    }
+    .container--colorgrid #offerGrid .offerLeftCol.bgColorPebbleDk2 {
+        height: 60px;
+    }
+    .container--colorgrid #offerGrid .offerLeftCol {
+        padding-right: 25px;
+    }
+    .container--colorgrid #offerGrid .offerLeftCol > .iconHelp.calloutTrigger {
+        font-size: 13px;
+        right: 2px;
+    }
+    .container--colorgrid #offerGrid .compareCheckCol .textxlrg {
+        font-size: 15px;
+    }
+    .container--colorgrid #offerGrid .compareCheckCol .text4xlrg {
+        font-size: 22px;
+    }
+
+    .container--colorgrid #quoteCon #quote {
+        font-size: 30px;
+    }
+
+    .container--colorgrid #offerFooter {
+        margin-top: 20px;
+        padding: 10px 0 15px;
+    }
+    .ancContactInfo > .text3xlrg {
+        font-size: 19px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .container--colorgrid .priceHeadRow {
+        height: 125px;
+    }
+    .offerHeadline {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .container--colorgrid #offerPageWrap .w40 {
+        width: 29%;
+    }
+    .container--colorgrid #offerPageWrap .w20 {
+        width: 23%;
+    }
+
+    .container--colorgrid #priceGridCta {
+        font-size: 20px;
+        padding: 10px 30px;
+    }
+
+    .container--colorgrid .priceCol {
+        border-right-width: 3px;
+    }
+    .container--colorgrid #smpAncHeaderWrap {
+        padding: 0 10px 10px;
+    }
+    .offerHeadline {
+        font-size: 22px;
+    }
+}

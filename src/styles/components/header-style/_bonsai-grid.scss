@@ -1,0 +1,42 @@
+.container--bonsaigrid {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 500px;
+    padding: 12px;
+    width: 984px;
+}
+
+.ie8 .container--bonsaigrid {
+    max-width: inherit;
+}
+
+.container--bonsaigrid .greenTxt {
+    color: #648200;
+}
+
+.container--bonsaigrid .offerGrid .headlines sup {
+    font-size: 61%;
+}
+
+.container--bonsaigrid .offerGrid .documentsImg {
+    background: url("https://www.ancestrycdn.com/mars/landing/offer/us/documents.png") no-repeat scroll 0 0 transparent;
+    background-size: 100% auto;
+    height: 261px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.ie8 .container--bonsaigrid .offerGrid .documentsImg {
+    right: -25px;
+    width: 271px;
+}
+
+.container--bonsaigrid .priceGrid .ancCol1,
+.container--bonsaigrid .priceGrid .ancCol {
+    position: relative;
+}

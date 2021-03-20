@@ -1,0 +1,425 @@
+export const subscriptions = [
+    {
+        packageName: 'U.S. Discovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 1,
+            billMonths: 1,
+            displayPrice: 24.99,
+            MSRP: 24.99
+        },
+        offerIDs: {
+            initial: 'O-23590',
+            renewal: 'O-25370',
+            migration: 'O-26218'
+        }
+    }, {
+        packageName: 'U.S. Discovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 3,
+            displayPrice: 49.95,
+            MSRP: 49.95
+        },
+        offerIDs: {
+            initial: 'TD_US-3MR-3MB_I',
+            renewal: 'O-20301',
+            migration: 'TD_US-3MR-3MB_M'
+        }
+    }, {
+        packageName: 'U.S. Discovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 1,
+            displayPrice: 49.95,
+            MSRP: 49.95
+        },
+        offerIDs: {
+            initial: 'TD_US-3MR-1MB_I',
+            renewal: 'TD_US-3MR-1MB_R',
+            migration: 'TD_US-3MR-1MB_M'
+        }
+    }, {
+        packageName: 'U.S. Discovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 6,
+            displayPrice: 99,
+            MSRP: 99
+        },
+        offerIDs: {
+            initial: 'O-23590',
+            renewal: 'O-23589',
+            migration: 'O-23644'
+        }
+    }, {
+        packageName: 'U.S. Discovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 1,
+            displayPrice: 99,
+            MSRP: 99
+        },
+        offerIDs: {
+            initial: 'O-26418',
+            renewal: 'O-26415',
+            migration: 'TD_US-6MR-1MB_M'
+        }
+    }, {
+        packageName: 'U.S. Discovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 12,
+            displayPrice: 189,
+            MSRP: 189
+        },
+        offerIDs: {
+            initial: 'TD_US-12MR-12MB_I',
+            renewal: 'O-23652',
+            migration: 'O-23653'
+        }
+    }, {
+        packageName: 'U.S. Discovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 1,
+            displayPrice: 189,
+            MSRP: 189
+        },
+        offerIDs: {
+            initial: 'TD_US-12MR-1MB_I',
+            renewal: 'TD_US-12MR-1MB_R',
+            migration: 'TD_US-12MR-1MB_M'
+        }
+    }, {
+        packageName: 'World Explorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 1,
+            billMonths: 1,
+            displayPrice: 39.99,
+            MSRP: 39.99
+        },
+        offerIDs: {
+            initial: 'O-25405',
+            renewal: 'O-25371',
+            migration: 'O-26219'
+        }
+    }, {
+        packageName: 'World Explorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 3,
+            displayPrice: 79.95,
+            MSRP: 79.95
+        },
+        offerIDs: {
+            initial: 'TD_US-3MR-3MB_I',
+            renewal: 'O-20303',
+            migration: 'TD_US-3MR-3MB_M'
+        }
+    }, {
+        packageName: 'World Explorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 1,
+            displayPrice: 79.95,
+            MSRP: 79.95
+        },
+        offerIDs: {
+            initial: 'TD_US-3MR-1MB_I',
+            renewal: 'TD_US-3MR-1MB_R',
+            migration: 'TD_US-3MR-1MB_M'
+        }
+    }, {
+        packageName: 'World Explorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 6,
+            displayPrice: 149,
+            MSRP: 149
+        },
+        offerIDs: {
+            initial: 'O-25405',
+            renewal: 'O-22054',
+            migration: 'O-23637'
+        }
+    }, {
+        packageName: 'World Explorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 1,
+            displayPrice: 149,
+            MSRP: 149
+        },
+        offerIDs: {
+            initial: 'O-26419',
+            renewal: 'O-26416',
+            migration: 'TD_US-6MR-1MB_M'
+        }
+    }, {
+        packageName: 'World Explorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 12,
+            displayPrice: 299,
+            MSRP: 299
+        },
+        offerIDs: {
+            initial: 'TD_US-12MR-12MB_I',
+            renewal: 'O-679',
+            migration: 'O-681'
+        }
+    }, {
+        packageName: 'World Explorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 1,
+            displayPrice: 299,
+            MSRP: 299
+        },
+        offerIDs: {
+            initial: 'TD_US-12MR-1MB_I',
+            renewal: 'TD_US-12MR-1MB_R',
+            migration: 'TD_US-12MR-1MB_M'
+        }
+    }, {
+        packageName: 'All Access',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 1,
+            billMonths: 1,
+            displayPrice: 49.99,
+            MSRP: 49.99
+        },
+        offerIDs: {
+            initial: 'O-25410',
+            renewal: 'O-25376',
+            migration: 'O-26220'
+        }
+    }, {
+        packageName: 'All Access',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 3,
+            displayPrice: 99.95,
+            MSRP: 99.95
+        },
+        offerIDs: {
+            initial: 'TD_US-3MR-3MB_I',
+            renewal: 'TD_US-3MR-3MB_R',
+            migration: 'TD_US-3MR-3MB_M'
+        }
+    }, {
+        packageName: 'All Access',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 1,
+            displayPrice: 99.95,
+            MSRP: 99.95
+        },
+        offerIDs: {
+            initial: 'TD_US-3MR-1MB_I',
+            renewal: 'TD_US-3MR-1MB_R',
+            migration: 'TD_US-3MR-1MB_M'
+        }
+    }, {
+        packageName: 'All Access',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 6,
+            displayPrice: 199,
+            MSRP: 199
+        },
+        offerIDs: {
+            initial: 'O-25410',
+            renewal: 'O-24566',
+            migration: 'O-24568'
+        }
+    }, {
+        packageName: 'All Access',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 1,
+            displayPrice: 199,
+            MSRP: 199
+        },
+        offerIDs: {
+            initial: 'O-26420',
+            renewal: 'O-26417',
+            migration: 'TD_US-6MR-1MB_M'
+        }
+    }, {
+        packageName: 'All Access',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 12,
+            displayPrice: 389,
+            MSRP: 389
+        },
+        offerIDs: {
+            initial: 'TD_US-12MR-12MB_I',
+            renewal: 'O-24569',
+            migration: 'O-24571'
+        }
+    }, {
+        packageName: 'All Access',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 1,
+            displayPrice: 389,
+            MSRP: 389
+        },
+        offerIDs: {
+            initial: 'TD_US-12MR-1MB_I',
+            renewal: 'TD_US-12MR-1MB_R',
+            migration: 'TD_US-12MR-1MB_M'
+        }
+    }
+]
+
+export default subscriptions;

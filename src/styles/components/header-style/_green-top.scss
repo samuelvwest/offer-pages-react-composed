@@ -1,0 +1,85 @@
+.container--greentop {
+    min-width: 600px;
+    letter-spacing: normal;
+    text-transform: none;
+    h1, h2, h3, h4, h5, h6 {
+        letter-spacing: normal;
+        text-transform: none;
+    }
+}
+
+.container--greentop .ftSubPageHeader .page {
+    padding: 20px 10px;
+}
+
+.container--greentop .ftSubPageTitle,
+.container--greentop .ftSubPageIntro {
+    margin: 0;
+    max-width: 100%;
+    text-align: left;
+}
+
+.container--greentop .ftSubPageTitle {
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-top: 5px;
+    max-width: 480px;
+    padding-bottom: 10px;
+    position: relative;
+    > .header-text--sparklydragon {
+        font-size: 36px;
+    }
+    @media only screen and (max-width:767px) {
+        font-size: 36px;
+        max-width: 100%;
+        > span {
+            display: inline-block;
+        }
+    }
+}
+
+.container--greentop .ftSubPageHeader .ancCol {
+    @media only screen and (max-width:767px) {
+        clear: both;
+        padding-right: 0;
+        width: 100%;
+    }
+}
+
+.container--greentop .mainOfferSection .page {
+    padding: 35px 10px;
+}
+
+.container--greentop .ftSubSectionTitle {
+    @media only screen and (max-width:767px) {
+        font-size: 32px;
+    }
+}
+
+.container--greentop .ftSubPageIntro {
+    color: #333;
+    text-shadow: none;
+    text-transform: uppercase;
+    @media only screen and (max-width:1005px) {
+        font-size: 18px;
+    }
+    @media only screen and (max-width:767px) {
+        font-size: 18px;
+    }
+}
+
+.container--greentop.header-style--greentop .ftSubOfferSection {
+    height:0;
+    background-color: #f0eee9;
+}
+
+.container--greentop .pageHeroImg {
+    background: url('https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-herobkg.png') no-repeat;
+    background-size: 100% auto;
+    float: right;
+    height: 359px;
+    margin-top: -166px;
+    max-width: 100%;
+    width: 375px;
+}

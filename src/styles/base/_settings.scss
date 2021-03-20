@@ -1,0 +1,50 @@
+.settings {
+    position: relative;
+    display:block;
+    overflow:hidden;
+    // display:inline-flex;
+    width: 100%;
+    // justify-content: space-between;
+    padding: 10px;
+    border-bottom: solid 1px grey;
+}
+
+.settings__group {
+    width:140px;
+    position:relative;
+    float: left;
+    display:block;
+    // min-width: 150px;
+    margin: 0 10px 10px 0;
+    // @media (min-width: 566px) {
+    //     width:calc(50% - 10px);
+    // }
+    // @media (min-width: 840px) {
+    //     width:calc((100% / 3) - 10px);
+    // }
+}
+
+.settings__group__name {
+    display:block;
+    font-weight:bold;
+}
+
+.settings__group__button {
+    display: inline-block;
+    background: transparent;
+    width:120px;
+    padding: 2px 5px;
+    border: solid 1px grey;
+    border-radius: 6px;
+    margin: 5px;
+    &.settings__group__button--active {
+        background-color: lightblue;
+    }
+    &.settings__group__button--deniedto {
+        width: 100px;
+        margin-left: 20px;
+    }
+    &.settings__group__button--hide {
+        display: none;
+    }
+}
