@@ -11,8 +11,7 @@ export default () => {
     const store = createStore(
         combineReducers({
             pageSettings: pageSettingReducers,
-            variables: variablesReducer,
-            subscriptions: subscriptionsReducer
+            variables: variablesReducer
         }),
         // composeEnhancers(applyMiddleware(thunk))
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

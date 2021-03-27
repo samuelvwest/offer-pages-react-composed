@@ -1,5 +1,6 @@
 import pageSettings from '../data/pageSettings';
 import { setPageSettingsLocal } from '../actions/pageSettings';
+import { buildDisplayOffersData } from './../actions/subscriptions';
 
 export default (state = pageSettings, action) => {
     switch (action.type) {
@@ -9,8 +10,11 @@ export default (state = pageSettings, action) => {
         case 'MODIFY_PAGE_SETTINGS':
             const nextState = Object.assign({}, state);
             Object.keys(action.pageSettings).forEach((key) => {
-                nextState[key] = action.pageSettings[key];
+                if (key !== 'subscriptions') {
+                    nextState[key] = action.pageSettings[key];
+                }
             });
+            nextState.subscriptions = buildDisplayOffersData(nextState, !!action.pageSettings.subscriptions ? action.pageSettings.subscriptions : state.subscriptions.offersMap);
             setPageSettingsLocal(nextState);
             return nextState;
         default: 

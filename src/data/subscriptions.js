@@ -1,6 +1,35 @@
+// Build durations texts object
+export const durationTexts = {
+    dur1: `Monthly`,
+    dur3: `Quarterly`,
+    dur6: `Semi-Annual`,
+    dur12: `Annual`
+}
+
+// Packages data object
+export const packagesData = [
+    {
+        id: `usdiscovery`,
+        order: 1,
+        name: `U.S. Discovery`,
+        desc: ``
+    }, {
+        id: `worldexplorer`,
+        order: 2,
+        name: `World Explorer`,
+        desc: ``
+    }, {
+        id: `allaccess`,
+        order: 3,
+        name: `All Access`,
+        desc: ``
+    }
+]
+
+// Available subscriptions data object
 export const subscriptions = [
     {
-        packageName: 'U.S. Discovery',
+        packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -20,7 +49,7 @@ export const subscriptions = [
             migration: 'O-26218'
         }
     }, {
-        packageName: 'U.S. Discovery',
+        packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -40,7 +69,7 @@ export const subscriptions = [
             migration: 'TD_US-3MR-3MB_M'
         }
     }, {
-        packageName: 'U.S. Discovery',
+        packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -60,7 +89,7 @@ export const subscriptions = [
             migration: 'TD_US-3MR-1MB_M'
         }
     }, {
-        packageName: 'U.S. Discovery',
+        packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -80,7 +109,7 @@ export const subscriptions = [
             migration: 'O-23644'
         }
     }, {
-        packageName: 'U.S. Discovery',
+        packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -100,7 +129,7 @@ export const subscriptions = [
             migration: 'TD_US-6MR-1MB_M'
         }
     }, {
-        packageName: 'U.S. Discovery',
+        packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -120,7 +149,7 @@ export const subscriptions = [
             migration: 'O-23653'
         }
     }, {
-        packageName: 'U.S. Discovery',
+        packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -140,7 +169,7 @@ export const subscriptions = [
             migration: 'TD_US-12MR-1MB_M'
         }
     }, {
-        packageName: 'World Explorer',
+        packageID: 'worldexplorer',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -160,7 +189,7 @@ export const subscriptions = [
             migration: 'O-26219'
         }
     }, {
-        packageName: 'World Explorer',
+        packageID: 'worldexplorer',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -175,12 +204,12 @@ export const subscriptions = [
             MSRP: 79.95
         },
         offerIDs: {
-            initial: 'TD_US-3MR-3MB_I',
+            initial: 'TD_WE-3MR-3MB_I',
             renewal: 'O-20303',
-            migration: 'TD_US-3MR-3MB_M'
+            migration: 'TD_WE-3MR-3MB_M'
         }
     }, {
-        packageName: 'World Explorer',
+        packageID: 'worldexplorer',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -195,12 +224,12 @@ export const subscriptions = [
             MSRP: 79.95
         },
         offerIDs: {
-            initial: 'TD_US-3MR-1MB_I',
-            renewal: 'TD_US-3MR-1MB_R',
-            migration: 'TD_US-3MR-1MB_M'
+            initial: 'TD_WE-3MR-1MB_I',
+            renewal: 'TD_WE-3MR-1MB_R',
+            migration: 'TD_WE-3MR-1MB_M'
         }
     }, {
-        packageName: 'World Explorer',
+        packageID: 'worldexplorer',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -220,7 +249,7 @@ export const subscriptions = [
             migration: 'O-23637'
         }
     }, {
-        packageName: 'World Explorer',
+        packageID: 'worldexplorer',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -237,10 +266,10 @@ export const subscriptions = [
         offerIDs: {
             initial: 'O-26419',
             renewal: 'O-26416',
-            migration: 'TD_US-6MR-1MB_M'
+            migration: 'TD_WE-6MR-1MB_M'
         }
     }, {
-        packageName: 'World Explorer',
+        packageID: 'worldexplorer',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -255,12 +284,12 @@ export const subscriptions = [
             MSRP: 299
         },
         offerIDs: {
-            initial: 'TD_US-12MR-12MB_I',
+            initial: 'TD_WE-12MR-12MB_I',
             renewal: 'O-679',
             migration: 'O-681'
         }
     }, {
-        packageName: 'World Explorer',
+        packageID: 'worldexplorer',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -275,12 +304,12 @@ export const subscriptions = [
             MSRP: 299
         },
         offerIDs: {
-            initial: 'TD_US-12MR-1MB_I',
-            renewal: 'TD_US-12MR-1MB_R',
-            migration: 'TD_US-12MR-1MB_M'
+            initial: 'TD_WE-12MR-1MB_I',
+            renewal: 'TD_WE-12MR-1MB_R',
+            migration: 'TD_WE-12MR-1MB_M'
         }
     }, {
-        packageName: 'All Access',
+        packageID: 'allaccess',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -300,7 +329,7 @@ export const subscriptions = [
             migration: 'O-26220'
         }
     }, {
-        packageName: 'All Access',
+        packageID: 'allaccess',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -315,12 +344,12 @@ export const subscriptions = [
             MSRP: 99.95
         },
         offerIDs: {
-            initial: 'TD_US-3MR-3MB_I',
-            renewal: 'TD_US-3MR-3MB_R',
-            migration: 'TD_US-3MR-3MB_M'
+            initial: 'TD_AA-3MR-3MB_I',
+            renewal: 'TD_AA-3MR-3MB_R',
+            migration: 'TD_AA-3MR-3MB_M'
         }
     }, {
-        packageName: 'All Access',
+        packageID: 'allaccess',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -335,12 +364,12 @@ export const subscriptions = [
             MSRP: 99.95
         },
         offerIDs: {
-            initial: 'TD_US-3MR-1MB_I',
-            renewal: 'TD_US-3MR-1MB_R',
-            migration: 'TD_US-3MR-1MB_M'
+            initial: 'TD_AA-3MR-1MB_I',
+            renewal: 'TD_AA-3MR-1MB_R',
+            migration: 'TD_AA-3MR-1MB_M'
         }
     }, {
-        packageName: 'All Access',
+        packageID: 'allaccess',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -360,7 +389,7 @@ export const subscriptions = [
             migration: 'O-24568'
         }
     }, {
-        packageName: 'All Access',
+        packageID: 'allaccess',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -377,10 +406,10 @@ export const subscriptions = [
         offerIDs: {
             initial: 'O-26420',
             renewal: 'O-26417',
-            migration: 'TD_US-6MR-1MB_M'
+            migration: 'TD_AA-6MR-1MB_M'
         }
     }, {
-        packageName: 'All Access',
+        packageID: 'allaccess',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -395,12 +424,12 @@ export const subscriptions = [
             MSRP: 389
         },
         offerIDs: {
-            initial: 'TD_US-12MR-12MB_I',
+            initial: 'TD_AA-12MR-12MB_I',
             renewal: 'O-24569',
             migration: 'O-24571'
         }
     }, {
-        packageName: 'All Access',
+        packageID: 'allaccess',
         currency: '$',
         initialPeriod: {
             duration: 14,
@@ -415,9 +444,9 @@ export const subscriptions = [
             MSRP: 389
         },
         offerIDs: {
-            initial: 'TD_US-12MR-1MB_I',
-            renewal: 'TD_US-12MR-1MB_R',
-            migration: 'TD_US-12MR-1MB_M'
+            initial: 'TD_AA-12MR-1MB_I',
+            renewal: 'TD_AA-12MR-1MB_R',
+            migration: 'TD_AA-12MR-1MB_M'
         }
     }
 ]

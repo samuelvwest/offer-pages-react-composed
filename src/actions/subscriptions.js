@@ -1,70 +1,169 @@
-import subscriptions from "../reducers/subscriptions";
+import { durationTexts } from '../data/subscriptions'
 
-// Add calculated variables to offers map where needed
-export const processSubscriptions = (offersMap) => {
-    const subscriptions = {
-        billedMonthlies: false,
+export const buildDisplayOffersData = (pageSettings, subscriptions) => {
+    const data = {
+        ldbms: false,
+        packages: [],
         packageNames: [],
         durations: [],
-        offersMap
+        offersMap: subscriptions,
+        display: {
+            packages: [],
+            durations: [],
+            offersMap: []
+        },
+        offerElligibilityType: pageSettings.elligibility === `freetrial` ? `initial` : /CSub%3d1/.test(document.cookie) ? 'migration' : 'renewal'
     }
-    subscriptions.offersMap.forEach((offer) => {
-        // Build packageNames array
-        if (subscriptions.packageNames.indexOf(offer.packageName) === -1) {
-            subscriptions.packageNames.push(offer.packageName);
+    // Build OfferMap based on Page Settings
+    data.display.offersMap = subscriptions.filter((offer) => {
+        // Define if offer is a longer duration billed monthly
+        offer.ldbm = offer.renewalPeriod.renewMonths !== offer.renewalPeriod.billMonths;
+
+        // Embed package data in offer
+        offer.packageData = pageSettings.packagesData.find((pkg) => pkg.id === offer.packageID);
+
+        // Define filter tests
+        const packagesTest = pageSettings.displayPackages.indexOf(offer.packageID) > -1;
+        const durationsTest = pageSettings.displayDurations.indexOf(offer.renewalPeriod.renewMonths) > -1;
+        const ldbmTest = offer.ldbm ? !!pageSettings.LDBM : true;
+        return packagesTest && durationsTest && ldbmTest;
+    });
+    data.display.offersMap.forEach((offer) => {
+        // Determine if Long Durations Billed Monthly are supported
+        if (offer.ldbm) {
+            data.ldbms = true;
         }
-        // Build durations array
-        const durationNames = {
-            dur1: `Monthly`,
-            dur3: `Quarterly`,
-            dur6: `Semi-Annual`,
-            dur12: `Annual`
+        // Log packages to be displayed
+        if (!data.display.packages.find((packageData) => packageData.id === offer.packageID)) {
+            data.display.packages.push(offer.packageData);
         }
-        const durationStr = `${offer.renewalPeriod.renewMonths}|${offer.renewalPeriod.billMonths}|${durationNames[`dur${offer.renewalPeriod.renewMonths}`]}`;
-        if (subscriptions.durations.indexOf(durationStr) === -1) {
-            subscriptions.durations.push(durationStr);
+        // Log bill and/or commitment durations to be displayed
+        if (!data.durations.find((duration) => duration.num === offer.renewalPeriod.renewMonths && duration.ldbm === offer.ldbm)) {
+            const durationText = durationTexts[`dur${offer.renewalPeriod.renewMonths}`];
+            data.durations.push({
+                id: `${durationText}|${offer.renewalPeriod.renewMonths}|${offer.ldbm}`,
+                num: offer.renewalPeriod.renewMonths,
+                text: durationText,
+                ldbm: offer.ldbm 
+            });
         }
-        if (offer.renewalPeriod.renewMonths > 1) {
-            // Add save from duration totals
-            offer.durationSavings = {};
-            const shorterDurationOffers = subscriptions.offersMap.filter((compareOffer) => {
-                return compareOffer.package === offer.package && compareOffer.renewalPeriod.renewMonths < offer.renewalPeriod.renewMonths;
-            })
-            shorterDurationOffers.forEach((shorterOffer) => {
-                const savings = ((offer.renewalPeriod.renewMonths / shorterOffer.renewalPeriod.renewMonths) * shorterOffer.renewalPeriod.displayPrice) - offer.renewalPeriod.displayPrice;
-                offer.durationSavings[`${shorterOffer.renewalPeriod.renewMonths}month`] = {
-                    actual: savings,
-                    display: Math.floor(savings)
+        // Make custom offerData ID string
+        offer.id = `${offer.packageID}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}MB`
+        // Make one sentence descriptor string
+        offer.description = `${offer.packageData.name} ${offer.renewalPeriod.renewMonths}-month commitment billed ${offer.currency}${offer.renewalPeriod[`displayPrice${offer.ldbm ? `MEP` : ``}`]} every ${offer.renewalPeriod.billMonths === 1 ? `month` : `${offer.renewalPeriod.billMonths} months`}.`
+    });
+
+    // Build display data
+    data.display.durations = data.durations.filter((duration) => {
+        if (duration.ldbm) {
+            return /toggle-front|side-by-side|only/.test(pageSettings.LDBM);
+        } else if (duration.num > 1 && !!pageSettings.LDBM) {
+            return /toggle-back|side-by-side/.test(pageSettings.LDBM);
+        }
+        return true;
+    });
+
+    // Add attributes to used offers
+    data.minDuration = Math.min.apply(null, data.durations.map((duration) => duration.num))
+    data.maxDuration = Math.max.apply(null, data.durations.map((duration) => duration.num))
+    data.display.offersMap.forEach((offer) => {
+        // Add monthly equivalent pricing (MEP)
+        offer.renewalPeriod.displayPriceMEP = (offer.renewalPeriod.displayPrice / offer.renewalPeriod.renewMonths).toFixed(2)
+        offer.renewalPeriod.MSRPMEP = (offer.renewalPeriod.MSRP / offer.renewalPeriod.renewMonths).toFixed(2)
+        // Add promo savings if applicable
+        if (offer.renewalPeriod.displayPrice < offer.renewalPeriod.MSRP) {
+            data.promoSaveOffers = data.promoSaveOffers || [];
+            const savings = offer.renewalPeriod.MSRP - offer.renewalPeriod.displayPrice;
+            offer.promoSavings = {
+                actual: savings,
+                display: Math.floor(savings)
+            }
+            data.promoSaveOffers.push(offer);
+        }
+        // Add save from duration totals if applicable
+        if (offer.renewalPeriod.renewMonths > data.minDuration) {
+            const shortDurationCompareOffer = data.display.offersMap.find((sDCOffer) => {
+                return sDCOffer.packageID === offer.packageID && sDCOffer.renewalPeriod.renewMonths === data.minDuration
+            });
+            if (!!shortDurationCompareOffer) {
+                data.durationSaveOffers = data.durationSaveOffers || [];
+                const savings = ((offer.renewalPeriod.renewMonths / shortDurationCompareOffer.renewalPeriod.renewMonths) * shortDurationCompareOffer.renewalPeriod.displayPrice) - offer.renewalPeriod.displayPrice;
+                if (savings >= 1) {
+                    offer.durationSavings = {
+                        compareMonths: data.minDuration,
+                        actual: savings,
+                        display: Math.floor(savings),
+                        compareOffer: shortDurationCompareOffer
+                    }
+                    data.durationSaveOffers.push(offer);
                 }
-            })
-            // Add monthly equivalent pricing (MEP)
-            offer.renewalPeriod.displayPriceMEP = (offer.renewalPeriod.displayPrice / offer.renewalPeriod.renewMonths).toFixed(2)
-            // Change billed monthly variables
-            offer.longDurationBilledMonthly = offer.renewalPeriod.renewMonths !== offer.renewalPeriod.billMonths;
-            if (!offer.longDurationBilledMonthly) {
-                subscriptions.billedMonthlies = true;
             }
         }
-        // Add promo savings if applicable
-        if (offer.renewalPeriod.renewMonths.displayPrice < offer.renewalPeriod.renewMonths.MSRP) {
-            offer.promoSavings = offer.renewalPeriod.renewMonths.MSRP - offer.renewalPeriod.renewMonths.displayPrice
+
+        // Identify default offer if exact match found
+        if (pageSettings.defaultOffer.renewMonths === offer.renewalPeriod.renewMonths && pageSettings.defaultOffer.packageID === offer.packageID && pageSettings.defaultOffer.ldbm === offer.ldbm) {
+            data.defaultOffer = offer;
+        }
+        
+        // Identify best offer if exact match found
+        if (pageSettings.bestOffer.renewMonths === offer.renewalPeriod.renewMonths && pageSettings.bestOffer.packageID === offer.packageID && pageSettings.bestOffer.ldbm === offer.ldbm) {
+            data.bestOffer = offer;
         }
     });
-    subscriptions.minDuration = Math.min.apply(null, subscriptions.durations.map(dur => dur.split('|')[0]));
-    subscriptions.maxDuration = Math.max.apply(null, subscriptions.durations.map(dur => dur.split('|')[0]));
-    return subscriptions;
-} 
 
-export const builSubscriptionDataForPage = (obj) => {
-    const subscriptions = processSubscriptions(obj.offersMap.filter((offer) => {
-        return obj.pageSettings.displayPackages.indexOf(offer.packageName) > -1
-            && obj.pageSettings.displayDurations.indexOf(offer.renewalPeriod.renewMonths) > -1
-            && (offer.renewalPeriod.renewMonths !== offer.renewalPeriod.billMonths ? !!obj.pageSettings.LDBM : true);
-    }));
-    return subscriptions
+    // Finish building packages specific data
+    const minPackageOrder = Math.min.apply(null, data.display.packages.map((pckg) => pckg.order));
+    const maxPackageOrder = Math.max.apply(null, data.display.packages.map((pckg) => pckg.order));
+    data.display.minPackage = data.display.packages.find((pkg) => pkg.order === minPackageOrder);
+    data.display.maxPackage = data.display.packages.find((pkg) => pkg.order === maxPackageOrder);
+
+    // Identify closest thing to default offer if exact offer not found above
+    if (!data.defaultOffer) {
+        // Check if package exists regardless of ldbm
+        data.defaultOffer = data.display.offersMap.find((offer) => pageSettings.defaultOffer.renewMonths === offer.renewalPeriod.renewMonths && pageSettings.defaultOffer.packageID === offer.packageID);
+        if (!data.defaultOffer) {
+            // Check if package exists with the smallest possible duration
+            data.defaultOffer = data.display.offersMap.find((offer) => data.minDuration === offer.renewalPeriod.renewMonths && pageSettings.defaultOffer.packageID === offer.packageID);
+            if (!data.defaultOffer) {
+                // Check if duration exists for smallest possible duration
+                data.defaultOffer = data.display.offersMap.find((offer) => pageSettings.defaultOffer.renewMonths === offer.renewalPeriod.renewMonths && data.display.minPackage.id === offer.packageID);
+                if (!data.defaultOffer) {
+                    // Just populate with the smallest duration and package type possible out of what can be displayed
+                    data.defaultOffer = data.display.offersMap.find((offer) => data.minDuration === offer.renewalPeriod.renewMonths && data.display.minPackage.id === offer.packageID);
+                }
+            }
+        }
+    }
+
+    // Identify closest thing to best offer if exact offer not found above
+    if (!data.bestOffer) {
+        // Check if package exists regardless of ldbm
+        data.bestOffer = data.display.offersMap.find((offer) => pageSettings.bestOffer.renewMonths === offer.renewalPeriod.renewMonths && pageSettings.bestOffer.packageID === offer.packageID);
+        if (!data.bestOffer) {
+            // Check if package exists with the largest possible duration
+            data.bestOffer = data.display.offersMap.find((offer) => data.maxDuration === offer.renewalPeriod.renewMonths && pageSettings.bestOffer.packageID === offer.packageID);
+            if (!data.bestOffer) {
+                // Check if duration exists for largest possible duration
+                data.bestOffer = data.display.offersMap.find((offer) => pageSettings.bestOffer.renewMonths === offer.renewalPeriod.renewMonths && data.display.maxPackage.id === offer.packageID);
+                if (!data.defaultOffer) {
+                    // Just populate with the largest duration and package type possible out of what can be displayed
+                    data.bestOffer = data.display.offersMap.find((offer) => data.maxDuration === offer.renewalPeriod.renewMonths && data.display.maxPackage.id === offer.packageID);
+                }
+            }
+        }
+    }
+
+    // Sort Display items to their appropriate order
+    data.display.packages.sort((a, b) => a.order - b.order);
+    data.display.durations.sort((a, b) => {
+        const numTest = a.num - b.num;
+        return numTest !== 0 ? numTest : a.ldbm ? 1 : -1;
+    });
+    
+    return data;
 }
 
-// Replace Page Settings in REDUX
+// Replace Subscriptions in REDUX
 export const replaceSubscriptions = (subscriptions) => ({
     type: 'REPLACE_SUBSCRIPTIONS',
     subscriptions

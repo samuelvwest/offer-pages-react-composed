@@ -1,10 +1,10 @@
 import subscriptions from '../data/subscriptions';
-import { processSubscriptions } from '../actions/subscriptions';
+// import { processSubscriptions } from '../actions/subscriptions';
 
-export default (state = processSubscriptions(subscriptions), action) => {
+export default (state = subscriptions, action) => {
     switch (action.type) {
-        case 'REPLACE_VARIABLES':
-            return processSubscriptions(action.subscriptions);
+        case 'REPLACE_SUBSCRIPTIONS':
+            return action.subscriptions;
         default: 
             return state;
     }

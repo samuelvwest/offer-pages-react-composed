@@ -2,6 +2,46 @@
     position:relative;
 }
 
-.disclaimerSup {
-    font-size: 61%;
+.strike-through-price {
+    position:relative;
+    display: inline-block!important;
+    font-weight:400;
+    font-size: 72%;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -3px;
+        display: block;
+        width: calc(100% + 6px);
+        height: 50%;
+        border: solid .1em #c14139;
+        border-width: 0 0 .1em 0;
+        transform: rotate(10deg);
+    }
+}
+
+.legal-text {
+    display:block;
+    font-size: 14px;
+}
+
+.legal-text__sup {
+    top:-.3em;
+    font-size: .61em;
+    vertical-align: super;
+    &.legal-text__sup--asterisk {
+        top:0;
+        font-size: 1em;
+        vertical-align: baseline;
+    }
+}
+
+.legal-text__paragraph{
+    margin: 10px 20px 0px 24px;
+    font-size: 14px;
+    &:first-letter,
+    > sup:first-of-type {
+        margin: 0 2px 0 -8px;
+    }
 }

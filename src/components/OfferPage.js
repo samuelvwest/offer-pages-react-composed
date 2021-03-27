@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { modifyPageSettings } from '../actions/pageSettings';
 import { denyType } from '../actions/pageSettings';
 import { modifyVariables } from '../actions/variables';
+import { buildDisplayOffersData, replaceSubscriptions } from '../actions/subscriptions';
 import SettingsControl from './SettingsControl';
 import ColorStack from '../pages/ColorStack';
 import ColorGrid from '../pages/ColorGrid';
@@ -10,12 +11,12 @@ import BonsaiGrid from '../pages/BonsiaGrid';
 import GreenTop from '../pages/GreenTop';
 import SparklyDragon from '../pages/SparklyDragon';
 import HeaderStyle from './HeaderStyle';
-import Offerings from './Offerings';
+import Offerings from './offerings/Offerings';
+import LegalText from './LegalText';
 
 const mapStateToProps = (state) => ({
     pageSettings: state.pageSettings,
-    variables: state.variables,
-    subscriptions: state.subscriptions
+    variables: state.variables
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -85,7 +86,9 @@ export class OfferPage extends React.Component {
     componentWillMount = () => {
         window.removeEventListener('resize', this.updateDimensions);
         this.setupTargetIntegration();
-        this.offersMap = this.props.subscriptions;
+        window._rS = (newState) => {
+            this.props.replaceSubscriptions(newState);
+        };
     }
     componentDidMount() {
       window.addEventListener('resize', this.updateDimensions);
@@ -93,12 +96,16 @@ export class OfferPage extends React.Component {
     render() {
         this.setTitleAttribute();
         this.getDenyType();
+        // this.displayOffersData = buildDisplayOffersData({
+        //     pS: this.props.pageSettings,
+        //     oM: this.props.subscriptions
+        // });
         window._mPS = (newState) => {
             this.props.modifyPageSettings(newState);
         };
-        window._mV = (newState) => {
-            this.props.modifyVariables(newState);
-        };
+        // window._mV = (newState) => {
+        //     this.props.modifyVariables(newState);
+        // };
         return (
             <div>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
@@ -111,6 +118,7 @@ export class OfferPage extends React.Component {
 
                 <HeaderStyle />
                 <Offerings />
+                <LegalText />
             </div>
         )
     }

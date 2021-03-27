@@ -48,6 +48,11 @@ export const elligibilityTest = () => {
     return pageTest() === `subscribe` ? `hardoffer` : !document.cookie.match(`BAIT([^; ]+)`) ? `freetrial` : /E(Trial|Sub)%3D1/.test(document.cookie.match(`BAIT([^; ]+)`)[0]) ? `hardoffer` : `freetrial`
 }
 
+// Determine types of offers elligible for
+export const offerElligibilityTypeTest = () => {
+    return elligibilityTest() === `freetrial` ? `initial` : /CSub%3d1/.test(document.cookie) ? 'migration' : 'renewal'
+}
+
 // Identify Package Deny Type
 export const denyType = (location) => {
     if (location === 'join') {
