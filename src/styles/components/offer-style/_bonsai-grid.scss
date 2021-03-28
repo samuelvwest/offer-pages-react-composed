@@ -355,7 +355,7 @@ $base-heading-height-increment: 14;
 //     padding-top: 5px;
 // }
 
-.priceLabel span {
+.priceLabel span:not(.strike-through-price) {
     display: block;
 }
 

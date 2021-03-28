@@ -14,225 +14,225 @@
 //     text-align: center;
 // }
 
-.container--colorstack .buttonPill {
-    clear: both;
-    display: block;
-    height: 35px;
-    margin: 10px auto;
-    position: relative;
-    width: 260px;
-}
+// .container--colorstack .buttonPill {
+//     clear: both;
+//     display: block;
+//     height: 35px;
+//     margin: 10px auto;
+//     position: relative;
+//     width: 260px;
+// }
 
-.container--colorstack .aboveFoldCon .buttonPill button {
-    border: 1px solid #54534f;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    padding: 7px;
-    position: absolute;
-    text-align: center;
-    width: 142px;
-}
+// .container--colorstack .aboveFoldCon .buttonPill button {
+//     border: 1px solid #54534f;
+//     border-top-left-radius: 15px;
+//     border-bottom-left-radius: 15px;
+//     border-top-right-radius: 15px;
+//     border-bottom-right-radius: 15px;
+//     padding: 7px;
+//     position: absolute;
+//     text-align: center;
+//     width: 142px;
+// }
 
-.container--colorstack .buttonPill #monthPill {
-    left: 0;
-}
+// .container--colorstack .buttonPill #monthPill {
+//     left: 0;
+// }
 
-.container--colorstack .buttonPill #month6Pill {
-    right: 0;
-}
+// .container--colorstack .buttonPill #month6Pill {
+//     right: 0;
+// }
 
-.container--colorstack .aboveFoldCon .buttonPill button.inactivePill {
-    background-color: #fff;
-    color: #54534f;
-}
+// .container--colorstack .aboveFoldCon .buttonPill button.inactivePill {
+//     background-color: #fff;
+//     color: #54534f;
+// }
 
-.container--colorstack .aboveFoldCon .buttonPill button.activePill {
-    background-color: #54534f;
-    color: #fff;
-    z-index: 10;
-}
+// .container--colorstack .aboveFoldCon .buttonPill button.activePill {
+//     background-color: #54534f;
+//     color: #fff;
+//     z-index: 10;
+// }
 
-.container--colorstack .aboveFoldCon .buttonPill button.activePill.iconCheck:before {
-    font-size: 11px;
-    margin-left: -15px;
-    margin-right: 10px;
-}
+// .container--colorstack .aboveFoldCon .buttonPill button.activePill.iconCheck:before {
+//     font-size: 11px;
+//     margin-left: -15px;
+//     margin-right: 10px;
+// }
 
-.container--colorstack .ftlpMobileSprite {
-    background: url('https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/offer-mobile-sprite.jpg') no-repeat;
-    background-size: 130%;
-    height: 110px;
-    overflow: hidden;
-}
+// .container--colorstack .ftlpMobileSprite {
+//     background: url('https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/offer-mobile-sprite.jpg') no-repeat;
+//     background-size: 130%;
+//     height: 110px;
+//     overflow: hidden;
+// }
 
-.container--colorstack .ftlpMobileSprite.usImg {
-    background-position: center 0;
-}
+// .container--colorstack .ftlpMobileSprite.usImg {
+//     background-position: center 0;
+// }
 
-.container--colorstack .ftlpMobileSprite.usImg .usColorOver {
-    background: #1d87af;
-    height: 110px;
-    opacity: 0.4;
-    position: relative;
-    top: 0px;
-    width: 210px;
-}
+// .container--colorstack .ftlpMobileSprite.usImg .usColorOver {
+//     background: #1d87af;
+//     height: 110px;
+//     opacity: 0.4;
+//     position: relative;
+//     top: 0px;
+//     width: 210px;
+// }
 
-.container--colorstack .ftlpMobileSprite.uaImg {
-    background-position: 0 50%;
-}
+// .container--colorstack .ftlpMobileSprite.uaImg {
+//     background-position: 0 50%;
+// }
 
-.container--colorstack .ftlpMobileSprite.uaImg .uaColorOver {
-    background: #9cbe3b;
-    height: 110px;
-    opacity: 0.4;
-    position: relative;
-    top: 0px;
-    width: 210px;
-}
+// .container--colorstack .ftlpMobileSprite.uaImg .uaColorOver {
+//     background: #9cbe3b;
+//     height: 110px;
+//     opacity: 0.4;
+//     position: relative;
+//     top: 0px;
+//     width: 210px;
+// }
 
-.container--colorstack .ftlpMobileSprite.wepImg {
-    background-position: -14px 94%;
-    height: 125px;
-}
+// .container--colorstack .ftlpMobileSprite.wepImg {
+//     background-position: -14px 94%;
+//     height: 125px;
+// }
 
-.container--colorstack .ftlpMobileSprite.wepImg .wepColorOver {
-    background: #d48932;
-    height: 125px;
-    opacity: 0.4;
-    position: relative;
-    top: 0px;
-    width: 210px;
-}
+// .container--colorstack .ftlpMobileSprite.wepImg .wepColorOver {
+//     background: #d48932;
+//     height: 125px;
+//     opacity: 0.4;
+//     position: relative;
+//     top: 0px;
+//     width: 210px;
+// }
 
-.container--colorstack .usRecordsCon {
-    background-color: #1c88b0;
-    color: #fff;
-    height: 110px;
-    overflow: hidden;
-    width: 100%;
-}
+// .container--colorstack .usRecordsCon {
+//     background-color: #1c88b0;
+//     color: #fff;
+//     height: 110px;
+//     overflow: hidden;
+//     width: 100%;
+// }
 
-.container--colorstack .monthlyPriceCon.ancGrid {
-    margin-top: 0;
-}
+// .container--colorstack .monthlyPriceCon.ancGrid {
+//     margin-top: 0;
+// }
 
-.container--colorstack .annualPriceCon.ancGrid {
-    overflow: hidden;
-    transition: all 0.8s ease;
-    max-height: 180px;
-    margin-top: 0;
-}
+// .container--colorstack .annualPriceCon.ancGrid {
+//     overflow: hidden;
+//     transition: all 0.8s ease;
+//     max-height: 180px;
+//     margin-top: 0;
+// }
 
-.container--colorstack .annualPriceCon.ancGrid.up {
-    max-height: 0;
-}
+// .container--colorstack .annualPriceCon.ancGrid.up {
+//     max-height: 0;
+// }
 
-.container--colorstack .annualPriceCon::after {
-    clear: both;
-}
+// .container--colorstack .annualPriceCon::after {
+//     clear: both;
+// }
 
-.container--colorstack .uaRecordsCon {
-    background-color: #9cbf3b;
-    color: #fff;
-    height: 110px;
-    overflow: hidden;
-    width: 100%;
-}
+// .container--colorstack .uaRecordsCon {
+//     background-color: #9cbf3b;
+//     color: #fff;
+//     height: 110px;
+//     overflow: hidden;
+//     width: 100%;
+// }
 
-.container--colorstack .uaRecordsCon label:link {
-    color: #fff;
-}
+// .container--colorstack .uaRecordsCon label:link {
+//     color: #fff;
+// }
 
-.container--colorstack .wepRecordsCon {
-    background-color: #d68b35;
-    color: #fff;
-    height: 125px;
-    overflow: hidden;
-    width: 100%;
-}
+// .container--colorstack .wepRecordsCon {
+//     background-color: #d68b35;
+//     color: #fff;
+//     height: 125px;
+//     overflow: hidden;
+//     width: 100%;
+// }
 
-.container--colorstack .wepRecordsCon label:link {
-    color: #fff;
-}
+// .container--colorstack .wepRecordsCon label:link {
+//     color: #fff;
+// }
 
-.container--colorstack .priceCon input {
-    height: 1px;
-    line-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    width: 1px;
-}
+// .container--colorstack .priceCon input {
+//     height: 1px;
+//     line-height: 0;
+//     opacity: 0;
+//     overflow: hidden;
+//     position: absolute;
+//     width: 1px;
+// }
 
-.container--colorstack .monthlyPriceCon span,
-.container--colorstack .annualPriceCon span {
-    color: #fff;
-    font-weight: 200;
-    line-height: 20px;
-}
+// .container--colorstack .monthlyPriceCon span,
+// .container--colorstack .annualPriceCon span {
+//     color: #fff;
+//     font-weight: 200;
+//     line-height: 20px;
+// }
 
-.container--colorstack .durationTxt {
-    border-bottom: 1px solid #fff;
-    font-size: 20px;
-    padding: 12px 0;
-    width: 85%;
-}
+// .container--colorstack .durationTxt {
+//     border-bottom: 1px solid #fff;
+//     font-size: 20px;
+//     padding: 12px 0;
+//     width: 85%;
+// }
 
-.container--colorstack .durationTxt strong {
-    font-size: 17px;
-}
+// .container--colorstack .durationTxt strong {
+//     font-size: 17px;
+// }
 
-.container--colorstack .ancCol.linkArrow {
-    font-size: 30px;
-    padding: 15px 0 0;
-    width: 15%;
-}
+// .container--colorstack .ancCol.linkArrow {
+//     font-size: 30px;
+//     padding: 15px 0 0;
+//     width: 15%;
+// }
 
-.container--colorstack .priceTextCon {
-    margin-top: 10px;
-    padding: 0 10px 0 0;
-}
+// .container--colorstack .priceTextCon {
+//     margin-top: 10px;
+//     padding: 0 10px 0 0;
+// }
 
-.container--colorstack span.cancelText {
-    border-left: 1px solid #fff;
-    font-size: 14px;
-    height: 40px;
-    line-height: 15px;
-    margin-top: 10px;
-    padding: 0 5px 0 10px;
-}
+// .container--colorstack span.cancelText {
+//     border-left: 1px solid #fff;
+//     font-size: 14px;
+//     height: 40px;
+//     line-height: 15px;
+//     margin-top: 10px;
+//     padding: 0 5px 0 10px;
+// }
 
-.container--colorstack span.cancelText.saveText strong {
-    display: inline-block;
-    padding-top: 10px;
-}
+// .container--colorstack span.cancelText.saveText strong {
+//     display: inline-block;
+//     padding-top: 10px;
+// }
 
-.container--colorstack .monthlyPriceCon label,
-.container--colorstack .annualPriceCon label {
-    display: block;
-    padding: 0;
-}
+// .container--colorstack .monthlyPriceCon label,
+// .container--colorstack .annualPriceCon label {
+//     display: block;
+//     padding: 0;
+// }
 
-.container--colorstack span.daysFree {
-    font-size: 16px;
-    font-weight: 700;
-}
+// .container--colorstack span.daysFree {
+//     font-size: 16px;
+//     font-weight: 700;
+// }
 
-.container--colorstack span.priceTxt {
-    font-size: 13px;
-    font-weight: 400;
-}
+// .container--colorstack span.priceTxt {
+//     font-size: 13px;
+//     font-weight: 400;
+// }
 
-.container--colorstack span.icon {
-    margin-right: 0px;
-}
+// .container--colorstack span.icon {
+//     margin-right: 0px;
+// }
 
-.container--colorstack .legalCross {
-    font-size: 61%;
-}
+// .container--colorstack .legalCross {
+//     font-size: 61%;
+// }
 
 .container--colorstack .otherBenefitsCon {
     background: #fff;

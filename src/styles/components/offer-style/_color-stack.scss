@@ -1,0 +1,254 @@
+.container--colorstack .durationSelections {
+    display:block;
+    padding: 0 0 5px 0;
+    .buttonPill {
+        display: block;
+        grid-auto-columns: 35px;
+        padding: 0 10px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        button {
+            border: 1px solid #54534f;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            padding: 7px;
+            text-align: center;
+            width: 142px;
+            margin: 1px -10px;
+            &.privateRow {
+                display:block;
+                margin: 1px auto;
+            }
+            &.inactivePill {
+                background-color: #fff;
+                color: #54534f;
+            }
+            &.activePill {
+                background-color: #54534f;
+                color: #fff;
+                z-index: 10;
+                &.iconCheck:before {
+                    font-size: 11px;
+                    margin-left: -15px;
+                    margin-right: 10px;
+                }
+            }
+            > span {
+                display:block;
+                font-size:.72em;
+                margin:-2px;
+            }
+        }
+    }
+}
+
+// .container--colorstack .buttonPill #monthPill {
+//     left: 0;
+// }
+
+// .container--colorstack .buttonPill #month6Pill {
+//     right: 0;
+// }
+
+// .container--colorstack .aboveFoldCon .buttonPill button.inactivePill {
+//     background-color: #fff;
+//     color: #54534f;
+// }
+
+// .container--colorstack .aboveFoldCon .buttonPill button.activePill {
+//     background-color: #54534f;
+//     color: #fff;
+//     z-index: 10;
+// }
+
+// .container--colorstack .aboveFoldCon .buttonPill button.activePill.iconCheck:before {
+//     font-size: 11px;
+//     margin-left: -15px;
+//     margin-right: 10px;
+// }
+
+.container--colorstack .durationLDBMButton {
+    text-align: center;
+    > button {
+        color: #1B88B0;
+        font-size: 14px;
+        text-decoration: underline;
+        font-weight: bold;
+        background:transparent;
+        border:none;
+    }
+}
+
+.container--colorstack .ftlpMobileSprite {
+    background: url('https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/offer-mobile-sprite.jpg') no-repeat;
+    background-size: 150px auto;
+    height: 110px;
+    overflow: hidden;
+    &.leftPkgImg {
+        .colorOverlay {
+            height: 110px;
+            opacity: 0.4;
+            position: relative;
+            top: 0px;
+            width: 210px;
+        }
+        &.leftPkgImg--usdiscovery {
+            background-position: center 0;
+            .colorOverlay {
+                background: #1d87af;
+            }
+        }
+        &.leftPkgImg--worldexplorer {
+            background-position: 0 -142px;
+            .colorOverlay {
+                background: #9cbe3b;
+            }
+        }
+        &.leftPkgImg--allaccess {
+            background-size: 200px auto;
+            background-position: -30px -400px;
+            height: 142px;
+            .colorOverlay {
+                background: #d48932;
+                height: 142px;
+            }
+        }
+    }
+}
+
+.container--colorstack .bluePackageRow {
+    background-color: #1c88b0;
+    color: #fff;
+    height: 110px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.container--colorstack .monthlyPriceCon.ancGrid {
+    margin-top: 0;
+}
+
+.container--colorstack .annualPriceCon.ancGrid {
+    overflow: hidden;
+    transition: all 0.8s ease;
+    max-height: 180px;
+    margin-top: 0;
+}
+
+.container--colorstack .annualPriceCon.ancGrid.up {
+    max-height: 0;
+}
+
+.container--colorstack .annualPriceCon::after {
+    clear: both;
+}
+
+.container--colorstack .greenPackageRow {
+    background-color: #9cbf3b;
+    color: #fff;
+    height: 110px;
+    overflow: hidden;
+    width: 100%;
+    label:link {
+        color: #fff;
+    }
+}
+
+.container--colorstack .orangePackageRow {
+    background-color: #d68b35;
+    color: #fff;
+    height: 142px;
+    overflow: hidden;
+    width: 100%;
+    label:link {
+        color: #fff;
+    }
+}
+
+.container--colorstack .priceCon input {
+    height: 1px;
+    line-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+
+.container--colorstack .monthlyPriceCon span,
+.container--colorstack .annualPriceCon span {
+    color: #fff;
+    font-weight: 200;
+    line-height: 20px;
+}
+
+.container--colorstack .durationTxt {
+    border-bottom: 1px solid #fff;
+    font-size: 20px;
+    padding: 12px 0;
+    width: 85%;
+}
+
+.container--colorstack .durationTxt strong {
+    font-size: 17px;
+}
+
+.container--colorstack .ancCol.linkArrow {
+    font-size: 30px;
+    padding: 15px 0 0;
+    width: 15%;
+}
+
+.container--colorstack .priceTextCon {
+    margin-top: 10px;
+    padding: 0 10px 0 0;
+    &.priceTextCon--ldbm {
+        margin-top: 5px;
+    }
+    .priceTextCon__priceTxt--hardoffer {
+        font-size:20px;
+    }
+}
+
+.container--colorstack span.cancelText {
+    border-left: 1px solid #fff;
+    font-size: 14px;
+    height: 40px;
+    line-height: 15px;
+    margin-top: 10px;
+    padding: 0 5px 0 10px;
+}
+
+.container--colorstack span.cancelText.saveText strong {
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.container--colorstack .monthlyPriceCon label,
+.container--colorstack .annualPriceCon label {
+    display: block;
+    padding: 0;
+}
+
+.container--colorstack span.daysFree {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.container--colorstack span.priceTxt {
+    font-size: 13px;
+    font-weight: 400;
+    &.priceTxt--hardoffer {
+        font-size:20px
+    }
+}
+
+.container--colorstack span.icon {
+    margin-right: 0px;
+}
+
+.container--colorstack .legalCross {
+    font-size: 61%;
+}

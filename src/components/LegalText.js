@@ -17,7 +17,8 @@ const legalSups = {
     hardOffer: `†`,
     longDurationBilledMonthly: `§`,
     promoSave: `α`,
-    durationSave: `*`
+    durationSave: `*`,
+    newspapersBasic: `**`
 }
 
 export const LegalSup = ({ supRef }) => (
@@ -27,21 +28,28 @@ export const LegalSup = ({ supRef }) => (
 export const LegalFreeTrial = () => (
     <p className={classesMaker(`legal-text__paragraph`, `free-trial`)}>
         <LegalSup supRef="freeTrial"/>
-        One free trial per user. Free trial requires registration with a valid credit or debit card. You will be charged the full amount of your chosen membership price on expiry of the free trial, unless you cancel at least 2 days before the end of your free trial by visiting your My Account section or by calling 1-800-ANCESTRY. Memberships auto-renew at the end of your subscription period and your payment method will be debited the then applicable rate. To avoid auto-renewing cancel at least 2 days before your renewal date by visiting My Account or calling 1-800-ANCESTRY.
+        One free trial per user. Free trial requires registration with a valid credit or debit card. You will be charged the full amount of your chosen membership price on expiry of the free trial, unless you cancel at least 2 days before the end of your free trial by visiting your My Account section or by calling 1-800-ANCESTRY. Memberships auto-renew at the end of your subscription period and your payment method will be debited the then applicable rate. To avoid auto-renewing cancel at least 2 days before your renewal date by visiting My Account or calling&nbsp;1-800-ANCESTRY.
     </p>
 )
 
 export const LegalHardOffer = () => (
     <p className={classesMaker(`legal-text__paragraph`, `hard-offer`)}>
         <LegalSup supRef="hardOffer"/>
-        Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>. See our <a href="/cs/legal/renewal-cancellation-terms" target="_blank">Renewal and Cancellation Terms</a> for further details.
+        Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>. See our <a href="/cs/legal/renewal-cancellation-terms" target="_blank">Renewal and Cancellation Terms</a> for further&nbsp;details.
     </p>
 )
 
 export const LegalLongDurationBilledMonthly = () => (
     <p className={classesMaker(`legal-text__paragraph`, `ldbm`)}>
         <LegalSup supRef="longDurationBilledMonthly"/>
-        You are committing to a six-month subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more details.    
+        You are committing to a six-month subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.    
+    </p>
+)
+
+export const LegalNewspapersBasic = () => (
+    <p className={classesMaker(`legal-text__paragraph`, `newspapers-basic`)}>
+        <LegalSup supRef="newspapersBasic"/>
+        Other subscriptions to Newspapers.com may be available but are not included in the All Access package. 
     </p>
 )
 
@@ -56,7 +64,7 @@ export const LegalDurationSaves = connect(mapStateToProps)(({ pageSettings }) =>
         <p className={classesMaker(`legal-text__paragraph`, `duration-saves`)}>
             <LegalSup supRef="durationSave"/>
             {uniqueSaves.map((offer, index) => (
-                <span key={index}>{index > 0 && <br />}A {offer.packageName} {offer.renewalPeriod.renewMonths}-month commitment of {offer.currency}{offer.renewalPeriod.displayPrice} saves you {offer.currency}{offer.durationSavings.display} when compared to a {offer.durationSavings.compareOffer.renewalPeriod.renewMonths}-month commitment of {offer.currency}{offer.durationSavings.compareOffer.renewalPeriod.displayPrice} over the same time period.</span>
+                <span key={index}>{index > 0 && <br />}A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} commitment of {offer.currency}{offer.renewalPeriod.displayPrice} saves you {offer.currency}{offer.durationSavings.display} when compared to a {offer.durationSavings.compareOffer.renewalPeriod.renewMonths}-month commitment of {offer.currency}{offer.durationSavings.compareOffer.renewalPeriod.displayPrice} over the same time&nbsp;period.</span>
             ))}
         </p>
     )
@@ -72,8 +80,8 @@ export const LegalPromoSaves = ({ saveOffers }) => {
     return (
         <p className={classesMaker(`legal-text__paragraph`, `promo-saves`)}>
             <LegalSup supRef="promoSave"/>
-            {saveOffers.map((offer, index) => (
-                <span key={index}>{index > 0 && <br />}A {offer.packageName} {offer.renewalPeriod.renewMonths}-month subscription {offer.ldbm && `paid monthly `}has a regular price of {offer.currency}{offer.durationSavings.display} per </span>
+            {uniqueSaves.map((offer, index) => (
+                <span key={index}>{index > 0 && <br />}A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} subscription {offer.ldbm && `paid monthly `}has a regular price of {offer.currency}{offer.renewalPeriod.MSRP} every&nbsp;{offer.renewalPeriod.renewMonths === 1 ? `month` : `${offer.renewalPeriod.renewMonths}-months`}.</span>
             ))}
         </p>
     )
@@ -84,6 +92,8 @@ export const LegalText = connect(mapStateToProps)((props) => (
         {props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly />}
         {props.pageSettings.elligibility === `freetrial` ? <LegalFreeTrial /> : <LegalHardOffer />}
         {props.pageSettings.subscriptions.durationSaveOffers && <LegalDurationSaves saveOffers={props.pageSettings.subscriptions.durationSaveOffers} />}
+        {props.pageSettings.subscriptions.promoSaveOffers && <LegalPromoSaves saveOffers={props.pageSettings.subscriptions.promoSaveOffers} />}
+        {!!props.pageSettings.subscriptions.display.packages.find((pkg) => pkg.id === `allaccess`) && <LegalNewspapersBasic />}
     </div>
 ))
 

@@ -24,7 +24,7 @@
 }
 
 .settings__group {
-    width:140px;
+    width:120px;
     position:relative;
     float: left;
     display:block;
@@ -42,6 +42,11 @@
     display:block;
     text-align: center;
     // font-weight:bold;
+    &.settings__groupings__name--settings {
+        .settings__group__button {
+            
+        }
+    }
 }
 
 .settings__group__button {
@@ -61,6 +66,11 @@
     }
     &.settings__group__button--hide {
         display: none;
+    }
+    &.settings__group__button--hide-all,
+    &.settings__group__button--clear,
+    &.settings__group__button--collapse {
+        width:75px;
     }
 }
 .settings__group__dropdown {

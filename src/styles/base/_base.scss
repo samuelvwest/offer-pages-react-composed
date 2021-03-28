@@ -4,7 +4,7 @@
 
 .strike-through-price {
     position:relative;
-    display: inline-block!important;
+    display: inline-block;
     font-weight:400;
     font-size: 72%;
     &:after {
@@ -37,11 +37,22 @@
     }
 }
 
-.legal-text__paragraph{
+.legal-text__paragraph {
+    position:relative;
+    display:block;
     margin: 10px 20px 0px 24px;
     font-size: 14px;
-    &:first-letter,
     > sup:first-of-type {
-        margin: 0 2px 0 -8px;
+        position:absolute;
+        display:block;
+        width:20px;
+        text-align:right;
+        top:0;
+        left:-25px;
+        font-weight:600;
+        font-size:1em;
+        &.legal-text__sup--asterisk {
+            font-size:1.23em;
+        }
     }
 }

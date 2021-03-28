@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { durationTexts } from '../data/subscriptions';
+import { durationTexts, subscriptions, promoSubscriptions } from '../data/subscriptions';
 import { modifyPageSettings, removePageSettingsLocal } from '../actions/pageSettings';
 import { modifyVariables, removeVariablesLocal } from '../actions/variables';
 
@@ -20,7 +20,10 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
     let activeTest = props[props.settingGroup][props.settingAttribute] === props.settingValue;
     let modifications = {};
     modifications[props.settingAttribute] = props.settingValue;
-    if (/displayPackages/.test(props.settingAttribute)) {
+    if (/settingsCollapsed/.test(props.settingAttribute)) {
+        activeTest = props.pageSettings.settingsCollapsed;
+        modifications.settingsCollapsed = !props.pageSettings.settingsCollapsed;
+    } else if (/displayPackages/.test(props.settingAttribute)) {
         modifications[props.settingAttribute] = [...props.pageSettings.displayPackages]
         const pkgData = props.pageSettings.packagesData.find((pkg) => props.settingValue === pkg.id);
         const pkgIndex = modifications[props.settingAttribute].indexOf(pkgData.id);
@@ -43,8 +46,15 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
         } else {
             modifications[props.settingAttribute].splice(modifications[props.settingAttribute].length, 0, durationData.renewMonths);
         }
+    } else if (/subscriptions/.test(props.settingAttribute)) {
+        activeTest = !props.pageSettings.subscriptions.promoSaveOffers;
+        modifications.subscriptions = subscriptions;
+        if (/promo/.test(props.settingValue)) {
+            activeTest = !activeTest;
+            modifications.subscriptions = promoSubscriptions;
+        }
     }
-    const classes = `settings__group__button${activeTest ? ` settings__group__button--active` : ``}`;
+    const classes = `settings__group__button settings__group__button--${props.displayText.toLowerCase().replace(/ /g, '-')}${activeTest ? ` settings__group__button--active` : ``}`;
     if (props.pageSettings.location === 'join' && !window.deniedTo) {
         window.deniedTo = {
             DenyToV1: 'Ancestry_US_Deluxe',
@@ -71,7 +81,6 @@ const SettingsDropDown = connect(mapStateToProps, mapDispatchToProps)((props) =>
         }))
         valueGroup = `renewMonths`;
     } else if (/displayPackages/.test(props.settingValue)) {
-
         valueOptions = props.pageSettings.displayPackages.map((pkg) => { 
             const pkgData = props.pageSettings.packagesData.find((pkg2) => pkg2.id === pkg);
             return {
@@ -81,29 +90,14 @@ const SettingsDropDown = connect(mapStateToProps, mapDispatchToProps)((props) =>
         })
         valueGroup = `packageID`;
     }
-    const defaultObj = valueOptions.find((valOpt) => props[props.settingGroup][props.settingAttribute][valueGroup] === valOpt.value)
+    const selectedObj = valueOptions.find((valOpt) => props[props.settingGroup].subscriptions[props.settingAttribute][valueGroup] === valOpt.value)
+
     return (
-        <select className="settings__group__dropdown" name={`${props.settingAttribute}-${props.settingValue}`} onChange={(e) => { newSelection(e, valueGroup) }} defaultValue={defaultObj.value}>
-            {valueOptions.map((valOpt, index) => <option key={index} value={valOpt.value}>{valOpt.name}</option>)}
+        <select className="settings__group__dropdown" name={`${props.settingAttribute}-${props.settingValue}`} onChange={(e) => { newSelection(e, valueGroup) }} defaultValue={selectedObj.value}>
+            {valueOptions.map((valOpt) => <option key={`${props.settingAttribute}-${valueGroup}_from_${props[props.settingGroup][props.settingAttribute][valueGroup]}_to_${valOpt.value}`} value={valOpt.value}>{valOpt.name}</option>)}
         </select>
     )
 })
-
-// const SettingsPackagesButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
-//     const modifyGroup = /pageSettings/.test(props.settingGroup) ? props.modifyPageSettings : props.modifyVariables;
-//     const packageData = props.packageData.find((pkg) => props.settingsAttribute === pkg.id)
-//     const currentlyActive = props.pageSettings.
-//     const classes = `settings__group__button${props[props.settingGroup][props.settingAttribute] === props.settingValue ? ` settings__group__button--active` : ``}`;
-//     let modifications = {};
-//     modifications[props.settingAttribute] = props.settingValue;
-//     if (props.pageSettings.location === 'join' && !window.deniedTo) {
-//         window.deniedTo = {
-//             DenyToV1: 'Ancestry_US_Deluxe',
-//             DenyToV2: 'Ancestry_World_Deluxe'
-//         }
-//     }
-//     return <button className={classes} onClick={() => modifyGroup(modifications)}>{props.displayText}</button>
-// });
 
 const DeniedToButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const classesMaker = () => {
@@ -114,26 +108,37 @@ const DeniedToButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
     return <button className={classesMaker()} onClick={() => props.modifyPageSettings({ denyType: props.deniedTo })}>{props.displayText}</button>
 });
 
+const SettingsGrouping = connect(mapStateToProps)((props) => (!props.collapsable || (!!props.collapsable && !props.pageSettings.settingsCollapsed)) ? (
+    <div className="settings__grouping">
+        {!!props.groupName && <h4 className="settings__groupings__name">{props.groupName}</h4>}
+        {props.children}
+    </div>
+) : <div></div>)
 
 const SettingsControl = () => (
     <div className="settings">
-        <div className="settings__grouping">
-            <h4 className="settings__groupings__name">
-                Page Settings
-                <SettingsButton 
-                    settingGroup="pageSettings"
-                    settingAttribute="showSettings" 
-                    settingValue={false} 
-                    displayText="Hide Settings" 
-                />
-                <button className="settings__group__button settings__group__button--clear-local" onClick={
-                    () => { 
-                        removePageSettingsLocal(); 
-                        removeVariablesLocal(); 
-                        location.reload();
-                    }
-                }>Clear Settings</button>
-            </h4>
+        <SettingsGrouping collapsable={false}>
+            <SettingsButton 
+                settingGroup="pageSettings"
+                settingAttribute="showSettings" 
+                settingValue={false} 
+                displayText="Hide All" 
+            />
+            <button className="settings__group__button settings__group__button--clear" onClick={
+                () => { 
+                    removePageSettingsLocal(); 
+                    removeVariablesLocal(); 
+                    location.reload();
+                }
+            }>Clear</button>
+            <SettingsButton 
+                settingGroup="pageSettings"
+                settingAttribute="settingsCollapsed" 
+                settingValue={true} 
+                displayText="Collapse" 
+            />
+        </SettingsGrouping>
+        <SettingsGrouping collapsable={true} groupName="Page Settings">
             <div className="settings__group">
                 <h5 className="settings__group__name">Location</h5>
                 <SettingsButton 
@@ -260,20 +265,20 @@ const SettingsControl = () => (
                 />
             </div>
             <div className="settings__group">
-                <h5 className="settings__group__name">Default Offer</h5>
+                <h5 className="settings__group__name">Selected Offer</h5>
                 <SettingsDropDown 
                     settingGroup="pageSettings"
-                    settingAttribute="defaultOffer" 
+                    settingAttribute="selectedOffer" 
                     settingValue="displayDurations"
                 />
                 <SettingsDropDown 
                     settingGroup="pageSettings"
-                    settingAttribute="defaultOffer" 
+                    settingAttribute="selectedOffer" 
                     settingValue="ldbm"
                 />
                 <SettingsDropDown 
                     settingGroup="pageSettings"
-                    settingAttribute="defaultOffer" 
+                    settingAttribute="selectedOffer" 
                     settingValue="displayPackages"
                 />
             </div>
@@ -295,9 +300,23 @@ const SettingsControl = () => (
                     settingValue="displayPackages"
                 />
             </div>
-        </div>
-        <div className="settings__grouping">
-            <h4 className="settings__groupings__name">Test Variables</h4>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Subscriptions</h5>
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="standard" 
+                    displayText="Standard Offers"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="promo" 
+                    displayText="Promo Offers"
+                />
+            </div>
+        </SettingsGrouping>
+        <SettingsGrouping collapsable={true} groupName="Test Variables">
             <div className="settings__group">
                 <h5 className="settings__group__name">Header Style</h5>
                 <SettingsButton 
@@ -358,7 +377,7 @@ const SettingsControl = () => (
                     displayText="Control" 
                 />
             </div>
-        </div>
+        </SettingsGrouping>
     </div>
 )
 

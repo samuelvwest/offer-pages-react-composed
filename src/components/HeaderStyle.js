@@ -20,7 +20,7 @@ const ControlHeader = (props) => {
         // Color Stack for Phone on all offer pages
         return (
             <div className={classesMaker('colorstack')}>
-                <section id="memOptions" className="aboveFoldCon">
+                <section className="aboveFoldCon">
                     <h1 className="chooseMemText" elementtiming="ancestry_meaningful_paint">
                         <HeaderText />
                     </h1>

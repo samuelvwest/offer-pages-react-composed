@@ -1,11 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { modifyPageSettings } from '../../actions/pageSettings';
 import { LegalSup } from '../LegalText';
+
+const mapStateToProps = (state) => {
+    return {
+        pageSettings: state.pageSettings,
+        variables: state.variables
+    }
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    modifyPageSettings: (modifications) => dispatch(modifyPageSettings(modifications))
+});
 
 const classesMaker = (styleName) => {
     return `container container--${styleName} offerings-style offerings-style--${styleName}`
 }
 
-const BonsaiOfferings = (props) => {
+const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const pS = props.pageSettings;
     const subs = pS.subscriptions;
     const headingHeightClass = !subs.ldbms ? 'two-lines' : /toggle/.test(pS.LDBM) ? 'four-lines' : 'three-lines';
@@ -66,14 +79,14 @@ const BonsaiOfferings = (props) => {
                                                         });
                                                         if (!!offer) {
                                                             const bestTest = offer.renewalPeriod.renewMonths === subs.bestOffer.renewalPeriod.renewMonths && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.bestOffer.ldbm : true);
-                                                            const defaultTest = offer.renewalPeriod.renewMonths === subs.defaultOffer.renewalPeriod.renewMonths && offer.packageID === subs.defaultOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.defaultOffer.ldbm : true);
+                                                            const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewalPeriod.renewMonths && offer.packageID === subs.selectedOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.selectedOffer.ldbm : true);
                                                             return (
-                                                                <td key={offer.id} className={`ancCol1 ${bestTest ? `bestCol ` : ``}colWrap half320 w30`}>
+                                                                <td key={`${offer.packageData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className={`ancCol1 ${bestTest ? `bestCol ` : ``}colWrap half320 w30`}>
                                                                     <div className="priceLabel">
                                                                         <label htmlFor={`${offer.renewalPeriod.renewMonths}Month`} 
                                                                             onClick={() => props.modifyPageSettings({ 
-                                                                                defaultOffer: { 
-                                                                                    renewalPeriod: offer.renewalPeriod.renewMonths, 
+                                                                                selectedOffer: { 
+                                                                                    renewMonths: offer.renewalPeriod.renewMonths, 
                                                                                     packageID: offer.packageID,
                                                                                     ldbm: offer.ldbm
                                                                                 }
@@ -82,7 +95,7 @@ const BonsaiOfferings = (props) => {
                                                                             <h3 className="bold show320 textlrg">{offer.renewalPeriod.renewMonths === 1 ? `Monthly` : `${offer.renewalPeriod.renewMonths}-month`} membership</h3>
                                                                             {!!offer.durationSavings && <p className="bold redTxt coloralt2 textxlrg">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></p>}
                                                                             <input 
-                                                                                defaultChecked={defaultTest} 
+                                                                                defaultChecked={selectedTest} 
                                                                                 type="radio" 
                                                                                 name="offers" 
                                                                                 value={offer.offerIDs[subs.offerElligibilityType]} 
@@ -124,6 +137,6 @@ const BonsaiOfferings = (props) => {
             </form>
         </div>
     )
-}
+})
 
 export default BonsaiOfferings;

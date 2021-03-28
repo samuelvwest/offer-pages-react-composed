@@ -8,6 +8,7 @@ export const pageSettings = getPageSettingsLocal() || {
     location: pageTest(),
     elligibility: elligibilityTest(),
     showSettings: showSettingsTest(),
+    settingsCollapsed: false,
     windowWidth: window.innerWidth,
     windowHeight: window.innerHeight,
     breaks: {
@@ -19,7 +20,7 @@ export const pageSettings = getPageSettingsLocal() || {
     LDBM: 'side-by-side', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
     displayDurations: [1, 3, 6, 12], // 1, 3, 6, 12
     displayPackages: ['usdiscovery', 'worldexplorer', 'allaccess'], // 'usdiscovery', 'worldexplorer', 'allaccess' 
-    defaultOffer: {
+    selectedOffer: {
         renewMonths: 1, // must be included in 'displayDurations' setting
         packageID: 'usdiscovery', // must be included in the 'displayPackages' setting
         ldbm: false // true/false value only factored in if 'LDBM' setting is 'side-by-side'
