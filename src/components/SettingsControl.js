@@ -174,14 +174,20 @@ const SettingsControl = () => (
                 <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="elligibility" 
-                    settingValue="freetrial" 
-                    displayText="Free Trial" 
+                    settingValue="initial" 
+                    displayText="Initial" 
                 />
                 <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="elligibility" 
-                    settingValue="hardoffer" 
-                    displayText="Hard Offer" 
+                    settingValue="renewal" 
+                    displayText="Renewal" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="elligibility" 
+                    settingValue="migration" 
+                    displayText="Migration" 
                 />
             </div>
             <div className="settings__group">

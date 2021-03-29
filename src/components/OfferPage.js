@@ -85,6 +85,14 @@ export class OfferPage extends React.Component {
         }
     }
     componentWillMount = () => {
+        if (!window.coreJSLoad && !document.querySelector('script[src*="core.js"]') && !window.ui) {
+            window.coreJSLoad = 'started';
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.onload = () => window.coreJSLoad = 'complete';
+            script.src = "https://www.ancestrycdn.com/ui/2.10.0/js/core.js";
+            document.head.appendChild(script);
+        }
         window.removeEventListener('resize', this.updateDimensions);
         this.setupTargetIntegration();
         window._rS = (newState) => {

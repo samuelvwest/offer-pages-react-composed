@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { disclaimerSups } from './Disclaimer';
+import { LegalSup } from './LegalText';
 
 const mapStateToProps = (state) => {
     return {
         pageSettings: state.pageSettings,
-        variables: state.variables,
-        subscriptions: state.subscriptions
+        variables: state.variables
     }
 };
 
@@ -19,7 +18,8 @@ const addDays = (date, days) => {
 }
 
 const Timeline = connect(mapStateToProps)((props) => {
-    if (props.variables.timeline) {
+    const pS = props.pageSettings;
+    if (props.variables.timeline && !/migration/.test(pS.elligibility)) {
         const firstDay = new Date();  
         const ftEnd = addDays(firstDay, 14);
         // console.log(firstDay, ftEnd);
@@ -30,13 +30,13 @@ const Timeline = connect(mapStateToProps)((props) => {
                         <div className="mydot-circle"></div>
                     </div>
                     <div className="myline"></div>
-                    {props.pageSettings.elligibility === 'freetrial' ? 
+                    {/initial/.test(pS.elligibility) ? 
                         <div>
                             <div className="mytoday">
                                 Today&nbsp;•&nbsp;  
                                 <span className="today-date normal">{monthsArr[firstDay.getMonth()]} {firstDay.getDate()}</span>
                             </div>
-                            <p>FREE 14-day trial{disclaimerSups.freetrial}</p>
+                            <p>FREE 14-day trial<LegalSup supRef="freeTrial"/></p>
                             <div className="myright-circle"></div>
                             <div className="mybilldate">
                                 First&nbsp;Bill&nbsp;•&nbsp;

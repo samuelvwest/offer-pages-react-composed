@@ -1,5 +1,5 @@
 import pageSettings from '../data/pageSettings';
-import { setPageSettingsLocal } from '../actions/pageSettings';
+import { setPageSettingsLocal, getElligibility } from '../actions/pageSettings';
 import { buildDisplayOffersData, filterDisplayPackages } from './../actions/subscriptions';
 
 export default (state = pageSettings, action) => {
@@ -9,16 +9,15 @@ export default (state = pageSettings, action) => {
             return action.pageSettings;
         case 'MODIFY_PAGE_SETTINGS':
             const nextState = Object.assign({}, state);
-            let denyLevelPackageTest = false;
             Object.keys(action.pageSettings).forEach((key) => {
                 if (key !== 'subscriptions') {
                     nextState[key] = action.pageSettings[key];
-                    if (/displayPackages|denyLevel|packageData/.test(key)) {
-                        denyLevelPackageTest = true;
-                    }
                 }
             });
-            if (denyLevelPackageTest) {
+            if (!!action.pageSettings.location) {
+                nextState.elligibility = getElligibility(nextState.location, action.pageSettings.elligibility || nextState.elligibility);
+            }
+            if (!!action.pageSettings.displayPackages || !!action.pageSettings.denyLevel || !!action.pageSettings.packageData) {
                 nextState.displayPackages = filterDisplayPackages(
                     action.pageSettings.displayPackages || state.displayPackages, 
                     action.pageSettings.packagesData || state.packagesData, 

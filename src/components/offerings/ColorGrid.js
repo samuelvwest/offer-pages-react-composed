@@ -27,7 +27,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
             <form className="form clearfix" id="newOfferStyle" action="/checkout/mli?">
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />
-                <input type="hidden" name="rtype" value={pS.elligibility === 'freetrial' ? '14' : '11'} />
+                <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />
                 <input type="hidden" name="quantities" value="1" />
                 <input type="hidden" name="flow" value="3" />
                 <div className="ancGrid ancGridNoGutters" id="priceGrid">
@@ -40,7 +40,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                             if (includedOffers.some((offer) => !!offer.durationSavings)) rowClassIndex++
                             if (includedOffers.some((offer) => !!offer.promoSavings)) rowClassIndex++
                             if (includedOffers.some((offer) => offer.ldbm)) rowClassIndex++
-                            if (pS.elligibility === `freetrial`) rowClassIndex++
+                            if (/initial/.test(pS.elligibility)) rowClassIndex++
                             const rowClass = rowClasses[Math.max(0,rowClassIndex)]
                             includedOffers.forEach((offer) => offer.rowClass = rowClass);
                             return (
@@ -85,7 +85,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                             >
                                                 <input 
                                                     id={offer.id} 
-                                                    value={offer.offerIDs[subs.offerElligibilityType]} 
+                                                    value={offer.offerIDs[pS.elligibility]} 
                                                     defaultChecked={selectedTest} 
                                                     className="radio"
                                                     type="radio" 
@@ -98,7 +98,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                                     {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>}
                                                     <span className="priceText text4xlrg">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}</span>
                                                     {offer.ldbm && <span className="priceText textlrg"><br />per month<LegalSup supRef="longDurationBilledMonthly" /></span>}
-                                                    {pS.elligibility === `freetrial` && <span className="freeTrialText textlrg"><br />after free trial</span>}
+                                                    {/initial/.test(pS.elligibility) && <span className="freeTrialText textlrg"><br />after free trial</span>}
                                                 </div>
                                             </label>
                                         )
@@ -111,7 +111,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                 <div id="priceGridCtaCon" className="ancGrid">
                     <div className="ancCol w40"></div>
                     <div className="ancCol w60">
-                        <input type="submit" className="ancBtn orange lrg ancBtnRnd" id="priceGridCta" value={/initial/.test(subs.offerElligibilityType) ? `Start your FREE trial` : /renewal/.test(subs.offerElligibilityType) ? `Get started` : `Upgrade now`}  />
+                        <input type="submit" className="ancBtn orange lrg ancBtnRnd" id="priceGridCta" value={/initial/.test(pS.elligibility) ? `Start your FREE trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`}  />
                     </div>
                 </div>
             </form>

@@ -15,6 +15,7 @@ const classesMaker = (styleName) => {
 }
 
 const Control = connect(mapStateToProps)((props) => {
+    const pS = props.pageSettings;
     if (window.innerWidth < props.pageSettings.breaks.control.tablet) {
         // Color Stack for Phone on all offer pages
         return (
@@ -58,7 +59,7 @@ const Control = connect(mapStateToProps)((props) => {
                         <br />
                         <p className="offerHeadline coloralt" style={{fontSize: `17px`}}>
                             <strong>Choose a membership to try.</strong>
-                            {props.pageSettings.elligibility === `freetrial` && <span> There’s no risk - you’ll only be billed if you decide to keep your membership after&nbsp;your&nbsp;free&nbsp;trial.</span>}
+                            {/initial/.test(pS.elligibility) && <span> There’s no risk - you’ll only be billed if you decide to keep your membership after&nbsp;your&nbsp;free&nbsp;trial.</span>}
                         </p>
                         {props.variables.timeline && <br />}
                         <Timeline />
@@ -79,7 +80,7 @@ const Control = connect(mapStateToProps)((props) => {
                                 </h1>
                                 <p className="textlrg">
                                     <strong>Choose a membership to try.</strong> 
-                                    {props.pageSettings.elligibility === `freetrial` && ` There's no risk – you'll only be billed if you decide to keep your membership after your free trial.`}
+                                    {/initial/.test(pS.elligibility) && ` There's no risk – you'll only be billed if you decide to keep your membership after your free trial.`}
                                 </p>
                                 <Timeline />
                             </div>

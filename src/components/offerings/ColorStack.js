@@ -90,10 +90,10 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                             {/worldexplorer/.test(pkgData.id) && <span className="ancCol durationTxt">Everything on Ancestry</span>}
                                             {/allaccess/.test(pkgData.id) && <span className="ancCol durationTxt">Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" /></strong></span>}
                                             <span className="ancCol linkArrow icon iconArrowRight"></span>
-                                            <span className={`ancCol w60 priceTextCon ${offer.ldbm && `priceTextCon--ldbm`}`}>
-                                                {!offer.ldbm && pS.elligibility === `freetrial` && <span className="daysFree">14 DAYS FREE<br /></span>}
-                                                <span className={`${offer.ldbm ? `daysFree` : `priceTxt`}${pS.elligibility !== `freetrial` ? ` priceTextCon__priceTxt--hardoffer` : ``}`}>
-                                                    {!offer.ldbm && pS.elligibility === `freetrial` && `then `}
+                                            <span className={`ancCol w60 priceTextCon ${offer.ldbm ? `priceTextCon--ldbm` : ``}${(offer.promoSavings && /initial/.test(pS.elligibility)) ? ` priceTextCon--promo` : ``}`}>
+                                                {!offer.ldbm && /initial/.test(pS.elligibility) && <span className="daysFree">14 DAYS FREE<br /></span>}
+                                                <span className={`${offer.ldbm ? `daysFree` : `priceTxt`}${!/initial/.test(pS.elligibility) ? ` priceTextCon__priceTxt--hardoffer` : ``}`}>
+                                                    {!offer.ldbm && /initial/.test(pS.elligibility) && `then `}
                                                     {offer.promoSavings && 
                                                         <span className="strike-through-price">
                                                             {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
@@ -102,15 +102,13 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                                     }
                                                     {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : `${offer.renewalPeriod.displayPriceMEP}/month`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
                                                 </span>
-
-                                                {/* {offer.ldbm && pS.elligibility === `freetrial` && <br />} */}
-                                                {offer.ldbm && pS.elligibility === `freetrial` && <span className="priceTxt"><br />after free trial</span>}
+                                                {offer.ldbm && /initial/.test(pS.elligibility) && <span className="priceTxt"><br />after free trial</span>}
                                             </span> 
 
                                             {/* {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>} */}
                                             
-                                            {offer.renewalPeriod.renewMonths === 1 && <span className="ancCol w40 cancelText">Cancel anytime</span>}
-                                            {!!offer.durationSavings && <span className="ancCol w40 cancelText saveText"><strong>SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></strong></span>}
+                                            {offer.renewalPeriod.renewMonths === 1 && <span className={`ancCol w40 cancelText${offer.promoSavings ? ` cancelText--promo` : ``}`}>Cancel anytime</span>}
+                                            {!!offer.durationSavings && <span className={`ancCol w40 cancelText${offer.promoSavings ? ` cancelText--promo` : ``} saveText`}><strong>SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></strong></span>}
                                         </div>
                                     </label>
                                 </div>

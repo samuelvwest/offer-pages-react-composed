@@ -207,6 +207,11 @@
     &.priceTextCon--ldbm {
         margin-top: 5px;
     }
+    &.priceTextCon--promo {
+        @media only screen and (max-width:350px) {
+            width:70%;
+        }
+    }
     .priceTextCon__priceTxt--hardoffer {
         font-size:20px;
     }
@@ -219,6 +224,11 @@
     line-height: 15px;
     margin-top: 10px;
     padding: 0 5px 0 10px;
+    &.cancelText--promo {
+        @media only screen and (max-width:350px) {
+            width:30%;
+        }
+    }
 }
 
 .container--colorstack span.cancelText.saveText strong {

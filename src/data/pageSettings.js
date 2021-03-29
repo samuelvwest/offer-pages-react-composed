@@ -1,13 +1,13 @@
-import { showSettingsTest, getPageSettingsLocal, pageTest, elligibilityTest, denyType, getReturnURL } from '../actions/pageSettings';
+import { showSettingsTest, getPageSettingsLocal, getLocation, getElligibility, getReturnURL } from '../actions/pageSettings';
 import { subscriptions, packagesData } from './subscriptions';
 import { buildDisplayOffersData, filterDisplayPackages } from '../actions/subscriptions';
 
 
 
 export const pageSettings = getPageSettingsLocal() || {
-    location: pageTest(),
+    location: getLocation(),
     denyLevel: 1,
-    elligibility: elligibilityTest(),
+    elligibility: getElligibility(),
     showSettings: showSettingsTest(),
     settingsCollapsed: false,
     windowWidth: window.innerWidth,

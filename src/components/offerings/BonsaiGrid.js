@@ -21,14 +21,14 @@ const classesMaker = (styleName) => {
 const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const pS = props.pageSettings;
     const subs = pS.subscriptions;
-    const headingHeightClass = !subs.ldbms ? 'two-lines' : /toggle/.test(pS.LDBM) ? 'four-lines' : 'three-lines';
+    const headingHeightClass = !subs.ldbms ? 'two-lines' : (/toggle/.test(pS.LDBM) && subs.display.durations.length > 2) ? 'four-lines' : 'three-lines';
     const fullRowOffersTest = subs.display.durations.length > (pS.windowWidth < pS.breaks.control.desktop ? 2 : 3);
     return (
         <div className={classesMaker('bonsaigrid')}>
             <form action="/checkout/mli?"  className="bonsai-container dnSignupForm" id="signupForm">
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />
-                <input type="hidden" name="rtype" value={pS.elligibility === 'freetrial' ? '14' : '11'} />
+                <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />
                 <input type="hidden" name="quantities" value="1" />
                 <input type="hidden" name="flow" value="3" />
                 <div id="mainWrap">
@@ -100,7 +100,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                                                 defaultChecked={selectedTest} 
                                                                                 type="radio" 
                                                                                 name="offers" 
-                                                                                value={offer.offerIDs[subs.offerElligibilityType]} 
+                                                                                value={offer.offerIDs[pS.elligibility]} 
                                                                                 id={offer.id} 
                                                                                 aria-labelledby={offer.description} 
                                                                             />
@@ -108,7 +108,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                                                 {offer.promoSavings && (!offer.ldbm  ? <span className="strike-through-price">{offer.currency}{offer.renewalPeriod.MSRP}<LegalSup supRef="promoSave" /></span> : <span className="strike-through-price">{offer.currency}{offer.renewalPeriod.MSRPMEP}/mo.<LegalSup supRef="promoSave" /></span>)}
                                                                                 {!offer.ldbm  ? <span>{offer.currency}{offer.renewalPeriod.displayPrice}</span> : <span>{offer.currency}{offer.renewalPeriod.displayPriceMEP}/mo.<LegalSup supRef="longDurationBilledMonthly" /></span>}
                                                                             </span>
-                                                                            {pS.elligibility === `freetrial` && <p>after free trial</p>}
+                                                                            {/initial/.test(pS.elligibility) && <p>after free trial</p>}
                                                                         </label>
                                                                         {bestTest && subs.display.packages[subs.display.packages.length - 1].id === offer.packageID
                                                                             && <div className="bottomRow bestCol w100"></div>}
@@ -125,7 +125,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                             <div className={`ancCol ctaCol full480 ${fullRowOffersTest ? `submit-full-row`: `w25`}`}>
                                 <div className="arrow hide480"></div>
                                 <div className="ctaBox">
-                                    <input type="submit" className="ancBtn orange lrg subBtn" value={pS.elligibility === `freetrial` ? `Start FREE trial` : `Get started`} />
+                                    <input type="submit" className="ancBtn orange lrg subBtn" value={/initial/.test(pS.elligibility) ? `Start FREE trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`} />
                                     <div className="myAccountInfo">
                                         <div className="oldphone"></div>
                                         <p className="textsml">Subscribe or cancel any time by calling <span className="bold greenTxt textlrg phoneNumb">1-800-ANCESTRY</span></p>

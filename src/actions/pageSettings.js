@@ -26,21 +26,10 @@ export const removePageSettingsLocal = () => {
     delete window.localStorage.pageSettings;
 }
 
-// Replace Page Settings in REDUX
-export const replacePageSettings = (pageSettings) => ({
-    type: 'REPLACE_PAGE_SETTINGS',
-    pageSettings
-});
-
-// Edit Page Settings in REDUX
-export const modifyPageSettings = (pageSettings) => ({
-    type: 'MODIFY_PAGE_SETTINGS',
-    pageSettings
-});
-
 // Determine which page this is placed on
-export const pageTest = () => {
-    return !!document.location.pathname.match(`offers\/?(.*)`) ? document.location.pathname.match(`offers\/?(.*)`)[1] : `freetrial`;
+export const getLocation = () => {
+    const liveLocationCheck = document.location.pathname.match(`offers\/?(.*)`);
+    return !!liveLocationCheck ? liveLocationCheck[1] : `freetrial`;
 }
 
 // Get return URL for CARE/Deny Pages
@@ -50,8 +39,21 @@ export const getReturnURL = () => {
 }
 
 // Determine if elligible for Free Trial offer
-export const elligibilityTest = () => {
-    return pageTest() === `subscribe` ? `hardoffer` : !document.cookie.match(`BAIT([^; ]+)`) ? `freetrial` : /E(Trial|Sub)%3D1/.test(document.cookie.match(`BAIT([^; ]+)`)[0]) ? `hardoffer` : `freetrial`
+export const getElligibility = (location, subscriptionElligibility) => {
+    const loc = location || getLocation();
+    console.log(loc);
+    let subEl = 'initial';
+    const bait = document.cookie.match(`BAIT([^; ]+)`);
+    if (!!bait) {
+        subEl = (!/E(Trial|Sub)%3D1/.test(bait[0]) && !/subscribe/.test(loc)) ? `initial` : !/CSub%3d1/.test(bait[0]) ? 'renewal' :'migration';
+    }
+    if (subscriptionElligibility) {
+        subEl = subscriptionElligibility;
+    }
+    if (/subscribe/.test(loc) && /initial/.test(subEl)) {
+        subEl = 'renewal';
+    }
+    return subEl;
 }
 
 // Determine types of offers elligible for
@@ -69,3 +71,15 @@ export const denyType = (location) => {
     }
     return 'NA';
 }
+
+// Replace Page Settings in REDUX
+export const replacePageSettings = (pageSettings) => ({
+    type: 'REPLACE_PAGE_SETTINGS',
+    pageSettings
+});
+
+// Edit Page Settings in REDUX
+export const modifyPageSettings = (pageSettings) => ({
+    type: 'MODIFY_PAGE_SETTINGS',
+    pageSettings
+});
