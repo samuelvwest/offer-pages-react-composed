@@ -43,6 +43,12 @@ export const pageTest = () => {
     return !!document.location.pathname.match(`offers\/?(.*)`) ? document.location.pathname.match(`offers\/?(.*)`)[1] : `freetrial`;
 }
 
+// Get return URL for CARE/Deny Pages
+export const getReturnURL = () => {
+    const returnURL = document.location.search.match(/url=([^&]+)/);
+    return !!returnURL ? returnURL[1] : false;
+}
+
 // Determine if elligible for Free Trial offer
 export const elligibilityTest = () => {
     return pageTest() === `subscribe` ? `hardoffer` : !document.cookie.match(`BAIT([^; ]+)`) ? `freetrial` : /E(Trial|Sub)%3D1/.test(document.cookie.match(`BAIT([^; ]+)`)[0]) ? `hardoffer` : `freetrial`

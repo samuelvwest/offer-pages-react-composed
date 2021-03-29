@@ -17,37 +17,9 @@
     margin-bottom: 8px;
 }
 
-// .container--bonsaigrid .offerGrid .headlines {
-//     padding: 20px 50px 0 0;
-// }
-
-// .container--bonsaigrid .offerGrid .headlines sup {
-//     font-size: 61%;
-// }
-
-// .container--bonsaigrid .offerGrid .documentsImg {
-//     background: url("https://www.ancestrycdn.com/mars/landing/offer/us/documents.png") no-repeat scroll 0 0 transparent;
-//     background-size: 100% auto;
-//     height: 261px;
-//     position: absolute;
-//     right: 0;
-//     top: 0;
-//     width: 100%;
-// }
-
-// .ie8 .container--bonsaigrid .offerGrid .documentsImg {
-//     right: -25px;
-//     width: 271px;
-// }
-
 .container--bonsaigrid .priceGrid {
     margin-bottom: 25px;
 }
-
-// .container--bonsaigrid .priceGrid .ancCol1,
-// .container--bonsaigrid .priceGrid .ancCol {
-//     position: relative;
-// }
 
 .container--bonsaigrid .priceGrid .ancColRow {
     margin-top: 0;
@@ -77,12 +49,12 @@
     margin-bottom: 90px;
 }
 
-.container--bonsaigrid .priceGrid #myAccountInfo {
+.container--bonsaigrid .priceGrid .myAccountInfo {
     padding-left: 25px;
     position: relative;
 }
 
-.container--bonsaigrid .priceGrid #myAccountInfo .oldphone {
+.container--bonsaigrid .priceGrid .myAccountInfo .oldphone {
     background: url("https://www.ancestrycdn.com/mars/landing/offer/us/pricing_nov2011_trans.png") no-repeat scroll 0 -88px transparent;
     height: 70px;
     left: -34px;
@@ -90,7 +62,7 @@
     width: 52px;
 }
 
-.container--bonsaigrid .priceGrid #myAccountInfo .phoneNumb {
+.container--bonsaigrid .priceGrid .myAccountInfo .phoneNumb {
     white-space: nowrap;
 }
 
@@ -127,6 +99,8 @@
 
 .container--bonsaigrid .priceTable .half320.colWrap {
     text-align: center;
+    padding-left:5px;
+    padding-right:5px;
 }
 
 .container--bonsaigrid .priceTable .half320.colWrap.bestCol {
@@ -180,7 +154,7 @@ $base-heading-height-increment: 14;
     vertical-align: bottom;
     &:nth-of-type(n+2) .colHeading {
         display:block;
-        background-color: rgba(134, 202, 227, 0.1);
+        background-color: #eaf0f3;
         min-height: #{$base-heading-height}px;
         padding: 11px 3px;
         border: 1px solid #b2aa9b;
@@ -315,50 +289,43 @@ $base-heading-height-increment: 14;
     }
 }
 
-// .aaRow td,
-// .aaRow th {
-//     position: relative;
-// }
-
-// .aaRow td .bottomRow,
-// .aaRow th .bottomRow {
-//     background-color: #fdf9d8;
-//     border: 1px solid #b2aa9b;
-//     border-width: 0 0 1px 1px;
-//     bottom: -5px;
-//     height: 5px;
-//     left: -1px;
-//     position: absolute;
-//     width: calc(100% + 1px);
-// }
-
-// .aaRow th .bottomRow.packageCol {
-//     border-radius: 0 0 0 5px;
-// }
-
-// .aaRow .bottomRow.bestCol {
-//     background-color: #fff;
-//     border-radius: 0 0 5px 5px;
-//     border: 1px solid #b2aa9b;
-//     border-width: 0 1px 1px;
-//     bottom: -10px;
-//     height: 13px;
-//     position: absolute;
-//     width: calc(100% + 2px);
-//     z-index: 10;
-// }
-
-// .worldPlusRow ul {
-//     font-size: 14px;
-//     list-style-type: disc;
-//     padding-left: 20px;
-//     padding-top: 5px;
-// }
-
-.priceLabel span:not(.strike-through-price) {
+.container--bonsaigrid .priceLabel span:not(.strike-through-price) {
     display: block;
 }
 
-label:not(.ancBtn) {
+.container--bonsaigrid label:not(.ancBtn) {
     font-weight: 400;
+}
+
+.container--bonsaigrid .offerings-full-row {
+    position:relative;
+    display:block;
+}
+
+.container--bonsaigrid .priceGrid .ctaCol.submit-full-row {
+    position:relative;
+    display:block;
+    width: 100%;
+    padding: 40px 80px 0 0;
+    text-align: right;
+    .arrow {
+        right: 40px;
+        top: 0;
+        left: auto;
+        border-left: 120px solid transparent;
+        border-top: 60px solid #b8d94c;
+        border-right: 120px solid transparent;
+        border-bottom: none;
+    }
+    .ctaBox {
+        margin-top:40px;
+        margin-bottom: 0;
+        .ancBtn {
+            margin-bottom: 20px;
+        }
+        .myAccountInfo {
+            width:230px;
+            margin-top: -90px;
+        }
+    }
 }

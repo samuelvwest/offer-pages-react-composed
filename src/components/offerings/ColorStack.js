@@ -25,6 +25,7 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
     return (
         <form className={classesMaker('colorstack')} action="/checkout/mli?">
+            {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
             <input type="hidden" name="direct" value="1" />
             <input type="hidden" name="rtype" value={pS.elligibility === 'freetrial' ? '14' : '11'} />
             <input type="hidden" name="quantities" value="1" />
@@ -91,8 +92,14 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                             <span className="ancCol linkArrow icon iconArrowRight"></span>
                                             <span className={`ancCol w60 priceTextCon ${offer.ldbm && `priceTextCon--ldbm`}`}>
                                                 {!offer.ldbm && pS.elligibility === `freetrial` && <span className="daysFree">14 DAYS FREE<br /></span>}
-                                                <span className={`${offer.ldbm ? `daysFree` : `priceTxt`}${pS.elligibility !== `freetrial` && ` priceTextCon__priceTxt--hardoffer`}`}>
+                                                <span className={`${offer.ldbm ? `daysFree` : `priceTxt`}${pS.elligibility !== `freetrial` ? ` priceTextCon__priceTxt--hardoffer` : ``}`}>
                                                     {!offer.ldbm && pS.elligibility === `freetrial` && `then `}
+                                                    {offer.promoSavings && 
+                                                        <span className="strike-through-price">
+                                                            {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
+                                                            <LegalSup supRef="promoSave" />
+                                                        </span>
+                                                    }
                                                     {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : `${offer.renewalPeriod.displayPriceMEP}/month`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
                                                 </span>
 

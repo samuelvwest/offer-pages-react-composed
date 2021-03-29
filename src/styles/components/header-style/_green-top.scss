@@ -9,6 +9,7 @@
 }
 
 .container--greentop .ftSubPageHeader .page {
+    position:relative;
     padding: 20px 10px;
 }
 
@@ -74,12 +75,19 @@
     background-color: #f0eee9;
 }
 
-.container--greentop .pageHeroImg {
+.container--greentop .pageHeroImg--header {
+    display: block;
     background: url('https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-herobkg.png') no-repeat;
     background-size: 100% auto;
-    float: right;
+    background-position: top right;
+    position: absolute;
     height: 359px;
-    margin-top: -166px;
+    /* margin-top: -115px; */
     max-width: 100%;
-    width: 375px;
+    width: 38%;
+    bottom: -230px;
+    right: 0;
+    @media only screen and (max-width:767px) {
+        display:none;
+    }
 }

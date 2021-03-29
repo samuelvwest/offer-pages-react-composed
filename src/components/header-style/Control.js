@@ -28,6 +28,7 @@ const Control = connect(mapStateToProps)((props) => {
             </div>
         )
     } else if (props.pageSettings.location === 'join') {
+        // Green Top for Tablet & Desktop for CARE pages
         const packageData = props.pageSettings.packagesData.find((pkg) => pkg.order === props.pageSettings.denyLevel);
         return (
             <div className={classesMaker('greentop')}>
@@ -40,18 +41,9 @@ const Control = connect(mapStateToProps)((props) => {
                             <HeaderText />
                         </h1> 
                         <Timeline />
+                        <div className="pageHeroImg pageHeroImg--header"></div>
                     </div>
                 </header>
-                <section className="ftSubOfferSection mainOfferSection">
-                    <div className="page">
-                        <div className="ancGrid full480">
-                            <div className="ancCol w60"></div>
-                            <div className="ancCol w40 hide480">
-                                <div className="pageHeroImg"></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         )
     } else if (window.innerWidth < props.pageSettings.breaks.control.desktop) {

@@ -467,7 +467,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 1,
             billMonths: 1,
-            displayPrice: 24.99,
+            displayPrice: 16.99,
             MSRP: 24.99
         },
         offerIDs: {
@@ -487,7 +487,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 3,
             billMonths: 3,
-            displayPrice: 49.95,
+            displayPrice: 33.95,
             MSRP: 49.95
         },
         offerIDs: {
@@ -507,7 +507,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 3,
             billMonths: 1,
-            displayPrice: 49.95,
+            displayPrice: 33.95,
             MSRP: 49.95
         },
         offerIDs: {
@@ -527,7 +527,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 6,
             billMonths: 6,
-            displayPrice: 99,
+            displayPrice: 69,
             MSRP: 99
         },
         offerIDs: {
@@ -547,7 +547,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 6,
             billMonths: 1,
-            displayPrice: 99,
+            displayPrice: 69,
             MSRP: 99
         },
         offerIDs: {
@@ -567,7 +567,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 12,
             billMonths: 12,
-            displayPrice: 189,
+            displayPrice: 132,
             MSRP: 189
         },
         offerIDs: {
@@ -587,7 +587,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 12,
             billMonths: 1,
-            displayPrice: 189,
+            displayPrice: 132,
             MSRP: 189
         },
         offerIDs: {
@@ -607,7 +607,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 1,
             billMonths: 1,
-            displayPrice: 39.99,
+            displayPrice: 26.99,
             MSRP: 39.99
         },
         offerIDs: {
@@ -627,7 +627,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 3,
             billMonths: 3,
-            displayPrice: 79.95,
+            displayPrice: 54.95,
             MSRP: 79.95
         },
         offerIDs: {
@@ -647,7 +647,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 3,
             billMonths: 1,
-            displayPrice: 79.95,
+            displayPrice: 54.95,
             MSRP: 79.95
         },
         offerIDs: {
@@ -667,7 +667,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 6,
             billMonths: 6,
-            displayPrice: 149,
+            displayPrice: 104,
             MSRP: 149
         },
         offerIDs: {
@@ -687,7 +687,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 6,
             billMonths: 1,
-            displayPrice: 149,
+            displayPrice: 104,
             MSRP: 149
         },
         offerIDs: {
@@ -707,7 +707,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 12,
             billMonths: 12,
-            displayPrice: 299,
+            displayPrice: 209,
             MSRP: 299
         },
         offerIDs: {
@@ -727,7 +727,7 @@ export const promoSubscriptions = [
         renewalPeriod: {
             renewMonths: 12,
             billMonths: 1,
-            displayPrice: 299,
+            displayPrice: 209,
             MSRP: 299
         },
         offerIDs: {

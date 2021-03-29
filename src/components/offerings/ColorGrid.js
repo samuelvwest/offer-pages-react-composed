@@ -25,10 +25,11 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
     return (
         <section id="formCon" className={classesMaker('colorgrid')}>
             <form className="form clearfix" id="newOfferStyle" action="/checkout/mli?">
-            <input type="hidden" name="direct" value="1" />
-            <input type="hidden" name="rtype" value={pS.elligibility === 'freetrial' ? '14' : '11'} />
-            <input type="hidden" name="quantities" value="1" />
-            <input type="hidden" name="flow" value="3" />
+                {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
+                <input type="hidden" name="direct" value="1" />
+                <input type="hidden" name="rtype" value={pS.elligibility === 'freetrial' ? '14' : '11'} />
+                <input type="hidden" name="quantities" value="1" />
+                <input type="hidden" name="flow" value="3" />
                 <div className="ancGrid ancGridNoGutters" id="priceGrid">
                     <div className="priceCol ancCol w40" id="priceFirstCol">
                         <div className="priceRow priceHeadRow"></div>
