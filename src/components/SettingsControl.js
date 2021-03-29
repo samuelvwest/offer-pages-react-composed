@@ -100,12 +100,13 @@ const SettingsDropDown = connect(mapStateToProps, mapDispatchToProps)((props) =>
 })
 
 const DeniedToButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
+    const denyPackage = props.pageSettings.packagesData.find((pkg) => pkg.denyStr === props.deniedTo);
     const classesMaker = () => {
-        const activeClass = props.pageSettings.denyType === props.deniedTo  ? ` settings__group__button--active` : ``;
+        const activeClass = props.pageSettings.denyLevel === denyPackage.order  ? ` settings__group__button--active` : ``;
         const hideClass = props.pageSettings.location !== 'join' ? ` settings__group__button--hide` : ``;
          return `settings__group__button settings__group__button--deniedto${activeClass}${hideClass}`;
     }
-    return <button className={classesMaker()} onClick={() => props.modifyPageSettings({ denyType: props.deniedTo })}>{props.displayText}</button>
+    return <button className={classesMaker()} onClick={() => props.modifyPageSettings({ denyLevel: denyPackage.order })}>{props.displayText}</button>
 });
 
 const SettingsGrouping = connect(mapStateToProps)((props) => (!props.collapsable || (!!props.collapsable && !props.pageSettings.settingsCollapsed)) ? (

@@ -12,17 +12,20 @@ export const packagesData = [
         id: `usdiscovery`,
         order: 1,
         name: `U.S. Discovery`,
-        desc: ``
+        desc: ``,
+        denyStr: `Ancestry_US_Deluxe`
     }, {
         id: `worldexplorer`,
         order: 2,
         name: `World Explorer`,
-        desc: ``
+        desc: ``,
+        denyStr: `Ancestry_World_Deluxe`
     }, {
         id: `allaccess`,
         order: 3,
         name: `All Access`,
-        desc: ``
+        desc: ``,
+        denyStr: `All_Access`
     }
 ]
 

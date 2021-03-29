@@ -10,7 +10,7 @@ import ColorGrid from '../pages/ColorGrid';
 import BonsaiGrid from '../pages/BonsiaGrid';
 import GreenTop from '../pages/GreenTop';
 import SparklyDragon from '../pages/SparklyDragon';
-import HeaderStyle from './HeaderStyle';
+import HeaderStyle from './header-style/HeaderStyle';
 import Offerings from './offerings/Offerings';
 import LegalText from './LegalText';
 
@@ -55,15 +55,16 @@ export class OfferPage extends React.Component {
             }, 500)
         }
     }
-    getDenyType = () => {
+    getDenyPackageLevel = () => {
         // console.log('ran deny type function');
         if (this.props.pageSettings.location === 'join') {
             if (!window.deniedTo || (!!window.deniedTo && !window.deniedTo.DenyToV1)) {
                 window._gDTI = setInterval(() => {
                     // console.log('checked');
                     if (!!window.deniedTo && !!window.deniedTo.DenyToV1 && !!window.deniedTo.DenyToV2) {
+                        const denyPackage = this.props.pageSettings.packagesData.find((pkg) => pkg.denyStr === window.deniedTo.DenyToV1);
                         this.props.modifyPageSettings({
-                            denyType: denyType(this.props.pageSettings.location)
+                            denyLevel: !!denyPackage ? denyPackage.order : 'NA'
                         });
                         // console.log('cleared interval');
                         clearInterval(window._gDTI);
@@ -95,7 +96,7 @@ export class OfferPage extends React.Component {
     }
     render() {
         this.setTitleAttribute();
-        this.getDenyType();
+        this.getDenyPackageLevel();
         // this.displayOffersData = buildDisplayOffersData({
         //     pS: this.props.pageSettings,
         //     oM: this.props.subscriptions

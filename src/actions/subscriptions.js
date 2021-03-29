@@ -165,6 +165,11 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
     return data;
 }
 
+// Filter display packages
+export const filterDisplayPackages = (displayPackages, packagesData, denyLevel) => {
+    return displayPackages.map((disPkg) => packagesData.find((pkgData) => pkgData.id === disPkg)).filter((pkgData) => pkgData.order >= denyLevel).map((pkg) => pkg.id);
+}
+
 // Replace Subscriptions in REDUX
 export const replaceSubscriptions = (subscriptions) => ({
     type: 'REPLACE_SUBSCRIPTIONS',

@@ -1,11 +1,12 @@
 import { showSettingsTest, getPageSettingsLocal, pageTest, elligibilityTest, denyType } from '../actions/pageSettings';
 import { subscriptions, packagesData } from './subscriptions';
-import { buildDisplayOffersData } from '../actions/subscriptions';
+import { buildDisplayOffersData, filterDisplayPackages } from '../actions/subscriptions';
 
 
 
 export const pageSettings = getPageSettingsLocal() || {
     location: pageTest(),
+    denyLevel: 1,
     elligibility: elligibilityTest(),
     showSettings: showSettingsTest(),
     settingsCollapsed: false,
@@ -34,6 +35,7 @@ export const pageSettings = getPageSettingsLocal() || {
 }
 
 pageSettings.denyType = denyType(pageSettings.location, window.deniedTo);
-pageSettings.subscriptions = buildDisplayOffersData(pageSettings, subscriptions)
+pageSettings.displayPackages = filterDisplayPackages(pageSettings.displayPackages, packagesData, pageSettings.denyLevel);
+pageSettings.subscriptions = buildDisplayOffersData(pageSettings, subscriptions);
 
 export default pageSettings;

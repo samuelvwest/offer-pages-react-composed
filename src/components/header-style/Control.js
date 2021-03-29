@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Timeline from './Timeline';
-import HeaderText from './HeaderText';
+import Timeline from '../Timeline';
+import HeaderText from '../HeaderText';
 
 const mapStateToProps = (state) => {
     return {
         pageSettings: state.pageSettings,
-        variables: state.variables,
-        subscriptions: state.subscriptions
+        variables: state.variables
     }
 };
 
@@ -15,7 +14,7 @@ const classesMaker = (styleName) => {
     return `container container--${styleName} header-style header-style--${styleName}`
 }
 
-const ControlHeader = (props) => {
+const Control = connect(mapStateToProps)((props) => {
     if (window.innerWidth < props.pageSettings.breaks.control.tablet) {
         // Color Stack for Phone on all offer pages
         return (
@@ -29,13 +28,13 @@ const ControlHeader = (props) => {
             </div>
         )
     } else if (props.pageSettings.location === 'join') {
-        // Green Top for Tablet & Desktop for CARE pages
+        const packageData = props.pageSettings.packagesData.find((pkg) => pkg.order === props.pageSettings.denyLevel);
         return (
             <div className={classesMaker('greentop')}>
                 <header className="ftSubPageHeader bgDark bgTexture3 bgColor4">
                     <div className="page">
                         <p className="bold ftSubPageIntro">
-                            {/World_Deluxe/.test(props.pageSettings.denyType) ? `World Explorer` : `U.S. Discovery`} membership
+                            {packageData.name} membership
                         </p>
                         <h1 className="ftSubPageTitle">
                             <HeaderText />
@@ -101,61 +100,6 @@ const ControlHeader = (props) => {
             </div>
         )
     }
-}
+})
 
-const SparklyDragonHeader = (props) => {
-    return (
-        <div className={classesMaker('sparklydragon')}>
-            <section id="memOptions" className="aboveFoldCon">
-                <div className="chooseMemText hide768 show480 hidden-md-up textCenter">
-                    <span className="bold headline-text">
-                        <HeaderText />
-                    </span>
-                    <Timeline />
-                </div>
-                <div className="ancGrid priceGrid hide480 hero-section-container">
-                    <div className="ancCol hide480 w25 hide show-lg-up-block">
-                        <div className="documentsImg documentimg-hero-desk"></div>
-                    </div>
-                    <div className="ancCol full480 w75">
-                        <div className="headlines">
-                            <h1 className="greenTxt text3xlrg bold">
-                                <HeaderText />
-                            </h1>
-                            <p className="textlrg">
-                                <span className="cancel-txt">Cancel anytime. Keep your family tree.</span>
-                            </p>
-                        </div>
-                        <Timeline />
-                    </div>
-                    <div className="ancCol hide480 w25 hide show768 hidden-lg-up">
-                        <div className="documentsImg document-hero-img-tab"></div>
-                    </div>
-                    {/* <div className="buttonpill-wrap" id="form-plan-container">
-                        <div className="buttonpill-inner">
-                            <div className="buttonPill">
-                                <button type="button" id="monthPill" className="activePill monthPill icon iconCheck">Monthly</button> 
-                                <input id="monthPillInput" className="radioBtn hide" type="radio" name="planPer" value="monthly" /> 
-                                <button type="button" id="month6Pill" className="inactivePill month6Pill">6 Months</button> 
-                                <input id="month6PillInput" className="radioBtn hide" type="radio" name="planPer" value="biannual" />
-                                <div className="arrow" id="save20">
-                                    <span className="textsml">Saves $$</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-                </div>
-            </section>
-        </div>
-    )
-}
-
-const HeaderStyle = connect(mapStateToProps)((props) => {
-    if (props.variables.headerStyle === `sparkly-dragon`) {
-        return <SparklyDragonHeader {...props} />
-    } else {
-        return <ControlHeader {...props} />
-    }
-});
-
-export default HeaderStyle;
+export default Control;

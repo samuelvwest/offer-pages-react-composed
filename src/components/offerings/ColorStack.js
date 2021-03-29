@@ -69,99 +69,46 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                             const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
                             return packageTest && renewMonthsTest && ldbmTest;
                         });
-                        if (!!offer) {
-                            return (
-                                <div key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className={offer.packageData.order === 3 ? `orangePackageRow` : offer.packageData.order === 2 ? `greenPackageRow` : `bluePackageRow`}>
-                                    <div className="annualPriceCon priceCon ancGrid">
-                                        <label className="priceLink clearfix" htmlFor={offer.id}>
-                                            <input 
-                                                id={offer.id} 
-                                                value={offer.offerIDs[subs.offerElligibilityType]} 
-                                                className="radioBtn"
-                                                type="radio" 
-                                                name="offers" 
-                                                aria-labelledby={offer.description} 
-                                            />
-                                            <div className={`leftPkgImg leftPkgImg--${pkgData.id} ftlpMobileSprite ancCol w25`}>
-                                                <div className="colorOverlay"></div>
-                                            </div>
-                                            <div className="ancCol w75">
-                                                {/usdiscovery/.test(pkgData.id) && <span className="ancCol durationTxt">All U.S. records</span>}
-                                                {/worldexplorer/.test(pkgData.id) && <span className="ancCol durationTxt">Everything on Ancestry</span>}
-                                                {/allaccess/.test(pkgData.id) && <span className="ancCol durationTxt">Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" /></strong></span>}
-                                                <span className="ancCol linkArrow icon iconArrowRight"></span>
-                                                <span className={`ancCol w60 priceTextCon ${offer.ldbm && `priceTextCon--ldbm`}`}>
-                                                    {!offer.ldbm && pS.elligibility === `freetrial` && <span className="daysFree">14 DAYS FREE<br /></span>}
-                                                    <span className={`${offer.ldbm ? `daysFree` : `priceTxt`}${pS.elligibility !== `freetrial` && ` priceTextCon__priceTxt--hardoffer`}`}>
-                                                        {!offer.ldbm && pS.elligibility === `freetrial` && `then `}
-                                                        {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : `${offer.renewalPeriod.displayPriceMEP}/month`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
-                                                    </span>
+                        return (
+                            <div key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className={offer.packageData.order === 3 ? `orangePackageRow` : offer.packageData.order === 2 ? `greenPackageRow` : `bluePackageRow`}>
+                                <div className="annualPriceCon priceCon ancGrid">
+                                    <label className="priceLink clearfix" htmlFor={offer.id}>
+                                        <input 
+                                            id={offer.id} 
+                                            value={offer.offerIDs[subs.offerElligibilityType]} 
+                                            className="radioBtn"
+                                            type="radio" 
+                                            name="offers" 
+                                            aria-labelledby={offer.description} 
+                                        />
+                                        <div className={`leftPkgImg leftPkgImg--${pkgData.id} ftlpMobileSprite ancCol w25`}>
+                                            <div className="colorOverlay"></div>
+                                        </div>
+                                        <div className="ancCol w75">
+                                            {/usdiscovery/.test(pkgData.id) && <span className="ancCol durationTxt">All U.S. records</span>}
+                                            {/worldexplorer/.test(pkgData.id) && <span className="ancCol durationTxt">Everything on Ancestry</span>}
+                                            {/allaccess/.test(pkgData.id) && <span className="ancCol durationTxt">Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" /></strong></span>}
+                                            <span className="ancCol linkArrow icon iconArrowRight"></span>
+                                            <span className={`ancCol w60 priceTextCon ${offer.ldbm && `priceTextCon--ldbm`}`}>
+                                                {!offer.ldbm && pS.elligibility === `freetrial` && <span className="daysFree">14 DAYS FREE<br /></span>}
+                                                <span className={`${offer.ldbm ? `daysFree` : `priceTxt`}${pS.elligibility !== `freetrial` && ` priceTextCon__priceTxt--hardoffer`}`}>
+                                                    {!offer.ldbm && pS.elligibility === `freetrial` && `then `}
+                                                    {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : `${offer.renewalPeriod.displayPriceMEP}/month`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
+                                                </span>
 
-                                                    {/* {offer.ldbm && pS.elligibility === `freetrial` && <br />} */}
-                                                    {offer.ldbm && pS.elligibility === `freetrial` && <span className="priceTxt"><br />after free trial</span>}
-                                                </span> 
+                                                {/* {offer.ldbm && pS.elligibility === `freetrial` && <br />} */}
+                                                {offer.ldbm && pS.elligibility === `freetrial` && <span className="priceTxt"><br />after free trial</span>}
+                                            </span> 
 
-                                                {/* {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>} */}
-                                                
-                                                {offer.renewalPeriod.renewMonths === 1 && <span className="ancCol w40 cancelText">Cancel anytime</span>}
-                                                {!!offer.durationSavings && <span className="ancCol w40 cancelText saveText"><strong>SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></strong></span>}
-                                            </div>
-                                        </label>
-                                    </div>
+                                            {/* {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>} */}
+                                            
+                                            {offer.renewalPeriod.renewMonths === 1 && <span className="ancCol w40 cancelText">Cancel anytime</span>}
+                                            {!!offer.durationSavings && <span className="ancCol w40 cancelText saveText"><strong>SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></strong></span>}
+                                        </div>
+                                    </label>
                                 </div>
-                            )
-
-                        }
-                        // return (
-                        //     <div key={pkgData.id} className={`priceCol ancCol w20 ${pkgData.order === 3 ? `purpleColumn` : pkgData.order === 2 ? `blueColumn` : `greenColumn`}`}>
-                        //         <div className="priceRow priceHeadRow">
-                        //             <h2 className="text3xlrg" id={pkgData.id}>{pkgData.name}</h2>
-                        //             {/usdiscovery/.test(pkgData.id) && <p className="textlrg">Uncover your family story in U.S. records</p>}
-                        //             {/worldexplorer/.test(pkgData.id) && <p className="textxlrg">Unlock global content &amp; collections</p>}
-                        //             {/allaccess/.test(pkgData.id) && <p className="textxlrg">All of Ancestry, Fold3, Newspapers.com Basic<LegalSup supRef="newspapersBasic" /></p>}
-                        //         </div>
-                        //         {subs.display.durations.map((duration) => {
-                        //             const offer = subs.display.offersMap.find((offer) => {
-                        //                 const packageTest = pkgData.id === offer.packageID;
-                        //                 const renewMonthsTest = duration.num === offer.renewalPeriod.renewMonths;
-                        //                 const ldbmTest = duration.ldbm === offer.ldbm;
-                        //                 return packageTest && renewMonthsTest && ldbmTest;
-                        //             });
-                        //             if (!!offer) {
-                        //                 const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewalPeriod.renewMonths && offer.packageID === subs.selectedOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.selectedOffer.ldbm : true);
-                        //                 return (
-                        //                     <label key={`${offer.packageData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className={`priceRow ${offer.rowClass} clearfix`} htmlFor={offer.id}
-                        //                         onClick={() => props.modifyPageSettings({ 
-                        //                             selectedOffer: { 
-                        //                                 renewMonths: offer.renewalPeriod.renewMonths, 
-                        //                                 packageID: offer.packageID,
-                        //                                 ldbm: offer.ldbm
-                        //                             }
-                        //                         })}
-                        //                     >
-                        //                         <input 
-                        //                             id={offer.id} 
-                        //                             value={offer.offerIDs[subs.offerElligibilityType]} 
-                        //                             defaultChecked={selectedTest} 
-                        //                             className="radio"
-                        //                             type="radio" 
-                        //                             name="offers" 
-                        //                             aria-labelledby={offer.description} 
-                        //                         />
-                        //                         <div className={`checkSelectCon ancCol${selectedTest ? ` icon iconCheck` : ``}`}></div>
-                        //                         <div className="priceCon ancCol">
-                        //                             {!!offer.durationSavings && <span className="saveText textxlrg">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /><br /></span>}
-                        //                             {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>}
-                        //                             <span className="priceText text4xlrg">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}</span>
-                        //                             {offer.ldbm && <span className="priceText textlrg"><br />per month<LegalSup supRef="longDurationBilledMonthly" /></span>}
-                        //                             {pS.elligibility === `freetrial` && <span className="freeTrialText textlrg"><br />after free trial</span>}
-                        //                         </div>
-                        //                     </label>
-                        //                 )
-                        //             }
-                        //         })}
-                        //     </div>
-                        // )
+                            </div>
+                        )
                     })}
                 </section>
             </section>
