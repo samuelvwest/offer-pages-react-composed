@@ -110,7 +110,7 @@ const GreenTop = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                         )
                                     })}
                                 </div>
-                                <input className="ancBtn orange full xlrg" type="submit" value="CLICK FOR FREE TRIAL ▶" />
+                                <input className="ancBtn orange full xlrg" type="submit" value={/initial/.test(subs.offerElligibilityType) ? `CLICK FOR FREE TRIAL ▶` : /renewal/.test(subs.offerElligibilityType) ? `CLICK TO GET STARTED ▶` : `UPGRADE NOW ▶`} />
                             </form>
                         </div>
                         {!/control/.test(props.variables.headerStyle) && 
