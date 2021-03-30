@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
 import BonsaiGrid from './BonsaiGrid';
-import { LegalSup, LegalText } from '../LegalText';
+import { LegalSup, LegalLongDurationBilledMonthly, LegalDurationSaves, LegalText } from '../LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -31,13 +31,15 @@ export class GreenTop extends React.Component {
         const subs = pS.subscriptions;
         const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
         const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
+        const ldbmDurations = [];
+        const durationSaveOffers = [];
         return (
             <div className={classesMaker('greentop')}>
                 <section className="ftSubOfferSection mainOfferSection">
                     <div className="page">
                         <div className="ancGrid full480">
                             <div className="ancCol w60">
-                                <form action="/checkout/mli?" id="mainCtaForm" className="ftSubOfferForm dnSignupForm">
+                                <form action="/checkout/mli?" className="ftSubOfferForm dnSignupForm">
                                     {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                                     <input type="hidden" name="direct" value="1" />
                                     <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />
@@ -54,10 +56,9 @@ export class GreenTop extends React.Component {
                                                 const ldbmTest = duration.ldbm === ofr.ldbm;
                                                 return packageTest && renewMonthsTest && ldbmTest;
                                             });
+                                            if (duration.ldbm) ldbmDurations.push(duration.num)
+                                            if (offer.durationSavings) durationSaveOffers.push(offer)
                                             const toggleButtonTest = duration.num > 1 && toggleTest;
-                                            // console.log(pS.denyLevel, duration.num, duration.ldbm);
-                                            // console.log(offer);
-                                            // const privateRowTest = duration.num === 1 && (sbsTest || (toggleTest && subs.display.durations.length > 3) || (subs.display.durations.length % 2) !== 0);
                                             const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && (toggleButtonTest ? true : offer.ldbm === subs.selectedOffer.ldbm);
                                             const bestTest = offer.renewalPeriod.renewMonths === subs.bestOffer.renewMonths && (toggleButtonTest ? true : offer.ldbm === subs.bestOffer.ldbm);
                                             return (
@@ -78,7 +79,6 @@ export class GreenTop extends React.Component {
                                                     <div className="radCheckWrap">
                                                         <div className="radCheckHidden">
                                                             <input 
-                                                                id={offer.id} 
                                                                 value={offer.offerIDs[subs.offerElligibilityType]} 
                                                                 defaultChecked={selectedTest} 
                                                                 className="radio"
@@ -128,15 +128,14 @@ export class GreenTop extends React.Component {
                                 </div>
                             }
                         </div>
-                        <div className="ancGrid seeAllMemSection">
-                            <div className="ancCol w50">
-                                <button className="link bold text2xlrg seeAllMemBtn" type="button" onClick={this.seeAllOptionsModal}>See all membership options</button>
-                                <div className="modal modal--top-greentop">
-                                    <BonsaiGrid/>
-                                    <LegalText/>
-                                </div>
+                        <div className="seeAllMemSection">
+                            <button className="link bold text2xlrg seeAllMemBtn" type="button" onClick={this.seeAllOptionsModal}>See all membership options</button>
+                            <div className="modal modal--top-greentop">
+                                <BonsaiGrid/>
+                                <LegalText/>
                             </div>
-                            <div className="ancCol w50"></div>
+                            {ldbmDurations.length > 0 && <LegalLongDurationBilledMonthly durations={ldbmDurations} />}
+                            {durationSaveOffers.length > 0 && <LegalDurationSaves durationSaveOffers={durationSaveOffers} />}
                         </div>
                     </div>
                 </section>

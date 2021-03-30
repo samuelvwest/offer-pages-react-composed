@@ -18,8 +18,8 @@ export const pageSettings = getPageSettingsLocal() || {
             desktop: 769
         }
     },
-    LDBM: 'toggle-front', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
-    displayDurations: [1, 6], // 1, 3, 6, 12
+    LDBM: 'side-by-side', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
+    displayDurations: [1, 3, 6, 12], // 1, 3, 6, 12
     displayPackages: ['usdiscovery', 'worldexplorer', 'allaccess'], // 'usdiscovery', 'worldexplorer', 'allaccess' 
     selectedOffer: {
         renewMonths: 1, // must be included in 'displayDurations' setting

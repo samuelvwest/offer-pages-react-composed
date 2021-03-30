@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
-import { LegalSup } from '../LegalText';
+import { LegalSup, LegalLongDurationBilledMonthly } from '../LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -23,15 +23,15 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const subs = pS.subscriptions;
     const rowClasses = [ `priceSmallRow`, `priceMediumLowRow`, `priceMediumHighRow`, `priceTallRow` ]
     return (
-        <section id="formCon" className={classesMaker('colorgrid')}>
-            <form className="form clearfix" id="newOfferStyle" action="/checkout/mli?">
+        <section className={`formCon ${classesMaker('colorgrid')}`}>
+            <form className="form clearfix" action="/checkout/mli?">
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />
                 <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />
                 <input type="hidden" name="quantities" value="1" />
                 <input type="hidden" name="flow" value="3" />
-                <div className="ancGrid ancGridNoGutters" id="priceGrid">
-                    <div className="priceCol ancCol w40" id="priceFirstCol">
+                <div className="ancGrid ancGridNoGutters priceGrid">
+                    <div className="priceCol ancCol w40 priceFirstCol">
                         <div className="priceRow priceHeadRow"></div>
                         {subs.display.durations.map((duration) => {
                             const toggleButtonTest = duration.num > 1 && !!pS.LDBM && /toggle/.test(pS.LDBM);
@@ -59,7 +59,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                         return (
                             <div key={pkgData.id} className={`priceCol ancCol w20 ${pkgData.order === 3 ? `purpleColumn` : pkgData.order === 2 ? `blueColumn` : `greenColumn`}`}>
                                 <div className="priceRow priceHeadRow">
-                                    <h2 className="text3xlrg" id={pkgData.id}>{pkgData.name}</h2>
+                                    <h2 className="text3xlrg">{pkgData.name}</h2>
                                     {/usdiscovery/.test(pkgData.id) && <p className="textlrg">Uncover your family story in U.S. records</p>}
                                     {/worldexplorer/.test(pkgData.id) && <p className="textxlrg">Unlock global content &amp; collections</p>}
                                     {/allaccess/.test(pkgData.id) && <p className="textxlrg">All of Ancestry, Fold3, Newspapers.com Basic<LegalSup supRef="newspapersBasic" /></p>}
@@ -84,7 +84,6 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                                 })}
                                             >
                                                 <input 
-                                                    id={offer.id} 
                                                     value={offer.offerIDs[pS.elligibility]} 
                                                     defaultChecked={selectedTest} 
                                                     className="radio"
@@ -108,13 +107,14 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                         )
                     })}
                 </div>
-                <div id="priceGridCtaCon" className="ancGrid">
+                <div className="ancGrid">
                     <div className="ancCol w40"></div>
                     <div className="ancCol w60">
-                        <input type="submit" className="ancBtn orange lrg ancBtnRnd" id="priceGridCta" value={/initial/.test(pS.elligibility) ? `Start your FREE trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`}  />
+                        <input type="submit" className="ancBtn orange lrg ancBtnRnd priceGridCta" value={/initial/.test(pS.elligibility) ? `Start your FREE trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`}  />
                     </div>
                 </div>
             </form>
+            {subs.ldbms && <LegalLongDurationBilledMonthly/>}
         </section>
     )
 })

@@ -39,12 +39,32 @@ export const LegalHardOffer = () => (
     </p>
 )
 
-export const LegalLongDurationBilledMonthly = () => (
-    <p className={classesMaker(`legal-text__paragraph`, `ldbm`)}>
-        <LegalSup supRef="longDurationBilledMonthly"/>
-        You are committing to a six-month subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.    
-    </p>
-)
+export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) => {
+    const numWords = {
+        '3': 'three',
+        '6': 'six',
+        '12': 'twelve'
+    }
+    let durations = props.durations || props.pageSettings.subscriptions.display.durations.filter((duration) => duration.ldbm).map((duration) => duration.num);
+    if (durations.length > 0) {
+        const durWords = durations.map((duration, index, array) => {
+            const preText = index === 0 ? `${array.length > 1 ? `either ` : ``}a ` : ``;
+            return `${preText}${numWords[duration.toString()]}-month`
+        }).reduce((accumulator, currentValue, currentIndex, array) => {
+            const connector = array.length === 2 ? `` : `,`;
+            const orWord = array.length === (currentIndex + 1) ? ` or` : ``;
+            return accumulator + connector + orWord + ` ${currentValue}`
+        })
+        window._ldbmLegalRendered = true;
+        return (
+            <p className={classesMaker(`legal-text__paragraph`, `ldbm`)}>
+                <LegalSup supRef="longDurationBilledMonthly"/>
+                You are committing to {durWords} subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.    
+            </p>
+        )
+    }
+    return <div></div>
+});
 
 export const LegalNewspapersBasic = () => (
     <p className={classesMaker(`legal-text__paragraph`, `newspapers-basic`)}>
@@ -53,9 +73,10 @@ export const LegalNewspapersBasic = () => (
     </p>
 )
 
-export const LegalDurationSaves = connect(mapStateToProps)(({ pageSettings }) => {
+export const LegalDurationSaves = connect(mapStateToProps)((props) => {
     const uniqueSaves = [];
-    pageSettings.subscriptions.durationSaveOffers.forEach((offer) => {
+    const durationSaveOffers = props.durationSaveOffers || props.pageSettings.subscriptions.durationSaveOffers
+    durationSaveOffers.forEach((offer) => {
         if (!uniqueSaves.find((uOfr) => uOfr.renewalPeriod.renewMonths === offer.renewalPeriod.renewMonths && uOfr.renewalPeriod.displayPrice === offer.renewalPeriod.displayPrice)) {
             uniqueSaves.push(offer);
         }
@@ -89,7 +110,7 @@ export const LegalPromoSaves = ({ saveOffers }) => {
 
 export const LegalText = connect(mapStateToProps)((props) => (
     <div className="legal-text">
-        {props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly />}
+        {!window._ldbmLegalRendered && props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly />}
         {props.pageSettings.elligibility === `freetrial` ? <LegalFreeTrial /> : <LegalHardOffer />}
         {props.pageSettings.subscriptions.durationSaveOffers && <LegalDurationSaves saveOffers={props.pageSettings.subscriptions.durationSaveOffers} />}
         {props.pageSettings.subscriptions.promoSaveOffers && <LegalPromoSaves saveOffers={props.pageSettings.subscriptions.promoSaveOffers} />}

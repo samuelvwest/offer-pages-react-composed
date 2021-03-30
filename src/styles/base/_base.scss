@@ -22,11 +22,6 @@
     }
 }
 
-.legal-text {
-    display:block;
-    font-size: 14px;
-}
-
 .legal-text__sup {
     top:-.3em;
     font-size: .61em;
@@ -46,7 +41,7 @@
 .legal-text__paragraph {
     position:relative;
     display:block;
-    margin: 10px 20px 0px 24px;
+    margin: 20px 20px 20px 24px;
     font-size: 14px;
     > sup:first-of-type {
         position:absolute;
@@ -59,6 +54,19 @@
         font-size:1em;
         &.legal-text__sup--asterisk {
             font-size:1.23em;
+        }
+    }
+}
+
+.legal-text {
+    display:block;
+    font-size: 14px;
+    margin: 20px 0px;
+    max-width:1000px;
+    .legal-text__paragraph {
+        margin: 0px 20px 10px 24px;
+        &:nth-last-of-type(1) {
+            margin: 0px 20px 0px 24px;
         }
     }
 }

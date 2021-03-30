@@ -379,9 +379,15 @@ const SettingsControl = () => (
                 <h5 className="settings__group__name">Offerings</h5>
                 <SettingsButton 
                     settingGroup="variables"
-                    settingAttribute="offerStyle" 
+                    settingAttribute="offerings" 
                     settingValue="control" 
                     displayText="Control" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="offerings" 
+                    settingValue="sparkly-dragon" 
+                    displayText="Sparkly Dragon" 
                 />
             </div>
         </SettingsGrouping>

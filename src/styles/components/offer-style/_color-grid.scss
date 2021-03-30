@@ -1,4 +1,4 @@
-.container--colorgrid #formCon {
+.container--colorgrid .formCon {
     display: block;
     margin: auto;
     max-width: 1005px;
@@ -8,7 +8,7 @@
     border-right: 10px solid #f8f7f3;
 }
 
-.container--colorgrid #priceFirstCol {
+.container--colorgrid .priceFirstCol {
     padding-right: 10px;
     text-align: right;
     .ldbmToggle { 
@@ -237,7 +237,7 @@
     line-height: 35px;
 }
 
-.container--colorgrid #priceGridCta {
+.container--colorgrid .priceGridCta {
     display: block;
     font-size: 24px;
     margin: auto;
@@ -312,14 +312,14 @@
         height: 125px;
     }
 
-    .container--colorgrid #priceGrid .w40 {
+    .container--colorgrid .priceGrid .w40 {
         width: 29%;
     }
-    .container--colorgrid #priceGrid .w20 {
+    .container--colorgrid .priceGrid .w20 {
         width: 23%;
     }
 
-    .container--colorgrid #priceGridCta {
+    .container--colorgrid .priceGridCta {
         font-size: 20px;
         padding: 10px 30px;
     }

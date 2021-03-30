@@ -5,6 +5,7 @@ import ColorStack from './ColorStack';
 import ColorGrid from './ColorGrid';
 import BonsaiGrid from './BonsaiGrid';
 import GreenTop from './GreenTop';
+import SparklyDragon from './SparklyDragon';
 
 const mapStateToProps = (state) => {
     return {
@@ -17,8 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
     modifyPageSettings: (modifications) => dispatch(modifyPageSettings(modifications))
 });
 
-
-const Offerings = connect(mapStateToProps, mapDispatchToProps)((props) => {
+const Control = connect(mapStateToProps, mapDispatchToProps)((props) => {
     if (window.innerWidth < props.pageSettings.breaks.control.tablet) {
         // Color Stack for Phone on all offer pages
         return <ColorStack/>
@@ -32,8 +32,16 @@ const Offerings = connect(mapStateToProps, mapDispatchToProps)((props) => {
         // Bonsai Grid for Desktp on FTLP & HOLP
         return <BonsaiGrid/>
     }
+});
 
 
+const Offerings = connect(mapStateToProps, mapDispatchToProps)((props) => {
+    switch (props.variables.offerings) {
+        case 'sparkly-dragon':
+            return <SparklyDragon/>
+        default: 
+            return <Control/>;
+    }
 });
 
 export default Offerings;

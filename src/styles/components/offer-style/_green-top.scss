@@ -146,8 +146,16 @@
     width: 375px;
 }
 
-.container--greentop .ancGrid.seeAllMemSection {
-    margin-top: 45px;
+.container--greentop .seeAllMemSection {
+    display:block;
+    margin: 20px 0;
+    .legal-text__paragraph {
+        color: #6a6865;
+        margin: 15px 15px 5px 14px;
+        &:nth-last-of-type(1) {
+            // margin: 0px 15px 15px 14px;
+        }
+    }
 }
 
 .container--greentop .offerLegalTxt {
