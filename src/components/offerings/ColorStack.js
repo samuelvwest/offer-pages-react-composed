@@ -28,7 +28,7 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
             <form action="/checkout/mli?">
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />
-                <input type="hidden" name="rtype" value={pS.elligibility === 'freetrial' ? '14' : '11'} />
+                <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />
                 <input type="hidden" name="quantities" value="1" />
                 <input type="hidden" name="flow" value="3" />
                 <section className="pricingCon">

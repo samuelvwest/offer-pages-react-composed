@@ -1,0 +1,303 @@
+.container--sparklydragon button {
+    outline: 0!important
+}
+
+
+.container--sparklydragon {
+    .buttonpills-wrap {
+        position: relative;
+        margin-left: 10px;
+        margin-right: 10px;
+        &:before {
+            content: '';
+            width: 100%;
+            height: 1px;
+            border-top: solid 1px #cccbca;
+            top: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        .buttonpills-inner {
+            width: 690px;
+            max-width: calc(100% - 60px);
+            margin: 0 auto;
+            background: #fff;
+            position: relative;
+            z-index: 6;
+            &.buttonpills-inner--narrow {
+                width:470px;
+            }
+            .buttonPills {
+                clear: both;
+                display: block;
+                min-height:35px;
+                height: auto;
+                padding: 0 10px;
+                margin: 10px auto;
+                position: relative;
+                width: auto;
+                overflow: hidden;
+                text-align: center;
+                @media screen and (min-width:320px) and (max-width:767px) {
+                    margin-top: 0
+                }
+                @media (min-width:768px) {
+                    margin-bottom: 20px;
+                }
+                @media (min-width:320px) and (max-width:374px) {
+                    font-size: 14px;
+                }
+                button {
+                    position:relative;
+                    border: 1px solid #54534f;
+                    border-radius: 50px;
+                    padding: 7px;
+                    // position: absolute;
+                    font-weight: 600;
+                    text-align: center;
+                    width: 125px;
+                    margin: 1px -10px;
+                    &.privateRow {
+                        display:block;
+                        margin: 1px auto;
+                    }
+                    &.activePill {
+                        background-color: #18191c;
+                        color: #fff;
+                        z-index: 10;
+                    }
+                    &.inactivePill {
+                        z-index:1;
+                        background-color: #fff;
+                    }
+                    // &:nth-of-type(1) {
+                    //     left:0;
+                    // }
+                    // &:nth-last-of-type(1) {
+                    //     right:0;
+                    // }
+                    @media (min-width:320px) and (max-width:374px) {
+                        border-radius: 50px;
+                        padding: 5px;
+                    }
+                    > span {
+                        display:block;
+                        font-weight: normal;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    
+    // .container--sparklydragon .buttonPill .arrow.arrow-mv-left {
+    //     right: -80px
+    // }
+    
+    // .container--sparklydragon .buttonPill .monthPill.inactivePill {
+    //     padding-right: 20px
+    // }
+    
+    // .container--sparklydragon .buttonPill .monthPill.activePill {
+    //     padding-right: 7px
+    // }
+    
+    // .container--sparklydragon .buttonPill .month6Pill.inactivePill {
+    //     padding-left: 20px
+    // }
+    
+    // .container--sparklydragon .buttonPill .month6Pill.activePill {
+    //     padding-left: 7px
+    // }
+    
+    .center-grid {
+        margin: 0 auto!important;
+        text-align: center;
+    }
+    
+    .subs-plan-container {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            max-width: 490px;
+        }
+    }
+    
+    .ancGridEqual {
+        @media (min-width: 320px) and (max-width: 374px) {
+            border-spacing: 5px 0;
+        }
+    }
+
+    .saving-plan-sixmonths {
+        position:relative;
+        height: 34px;
+        background: #ffe300;
+        margin: 10px -10px;
+        padding: 5px;
+        font-weight: 700;
+        cursor: default;
+    }
+
+    .subs-plan-outer-wrap {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            padding: 10px;
+            padding-bottom: 0;
+            &:first-child {
+                padding-top:0;
+            }
+        }
+    }
+    
+    .subs-plan-wrap {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            display: flex!important;
+            padding: 10px;
+            border-radius: 6px;
+            position: relative;
+            min-height: 104px;
+            max-height: 104px;
+            .saving-plan-sixmonths {
+                position: absolute;
+                right: 10px;
+                top: -10px;
+                border-radius: 2px;
+                height: 20px;
+                width: 78px;
+                font-size: 14px;
+                font-weight: 400;
+                padding: 0;
+            }
+        }
+    }
+    
+    .usrecords {
+        border: solid 3px;
+        border-color: #6ba410;
+    }
+
+    .usnintrecords {
+        border: solid 3px;
+        border-color: #1c88b0;
+    }
+
+    .allacc-plan-br-mbl {
+        border: solid 3px #61527e;
+    }
+    
+    .us-dis-plan-wrap {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            display: flex!important;
+            padding: 10px;
+            background-color: #f8faf3;
+        }
+    }
+    
+    .world-ex-plan-wrap {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            background-color: #f2f8fa;
+        }
+    }
+
+    .allacc-plan-wrap {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            background-color: #f7f6f9;
+        }
+    }
+
+    .plan-hero-img {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            margin-right: 10px;
+        }
+    }
+    
+    .planTitle {
+        font-size: 18px!important;
+        min-height: 78px;
+        padding-bottom: 0;
+    }
+
+    .plan-subtitle {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            font-weight: 400;
+        }
+    }
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        .allacc-plan-wrap .subs-plan-desc .plan-subtitle, 
+        .world-ex-plan-wrap .subs-plan-desc .plan-subtitle {
+            margin-bottom: 12px;
+        }
+    }
+
+    .subs-plan-desc {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            flex: 0 0 260px;
+            text-align: left;
+            margin-right: 25px;
+            margin-right: calc(100% - 319px);
+            &.allacc-plan-desc {
+                margin-left: -5px;
+                // flex: 0 0 214px;
+                // margin-right: 1px;
+                // margin-right: calc(100% - 273px);
+            }
+            .planTitle {
+                min-height: 0;
+                font-size: 16px!important;
+            }
+            .plan-subtitle {
+                margin-bottom: 25px;
+                display: inline-block;
+            }
+        }
+    }
+
+    .right-arrow-wrap {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            align-self: center;
+            font-size: 30px;
+        }
+    }
+
+    .plan-detail {
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            display: block;
+            line-height: 1;
+            &.plan-detail--longduration {
+                margin-left: -38px;
+                @media screen and (min-width: 360px) {
+                    margin-left:0px;
+                }
+            }
+        }
+    }
+
+    .plan-price-wrap {
+        font-weight: 600;
+        .plan-price {
+            font-size:20px;
+            &.plan-price--medium {
+                font-size:16px;
+            }
+            &.plan-price--small {
+                font-size:14px;
+            }
+        }
+    }
+
+    .border-highlight {
+        border-bottom: solid 2px #ffe300;
+    }
+
+
+
+    .bamboo3 {
+        color: #6ba410;
+    }
+
+    .Wave3 {
+        color: #0079a3;
+    }
+
+    .allaccess-color {
+        color: #61527e;
+    }
+}

@@ -942,11 +942,11 @@ body {
     // }
 }
 
-@media (min-width:576px) and (max-width:767px) {
-    .container--sparklydragon .planTitle {
-        min-height: 48px
-    }
-}
+// @media (min-width:576px) and (max-width:767px) {
+//     .container--sparklydragon .planTitle {
+//         min-height: 48px
+//     }
+// }
 
 @media (min-width:768px) {
     // .container--sparklydragon .headlines {
@@ -994,40 +994,40 @@ body {
     .container--sparklydragon .ancGridEqual {
         border-spacing: 8px 0
     }
-    .container--sparklydragon .plan-select-header {
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        justify-content: space-between
-    }
-    .container--sparklydragon .planTitle {
-        flex-basis: 142px;
-        min-height: auto;
-        padding-bottom: 0
-    }
-    .container--sparklydragon .flex-container {
-        display: flex
-    }
-    .container--sparklydragon .allaccess-plan-detail,
-    .container--sparklydragon .usnint-plan-detail {
-        display: inline-block;
-        margin-left: -10px;
-        margin-right: -10px
-    }
-    .container--sparklydragon .usrecords-img {
-        width: 40px;
-        height: 24px
-    }
-    .container--sparklydragon .p10 {
-        padding: 10px!important
-    }
-    .container--sparklydragon .plan-description {
-        text-align: left;
-        min-height: 80px
-    }
-    .container--sparklydragon .allaccess {
-        border: solid 3px #61527e
-    }
+    // .container--sparklydragon .plan-select-header {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-items: center;
+    //     justify-content: space-between
+    // }
+    // .container--sparklydragon .planTitle {
+    //     flex-basis: 142px;
+    //     min-height: auto;
+    //     padding-bottom: 0
+    // }
+    // .container--sparklydragon .flex-container {
+    //     display: flex
+    // }
+    // .container--sparklydragon .allaccess-plan-detail,
+    // .container--sparklydragon .usnint-plan-detail {
+    //     display: inline-block;
+    //     margin-left: -10px;
+    //     margin-right: -10px
+    // }
+    // .container--sparklydragon .usrecords-img {
+    //     width: 40px;
+    //     height: 24px
+    // }
+    // .container--sparklydragon .p10 {
+    //     padding: 10px!important
+    // }
+    // .container--sparklydragon .plan-description {
+    //     text-align: left;
+    //     min-height: 80px
+    // }
+    // .container--sparklydragon .allaccess {
+    //     border: solid 3px #61527e
+    // }
     .container--sparklydragon .how-does-ancestry-work {
         margin-bottom: 20px
     }

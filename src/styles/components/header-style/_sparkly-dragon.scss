@@ -1,4 +1,5 @@
 .container--sparklydragon {
+    background-color: #ffffff;
     @media (min-width:768px) {
         box-sizing: border-box;
         margin: 0 auto;
@@ -29,7 +30,7 @@
     }
 }
 
-.container--sparklydragon section#memOptions {
+.container--sparklydragon section.memOptions {
     @media (min-width:1005px) {
         position: relative;
         &:before {
