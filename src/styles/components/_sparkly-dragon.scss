@@ -25,41 +25,41 @@ body {
 //     width: 100%
 // }
 
-.container--sparklydragon button {
-    outline: 0!important
-}
+// .container--sparklydragon button {
+//     outline: 0!important
+// }
 
-.container--sparklydragon .buttonPill {
-    clear: both;
-    display: block;
-    height: 35px;
-    margin: 10px auto;
-    position: relative;
-    width: 210px
-}
+// .container--sparklydragon .buttonPill {
+//     clear: both;
+//     display: block;
+//     height: 35px;
+//     margin: 10px auto;
+//     position: relative;
+//     width: 210px
+// }
 
-.container--sparklydragon .buttonPill #monthPill {
-    left: 0
-}
+// .container--sparklydragon .buttonPill #monthPill {
+//     left: 0
+// }
 
-.container--sparklydragon .aboveFoldCon .buttonPill button.activePill {
-    background-color: #54534f;
-    color: #fff;
-    z-index: 10
-}
+// .container--sparklydragon .aboveFoldCon .buttonPill button.activePill {
+//     background-color: #54534f;
+//     color: #fff;
+//     z-index: 10
+// }
 
-.container--sparklydragon .aboveFoldCon .buttonPill button {
-    border: 1px solid #54534f;
-    border-radius: 50px;
-    padding: 7px;
-    position: absolute;
-    text-align: center;
-    width: 118px
-}
+// .container--sparklydragon .aboveFoldCon .buttonPill button {
+//     border: 1px solid #54534f;
+//     border-radius: 50px;
+//     padding: 7px;
+//     position: absolute;
+//     text-align: center;
+//     width: 118px
+// }
 
-.container--sparklydragon .buttonPill #month6Pill {
-    right: 0
-}
+// .container--sparklydragon .buttonPill #month6Pill {
+//     right: 0
+// }
 
 .container--sparklydragon .usRecordsCon {
     background-color: #1c88b0;
@@ -408,14 +408,14 @@ body {
     justify-content: space-between
 }
 
-.container--sparklydragon .activePill {
-    background-color: #18191c!important;
-    font-weight: 600
-}
+// .container--sparklydragon .activePill {
+//     background-color: #18191c!important;
+//     font-weight: 600
+// }
 
-.container--sparklydragon .inactivePill {
-    background-color: #fff!important
-}
+// .container--sparklydragon .inactivePill {
+//     background-color: #fff!important
+// }
 
 .container--sparklydragon .plan-inclusions-container {
     position: relative
@@ -513,9 +513,9 @@ body {
     .container--sparklydragon .ancGrid .plan-select-header {
         padding-bottom: 0
     }
-    .container--sparklydragon .buttonPill {
-        margin-top: 0
-    }
+    // .container--sparklydragon .buttonPill {
+    //     margin-top: 0
+    // }
     .container--sparklydragon .allaccess-plan-detail,
     .container--sparklydragon .us-plan-detail,
     .container--sparklydragon .usnint-plan-detail {
@@ -942,11 +942,11 @@ body {
     // }
 }
 
-// @media (min-width:576px) and (max-width:767px) {
-//     .container--sparklydragon .planTitle {
-//         min-height: 48px
-//     }
-// }
+@media (min-width:576px) and (max-width:767px) {
+    .container--sparklydragon .planTitle {
+        min-height: 48px
+    }
+}
 
 @media (min-width:768px) {
     // .container--sparklydragon .headlines {
@@ -994,40 +994,40 @@ body {
     .container--sparklydragon .ancGridEqual {
         border-spacing: 8px 0
     }
-    // .container--sparklydragon .plan-select-header {
-    //     display: flex;
-    //     align-items: center;
-    //     justify-items: center;
-    //     justify-content: space-between
-    // }
-    // .container--sparklydragon .planTitle {
-    //     flex-basis: 142px;
-    //     min-height: auto;
-    //     padding-bottom: 0
-    // }
-    // .container--sparklydragon .flex-container {
-    //     display: flex
-    // }
-    // .container--sparklydragon .allaccess-plan-detail,
-    // .container--sparklydragon .usnint-plan-detail {
-    //     display: inline-block;
-    //     margin-left: -10px;
-    //     margin-right: -10px
-    // }
-    // .container--sparklydragon .usrecords-img {
-    //     width: 40px;
-    //     height: 24px
-    // }
-    // .container--sparklydragon .p10 {
-    //     padding: 10px!important
-    // }
-    // .container--sparklydragon .plan-description {
-    //     text-align: left;
-    //     min-height: 80px
-    // }
-    // .container--sparklydragon .allaccess {
-    //     border: solid 3px #61527e
-    // }
+    .container--sparklydragon .plan-select-header {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: space-between
+    }
+    .container--sparklydragon .planTitle {
+        flex-basis: 142px;
+        min-height: auto;
+        padding-bottom: 0
+    }
+    .container--sparklydragon .flex-container {
+        display: flex
+    }
+    .container--sparklydragon .allaccess-plan-detail,
+    .container--sparklydragon .usnint-plan-detail {
+        display: inline-block;
+        margin-left: -10px;
+        margin-right: -10px
+    }
+    .container--sparklydragon .usrecords-img {
+        width: 40px;
+        height: 24px
+    }
+    .container--sparklydragon .p10 {
+        padding: 10px!important
+    }
+    .container--sparklydragon .plan-description {
+        text-align: left;
+        min-height: 80px
+    }
+    .container--sparklydragon .allaccess {
+        border: solid 3px #61527e
+    }
     .container--sparklydragon .how-does-ancestry-work {
         margin-bottom: 20px
     }
@@ -1089,9 +1089,9 @@ body {
         right: 0;
         left: 70px
     }
-    .container--sparklydragon .buttonPill {
-        margin-bottom: 20px
-    }
+    // .container--sparklydragon .buttonPill {
+    //     margin-bottom: 20px
+    // }
     .container--sparklydragon .plan-comp-check-icon,
     .container--sparklydragon .plan-comp-cross-icon {
         vertical-align: bottom
@@ -2033,9 +2033,9 @@ body {
     z-index: 10
 }
 
-.container--sparklydragon .buttonPill .arrow.arrow-mv-left {
-    right: -80px
-}
+// .container--sparklydragon .buttonPill .arrow.arrow-mv-left {
+//     right: -80px
+// }
 
 .container--sparklydragon .img-fluid-width {
     max-width: 100%
@@ -2184,21 +2184,21 @@ body {
     border-bottom: 1px solid #cccbca
 }
 
-.container--sparklydragon .buttonPill .monthPill.inactivePill {
-    padding-right: 20px
-}
+// .container--sparklydragon .buttonPill .monthPill.inactivePill {
+//     padding-right: 20px
+// }
 
-.container--sparklydragon .buttonPill .monthPill.activePill {
-    padding-right: 7px
-}
+// .container--sparklydragon .buttonPill .monthPill.activePill {
+//     padding-right: 7px
+// }
 
-.container--sparklydragon .buttonPill .month6Pill.inactivePill {
-    padding-left: 20px
-}
+// .container--sparklydragon .buttonPill .month6Pill.inactivePill {
+//     padding-left: 20px
+// }
 
-.container--sparklydragon .buttonPill .month6Pill.activePill {
-    padding-left: 7px
-}
+// .container--sparklydragon .buttonPill .month6Pill.activePill {
+//     padding-left: 7px
+// }
 
 .container--sparklydragon .border-highlight {
     border-bottom: solid 2px #ffe300
@@ -2385,29 +2385,29 @@ body {
     height: 28px
 }
 
-.container--sparklydragon .buttonpill-wrap {
-    position: relative;
-    margin-left: 10px;
-    margin-right: 10px
-}
+// .container--sparklydragon .buttonpill-wrap {
+//     position: relative;
+//     margin-left: 10px;
+//     margin-right: 10px
+// }
 
-.container--sparklydragon .buttonpill-wrap::before {
-    content: '';
-    width: 100%;
-    height: 1px;
-    border-top: solid 1px #cccbca;
-    top: 50%;
-    position: absolute;
-    z-index: 1
-}
+// .container--sparklydragon .buttonpill-wrap::before {
+//     content: '';
+//     width: 100%;
+//     height: 1px;
+//     border-top: solid 1px #cccbca;
+//     top: 50%;
+//     position: absolute;
+//     z-index: 1
+// }
 
-.container--sparklydragon .buttonpill-inner {
-    width: 230px;
-    margin: 0 auto;
-    background: #fff;
-    position: relative;
-    z-index: 6
-}
+// .container--sparklydragon .buttonpill-inner {
+//     width: 230px;
+//     margin: 0 auto;
+//     background: #fff;
+//     position: relative;
+//     z-index: 6
+// }
 
 .container--sparklydragon .user-card-img-new {
     width: 40px;
@@ -2695,13 +2695,13 @@ body {
     .container--sparklydragon .arrow.bounce {
         top: 3px
     }
-    .container--sparklydragon .buttonPill {
-        font-size: 14px
-    }
-    .container--sparklydragon .aboveFoldCon .buttonPill button {
-        border-radius: 50px;
-        padding: 5px
-    }
+    // .container--sparklydragon .buttonPill {
+    //     font-size: 14px
+    // }
+    // .container--sparklydragon .aboveFoldCon .buttonPill button {
+    //     border-radius: 50px;
+    //     padding: 5px
+    // }
     .container--sparklydragon .con .conTitle {
         font-size: 16px!important
     }

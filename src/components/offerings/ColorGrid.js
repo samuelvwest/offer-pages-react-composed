@@ -85,7 +85,8 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                             >
                                                 <input 
                                                     value={offer.offerIDs[pS.elligibility]} 
-                                                    defaultChecked={selectedTest} 
+                                                    checked={selectedTest} 
+                                                    onChange={() => {}}
                                                     className="radio"
                                                     type="radio" 
                                                     name="offers" 

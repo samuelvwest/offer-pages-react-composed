@@ -19,13 +19,14 @@ const addDays = (date, days) => {
 
 const Timeline = connect(mapStateToProps)((props) => {
     const pS = props.pageSettings;
+    const subs = pS.subscriptions
     if (props.variables.timeline && !/migration/.test(pS.elligibility)) {
         const firstDay = new Date();  
         const ftEnd = addDays(firstDay, 14);
         // console.log(firstDay, ftEnd);
         return (
             <div className="mytimelineWrapper mytimelineWrapper-desk">
-                <div className="mytimeline usdis-bgcolor" id="mytimeline-md">
+                <div className={`mytimeline ${(!/sparkly/.test(props.variables.offerings) || /usdiscovery/.test(subs.selectedOffer.packageID)) ? `usdis-bgcolor` : /worldexplorer/.test(subs.selectedOffer.packageID) ? `worldex-bgcolor` : `allaccess-btn-bgcolor`}`} id="mytimeline-md">
                     <div className="myleft-circle">
                         <div className="mydot-circle"></div>
                     </div>

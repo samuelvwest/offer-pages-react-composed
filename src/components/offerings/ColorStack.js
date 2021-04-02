@@ -57,7 +57,14 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                         </div>
                         {toggleTest && subs.selectedOffer.renewMonths !== 1 && 
                             <p className="durationLDBMButton">
-                                <button type="button" onClick={() => props.modifyPageSettings({LDBM: (subs.selectedOffer.ldbm ? `toggle-back` : `toggle-front`) })}>
+                                <button type="button" onClick={() => this.props.modifyPageSettings({
+                                    LDBM: (subs.selectedOffer.ldbm ? `toggle-back` : `toggle-front`),
+                                    selectedOffer: { 
+                                        renewMonths: pS.selectedOffer.renewMonths, 
+                                        packageID: pS.selectedOffer.packageID,
+                                        ldbm: !subs.selectedOffer.ldbm
+                                    }
+                                })}>
                                     Or pay {subs.selectedOffer.ldbm ? `all ${subs.selectedOffer.renewMonths} months upfront` : `monthly`}
                                 </button>
                             </p>
@@ -76,7 +83,7 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                     <div className="annualPriceCon priceCon ancGrid">
                                         <label className="priceLink clearfix" htmlFor={offer.id}>
                                             <input 
-                                                value={offer.offerIDs[subs.offerElligibilityType]} 
+                                                value={offer.offerIDs[pS.elligibility]} 
                                                 className="radioBtn"
                                                 type="radio" 
                                                 name="offers" 

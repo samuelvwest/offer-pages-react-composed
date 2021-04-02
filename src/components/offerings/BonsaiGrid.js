@@ -96,10 +96,11 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                                         <h3 className="bold show320 textlrg">{offer.renewalPeriod.renewMonths === 1 ? `Monthly` : `${offer.renewalPeriod.renewMonths}-month`} membership</h3>
                                                                         {!!offer.durationSavings && <p className="bold redTxt coloralt2 textxlrg">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></p>}
                                                                         <input 
-                                                                            defaultChecked={selectedTest} 
+                                                                            value={offer.offerIDs[pS.elligibility]} 
+                                                                            checked={selectedTest} 
+                                                                            onChange={() => {}}
                                                                             type="radio" 
                                                                             name="offers" 
-                                                                            value={offer.offerIDs[pS.elligibility]} 
                                                                             aria-labelledby={offer.description} 
                                                                         />
                                                                         <span className="bold greenTxt text4xlrg">

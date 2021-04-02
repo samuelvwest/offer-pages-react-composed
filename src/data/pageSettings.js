@@ -16,6 +16,9 @@ export const pageSettings = getPageSettingsLocal() || {
         control: {
             tablet: 601,
             desktop: 769
+        },
+        sparklydragon: {
+            desktop: 768
         }
     },
     LDBM: 'side-by-side', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'

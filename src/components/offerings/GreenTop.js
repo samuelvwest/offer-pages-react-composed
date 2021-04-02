@@ -79,8 +79,9 @@ export class GreenTop extends React.Component {
                                                     <div className="radCheckWrap">
                                                         <div className="radCheckHidden">
                                                             <input 
-                                                                value={offer.offerIDs[subs.offerElligibilityType]} 
-                                                                defaultChecked={selectedTest} 
+                                                                value={offer.offerIDs[pS.elligibility]} 
+                                                                checked={selectedTest} 
+                                                                onChange={() => {}}
                                                                 className="radio"
                                                                 type="radio" 
                                                                 name="offers" 

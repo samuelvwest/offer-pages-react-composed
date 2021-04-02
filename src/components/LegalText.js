@@ -55,7 +55,9 @@ export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) =
             const orWord = array.length === (currentIndex + 1) ? ` or` : ``;
             return accumulator + connector + orWord + ` ${currentValue}`
         })
-        window._ldbmLegalRendered = true;
+        if (!props.fromFullLegal) {
+            window._ldbmLegalRendered = true;
+        }
         return (
             <p className={classesMaker(`legal-text__paragraph`, `ldbm`)}>
                 <LegalSup supRef="longDurationBilledMonthly"/>
@@ -73,6 +75,8 @@ export const LegalNewspapersBasic = () => (
     </p>
 )
 
+export const LegalDurationSaveLine = ({offer}) => <span className={classesMaker(`legal-text__line`,`duration-save`)}>A {offer.renewalPeriod.renewMonths}&ndash;month {offer.packageData.name} commitment of {offer.currency}{offer.renewalPeriod.displayPrice} saves you {offer.currency}{offer.durationSavings.display} when compared to a {offer.durationSavings.compareOffer.renewalPeriod.renewMonths}-month commitment of {offer.currency}{offer.durationSavings.compareOffer.renewalPeriod.displayPrice} over the same time&nbsp;period.</span>
+
 export const LegalDurationSaves = connect(mapStateToProps)((props) => {
     const uniqueSaves = [];
     const durationSaveOffers = props.durationSaveOffers || props.pageSettings.subscriptions.durationSaveOffers
@@ -85,7 +89,7 @@ export const LegalDurationSaves = connect(mapStateToProps)((props) => {
         <p className={classesMaker(`legal-text__paragraph`, `duration-saves`)}>
             <LegalSup supRef="durationSave"/>
             {uniqueSaves.map((offer, index) => (
-                <span key={index}>{index > 0 && <br />}A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} commitment of {offer.currency}{offer.renewalPeriod.displayPrice} saves you {offer.currency}{offer.durationSavings.display} when compared to a {offer.durationSavings.compareOffer.renewalPeriod.renewMonths}-month commitment of {offer.currency}{offer.durationSavings.compareOffer.renewalPeriod.displayPrice} over the same time&nbsp;period.</span>
+                <span key={index}>{index > 0 && <br />}<LegalDurationSaveLine offer={offer}/></span>
             ))}
         </p>
     )
@@ -110,7 +114,7 @@ export const LegalPromoSaves = ({ saveOffers }) => {
 
 export const LegalText = connect(mapStateToProps)((props) => (
     <div className="legal-text">
-        {!window._ldbmLegalRendered && props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly />}
+        {!window._ldbmLegalRendered && props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly fromFullLegal={true} />}
         {props.pageSettings.elligibility === `freetrial` ? <LegalFreeTrial /> : <LegalHardOffer />}
         {props.pageSettings.subscriptions.durationSaveOffers && <LegalDurationSaves saveOffers={props.pageSettings.subscriptions.durationSaveOffers} />}
         {props.pageSettings.subscriptions.promoSaveOffers && <LegalPromoSaves saveOffers={props.pageSettings.subscriptions.promoSaveOffers} />}

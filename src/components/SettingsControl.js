@@ -93,7 +93,7 @@ const SettingsDropDown = connect(mapStateToProps, mapDispatchToProps)((props) =>
     const selectedObj = valueOptions.find((valOpt) => props[props.settingGroup].subscriptions[props.settingAttribute][valueGroup] === valOpt.value)
 
     return (
-        <select className="settings__group__dropdown" name={`${props.settingAttribute}-${props.settingValue}`} onChange={(e) => { newSelection(e, valueGroup) }} defaultValue={selectedObj.value}>
+        <select className="settings__group__dropdown" name={`${props.settingAttribute}-${props.settingValue}`} onChange={(e) => { newSelection(e, valueGroup) }} value={selectedObj.value}>
             {valueOptions.map((valOpt) => <option key={`${props.settingAttribute}-${valueGroup}_from_${props[props.settingGroup][props.settingAttribute][valueGroup]}_to_${valOpt.value}`} value={valOpt.value}>{valOpt.name}</option>)}
         </select>
     )
@@ -343,6 +343,12 @@ const SettingsControl = () => (
                     settingAttribute="headerStyle" 
                     settingValue="color-columns" 
                     displayText="Color Columns" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="headerStyle" 
+                    settingValue="pretty-grid" 
+                    displayText="Pretty Grid" 
                 />
             </div>
             <div className="settings__group">
