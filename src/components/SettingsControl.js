@@ -341,12 +341,6 @@ const SettingsControl = () => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="headerStyle" 
-                    settingValue="color-columns" 
-                    displayText="Color Columns" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="headerStyle" 
                     settingValue="pretty-grid" 
                     displayText="Pretty Grid" 
                 />
@@ -364,6 +358,12 @@ const SettingsControl = () => (
                     settingAttribute="headerText" 
                     settingValue="sparkly-dragon" 
                     displayText="Sparkly Dragon" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="headerText" 
+                    settingValue="pretty-grid" 
+                    displayText="Pretty Grid" 
                 />
             </div>
             <div className="settings__group">

@@ -1,0 +1,124 @@
+.header-style--prettygrid {
+
+    .offerPageHeader {
+        background-color: #f7ede3;
+        background-image: -webkit-linear-gradient(left, #f7ede3 0%, #f7ede3 60%, #885d4e 40%, #885d4e 100%);
+        background-image: linear-gradient(to right, #f7ede3 0%, #f7ede3 60%, #885d4e 40%, #885d4e 100%);
+        /* min-height: 225px; */
+        overflow: hidden;
+    }
+
+    .page {
+        position: relative;
+    }
+
+    .offerPageHeaderImg {
+        background-image: url(https://www.ancestrycdn.com/mars/landing/offer/2018/hero-tree/3080-hero-tree-offer-header-bkg.jpg);
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: top right;
+        position: absolute;
+        right: -25px;
+        top: 0;
+        width: 580px;
+        max-width:60%;
+        height: 100%;
+        // &:after {
+        //     content: "";
+        //     display: block;
+        //     height: 0;
+        //     padding-bottom: 32.79817%;
+        // }
+        &:after {
+            content: "";
+            display:block;
+            position:absolute;
+            left:0;
+            top:0;
+            width:100px;
+            height:100%;
+            background: rgb(247,237,227);
+            background: linear-gradient(90deg, rgba(247,237,227,1) 0%, rgba(247,237,227,0) 100%);
+        }
+    }
+
+    .headerContent {
+        padding-right: 330px;
+        position: relative;
+        // &.headerContent--control {
+        //     @media only screen and (min-width: 840px) and (max-width: 915px) {
+        //         padding-right: 280px;
+        //     }
+        // }
+    }
+
+    .offerPageTitle {
+        @media only screen and (min-width: 1px) and (max-width: 1199px) {
+            font-size: 36px;
+        }
+        @media only screen and (min-width: 1px) and (max-width: 1005px) {
+            font-size: 32px;
+        }
+        @media only screen and (min-width: 1px) and (max-width: 767px) {
+            font-size: 24px;
+            font-weight: normal;
+        }
+    }
+
+    .offerPageIntro.text2xlrg {
+        @media only screen and (min-width: 1px) and (max-width: 1005px) {
+            font-size: 18px;
+        }
+        @media only screen and (min-width: 1px) and (max-width: 767px) {
+            font-size: 16px;
+        }
+    }
+
+    .header-text--colorgrid {
+        font-size:19px;
+        margin-bottom: -7px;
+        @media only screen and (min-width: 705px) {
+            font-size: 22px;
+        }
+    }
+
+    .header-text--bonsaigrid {
+        max-width:91%;
+    //     font-size: 24px;
+    //     margin-bottom: -14px;
+    //     @media only screen and (min-width: 850px) {
+    //         font-size:30px;
+    //         margin-bottom:-4px;
+    //     }
+    //     @media only screen and (min-width: 950px) {
+    //         font-size: 34px;
+    //         margin-bottom: -14px;
+    //     }
+    //     @media only screen and (min-width: 1005px) {
+    //         margin-bottom: -19px;
+    //     }
+    }
+    
+
+    .coloraltgreen {
+        color: #7e9b27;
+    }
+
+    // Timeline present adjustments
+    .mytimelineWrapper {
+        margin-top:20px;
+        .myposttrial {
+            background: linear-gradient(90deg, #a9a9a9, #f7ede3);
+        }
+    }
+
+}
+
+
+.header-text--prettygrid {
+
+    .coloraltgreen {
+        color: #7e9b27;
+    }
+
+}

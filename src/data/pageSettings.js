@@ -19,6 +19,9 @@ export const pageSettings = getPageSettingsLocal() || {
         },
         sparklydragon: {
             desktop: 768
+        },
+        prettyGrid: {
+            tablet: 601
         }
     },
     LDBM: 'side-by-side', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
