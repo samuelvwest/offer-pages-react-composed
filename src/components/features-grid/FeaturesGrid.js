@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ColorGrid from './ColorGrid'
 import BonsaiGrid from './BonsaiGrid'
 // import SparklyDragon from './SparklyDragon'
 // import PrettyGrid from './PrettyGrid'
@@ -23,9 +24,11 @@ const Control = connect(mapPageSettingsStateToProps)((props) => {
     // } else if (props.pageSettings.location === 'join') {
     //     // Green Top for Tablet & Desktop for CARE pages
     //     return <GreenTop/>
-    // } else if (window.innerWidth < props.pageSettings.breaks.control.desktop) {
-    //     // Color Grid for Tablet on FTLP & HOLP
-    //     return <ColorGrid/>
+    // } else 
+    if (window.innerWidth < props.pageSettings.breaks.control.desktop) {
+        // Color Grid for Tablet on FTLP & HOLP
+        return <ColorGrid/>
+    }
     // } else {
     //     // Bonsai Grid for Desktp on FTLP & HOLP
         return <BonsaiGrid/>

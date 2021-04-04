@@ -113,7 +113,7 @@ export class OfferPage extends React.Component {
             <div>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
                 {/* <HeaderStyle /> */}
-                {/* <Offerings /> */}
+                <Offerings />
                 <FeaturesGrid />
                 {/* <LegalText /> */}
             </div>

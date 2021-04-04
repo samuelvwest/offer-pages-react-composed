@@ -1,0 +1,76 @@
+.features-grid--colorgrid {
+
+    tr {
+        border-bottom: 1px solid #fff;
+        &.hiddenRow {
+            display:none;
+        }
+    }
+
+    .offerLeftCol {
+        text-align: right;
+        padding: 10px 20px 10px 5px;
+        @media only screen and (max-width: 1005px) {
+            padding-right: 25px;
+        }
+    }
+    
+    p {
+        line-height: 1.5em;
+    }
+
+    .offerLeftCol p {
+        position: relative;
+        &.legal-text__paragraph {
+            margin: 5px 0 0 30px;
+        }
+    }
+
+    .offerLeftCol .text2xlrg {
+        @media only screen and (max-width: 1005px) {
+            font-size: 16px;
+        }
+    }
+
+    .compareCheckCol {
+        text-align: center;
+        padding:0;
+        &.columnHead {
+            box-sizing: border-box;
+            color: #fff;
+            height: 65px;
+            font-size: 18px;
+            padding: 10px 5px;
+            position: relative;
+            text-align: center;
+            background-color: #9CBE30;
+            background-color: #9CBE30;
+            &.columnHead--blue {
+                background-color: #1B88B0;
+            }
+            &.columnHead--purple {
+                background-color: #60527E;
+            }
+        }
+        > .iconCheck {
+            line-height: 35px;
+        }
+        .textxlrg {
+            @media only screen and (max-width: 1005px) {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .coloraltBamboo2 {
+        color: #7A9C0F;
+    }
+
+    .coloraltWave3 {
+        color: #1b88b0;
+    }
+
+    .coloraltFuji2 {
+        color: #60527E;
+    }
+}
