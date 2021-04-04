@@ -3,8 +3,6 @@ import { durationTexts } from '../data/subscriptions'
 export const buildDisplayOffersData = (pageSettings, subscriptions) => {
     const data = {
         ldbms: false,
-        packages: [],
-        packageNames: [],
         durations: [],
         offersMap: subscriptions,
         display: {
@@ -15,7 +13,7 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
         offerElligibilityType: pageSettings.elligibility === `freetrial` ? `initial` : /CSub%3d1/.test(document.cookie) ? 'migration' : 'renewal'
     }
     // Build OfferMap based on Page Settings
-    data.display.offersMap = subscriptions.filter((offer) => {
+    data.display.offersMap = [...subscriptions.filter((offer) => {
         // Define if offer is a longer duration billed monthly
         offer.ldbm = offer.renewalPeriod.renewMonths !== offer.renewalPeriod.billMonths;
 
@@ -27,7 +25,7 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
         const durationsTest = pageSettings.displayDurations.indexOf(offer.renewalPeriod.renewMonths) > -1;
         const ldbmTest = offer.ldbm ? !!pageSettings.LDBM : true;
         return packagesTest && durationsTest && ldbmTest;
-    });
+    })];
     data.display.offersMap.forEach((offer) => {
         // Determine if Long Durations Billed Monthly are supported
         if (offer.ldbm) {
@@ -77,20 +75,20 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
     });
 
     // Add attributes to used offers
-    data.minDuration = Math.min.apply(null, data.durations.map((duration) => duration.num))
-    data.maxDuration = Math.max.apply(null, data.durations.map((duration) => duration.num))
+    data.display.minDuration = Math.min.apply(null, data.display.durations.map((duration) => duration.num))
+    data.display.maxDuration = Math.max.apply(null, data.display.durations.map((duration) => duration.num))
     data.display.offersMap.forEach((offer) => {
         // Add save from duration totals if applicable
-        if (offer.renewalPeriod.renewMonths > data.minDuration) {
+        if (offer.renewalPeriod.renewMonths > data.display.minDuration) {
             const shortDurationCompareOffer = data.display.offersMap.find((sDCOffer) => {
-                return sDCOffer.packageID === offer.packageID && sDCOffer.renewalPeriod.renewMonths === data.minDuration
+                return sDCOffer.packageID === offer.packageID && sDCOffer.renewalPeriod.renewMonths === data.display.minDuration
             });
             if (!!shortDurationCompareOffer) {
                 data.durationSaveOffers = data.durationSaveOffers || [];
                 const savings = ((offer.renewalPeriod.renewMonths / shortDurationCompareOffer.renewalPeriod.renewMonths) * shortDurationCompareOffer.renewalPeriod.displayPrice) - offer.renewalPeriod.displayPrice;
                 if (savings >= 1) {
                     offer.durationSavings = {
-                        compareMonths: data.minDuration,
+                        compareMonths: data.display.minDuration,
                         actual: savings,
                         display: Math.floor(savings),
                         compareOffer: shortDurationCompareOffer
@@ -98,6 +96,8 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
                     data.durationSaveOffers.push(offer);
                 }
             }
+        } else if (!!offer.durationSavings) {
+            delete offer.durationSavings;
         }
     });
 
@@ -119,7 +119,7 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
         offer = data.display.offersMap.find((ofr) => ofr.packageID === data.display[`${minOrMax}Package`].id && ofr.renewalPeriod.renewMonths === matchOffer.renewMonths);
         if (!!offer) { return offer; }
         // Check if different package exists with different renewal information
-        offer = data.display.offersMap.find((ofr) => ofr.packageID === data.display[`${minOrMax}Package`].id && ofr.renewalPeriod.renewMonths === data[`${minOrMax}Duration`]);
+        offer = data.display.offersMap.find((ofr) => ofr.packageID === data.display[`${minOrMax}Package`].id && ofr.renewalPeriod.renewMonths === data.display[`${minOrMax}Duration`]);
         if (!!offer) { return offer; }
     }
 

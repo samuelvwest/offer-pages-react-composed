@@ -10,13 +10,15 @@ const mapStateToProps = (state) => {
     }
 };
 
-const HeaderStyle = connect(mapStateToProps)((props) => {
-    if (/sparkly-dragon/.test(props.headerStyle)) {
-        return <SparklyDragon/>
-    } else if (/pretty-grid/.test(props.headerStyle)) {
-        return <PrettyGrid/>
+const HeaderStyle = connect(mapStateToProps)(({ headerStyle }) => {
+    switch (headerStyle) {
+        case 'sparkly-dragon':
+            return <SparklyDragon/>
+        case 'pretty-grid':
+            return <PrettyGrid/>
+        default: 
+            return <Control/>;
     }
-    return <Control/>
 });
 
 export default HeaderStyle;

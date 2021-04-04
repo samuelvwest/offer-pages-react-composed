@@ -66,7 +66,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                         </p>
                                                         <ul>
                                                             <li>Ancestry</li>
-                                                            <li>Newspapers.com Basic<sup>‡</sup></li>
+                                                            <li>Newspapers.com Basic<LegalSup supRef="newspapersBasic" /></li>
                                                             <li>Fold3.com</li>
                                                         </ul>
                                                     </div>}

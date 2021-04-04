@@ -395,6 +395,12 @@ const SettingsControl = () => (
                     settingValue="sparkly-dragon" 
                     displayText="Sparkly Dragon" 
                 />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="offerings" 
+                    settingValue="pretty-grid" 
+                    displayText="Pretty Grid" 
+                />
             </div>
         </SettingsGrouping>
     </div>

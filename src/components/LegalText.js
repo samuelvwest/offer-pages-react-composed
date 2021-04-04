@@ -16,9 +16,9 @@ const legalSups = {
     freeTrial: `†`,
     hardOffer: `†`,
     longDurationBilledMonthly: `§`,
-    promoSave: `α`,
+    promoSave: `**`,
     durationSave: `*`,
-    newspapersBasic: `**`
+    newspapersBasic: `‡`
 }
 
 export const LegalSup = ({ supRef }) => (

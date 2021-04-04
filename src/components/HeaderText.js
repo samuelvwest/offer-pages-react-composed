@@ -103,13 +103,14 @@ const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
 });
 
 const HeaderText = connect(mapVariableStateToProps)(({ headerText }) => {
-    if (/sparkly-dragon/.test(headerText)) {
-        // Sparkly Dragon Text
-        return <SparklyDragon/>
-    } else if (/pretty-grid/.test(headerText)) {
-        return <PrettyGrid/>
+    switch (headerText) {
+        case 'sparkly-dragon':
+            return <SparklyDragon/>
+        case 'pretty-grid':
+            return <PrettyGrid/>
+        default: 
+            return <Control/>;
     }
-    return <Control/>
 });
 
 export default HeaderText;

@@ -1,24 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { modifyPageSettings } from '../../actions/pageSettings';
 import ColorStack from './ColorStack';
 import ColorGrid from './ColorGrid';
 import BonsaiGrid from './BonsaiGrid';
 import GreenTop from './GreenTop';
 import SparklyDragon from './SparklyDragon';
+import PrettyGrid from './PrettyGrid';
 
-const mapStateToProps = (state) => {
+const mapPageSettingsStateToProps = (state) => {
     return {
-        pageSettings: state.pageSettings,
-        variables: state.variables
+        pageSettings: state.pageSettings
     }
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    modifyPageSettings: (modifications) => dispatch(modifyPageSettings(modifications))
-});
+const mapVariableToProps = (state) => {
+    return {
+        offerings: state.variables.offerings
+    }
+};
 
-const Control = connect(mapStateToProps, mapDispatchToProps)((props) => {
+const Control = connect(mapPageSettingsStateToProps)((props) => {
     if (window.innerWidth < props.pageSettings.breaks.control.tablet) {
         // Color Stack for Phone on all offer pages
         return <ColorStack/>
@@ -35,10 +36,12 @@ const Control = connect(mapStateToProps, mapDispatchToProps)((props) => {
 });
 
 
-const Offerings = connect(mapStateToProps, mapDispatchToProps)((props) => {
-    switch (props.variables.offerings) {
+const Offerings = connect(mapVariableToProps)(({ offerings }) => {
+    switch (offerings) {
         case 'sparkly-dragon':
             return <SparklyDragon/>
+        case 'pretty-grid':
+            return <PrettyGrid/>
         default: 
             return <Control/>;
     }
