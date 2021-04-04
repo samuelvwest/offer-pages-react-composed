@@ -1,0 +1,110 @@
+.features-grid--bonsaigrid {
+
+    &.benefitListCon {
+        padding-left: 46px;
+        .rounded {
+            -moz-background-clip: padding-box;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            &.topright {
+                border-radius: 0 5px 0 0;
+            }
+            &.topleft {
+                border-radius: 5px 0 0 0;
+            }
+            &.bottom {
+                border-radius: 0 0 5px 5px;
+            }
+            &.bottomright {
+                border-radius: 0 0 5px 0;
+            }
+        }
+    }
+
+    .compareTable2 {
+        padding: 0;
+        position: relative;
+        width: 68%;
+        .tableHeadingWrap {
+            border-right: 1px solid #ada595;
+            display: block;
+            padding-top: 55px;
+            position: relative;
+            .tableHeading {
+                background-color: rgba(134, 202, 227, 0.1);
+                border: 1px solid #ada595;
+                border-bottom-width: 0;
+                border-right-width: 0;
+                color: #37494E;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 14px;
+                height: 55px;
+                margin: 0;
+                padding: 7px 5px;
+                position: absolute;
+                right: 0;
+                text-align: center;
+                top: 2px;
+                width: 88px;
+                &.usTab {
+                    right: 176px;
+                }
+                &.worldTab {
+                    right: 88px;
+                }
+            }
+        }
+        .compareTxt {
+            background-color: #fff;
+            display: block;
+            border: 1px solid #ada595;
+            border-bottom-width: 0;
+            margin-top: 0;
+            padding: 7px 274px 7px 12px;
+            position: relative;
+            zoom: 1;
+            .legal-text__paragraph {
+                margin: 0 20px;
+                font-size: 14px;
+                // line-height:100%;
+            }
+            &.bottom {
+                border-bottom-width: 1px;
+            }
+            &.topCompare {
+                border-top-left-radius: 5px;
+            }
+            .leafCol {
+                bottom: 0;
+                border-left: 1px solid #ada595;
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 88px;
+                background-color: #f3f6d8;
+                &:nth-of-type(1) {
+                    background-color: #fffef0;
+                    // right: 176px;
+                }
+                // &.worldCol {
+                //     background-color: #f3f6d8;
+                //     // right: 88px;
+                // }
+                &:nth-last-of-type(1) {
+                    background-color: #fdf9d8;
+                }
+                > .iconLeaf {
+                    display: block;
+                    left: 50%;
+                    margin-left: -0.5em;
+                    margin-top: -0.5em;
+                    position: absolute;
+                    top: 50%;
+                }
+            }
+        }
+    }
+
+}

@@ -71,7 +71,7 @@ export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) =
 export const LegalNewspapersBasic = () => (
     <p className={classesMaker(`legal-text__paragraph`, `newspapers-basic`)}>
         <LegalSup supRef="newspapersBasic"/>
-        Other subscriptions to Newspapers.com may be available but are not included in the All Access package. 
+        Other subscriptions to Newspapers.com may be available but are not included in the All Access&nbsp;package. 
     </p>
 )
 

@@ -5,6 +5,7 @@ import { modifyVariables } from '../actions/variables';
 import SettingsControl from './SettingsControl';
 import HeaderStyle from './header-style/HeaderStyle';
 import Offerings from './offerings/Offerings';
+import FeaturesGrid from './features-grid/FeaturesGrid';
 import LegalText from './LegalText';
 
 const mapStateToProps = (state) => ({
@@ -111,9 +112,10 @@ export class OfferPage extends React.Component {
         return (
             <div>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
-                <HeaderStyle />
-                <Offerings />
-                <LegalText />
+                {/* <HeaderStyle /> */}
+                {/* <Offerings /> */}
+                <FeaturesGrid />
+                {/* <LegalText /> */}
             </div>
         )
     }
