@@ -46,7 +46,33 @@
 }
 
 .usdis-bgcolor {
-    background: #6ba410
+    background: #6ba410;
+    &.usdis-bgcolor--sparkly-dragon {
+        background: #6ba410;
+    }
+    &.usdis-bgcolor--pretty-grid {
+        background: #0079a3;
+    }
+}
+
+.worldex-bgcolor {
+    background: #6ba410;
+    &.worldex-bgcolor--sparkly-dragon {
+        background: #0079a3;
+    }
+    &.worldex-bgcolor--pretty-grid {
+        background: #6ba410;
+    }
+}
+
+.allaccess-bgcolor {
+    background: #6ba410;
+    &.allaccess-bgcolor--sparkly-dragon {
+        background-color: #61527e;
+    }
+    &.allaccess-bgcolor--pretty-grid {
+        background-color: #655586;
+    }
 }
 
 .myleft-circle {

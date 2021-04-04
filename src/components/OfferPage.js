@@ -1,15 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../actions/pageSettings';
-import { denyType } from '../actions/pageSettings';
 import { modifyVariables } from '../actions/variables';
-import { buildDisplayOffersData, replaceSubscriptions } from '../actions/subscriptions';
 import SettingsControl from './SettingsControl';
-import ColorStack from '../pages/ColorStack';
-import ColorGrid from '../pages/ColorGrid';
-import BonsaiGrid from '../pages/BonsiaGrid';
-import GreenTop from '../pages/GreenTop';
-import SparklyDragon from '../pages/SparklyDragon';
 import HeaderStyle from './header-style/HeaderStyle';
 import Offerings from './offerings/Offerings';
 import LegalText from './LegalText';
@@ -118,13 +111,6 @@ export class OfferPage extends React.Component {
         return (
             <div>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
-
-                {/* <ColorStack /> */}
-                {/* <ColorGrid /> */}
-                {/* <BonsaiGrid /> */}
-                {/* <GreenTop /> */}
-                {/* <SparklyDragon /> */}
-
                 <HeaderStyle />
                 <Offerings />
                 <LegalText />

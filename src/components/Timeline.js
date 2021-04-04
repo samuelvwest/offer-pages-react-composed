@@ -23,10 +23,10 @@ const Timeline = connect(mapStateToProps)((props) => {
     if (props.variables.timeline && !/migration/.test(pS.elligibility)) {
         const firstDay = new Date();  
         const ftEnd = addDays(firstDay, 14);
-        // console.log(firstDay, ftEnd);
+        const barColorClass = /usdiscovery/.test(subs.selectedOffer.packageID) ? `usdis` : /worldexplorer/.test(subs.selectedOffer.packageID) ? `worldex` : `allaccess`;
         return (
             <div className="mytimelineWrapper mytimelineWrapper-desk">
-                <div className={`mytimeline ${(!/sparkly/.test(props.variables.offerings) || /usdiscovery/.test(subs.selectedOffer.packageID)) ? `usdis-bgcolor` : /worldexplorer/.test(subs.selectedOffer.packageID) ? `worldex-bgcolor` : `allaccess-btn-bgcolor`}`} id="mytimeline-md">
+                <div className={`mytimeline ${barColorClass}-bgcolor ${barColorClass}-bgcolor--${props.variables.offerings}`} id="mytimeline-md">
                     <div className="myleft-circle">
                         <div className="mydot-circle"></div>
                     </div>
