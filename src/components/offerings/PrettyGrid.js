@@ -22,7 +22,7 @@ const classesMaker = (styleName) => {
 export class PrettyGrid extends React.Component {
     render() {
         const pS = this.props.pageSettings;
-        if (window.innerWidth < this.props.pageSettings.breaks.control.tablet) {
+        if (this.props.pageSettings.windowWidth < this.props.pageSettings.breaks.prettyGrid.tablet) {
             // Color Stack for Phone on all offer pages
             return <ColorStack/>
         }

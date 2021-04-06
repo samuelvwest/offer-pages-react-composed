@@ -6,6 +6,7 @@ import BonsaiGrid from './BonsaiGrid';
 import GreenTop from './GreenTop';
 import SparklyDragon from './SparklyDragon';
 import PrettyGrid from './PrettyGrid';
+import { promoSubscriptions } from '../../data/subscriptions';
 
 const mapPageSettingsStateToProps = (state) => {
     return {
@@ -20,13 +21,13 @@ const mapVariableToProps = (state) => {
 };
 
 const Control = connect(mapPageSettingsStateToProps)((props) => {
-    if (window.innerWidth < props.pageSettings.breaks.control.tablet) {
+    if (props.pageSettings.windowWidth < props.pageSettings.breaks.control.tablet) {
         // Color Stack for Phone on all offer pages
         return <ColorStack/>
     } else if (props.pageSettings.location === 'join') {
         // Green Top for Tablet & Desktop for CARE pages
         return <GreenTop/>
-    } else if (window.innerWidth < props.pageSettings.breaks.control.desktop) {
+    } else if (props.pageSettings.windowWidth < props.pageSettings.breaks.control.desktop) {
         // Color Grid for Tablet on FTLP & HOLP
         return <ColorGrid/>
     } else {

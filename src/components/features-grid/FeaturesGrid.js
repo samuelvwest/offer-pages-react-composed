@@ -4,7 +4,7 @@ import ColorColumns from './ColorColumns'
 import ColorGrid from './ColorGrid'
 import BonsaiGrid from './BonsaiGrid'
 import SparklyDragon from './SparklyDragon'
-// import PrettyGrid from './PrettyGrid'
+import PrettyGrid from './PrettyGrid'
 
 const mapPageSettingsStateToProps = (state) => {
     return {
@@ -34,8 +34,10 @@ const HeaderStyle = connect(mapVariableToProps)(({ featuresGrid }) => {
     switch (featuresGrid) {
         case 'sparkly-dragon':
             return <SparklyDragon/>
-    //     case 'pretty-grid':
-    //         return <PrettyGrid/>
+        case 'pretty-grid':
+            return <PrettyGrid/>
+        case 'not-included':
+            return <div></div>
         default: 
             return <Control/>;
     }

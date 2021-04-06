@@ -71,7 +71,7 @@
                             max-width: 100%;
                             font-size: 52px;
                             line-height: 0.8em;
-                            padding: 25px 10px 25px 50px;
+                            padding: 20px 10px 20px 40px;
                             position: relative;
                             width: 100%;
                             &:before {
@@ -91,10 +91,16 @@
                                 box-shadow: inset 0 -3px 0 rgba(0, 0, 0,0.2);
                                 height: 30px;
                                 line-height: 30px;
-                                margin-left: -40px;
+                                margin-left: -36px;
                                 margin-top: 10px;
                                 width: 30px;
                                 border-radius:50%;
+                            }
+                            @media (min-width: 650px) {
+                                padding: 25px 10px 25px 50px;
+                                &:before {
+                                    margin-left: -340x;
+                                }
                             }
                             .price-group {
                                 position:relative;

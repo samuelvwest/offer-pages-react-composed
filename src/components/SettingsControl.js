@@ -416,6 +416,18 @@ const SettingsControl = () => (
                     settingValue="sparkly-dragon" 
                     displayText="Sparkly Dragon" 
                 />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="featuresGrid" 
+                    settingValue="pretty-grid" 
+                    displayText="Pretty Grid" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="featuresGrid" 
+                    settingValue="not-included" 
+                    displayText="Not Included" 
+                />
             </div>
         </SettingsGrouping>
     </div>
