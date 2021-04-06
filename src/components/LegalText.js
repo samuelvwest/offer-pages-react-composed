@@ -75,7 +75,7 @@ export const LegalNewspapersBasic = () => (
     </p>
 )
 
-export const LegalDurationSaveLine = ({offer}) => <span className={classesMaker(`legal-text__line`,`duration-save`)}>A {offer.renewalPeriod.renewMonths}&ndash;month {offer.packageData.name} commitment of {offer.currency}{offer.renewalPeriod.displayPrice} saves you {offer.currency}{offer.durationSavings.display} when compared to a {offer.durationSavings.compareOffer.renewalPeriod.renewMonths}-month commitment of {offer.currency}{offer.durationSavings.compareOffer.renewalPeriod.displayPrice} over the same time&nbsp;period.</span>
+export const LegalDurationSaveLine = ({ offer }) => <span className={classesMaker(`legal-text__line`,`duration-save`)}>A {offer.renewalPeriod.renewMonths}&ndash;month {offer.packageData.name} commitment of {offer.currency}{offer.renewalPeriod.displayPrice} saves you {offer.currency}{offer.durationSavings.display} when compared to a {offer.durationSavings.compareOffer.renewalPeriod.renewMonths}-month commitment of {offer.currency}{offer.durationSavings.compareOffer.renewalPeriod.displayPrice} over the same time&nbsp;period.</span>
 
 export const LegalDurationSaves = connect(mapStateToProps)((props) => {
     const uniqueSaves = [];
@@ -95,6 +95,8 @@ export const LegalDurationSaves = connect(mapStateToProps)((props) => {
     )
 })
 
+export const LegalPromoSaveLine = ({ offer }) => <span className={classesMaker(`legal-text__line`,`promo-save`)}>A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} subscription {offer.ldbm && `paid monthly `}has a regular price of {offer.currency}{offer.renewalPeriod.MSRP} every&nbsp;{offer.renewalPeriod.renewMonths === 1 ? `month` : `${offer.renewalPeriod.renewMonths}-months`}.</span>
+
 export const LegalPromoSaves = ({ saveOffers }) => {
     const uniqueSaves = [];
     saveOffers.forEach((offer) => {
@@ -106,8 +108,9 @@ export const LegalPromoSaves = ({ saveOffers }) => {
         <p className={classesMaker(`legal-text__paragraph`, `promo-saves`)}>
             <LegalSup supRef="promoSave"/>
             {uniqueSaves.map((offer, index) => (
-                <span key={index}>{index > 0 && <br />}A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} subscription {offer.ldbm && `paid monthly `}has a regular price of {offer.currency}{offer.renewalPeriod.MSRP} every&nbsp;{offer.renewalPeriod.renewMonths === 1 ? `month` : `${offer.renewalPeriod.renewMonths}-months`}.</span>
+                <span key={index}>{index > 0 && <br />}<LegalPromoSaveLine offer={offer}/></span>
             ))}
+            <br />Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by contacting us. See our Renewal and Cancellation Terms for further details.
         </p>
     )
 }

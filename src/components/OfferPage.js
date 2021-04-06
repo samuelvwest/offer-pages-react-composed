@@ -42,8 +42,8 @@ export class OfferPage extends React.Component {
             window._resizeBuffer = 'active';
             setTimeout(() => {
                 this.props.modifyPageSettings({
-                    windowWidth: window.innerWidth,
-                    windowHeight: window.innerHeight
+                    windowWidth: window.outerWidth,
+                    windowHeight: window.outerWidth
                 });
                 delete window._resizeBuffer;
             }, 500)
@@ -113,7 +113,7 @@ export class OfferPage extends React.Component {
             <div>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
                 {/* <HeaderStyle /> */}
-                <Offerings />
+                {/* <Offerings /> */}
                 <FeaturesGrid />
                 {/* <LegalText /> */}
             </div>

@@ -1,0 +1,57 @@
+.features-grid--colorcolumns {
+
+    .compareCon { 
+        padding:20px 10px; 
+        background-color:#fff; 
+    }
+
+    .compareTable { 
+        margin-top:20px; 
+        text-align:center; 
+        margin-bottom:40px; 
+        caption { 
+            text-transform:uppercase; 
+            color:#5e6770;  
+        }
+        th { 
+            text-align:center; 
+            padding:20px 2px; 
+        }
+        td { 
+            padding:4px; 
+            &:not(:last-child) { 
+                border-right:1px #dedede solid; 
+            }
+        }
+    }
+
+    .txtColor {
+        color:#1c88b0; 
+        &.txtColor--usdiscovery {
+            color:#1c88b0; 
+        }
+        &.txtColor--worldexplorer {
+            color:#9cbf3b; 
+        }
+        &.txtColor--allaccess {
+            color: #bf5500; 
+        }
+    }
+
+    .greenTxt { 
+        color:#9cbf3b; 
+    }
+    
+    .blueTxt { 
+        color:#1c88b0; 
+    }
+    
+    .orangeTxt { 
+        color: #bf5500; 
+    }
+    
+    .purpleTxt { 
+        color:#655586; 
+    }
+
+}

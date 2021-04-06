@@ -402,6 +402,21 @@ const SettingsControl = () => (
                     displayText="Pretty Grid" 
                 />
             </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Features Grid</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="featuresGrid" 
+                    settingValue="control" 
+                    displayText="Control" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="featuresGrid" 
+                    settingValue="sparkly-dragon" 
+                    displayText="Sparkly Dragon" 
+                />
+            </div>
         </SettingsGrouping>
     </div>
 )

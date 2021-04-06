@@ -5,7 +5,8 @@ export const variables = getVariablesLocal() || {
         headerStyle: `control`,
         headerText: `control`,
         timeline: false,
-        offerings: `control`
+        offerings: `control`,
+        featuresGrid: `control`
     }
 
 export default variables;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ColorColumns from './ColorColumns'
 import ColorGrid from './ColorGrid'
 import BonsaiGrid from './BonsaiGrid'
-// import SparklyDragon from './SparklyDragon'
+import SparklyDragon from './SparklyDragon'
 // import PrettyGrid from './PrettyGrid'
 
 const mapPageSettingsStateToProps = (state) => {
@@ -18,32 +19,26 @@ const mapVariableToProps = (state) => {
 };
 
 const Control = connect(mapPageSettingsStateToProps)((props) => {
-    // if (window.innerWidth < props.pageSettings.breaks.control.tablet) {
-    //     // Color Stack for Phone on all offer pages
-    //     return <ColorStack/>
-    // } else if (props.pageSettings.location === 'join') {
-    //     // Green Top for Tablet & Desktop for CARE pages
-    //     return <GreenTop/>
-    // } else 
-    if (window.innerWidth < props.pageSettings.breaks.control.desktop) {
+    if (window.innerWidth < props.pageSettings.breaks.control.tablet) {
+        // Color Columns for Phone on all offer pages
+        return <ColorColumns/>
+    } else if (window.innerWidth < props.pageSettings.breaks.control.desktop) {
         // Color Grid for Tablet on FTLP & HOLP
         return <ColorGrid/>
     }
-    // } else {
-    //     // Bonsai Grid for Desktp on FTLP & HOLP
-        return <BonsaiGrid/>
-    // }
+    // Bonsai Grid for Desktp on FTLP & HOLP
+    return <BonsaiGrid/>
 });
 
 const HeaderStyle = connect(mapVariableToProps)(({ featuresGrid }) => {
-    // switch (headerStyle) {
-    //     case 'sparkly-dragon':
-    //         return <SparklyDragon/>
+    switch (featuresGrid) {
+        case 'sparkly-dragon':
+            return <SparklyDragon/>
     //     case 'pretty-grid':
     //         return <PrettyGrid/>
-    //     default: 
+        default: 
             return <Control/>;
-    // }
+    }
 });
 
 export default HeaderStyle;

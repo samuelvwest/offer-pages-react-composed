@@ -10,8 +10,8 @@ export const pageSettings = getPageSettingsLocal() || {
     elligibility: getElligibility(),
     showSettings: showSettingsTest(),
     settingsCollapsed: false,
-    windowWidth: window.innerWidth,
-    windowHeight: window.innerHeight,
+    windowWidth: window.outerWidth,
+    windowHeight: window.outerWidth,
     breaks: {
         control: {
             tablet: 601,
