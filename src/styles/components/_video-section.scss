@@ -1,0 +1,74 @@
+.video-section {
+
+    &.video-section--sparkly-dragon {
+        
+        &.flex-container {
+            display: flex;
+        }
+        &.mlr-8 {
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+        &.how-does-ancestry-work {
+            margin-bottom: 20px;
+        }
+        &.flex-container {
+            display: flex;
+        }
+
+        .hdaw-flex-item {
+            margin-right: 27px;
+        }
+
+        .ancestry-leaf {
+            width: 81px;
+            height: 79px;
+        }
+
+        .hdaw-content {
+            flex: 0 0 auto;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        button {
+            outline: 0!important;
+        }
+
+        .watch-now-btn-new {
+            border: solid 1px rgba(0,0,0,.6);
+            background: #fff;
+            border-radius: 3px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .watch-now-btn-new .youtube-img-new {
+            padding: 0 10px;
+        }
+
+        .hdaw-flex-item {
+            margin-right: 27px;
+        }
+
+        .how-tree-ancestry-img {
+            margin-top: 20px;
+            @media (min-width: 768px) {
+                width: 497px;
+                margin-top: 0;
+            }
+        }
+
+    }
+
+}

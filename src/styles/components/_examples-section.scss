@@ -1,0 +1,454 @@
+.examples-section {
+
+    &.examples-section--sparkly-dragon {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 12px;
+    width: 984px;
+        
+        &.ancGridEqual,
+        .ancGridEqual {
+            border-spacing: 8px 0; // 768px
+        }
+
+        &.ancGrid.ancGridEqual.exampleWrapper {
+            // margin-top: 10px; // 768px
+        }
+
+        .example-content {
+            padding-left: 0; // 768px
+        }
+
+        &.exampleWrapper .con {
+            border: none;
+        }
+
+        &.examples-outer-wrap-desk .example-content {
+            padding-right: 0; // 768px
+        }
+
+        &.exampleWrapper .example-content {
+            padding-top: 0;
+        }
+
+        .examples-head {
+            font-size: 24px; // 768px
+        }
+
+        .conBody {
+            min-height: 216px; // 768px
+        }
+
+        .example-pos {
+            min-height: 221px; // 768px 
+            @media screen and (min-width: 960px) {
+                min-height: 241px;
+            }
+        }
+
+        .example-hero-wrap {
+            min-height: 216px; // 768px
+            @media (min-width: 1005px) {
+                min-height: 235px;
+            }
+        }
+
+        .census {
+            width: 210px;
+            height: 125px;
+        }
+
+        .example-hero-img {
+            width: 100%; // 768px
+            height: auto; // 768px
+        }
+
+        .sectionMargin .userCardContent {
+            margin-top: 0;
+        }
+
+        .usercontainer {
+            display: flex; // 768px
+            justify-content: space-between; // 768px
+        }
+
+        .userCardContent .usercontainer {
+            min-height: 66px; // 768px
+            @media screen and (min-width: 960px) {
+                min-height: auto;
+            }
+        }
+
+        .usercard-subtitle-new {
+            min-height: 40px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .user-subtitle-dot {
+            margin-right: 5px;
+        }
+
+        .user-card-img-new {
+            width: 40px;
+            height: 40px;
+        }
+
+        .expandHeaderClose {
+            margin-bottom: 10px; // 768px
+        }
+
+        .example-stories-title {
+            font-size: 24px;
+        }
+
+        .example1-story-img {
+            padding-right: 20px;
+            @media (min-width: 768px) {
+                padding-right: 30px!important;
+            }
+        }
+
+        .example2-story-sec1-img {
+            padding-right: 28px; // 768px
+            .story2-notes-img {
+                margin-top: -12px; // 768px
+            }
+        }
+
+        .person-leaf-wrapper {
+            position: relative; // 768px
+        }
+
+        .circle-img {
+            border-radius: 50%;
+        }
+
+        .person-leaf-wrapper .example-circle-leaf {
+            position: absolute; // 768px
+            right: -17px; // 768px
+            top: 50%;  // 768px
+            width: 46px; // 768px
+            height: 48px; // 768px
+        }
+
+        .example-user-content {
+            margin-top: 20px!important;
+            text-align: center;
+            @media (min-width: 768px)  {
+                text-align: left!important;
+                margin-bottom: 20px;
+            }
+        }
+
+        .userCardContent .member {
+            &:before {
+                @media (min-width: 768px) {
+                    content: "";
+                    width: 8px;
+                    background-color: #6ba410;
+                    display: inline-block;
+                    height: 8px;
+                    border-radius: 5px;
+                    margin-right: 5px;
+                }
+                content: "";
+                width: 8px;
+                background-color: #6ba410;
+                display: inline-block;
+                height: 8px;
+                border-radius: 5px;
+                margin-right: 5px;
+            }
+        }
+
+        .userCardContent .member-blue::before {
+            content: "";
+            width: 8px;
+            background-color: #0079a3;
+            display: inline-block;
+            height: 8px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .userCardContent .member-purple::before {
+            content: "";
+            width: 8px;
+            background-color: #61527e;
+            display: inline-block;
+            height: 8px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .story1-sign-768-wrap {
+            &:after {
+                content: ""; // 768px
+                background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/line-dotted-md-up.png) no-repeat; // 768px
+                width: 100%; // 768px
+                height: 90%; // 768px
+                position: absolute; // 768px
+                left: 37px; // 768px
+                top: -10px; // 768px
+            }
+        }
+
+        .story1-sign-768 {
+            width: 100%; // 768px
+            max-width: 580px!important; // 768px
+        }
+
+        .story1-sign-768-wrap .story1-sign-768, .story1-sign-768-wrap .story3-sign-768-1 {
+            z-index: 1; // 768px
+        }
+
+        .mobile-example-title {
+            color: #777; // 768px
+            width: 260px; // 768px
+            font-size: 14px; // 768px
+        }
+
+        .story1-bot-sec-wrap {
+            @media (min-width: 1005px) {
+                margin-bottom: 90px;
+            }
+        }
+
+        .example1-story-img1.pr-6 {
+            &:before {
+                content: '';
+                background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/story1-crocs-img.png);
+                display: block;
+                width: 175px;
+                height: 175px;
+                border-radius: 50%;
+                position: absolute;
+                top: 201px;
+                left: 23px;
+            }
+        }
+
+        .storyCloseBtnContainer {
+            text-align: left!important; // 768px
+            &.storyCloseBtnContainer.center-btn {
+                text-align: center!important; // 768px
+            }
+        }
+
+        .stories-close-btn {
+            padding: 5px 200px;
+        }
+
+        .example2-story-testimonial-container {
+            margin-top: 30px; // 768px
+            display: flex; // 768px
+            justify-content: space-around; // 768px
+            > div:first-child {
+                flex: 1; // 768px
+            }
+        }
+
+        .story3-person-container {
+            align-items: flex-start!important; // 768px
+        }
+
+        .example3-story-sec1 {
+            flex: 0 0 297px;
+            margin-right: 50px;
+            @media (min-width: 768px) {
+                flex: 2!important;
+                margin-right: 10px;
+            }
+        }
+
+        .example3-story-sec1-img {
+            align-self: baseline;
+            @media (min-width: 768px) {
+                margin: -25px 25px 0 0!important;
+                flex: 1;
+            }
+            .story3-person {
+                border-radius: 50%; // 768px
+                height: 270px; // 768px
+            }
+            .figcaption {
+                font-size: 14px; // 768px
+                width: 125px; // 768px
+                color: #777; // 768px
+                margin-left: 70px; // 768px
+            }
+        }
+
+        .story3-census-container {
+            margin-top: -100px;
+            @media (min-width: 768px)  {
+                margin-top: -130px;
+            }
+            @media (min-width: 1005px) {
+                margin-top: -170px;
+            }
+        }
+
+        .example3-story-sec2 {
+            align-self: baseline;
+        }
+
+        .example3-story-sec2-img {
+            flex: 0 0 321px;
+            margin-right: 30px;
+        }
+
+        .story3-person-desc {
+            width: 157px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .article-container {
+            display: flex; // 768px
+            justify-content: space-between; // 768px
+            .left-wrapper {
+                flex: 1;
+                @media (min-width: 768px) {
+                    flex: 2;
+                    padding-right: 10px;
+                }
+            }
+            .right-wrapper {
+                flex: 1;
+                padding-top: 15%;
+                @media (min-width: 768px) {
+                    flex: 1;
+                    padding-left: 10px;
+                    padding-top: 0!important;
+                }
+            }
+        }
+
+        .story3-newspaper-wrapper .userCardSubTitle, .story3-persions .userCardSubTitle {
+            display: inline-block; // 768px
+        }
+
+        .top-spacing-none {
+            margin-top: 0!important;
+            padding-left: 3px;
+        }
+
+        .story3-newspaper-wrapper img {
+            display: inline-block!important; // 768px
+            width: 100px!important; // 768px
+            vertical-align: bottom; // 768px
+        }        
+
+        .example-user-content img {
+            width: 100%;
+            display: inline-block;
+            margin: 20px 0 0 0;
+        }
+
+        .img-as-text {
+            height: 16px; // 768px
+        }
+
+        .story3-persions img {
+            display: inline-block!important; // 768px
+            width: 60px!important; // 768px
+        }
+
+        .allaccess-btn-bgcolor, .page-container .plan-select-tiles .ancBtn.allaccess-btn-bgcolor {
+            background-color: #61527e;
+        }
+        
+
+
+
+
+
+
+
+        .align-middle {
+            vertical-align: middle; // 768px
+        }
+
+        .para-list {
+            list-style: disc; // 768px
+            list-style-position: inside; // 768px
+        }
+
+        .topMargin {
+            margin-top: 20px; // 768px
+            display: flex; // 768px
+            justify-content: space-between; // 768px
+            .example3-story-sec2 {
+                flex-basis: 50%; // 768px
+            }
+            .example3-story-sec2-img {
+                margin-right: 0!important; // 768px
+            }
+        }
+        
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-center {
+            align-items: center;
+            justify-items: center;
+        }
+
+        .rel-pos {
+            position: relative;
+        }
+
+        hr {
+            border-bottom: 1px solid #cccbca;
+        }
+
+        .hr-line-mtb10 {
+            margin: 10px 0;
+        }
+
+        .mlr-0 {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        &.mlr-8,
+        .mlr-8 {
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        .mt-2 {
+            margin-top: 10px;
+        }
+
+        .mt-6 {
+            margin-top: 30px;
+        }
+
+        .mb-4 {
+            margin-bottom: 20px;
+        }
+
+        .pr-6 {
+            padding-right: 30px;
+        }
+
+        .rounded-2 {
+            border-radius: 10px!important;
+        }
+
+        button {
+            outline: 0!important;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+    }
+
+}

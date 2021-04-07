@@ -1,0 +1,39 @@
+.support-section {
+
+    &.support-section--sparkly-dragon {
+        
+        &.flex-container {
+            display: flex;
+            @media (min-width: 768px) {
+                display: flex;
+            }
+        }
+        
+        &.feature-wrap-new {
+            margin-bottom: 25px;
+        }
+
+        .feature-img-new {
+            align-self: baseline;
+            margin-right: 10px;
+        }
+
+        .mobile-support-img {
+            margin-top: 3px;
+        }
+
+        .bamboo4 {
+            color: #43860d;
+        }
+
+        .help-contact {
+            margin-left: 3px;
+        }
+
+        .support-timings-txt {
+            color: #777;
+        }
+
+    }
+
+}

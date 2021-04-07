@@ -6,6 +6,9 @@ import SettingsControl from './SettingsControl';
 import HeaderStyle from './header-style/HeaderStyle';
 import Offerings from './offerings/Offerings';
 import FeaturesGrid from './features-grid/FeaturesGrid';
+import SupportSection from './SupportSection';
+import VideoSection from './VideoSection';
+import ExamplesSection from './ExamplesSection';
 import LegalText from './LegalText';
 
 const mapStateToProps = (state) => ({
@@ -113,8 +116,11 @@ export class OfferPage extends React.Component {
             <div>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
                 {/* <HeaderStyle /> */}
-                <Offerings />
-                <FeaturesGrid />
+                {/* <Offerings /> */}
+                {/* <FeaturesGrid /> */}
+                {/* <SupportSection /> */}
+                {/* <VideoSection /> */}
+                <ExamplesSection />
                 {/* <LegalText /> */}
             </div>
         )
