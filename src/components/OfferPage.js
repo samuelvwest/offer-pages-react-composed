@@ -9,6 +9,8 @@ import FeaturesGrid from './features-grid/FeaturesGrid';
 import SupportSection from './SupportSection';
 import VideoSection from './VideoSection';
 import ExamplesSection from './ExamplesSection';
+import PrivacySection from './PrivacySection';
+import FAQsSection from './FAQsSection';
 import LegalText from './LegalText';
 
 const mapStateToProps = (state) => ({
@@ -120,7 +122,9 @@ export class OfferPage extends React.Component {
                 {/* <FeaturesGrid /> */}
                 {/* <SupportSection /> */}
                 {/* <VideoSection /> */}
-                <ExamplesSection />
+                {/* <ExamplesSection /> */}
+                {/* <PrivacySection /> */}
+                <FAQsSection />
                 {/* <LegalText /> */}
             </div>
         )
