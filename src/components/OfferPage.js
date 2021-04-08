@@ -122,9 +122,9 @@ export class OfferPage extends React.Component {
                 {/* <FeaturesGrid /> */}
                 {/* <SupportSection /> */}
                 {/* <VideoSection /> */}
-                {/* <ExamplesSection /> */}
+                <ExamplesSection />
                 {/* <PrivacySection /> */}
-                <FAQsSection />
+                {/* <FAQsSection /> */}
                 {/* <LegalText /> */}
             </div>
         )

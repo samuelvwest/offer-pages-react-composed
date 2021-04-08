@@ -55,8 +55,11 @@
         }
 
         .census {
-            width: 210px;
-            height: 125px;
+            width: 100%;
+            @media screen and (min-width: 768px) {
+                width: 210px;
+                height: 125px;
+            }
         }
 
         .example-hero-img {
@@ -105,6 +108,9 @@
 
         .example1-story-img {
             padding-right: 20px;
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                margin-left: -100px;
+            }
             @media (min-width: 768px) {
                 padding-right: 30px!important;
             }
@@ -139,6 +145,12 @@
             @media (min-width: 768px)  {
                 text-align: left!important;
                 margin-bottom: 20px;
+            }
+        }
+
+        .userCardContent {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                width:100%;
             }
         }
 
@@ -183,6 +195,12 @@
             margin-right: 5px;
         }
 
+        .userCardPile {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                float: right;
+            }
+        }
+
         .story1-sign-768-wrap {
             &:after {
                 content: ""; // 768px
@@ -205,9 +223,16 @@
         }
 
         .mobile-example-title {
-            color: #777; // 768px
-            width: 260px; // 768px
-            font-size: 14px; // 768px
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                margin-bottom: 20px;
+                text-align: center;
+                color: #777;
+            }
+            @media screen and (min-width: 767px) {
+                color: #777; // 768px
+                width: 260px; // 768px
+                font-size: 14px; // 768px
+            }
         }
 
         .story1-bot-sec-wrap {
@@ -360,7 +385,187 @@
         .allaccess-btn-bgcolor, .page-container .plan-select-tiles .ancBtn.allaccess-btn-bgcolor {
             background-color: #61527e;
         }
+
+        .conHeader {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                position: relative;
+            }
+        }
+
+        .ancCol, .ancGridPadded.ancGridNoGutters {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                padding-left: 0;
+            }
+        }
+
+        .btnToggle {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                width:100%;
+                .ancBtn {
+                    width: 100%;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .memberExpand {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                margin-top: 25px!important;
+            }
+        }
+
+        .con .conTitle {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                font-size: 16px!important;
+            }
+        }
+
+        .closeIcon {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                cursor: pointer;
+            }
+            &:after {
+                @media screen and (min-width: 320px) and (max-width: 767px) {
+                    content: "";
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/close-x.svg) no-repeat;
+                    position: absolute;
+                    right: 0;
+                    cursor: pointer;
+                }
+                content: "";
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/close-x.svg) no-repeat;
+                position: absolute;
+                right: 0;
+                cursor: pointer;
+            }
+        }
+
+        .leaf-container {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                position: relative;
+                display: inline-block;
+                margin-right: 10px;
+            }
+        }
+
+        .example1-story-img .leaf-container .example-circle-leaf {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                position: absolute;
+                right: -20px;
+                top: 50%;
+                width: 47px;
+                height: 48px;
+            }
+        }
+
+        .example1-story-subdesc .sub {
+            display: inline;
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                display:none!important;
+            }
+        }
+
+        .example-text-split {
+            display: none;
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                display: inline!important;
+            }
+        }
+
+        .story2-mbl-img-new {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                position: relative;
+                z-index: 2;
+            }
+        }
         
+        .spacing-bottom-small {
+            margin-bottom: 10px!important;
+        }
+
+        .story2-mbl-img-wrap-new{
+            &:after {
+                content: "";
+                background: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/line-dotted-md-up.png) no-repeat;
+                width: 100%;
+                height: 90%;
+                position: absolute;
+                left: 50%;
+                top: 0;
+            }
+        }
+
+        .img-fluid-width {
+            max-width: 100%;
+        }
+
+        .mob-example-img {
+            @media (min-width: 320px) and (max-width: 479px) {
+                width: 100%;
+            }
+        }
+
+        .usdis-story-close-mbl {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                align-self: baseline;
+            }
+        }
+
+        .story-wrap-mbl .story1-crocs-img {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                margin-right: -50px;
+                margin-top: -15px;
+            }
+        }
+
+        .story2-notes2-img {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                max-width: 100%;
+                width: 190px;
+                height: 35px;
+            }
+        }
+
+        .story2-notes1-img {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                width: 118px;
+                height: 151px;
+                max-width: 100%;
+                align-self: baseline;
+                margin-right: -15px;
+            }
+        }
+
+        .story2-main-sign-img {
+            @media (min-width: 320px) and (max-width: 479px) {
+                margin: 10px auto;
+                text-align: right;
+            }
+        }
+
+        .story2-notes2-img {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                max-width: 100%;
+                width: 190px;
+                height: 35px;
+            }
+        }
+
+        .story2-pen-sign-img {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                max-width: 100%;
+                width: 182px;
+                height: 182px;
+                align-self: flex-end;
+                margin-right: -95px;
+            }
+        }
 
 
 
@@ -421,6 +626,10 @@
             margin-right: 8px;
         }
 
+        .no-top-margin {
+            margin-top: 0!important;
+        }
+
         .mt-2 {
             margin-top: 10px;
         }
@@ -437,8 +646,22 @@
             padding-right: 30px;
         }
 
+        .pb-4 {
+            padding-bottom: 20px;
+        }
+
+        .borderLeft {
+            @media screen and (min-width: 320px) and (max-width: 767px) {
+                display: flex;
+            }
+        }
+
         .rounded-2 {
             border-radius: 10px!important;
+        }
+
+        .rounded-sm {
+            border-radius: 10px;
         }
 
         button {
@@ -447,6 +670,14 @@
 
         .full-width {
             width: 100%;
+        }
+
+        .show490 {
+            display: none!important;
+        }
+
+        .img-fluid-width {
+            max-width: 100%;
         }
 
     }

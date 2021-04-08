@@ -80,6 +80,7 @@
 
 
 
+
         button {
             outline: 0!important;
         }
@@ -110,6 +111,10 @@
             margin-bottom: 20px;
         }
 
+        .mb-6 {
+            margin-bottom: 30px;
+        }
+
         .mr-1 {
             margin-right: 5px;
         }
@@ -120,11 +125,6 @@
 
         .anchor-color {
             color: #005c7d;
-        }
-
-        .paddingSpan {
-            display: inline-block;
-            padding-top: 10px;
         }
 
     }
