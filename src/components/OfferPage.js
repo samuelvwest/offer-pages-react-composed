@@ -11,6 +11,8 @@ import VideoSection from './VideoSection';
 import ExamplesSection from './ExamplesSection';
 import PrivacySection from './PrivacySection';
 import FAQsSection from './FAQsSection';
+import OtherProductsSection from './OtherProductsSection';
+import FeedbackSection from './FeedbackSection';
 import LegalText from './LegalText';
 
 const mapStateToProps = (state) => ({
@@ -117,15 +119,17 @@ export class OfferPage extends React.Component {
         return (
             <div>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
-                {/* <HeaderStyle /> */}
-                {/* <Offerings /> */}
-                {/* <FeaturesGrid /> */}
-                {/* <SupportSection /> */}
-                {/* <VideoSection /> */}
+                <HeaderStyle />
+                <Offerings />
+                <SupportSection />
+                <FeaturesGrid />
+                <VideoSection />
                 <ExamplesSection />
-                {/* <PrivacySection /> */}
-                {/* <FAQsSection /> */}
-                {/* <LegalText /> */}
+                <PrivacySection />
+                <FAQsSection />
+                <OtherProductsSection />
+                <FeedbackSection />
+                <LegalText />
             </div>
         )
     }

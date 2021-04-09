@@ -11,54 +11,48 @@
 
 .settings__grouping {
     position: relative;
-    display:block;
+    display: flex;
     padding: 10px;
-    border: solid 1px rgb(222, 222, 222);
+    border: solid 1px #dedede;
     overflow: hidden;
     margin: 0 0 10px 0;
+    width: 100%;
+    flex-flow: wrap;
 }
 
 .settings__groupings__name {
-    display:block;
-    font-weight:bold;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .settings__group {
-    width:120px;
-    position:relative;
-    float: left;
-    display:block;
-    // min-width: 150px;
-    margin: 0 10px 10px 0;
-    // @media (min-width: 566px) {
-    //     width:calc(50% - 10px);
-    // }
-    // @media (min-width: 840px) {
-    //     width:calc((100% / 3) - 10px);
-    // }
+    box-sizing: border-box;
+    width: 120px;
+    position: relative;
+    display: block;
+    margin: 0 15px 15px 0;
 }
 
 .settings__group__name {
-    display:block;
+    display: block;
     text-align: center;
-    // font-weight:bold;
-    &.settings__groupings__name--settings {
-        .settings__group__button {
-            
-        }
-    }
+    font-style: italic;
 }
 
 .settings__group__button {
-    display: inline-block;
+    box-sizing: border-box;
+    display: block;
     background: transparent;
-    width:120px;
+    width: 120px;
     padding: 2px 5px;
     border: solid 1px grey;
     border-radius: 6px;
-    margin: 5px;
+    margin: 5px 10px 5px 0;
+    overflow: hidden;
     &.settings__group__button--active {
-        background-color: lightblue;
+        background-color: #b1e2e2;
     }
     &.settings__group__button--deniedto {
         width: 100px;
@@ -77,7 +71,7 @@
     position:relative;
     display: inline-block;
     // background: transparent;
-    background-color: lightblue;
+    background-color:#b1e2e2;
     width:120px;
     // padding: 2px 5px;
     border: solid 1px grey;

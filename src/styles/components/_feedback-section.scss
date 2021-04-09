@@ -1,0 +1,41 @@
+.feedback-section {
+
+    &.feedback-section--sparkly-dragon {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 12px;
+        width: 984px;
+        
+        &.over-the-top {
+            position: relative;
+            z-index: 10;
+        }
+
+        .disclaimer-wrap, .feedback, .seperate-products {
+            margin: 10px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            @media (min-width: 320px) and (max-width: 374px) {
+                font-size: 16px;
+            }
+        }
+
+
+
+
+
+
+        a {
+            text-decoration: none;
+        }
+
+        .mb-6 {
+            margin-bottom: 30px;
+        }        
+
+    }
+
+}

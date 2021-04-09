@@ -1,4 +1,3 @@
-import { showSettingsTest } from '../actions/pageSettings';
 import { getVariablesLocal } from '../actions/variables';
 
 export const variables = getVariablesLocal() || {
@@ -6,7 +5,14 @@ export const variables = getVariablesLocal() || {
         headerText: `control`,
         timeline: false,
         offerings: `control`,
-        featuresGrid: `control`
+        featuresGrid: `control`,
+        supportSection: true,
+        videoSection: false,
+        examplesSection: false,
+        privacySection: false,
+        faqsSection: false,
+        otherProductsSection: false,
+        feedbackSection: false
     }
 
 export default variables;

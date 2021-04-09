@@ -429,6 +429,111 @@ const SettingsControl = () => (
                     displayText="Not Included" 
                 />
             </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Support Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="supportSection" 
+                    settingValue={true} 
+                    displayText="Control (included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="supportSection" 
+                    settingValue={false} 
+                    displayText="Not Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Video Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="videoSection" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="videoSection" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Examples Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="examplesSection" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="examplesSection" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Privacy Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="privacySection" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="privacySection" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">FAQs Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="faqsSection" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="faqsSection" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Other Products Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="otherProductsSection" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="otherProductsSection" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Feedback Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="feedbackSection" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="feedbackSection" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
         </SettingsGrouping>
     </div>
 )

@@ -1,0 +1,105 @@
+.other-products-section {
+
+    &.other-products-section--sparkly-dragon {
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 12px;
+        width: 984px;
+        
+        .disclaimer-wrap, .feedback, .seperate-products {
+            margin: 10px;
+        }
+        
+        &.seperate-products {
+            position: relative;
+            z-index: 10;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            @media (min-width: 320px) and (max-width: 374px) {
+                font-size: 16px;
+            }
+            @media (min-width: 1005px) {
+                font-size: 20px;
+            }
+        }
+
+        .con .conTitle.examples-head, .plan-inclusions .inclusions-title, .seperate-products .conTitle {
+            @media (min-width: 320px) and (max-width: 374px) {
+                font-size: 20px!important;
+            }
+        }
+
+        .products-wrapper {
+            display: block;
+        }
+
+        &.seperate-products .products-wrapper {
+            @media (min-width: 768px) {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .logo-dna-wrap-new, .logo-health-wrap-new {
+            border: 1px solid rgba(0,0,0,.2);
+            flex: 1;
+            border-radius: 6px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-dna-wrap-new {
+            margin-bottom: 10px;
+        }
+
+        .products-wrapper .logo-dna-wrap-new {
+            @media (min-width: 768px) {
+                margin-bottom: 0;
+                margin-right: 15px;
+            }
+        }
+
+        .logo-ancestry-full {
+            height:45%;
+            max-width:220px;
+        }
+
+        .gift-icon {
+            width: 60px;
+            height: auto;
+            margin: -10px 0 0 -25px;
+            path {
+                fill: #54524F;
+            }
+        }
+
+
+
+
+
+
+
+        a {
+            text-decoration: none;
+        }
+
+        hr {
+            border-bottom: 1px solid #cccbca;
+        }
+
+        .hr-line-mtb10 {
+            margin: 10px 0;
+        }
+
+        .mb-6 {
+            margin-bottom: 30px;
+        }
+
+    }
+
+}
