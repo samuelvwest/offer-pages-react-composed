@@ -37,6 +37,11 @@ export const pageSettings = getPageSettingsLocal() || {
         packageID: 'worldexplorer', // must be included in 'displayPackages' setting
         ldbm: true // true/false value only factored in if 'LDBM' setting is 'side-by-side'
     },
+    currentOffer: {
+        renewMonths: 6, // must be included in 'displayDurations' setting
+        packageID: 'worldexplorer', // must be included in 'displayPackages' setting
+        ldbm: false // true/false value only factored in if 'LDBM' setting is 'side-by-side'
+    },
     packagesData
 }
 

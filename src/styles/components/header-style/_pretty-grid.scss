@@ -1,4 +1,9 @@
 .header-style--prettygrid {
+    &.offerings-variable--control {
+        @media only screen and (min-width: 601px) {
+            margin-bottom: 10px;
+        }
+    }
 
     .offerPageHeader {
         background-color: #f7ede3;
@@ -102,14 +107,6 @@
 
     .coloraltgreen {
         color: #7e9b27;
-    }
-
-    // Timeline present adjustments
-    .mytimelineWrapper {
-        margin-top:20px;
-        .myposttrial {
-            background: linear-gradient(90deg, #a9a9a9, #f7ede3);
-        }
     }
 
 }

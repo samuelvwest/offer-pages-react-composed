@@ -116,7 +116,7 @@ const SettingsGrouping = connect(mapStateToProps)((props) => (!props.collapsable
     </div>
 ) : <div></div>)
 
-const SettingsControl = () => (
+const SettingsControl = connect(mapStateToProps)((props) => (
     <div className="settings">
         <SettingsGrouping collapsable={false}>
             <SettingsButton 
@@ -291,6 +291,24 @@ const SettingsControl = () => (
             </div>
             <div className="settings__group">
                 <h5 className="settings__group__name">Best Offer</h5>
+                <SettingsDropDown 
+                    settingGroup="pageSettings"
+                    settingAttribute="bestOffer" 
+                    settingValue="displayDurations"
+                />
+                <SettingsDropDown 
+                    settingGroup="pageSettings"
+                    settingAttribute="bestOffer" 
+                    settingValue="ldbm"
+                />
+                <SettingsDropDown 
+                    settingGroup="pageSettings"
+                    settingAttribute="bestOffer" 
+                    settingValue="displayPackages"
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Current Offer</h5>
                 <SettingsDropDown 
                     settingGroup="pageSettings"
                     settingAttribute="bestOffer" 
@@ -536,6 +554,6 @@ const SettingsControl = () => (
             </div>
         </SettingsGrouping>
     </div>
-)
+));
 
 export default SettingsControl;

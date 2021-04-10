@@ -23,7 +23,7 @@ const PrettyGrid = connect(mapStateToProps)((props) => {
     }
     // Tablet Desktop version of PrettyGrid
     return (
-        <div className={classesMaker('prettygrid')}>
+        <div className={`${classesMaker('prettygrid')} offerings-variable--${props.variables.offerings}`}>
             <header className="offerPageHeader">
                 <div className="page pagePadded pageWidth1">
                     <div className="offerPageHeaderImg"></div>

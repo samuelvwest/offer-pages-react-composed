@@ -1,331 +1,362 @@
-.container--bonsaigrid .offerGrid .greenTxt .phoneNumb,
-.container--bonsaigrid .offerGrid .greenTxt small {
-    color: #425700;
-}
+.offerings-style {
+    &.offerings-style--bonsaigrid {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 100%;
+        min-width: 500px;
+        padding: 12px;
+        width: 984px;
 
-.container--bonsaigrid .offerGrid .orangeTxt {
-    color: #dc4c00;
-}
-
-.container--bonsaigrid .durationText {
-    font-size: 14px;
-    color: #648200;
-    text-decoration: underline;
-}
-
-.container--bonsaigrid .offerGrid .redTxt {
-    margin-bottom: 8px;
-}
-
-.container--bonsaigrid .priceGrid {
-    margin-bottom: 25px;
-}
-
-.container--bonsaigrid .priceGrid .ancColRow {
-    margin-top: 0;
-}
-
-.container--bonsaigrid .priceGrid .ctaCol {
-    margin-top: 0;
-    padding-left: 40px;
-}
-
-.container--bonsaigrid .priceGrid .ctaCol .arrow {
-    border-bottom: 90px solid transparent;
-    border-left: 38px solid #b8d94c;
-    border-top: 90px solid transparent;
-    height: 0;
-    left: -13px;
-    position: absolute;
-    top: 135px;
-    width: 0;
-}
-
-.container--bonsaigrid .priceGrid .ctaCol .ctaBox {
-    margin-top: 202px;
-}
-
-.container--bonsaigrid .priceGrid .ctaCol .ctaBox .ancBtn {
-    margin-bottom: 90px;
-}
-
-.container--bonsaigrid .priceGrid .myAccountInfo {
-    padding-left: 25px;
-    position: relative;
-}
-
-.container--bonsaigrid .priceGrid .myAccountInfo .oldphone {
-    background: url("https://www.ancestrycdn.com/mars/landing/offer/us/pricing_nov2011_trans.png") no-repeat scroll 0 -88px transparent;
-    height: 70px;
-    left: -34px;
-    position: absolute;
-    width: 52px;
-}
-
-.container--bonsaigrid .priceGrid .myAccountInfo .phoneNumb {
-    white-space: nowrap;
-}
-
-.priceTableCon {
-    padding: 0 12px 0 40px;
-}
-
-.container--bonsaigrid .priceTable {
-    border-collapse: inherit;
-    padding: 0;
-    position: relative;
-    width: 100%;
-    z-index: 1;
-}
-
-.container--bonsaigrid .priceTable div.bold,
-.container--bonsaigrid .priceTable h2,
-.container--bonsaigrid .priceTable h3 {
-    margin-top: 0;
-}
-
-.container--bonsaigrid .priceTable p {
-    line-height: 16px;
-}
-
-.container--bonsaigrid .priceTable .colWrap {
-    border: 1px solid #b2aa9b;
-    border-width: 1px 0 0 1px;
-}
-
-.container--bonsaigrid .priceTable .packageRow:nth-last-of-type(1) .colWrap {
-    border-bottom-width: 1px;
-}
-
-.container--bonsaigrid .priceTable .half320.colWrap {
-    text-align: center;
-    padding-left:5px;
-    padding-right:5px;
-}
-
-.container--bonsaigrid .priceTable .half320.colWrap.bestCol {
-    background: #fff;
-    border-right-width: 1px;
-    box-shadow: 0 6px 13px rgba(1, 1, 1, .4);
-}
-
-.container--bonsaigrid .priceTable .packageCol.colWrap {
-    border-radius: 5px 0 0 5px;
-    padding: 35px 8px 35px 40px;
-}
-
-.container--bonsaigrid .priceTable .packageRow:nth-last-of-type(1) .packageCol {
-    padding: 15px 8px 30px 40px;
-}
-
-.container--bonsaigrid .priceTable .bestCol {
-    z-index: 1000;
-    + td {
-        border-left:0;
-    }
-}
-
-.container--bonsaigrid .priceTable .logo {
-    background: url('https://www.ancestrycdn.com/mars/landing/offer/us/offer-membership-icons.png') no-repeat scroll 0 0 transparent;
-    height: 77px;
-    left: -46px;
-    margin-top: -30px;
-    position: absolute;
-    top: 50%;
-    width: 81px;
-}
-
-.container--bonsaigrid .priceTable .logo--worldexplorer {
-    background-position: 0 -78px;
-}
-
-.container--bonsaigrid .priceTable .logo--allaccess {
-    background-position: 0 -157px;
-}
-
-$base-heading-height: 51;
-$base-heading-height-increment: 14;
-
-.container--bonsaigrid .durationsRow th {
-    padding: 0;
-    margin-top: 0;
-    line-height: 14px;
-    text-align:center;
-    vertical-align: bottom;
-    &:nth-of-type(n+2) .colHeading {
-        display:block;
-        background-color: #eaf0f3;
-        min-height: #{$base-heading-height}px;
-        padding: 11px 3px;
-        border: 1px solid #b2aa9b;
-        border-width: 1px 0 0 1px;
-        &.colHeading--three-lines {
-            min-height: #{$base-heading-height + $base-heading-height-increment}px;
+        .greenTxt {
+            color: #648200;
         }
-        &.colHeading--four-lines {
-            min-height: #{$base-heading-height + ($base-heading-height-increment * 2)}px;
-        }
-        > span,
-        > a {
-            display:block;
-        }
-    }
-    &:nth-of-type(2) .colHeading {
-        border-radius: 5px 0 0 0;
-    }
-    &:nth-last-of-type(1) .colHeading {
-        border-width: 1px 1px 0 1px;
-        border-radius: 0 5px 0 0;
-    }
-    &.bestCol {
-        // background-color:transparent;
-        padding: 0;
-        border-width: 0;
-        .colHeading {
-            // background-color: rgba(70, 89, 95, 0.4);
-            // display:block;
-            min-height: #{$base-heading-height + $base-heading-height-increment}px;
-            padding: 18px 3px;
-            // border: 1px solid #b2aa9b;
-            border-width: 1px 1px 0 1px;
-            border-radius: 5px 5px 0 0;
-            margin-top:-7px;
-            box-shadow: 0 4px 13px rgba(1, 1, 1, .4);
-            &.colHeading--three-lines {
-                min-height: #{$base-heading-height + ($base-heading-height-increment * 2)}px;
-            }
-            &.colHeading--four-lines {
-                min-height: #{$base-heading-height + ($base-heading-height-increment * 3)}px;
-            }
-        }
-        + th .colHeading {
-            border-left: 0;
-        }
-    }
-    .colHeading {
-        // background-color: rgba(134, 202, 227, 0.1);
-        // border: 1px solid #b2aa9b;
-        // border-bottom-width: 0;
-        // border-radius: 5px 0 0 0;
-        // border-right-width: 0;
-        // color: #37494E;
-        // display: block;
-        // height:100%;
-        // // min-height: 44px;
-        // line-height: 14px;
-        // margin-top: 13px;
-        // padding: 11px 3px;
-        // text-align: center;
-    }
-    &.bestCol .colHeading {
-        // background-color: rgba(134, 202, 227, 0.4);
-        // border-radius: 5px 5px 0 0;
-        // border-right-width: 1px;
-        // box-shadow: 0 4px 13px rgba(1, 1, 1, .4);
-        // color: #37494E;
-        // margin-top: 0;
-        // padding: 11px 0;
-        // width: 100%;
-    }
-}
 
-.container--bonsaigrid .packageRow {
-    // sets for all rows
-    background-color: #fffef0;
-    ul {
-        font-size: 14px;
-        list-style-type: disc;
-        padding-left: 20px;
-        padding-top: 5px;
-    }
-    td:nth-last-of-type(1) {
-        border-width: 1px 1px 0 1px;
-    }
-    // sets for second to last row
-    &:nth-last-of-type(2) {
-        background-color: #f3f6d8;
-        > .packageCol &:after {
-            border-left-color: #f8f7f3;
-            top: -5px;
+        .offerGrid .greenTxt .phoneNumb,
+        .offerGrid .greenTxt small {
+            color: #425700;
         }
-    }
-    // sets for last row
-    &:nth-last-of-type(1) {
-        background-color: #fdf9d8;
-        > .packageCol &:after {
-            border-left-color: #f8f7f3;
-            top: -5px;
+
+        .offerGrid .orangeTxt {
+            color: #dc4c00;
         }
-        td, th {
+
+        .durationText {
+            font-size: 14px;
+            color: #648200;
+            text-decoration: underline;
+        }
+
+        .offerGrid .redTxt {
+            margin-bottom: 8px;
+        }
+
+        .priceGrid {
+            margin-bottom: 25px;
+        }
+
+        .priceGrid .ancColRow {
+            margin-top: 0;
+        }
+
+        .priceGrid .ctaCol {
+            margin-top: 0;
+            padding-left: 40px;
+            position:relative;
+        }
+
+        .priceGrid .ctaCol .arrow {
+            border-bottom: 90px solid transparent;
+            border-left: 38px solid #b8d94c;
+            border-top: 90px solid transparent;
+            height: 0;
+            left: -13px;
+            position: absolute;
+            top: 135px;
+            width: 0;
+        }
+
+        .priceGrid .ctaCol .ctaBox {
+            margin-top: 202px;
+        }
+
+        .priceGrid .ctaCol .ctaBox .ancBtn {
+            margin-bottom: 90px;
+        }
+
+        .priceGrid .myAccountInfo {
+            padding-left: 25px;
             position: relative;
-            .bottomRow {
-                background-color: #fdf9d8;
+        }
+
+        .priceGrid .myAccountInfo .oldphone {
+            background: url("https://www.ancestrycdn.com/mars/landing/offer/us/pricing_nov2011_trans.png") no-repeat scroll 0 -88px transparent;
+            height: 70px;
+            left: -34px;
+            position: absolute;
+            width: 52px;
+        }
+
+        .priceGrid .myAccountInfo .phoneNumb {
+            white-space: nowrap;
+        }
+
+        .priceTableCon {
+            padding: 0 12px 0 60px;
+            @media (min-width: 1050px) {
+                padding: 0 12px 0 40px;
+            }
+        }
+
+        .priceTable {
+            border-collapse: inherit;
+            padding: 0;
+            position: relative;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .priceTable div.bold,
+        .priceTable h2,
+        .priceTable h3 {
+            margin-top: 0;
+        }
+
+        .priceTable p {
+            line-height: 16px;
+        }
+
+        .priceTable .colWrap {
+            border: 1px solid #b2aa9b;
+            border-width: 1px 0 0 1px;
+        }
+
+        .priceTable .packageRow:nth-last-of-type(1) .colWrap {
+            border-bottom-width: 1px;
+        }
+
+        .priceTable .half320.colWrap {
+            text-align: center;
+            padding-left:5px;
+            padding-right:5px;
+        }
+
+        .priceTable .half320.colWrap.bestCol {
+            background: #fff;
+            border-right-width: 1px;
+            box-shadow: 0 6px 13px rgba(1, 1, 1, .4);
+        }
+
+        .priceTable .packageCol.colWrap {
+            position:relative;
+            border-radius: 5px 0 0 5px;
+            padding: 35px 8px 35px 40px;
+        }
+
+        .priceTable .packageRow:nth-last-of-type(1) .packageCol {
+            padding: 15px 8px 30px 40px;
+        }
+
+        .priceTable .bestCol {
+            z-index: 1000;
+            + td {
+                border-left:0;
+            }
+        }
+
+        .priceTable .logo {
+            background: url('https://www.ancestrycdn.com/mars/landing/offer/us/offer-membership-icons.png') no-repeat scroll 0 0 transparent;
+            height: 77px;
+            left: -46px;
+            margin-top: -30px;
+            position: absolute;
+            top: 50%;
+            width: 81px;
+        }
+
+        .priceTable .logo--worldexplorer {
+            background-position: 0 -78px;
+        }
+
+        .priceTable .logo--allaccess {
+            background-position: 0 -157px;
+        }
+
+        $base-heading-height: 51;
+        $base-heading-height-increment: 14;
+
+        .durationsRow th {
+            padding: 0;
+            margin-top: 0;
+            line-height: 14px;
+            text-align:center;
+            vertical-align: bottom;
+            &:nth-of-type(n+2) .colHeading {
+                display:block;
+                background-color: #eaf0f3;
+                min-height: #{$base-heading-height}px;
+                padding: 11px 3px;
                 border: 1px solid #b2aa9b;
-                border-width: 0 0 1px 1px;
-                bottom: -5px;
-                height: 5px;
-                left: -1px;
-                position: absolute;
-                width: calc(100% + 1px);
-                &.bestCol {
-                    background-color: #fff;
-                    border-radius: 0 0 5px 5px;
-                    border: 1px solid #b2aa9b;
-                    border-width: 0 1px 1px;
-                    bottom: -10px;
-                    height: 13px;
-                    position: absolute;
-                    width: calc(100% + 2px);
-                    z-index: 10;
+                border-width: 1px 0 0 1px;
+                &.colHeading--three-lines {
+                    min-height: #{$base-heading-height + $base-heading-height-increment}px;
+                }
+                &.colHeading--four-lines {
+                    min-height: #{$base-heading-height + ($base-heading-height-increment * 2)}px;
+                }
+                > span,
+                > a {
+                    display:block;
+                }
+            }
+            &:nth-of-type(2) .colHeading {
+                border-radius: 5px 0 0 0;
+            }
+            &:nth-last-of-type(1) .colHeading {
+                border-width: 1px 1px 0 1px;
+                border-radius: 0 5px 0 0;
+            }
+            &.bestCol {
+                // background-color:transparent;
+                padding: 0;
+                border-width: 0;
+                .colHeading {
+                    // background-color: rgba(70, 89, 95, 0.4);
+                    // display:block;
+                    min-height: #{$base-heading-height + $base-heading-height-increment}px;
+                    padding: 18px 3px;
+                    // border: 1px solid #b2aa9b;
+                    border-width: 1px 1px 0 1px;
+                    border-radius: 5px 5px 0 0;
+                    margin-top:-7px;
+                    box-shadow: 0 4px 13px rgba(1, 1, 1, .4);
+                    &.colHeading--three-lines {
+                        min-height: #{$base-heading-height + ($base-heading-height-increment * 2)}px;
+                    }
+                    &.colHeading--four-lines {
+                        min-height: #{$base-heading-height + ($base-heading-height-increment * 3)}px;
+                    }
+                }
+                + th .colHeading {
+                    border-left: 0;
+                }
+            }
+            .colHeading {
+                // background-color: rgba(134, 202, 227, 0.1);
+                // border: 1px solid #b2aa9b;
+                // border-bottom-width: 0;
+                // border-radius: 5px 0 0 0;
+                // border-right-width: 0;
+                // color: #37494E;
+                // display: block;
+                // height:100%;
+                // // min-height: 44px;
+                // line-height: 14px;
+                // margin-top: 13px;
+                // padding: 11px 3px;
+                // text-align: center;
+            }
+            &.bestCol .colHeading {
+                // background-color: rgba(134, 202, 227, 0.4);
+                // border-radius: 5px 5px 0 0;
+                // border-right-width: 1px;
+                // box-shadow: 0 4px 13px rgba(1, 1, 1, .4);
+                // color: #37494E;
+                // margin-top: 0;
+                // padding: 11px 0;
+                // width: 100%;
+            }
+        }
+
+        .packageRow {
+            // sets for all rows
+            background-color: #fffef0;
+            ul {
+                font-size: 14px;
+                list-style-type: disc;
+                padding-left: 20px;
+                padding-top: 5px;
+            }
+            td:nth-last-of-type(1) {
+                border-width: 1px 1px 0 1px;
+            }
+            // sets for second to last row
+            &:nth-last-of-type(2) {
+                background-color: #f3f6d8;
+                > .packageCol &:after {
+                    border-left-color: #f8f7f3;
+                    top: -5px;
+                }
+            }
+            // sets for last row
+            &:nth-last-of-type(1) {
+                background-color: #fdf9d8;
+                > .packageCol &:after {
+                    border-left-color: #f8f7f3;
+                    top: -5px;
+                }
+                td, th {
+                    position: relative;
+                    .bottomRow {
+                        background-color: #fdf9d8;
+                        border: 1px solid #b2aa9b;
+                        border-width: 0 0 1px 1px;
+                        bottom: -5px;
+                        height: 5px;
+                        left: -1px;
+                        position: absolute;
+                        width: calc(100% + 1px);
+                        &.bestCol {
+                            background-color: #fff;
+                            border-radius: 0 0 5px 5px;
+                            border: 1px solid #b2aa9b;
+                            border-width: 0 1px 1px;
+                            bottom: -10px;
+                            height: 13px;
+                            position: absolute;
+                            width: calc(100% + 2px);
+                            z-index: 10;
+                        }
+                    }
+                }
+                th .bottomRow.packageCol {
+                    border-radius: 0 0 0 5px;
+                }
+                td:nth-last-of-type(1):not(.bestCol) {
+                    border-radius: 0 0 5px 0;
                 }
             }
         }
-        th .bottomRow.packageCol {
-            border-radius: 0 0 0 5px;
+
+        .priceLabel span:not(.strike-through-price) {
+            display: block;
         }
-        td:nth-last-of-type(1):not(.bestCol) {
-            border-radius: 0 0 5px 0;
+
+        label:not(.ancBtn) {
+            font-weight: 400;
         }
-    }
-}
 
-.container--bonsaigrid .priceLabel span:not(.strike-through-price) {
-    display: block;
-}
-
-.container--bonsaigrid label:not(.ancBtn) {
-    font-weight: 400;
-}
-
-.container--bonsaigrid .offerings-full-row {
-    position:relative;
-    display:block;
-}
-
-.container--bonsaigrid .priceGrid .ctaCol.submit-full-row {
-    position:relative;
-    display:block;
-    width: 100%;
-    padding: 40px 80px 0 0;
-    text-align: right;
-    .arrow {
-        right: 40px;
-        top: 0;
-        left: auto;
-        border-left: 120px solid transparent;
-        border-top: 60px solid #b8d94c;
-        border-right: 120px solid transparent;
-        border-bottom: none;
-    }
-    .ctaBox {
-        margin-top:40px;
-        margin-bottom: 0;
-        .ancBtn {
-            margin-bottom: 20px;
+        .offerings-full-row {
+            position:relative;
+            display:block;
         }
-        .myAccountInfo {
-            width:230px;
-            margin-top: -90px;
+
+        .priceGrid .ctaCol.submit-full-row {
+            position:relative;
+            display:block;
+            width: 100%;
+            padding: 40px 80px 0 60px;
+            text-align: right;
+            .documentsImg {
+                background: url("https://www.ancestrycdn.com/mars/landing/offer/us/documents.png") no-repeat scroll 0 0 transparent;
+                background-size: 100% auto;
+                height: 261px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100%;
+            }
+            .arrow {
+                right: 40px;
+                top: 0;
+                left: auto;
+                border-left: 120px solid transparent;
+                border-top: 60px solid #b8d94c;
+                border-right: 120px solid transparent;
+                border-bottom: none;
+            }
+            .ctaBox {
+                margin-top:40px;
+                margin-bottom: 0;
+                .ancBtn {
+                    margin-bottom: 20px;
+                }
+                .myAccountInfo {
+                    width:230px;
+                    margin: -100px 0 0 20px;
+                }
+            }
         }
     }
 }

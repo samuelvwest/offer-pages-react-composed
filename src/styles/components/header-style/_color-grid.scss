@@ -1,17 +1,30 @@
-.container--colorgrid #smpAncHeaderWrap {
-    padding: 0 50px 10px;
-    position: relative;
-    width: 100%;
-}
+.header-style {
+    &.header-style--colorgrid {
+        &.offerings-variable--sparkly-dragon {
+            background-color:#ffffff;
+        }
+        &.offerings-variable--pretty-grid {
+            background-color:#ffffff;
+            margin-bottom:-20px;
+        }
 
-.container--colorgrid .offerHeadlineWrap {
-    margin: 0 auto;
-    max-width: 1005px;
-    padding: 20px 0;
-    text-align: center;
-    width: 100%;
-}
+        #smpAncHeaderWrap {
+            padding: 0 50px 10px;
+            position: relative;
+            width: 100%;
+        }
 
-.container--colorgrid .offerHeadline {
-    margin-top: 0;
+        .offerHeadlineWrap {
+            margin: 0 auto;
+            max-width: 1005px;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .offerHeadline {
+            margin-top: 0;
+        }
+
+    }
 }

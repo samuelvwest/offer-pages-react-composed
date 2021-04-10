@@ -16,12 +16,12 @@ const mapPageSettingsToProps = (state) => {
     }
 }
 
-const classesMaker = (styleName) => {
-    return `container container--${styleName} header-style header-style--${styleName}`
+const classesMaker = (styleName, offeringsVariable) => {
+    return `container container--${styleName} header-style header-style--${styleName} offerings-variable--${offeringsVariable}`
 }
 
-export const ColorStack = () => (
-    <div className={classesMaker('colorstack')}>
+export const ColorStack = connect(mapStateToProps)((props) => (
+    <div className={classesMaker('colorstack', props.variables.offerings)}>
         <section className="aboveFoldCon">
             <h1 className="chooseMemText" elementtiming="ancestry_meaningful_paint">
                 <HeaderText />
@@ -29,12 +29,12 @@ export const ColorStack = () => (
             <Timeline />
         </section>
     </div>
-)
+));
 
-const GreenTop = connect(mapPageSettingsToProps)(({ pS }) => {
-    const packageData = pS.packagesData.find((pkg) => pkg.order === pS.denyLevel);
+const GreenTop = connect(mapStateToProps)((props) => {
+    const packageData = props.pageSettings.packagesData.find((pkg) => pkg.order === props.pageSettings.denyLevel);
     return (
-        <div className={classesMaker('greentop')}>
+        <div className={classesMaker('greentop', props.variables.offerings)}>
             <header className="ftSubPageHeader bgDark bgTexture3 bgColor4">
                 <div className="page">
                     <p className="bold ftSubPageIntro">
@@ -54,7 +54,7 @@ const GreenTop = connect(mapPageSettingsToProps)(({ pS }) => {
 const ColorGrid = connect(mapStateToProps)((props) => {
     const pS = props.pageSettings;
     return (
-        <div className={classesMaker('colorgrid')}>
+        <div className={classesMaker('colorgrid', props.variables.offerings)}>
             <header id="smpAncHeaderWrap" aria-label="Main Navigation" role="banner" className="clearfix">
                 <div className="offerHeadlineWrap">
                     <h1 className="offerHeadline coloralt text5xlrg" elementtiming="ancestry_meaningful_paint">
@@ -73,8 +73,8 @@ const ColorGrid = connect(mapStateToProps)((props) => {
     )
 })
 
-const BonsaiGrid = connect(mapPageSettingsToProps)(({ pS }) => (
-    <div className={classesMaker('bonsaigrid')}>
+const BonsaiGrid = connect(mapStateToProps)((props) => (
+    <div className={classesMaker('bonsaigrid', props.variables.offerings)}>
         <section className="offerGrid"> 
             <div className="ancGrid priceGrid">
                 <div className="ancCol full480 w75">
@@ -84,7 +84,7 @@ const BonsaiGrid = connect(mapPageSettingsToProps)(({ pS }) => (
                         </h1>
                         <p className="textlrg">
                             <strong>Choose a membership to try.</strong> 
-                            {/initial/.test(pS.elligibility) && ` There's no risk – you'll only be billed if you decide to keep your membership after your free trial.`}
+                            {/initial/.test(props.pageSettings.elligibility) && ` There's no risk – you'll only be billed if you decide to keep your membership after your free trial.`}
                         </p>
                         <Timeline />
                     </div>

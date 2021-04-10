@@ -16,7 +16,7 @@ const classesMaker = (styleName) => {
 
 const SparklyDragon = connect(mapStateToProps)((props) => {
     return (
-        <div className={classesMaker('sparklydragon')}>
+        <div className={`${classesMaker('sparklydragon')} offerings-variable--${props.variables.offerings}`}>
             <section className="memOptions aboveFoldCon">
                 <div className="chooseMemText hide768 show480 hidden-md-up textCenter">
                     <span className="bold headline-text">

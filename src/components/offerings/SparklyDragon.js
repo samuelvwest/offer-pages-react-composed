@@ -30,7 +30,7 @@ export class SparklyDragon extends React.Component {
             <div className={classesMaker('sparklydragon')}>
                 <div className="page-container">
                     <div className="buttonpills-wrap">
-                        <div className={`buttonpills-inner${subs.display.durations.length < 5 ? ` buttonpills-inner--narrow` : ``}`}>
+                        <div className="buttonpills-inner" style={{ width: `${(40 + ((subs.display.durations.length - (subs.display.durations.length < 4 ? 0 : 1)) * 105))}px`}}>
                             <div className="buttonPills">
                                 {subs.display.durations.map((duration, index, array) => {
                                     const toggleButtonTest = duration.num > 1 && toggleTest;

@@ -33,7 +33,7 @@
 }
 
 .container--greentop .mytimeline {
-    background: #a9c779;
+    background: #a9c779!important;
     color:#000;
     font-weight: 500;
 }
@@ -124,9 +124,17 @@
     z-index: 10
 }
 
-.container--colorgrid .myposttrial,
-.container--bonsaigrid .myposttrial {
-    background: linear-gradient(90deg, #a9a9a9, #f5f5f5);
+.header-style-variable--control .myposttrial,
+.offerings-variable--control .myposttrial {
+    @media (min-width:601px) {
+        background: linear-gradient(90deg, #a9a9a9, #f5f5f5);
+    }
+}
+
+.header-style-variable--pretty-grid .myposttrial {
+    @media (min-width:601px) {
+        background: linear-gradient(90deg, #a9a9a9, #f7ede3);
+    }
 }
 
 .container--greentop .myposttrial {

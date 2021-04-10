@@ -25,8 +25,8 @@ const Timeline = connect(mapStateToProps)((props) => {
         const ftEnd = addDays(firstDay, 14);
         const barColorClass = /usdiscovery/.test(subs.selectedOffer.packageID) ? `usdis` : /worldexplorer/.test(subs.selectedOffer.packageID) ? `worldex` : `allaccess`;
         return (
-            <div className="mytimelineWrapper mytimelineWrapper-desk">
-                <div className={`mytimeline ${barColorClass}-bgcolor ${barColorClass}-bgcolor--${props.variables.offerings}`} id="mytimeline-md">
+            <div className={`mytimelineWrapper mytimelineWrapper-desk header-style-variable--${props.variables.headerStyle} offerings-variable--${props.variables.offerings}`}>
+                <div className={`mytimeline ${barColorClass}-bgcolor ${barColorClass}-bgcolor--${props.variables.offerings}`}>
                     <div className="myleft-circle">
                         <div className="mydot-circle"></div>
                     </div>

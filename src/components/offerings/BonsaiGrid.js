@@ -25,7 +25,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
     const fullRowOffersTest = subs.display.durations.length > (pS.windowWidth < pS.breaks.control.desktop ? 2 : 3);
     return (
         <div className={classesMaker('bonsaigrid')}>
-            <form action="/checkout/mli?"  className="bonsai-container dnSignupForm">
+            <form action="/checkout/mli?" className="bonsai-container dnSignupForm">
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />
                 <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />
@@ -122,6 +122,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                             </table>
                         </div>
                         <div className={`ancCol ctaCol full480 ${fullRowOffersTest ? `submit-full-row`: `w25`}`}>
+                            <div className="documentsImg"></div>
                             <div className="arrow hide480"></div>
                             <div className="ctaBox">
                                 <input type="submit" className="ancBtn orange lrg subBtn" value={/initial/.test(pS.elligibility) ? `Start FREE trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`} />
