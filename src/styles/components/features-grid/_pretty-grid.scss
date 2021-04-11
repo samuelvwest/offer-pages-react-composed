@@ -1,7 +1,15 @@
 .features-grid--prettygrid {
+    &.offerings-variable--sparkly-dragon,
+    &.offerings-variable--pretty-grid {
+        @media (min-width: 601px) {
+            background-color: #fff;
+        }
+    }
 
     .page {
         position: relative;
+        width:100%;
+        max-width:1000px;
     }
 
     table.offerCompareTable {
@@ -35,6 +43,9 @@
                 background-color: #9CBE30;
             }
         }
+        &.bgColor-usdiscovery--offerings-sparkly-dragon {
+            background-color: #6ba410;
+        }
     }
 
     .bgColor-worldexplorer {
@@ -45,6 +56,9 @@
                 background-color: #64AFCA;
             }
         }
+        &.bgColor-worldexplorer--offerings-sparkly-dragon {
+            background-color: #1c88b0;
+        }
     }
 
     .bgColor-allaccess {
@@ -54,6 +68,9 @@
             @media (min-width: 769px) {
                 background-color: #60527E;
             }
+        }
+        &.bgColor-allaccess--offerings-sparkly-dragon {
+            background-color: #61527e;
         }
     }
 

@@ -5,6 +5,7 @@ import { modifyVariables } from '../actions/variables';
 import SettingsControl from './SettingsControl';
 import HeaderStyle from './header-style/HeaderStyle';
 import Offerings from './offerings/Offerings';
+import TestimonialSection from './TestimonialSection';
 import FeaturesGrid from './features-grid/FeaturesGrid';
 import SupportSection from './SupportSection';
 import VideoSection from './VideoSection';
@@ -121,15 +122,16 @@ export class OfferPage extends React.Component {
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
                 <HeaderStyle />
                 <Offerings />
-                {/* <SupportSection /> */}
-                {/* <FeaturesGrid /> */}
-                {/* <VideoSection /> */}
+                <SupportSection />
+                <TestimonialSection />
+                <FeaturesGrid />
+                <VideoSection />
                 {/* <ExamplesSection /> */}
                 {/* <PrivacySection /> */}
                 {/* <FAQsSection /> */}
                 {/* <OtherProductsSection /> */}
                 {/* <FeedbackSection /> */}
-                {/* <LegalText /> */}
+                <LegalText />
             </div>
         )
     }

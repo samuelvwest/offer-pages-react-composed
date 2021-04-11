@@ -122,7 +122,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                             </table>
                         </div>
                         <div className={`ancCol ctaCol full480 ${fullRowOffersTest ? `submit-full-row`: `w25`}`}>
-                            <div className="documentsImg"></div>
+                            {/* <div className="documentsImg"></div> */}
                             <div className="arrow hide480"></div>
                             <div className="ctaBox">
                                 <input type="submit" className="ancBtn orange lrg subBtn" value={/initial/.test(pS.elligibility) ? `Start FREE trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`} />

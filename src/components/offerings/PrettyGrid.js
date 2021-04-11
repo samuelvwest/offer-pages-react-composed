@@ -72,7 +72,7 @@ export class PrettyGrid extends React.Component {
                                                     }
                                                     return (
                                                         <td key={pkgData.id} className={`offers-table__cell offers-table__cell--content offers-table__cell--top-label ${pkgVars.colorClass}`}>
-                                                            {pS.bestOffer.packageID === pkgData.id && <div className="badge badgeSize2 badgeColorTeal hide768">MOST POPULAR</div>}
+                                                            {pS.bestOffer.packageID === pkgData.id && <div className="badge badgeSize2 badgeColorTeal">MOST POPULAR</div>}
                                                             <h2 className="text3xlrg">{pkgData.name}</h2>
                                                             {pkgVars.description}
                                                         </td>
@@ -163,65 +163,6 @@ export class PrettyGrid extends React.Component {
                                                     </tr>
                                                 )
                                             })}
-                                            {/* <tr>
-                                                <td className="w15 customContainer bkg2 monthlyRowHeading">
-                                                    <span className="text2xlrg">1&nbsp;Month</span><br />
-                                                    <a href="#offerPageFooter">   
-                                                        <span className="texttiny">Auto Renewing, Cancel&nbsp;Anytime.</span>
-                                                    </a>
-                                                </td>
-                                                <td className="w25 customContainer offerContent">
-                                                    <input className="radio offerIdRadios" name="offers" type="radio" value="O-24381" />
-                                                    <label htmlFor="radioL1">
-                                                        <span className="textxlrg">£</span><span className="offerPriceTxt">10</span><span className="text5xlrg">99</span>
-                                                    </label>
-                                                </td>
-                                                <td className="wDivide">&nbsp;</td>
-                                                <td className="w25 customContainer offerContent">
-                                                    <input className="radio offerIdRadios" name="offers" type="radio" value="O-24384" />
-                                                    <label htmlFor="radioM1">
-                                                        <span className="textxlrg">£</span><span className="offerPriceTxt">13</span><span className="text5xlrg">99</span>
-                                                    </label>
-                                                </td>
-                                                <td className="wDivide">&nbsp;</td>
-                                                <td className="w25 customContainer offerContent">
-                                                    <input className="radio offerIdRadios" name="offers" type="radio" value="O-24387" />
-                                                    <label htmlFor="radioH1">
-                                                        <span className="textxlrg">£</span><span className="offerPriceTxt">19</span><span className="text5xlrg">99</span>
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="w15 customContainer bkg2 semiRowHeading">
-                                                <span className="text2xlrg">6&nbsp;Months</span><br />
-                                                    <a href="#offerPageFooter">
-                                                        <span className="texttiny">Auto Renewing, Cancel&nbsp;Anytime.</span>
-                                                    </a>
-                                                </td>
-                                                <td className="w25 customContainer offerContent">
-                                                    <input className="radio offerIdRadios" name="offers" type="radio" value="O-24945" />
-                                                    <label htmlFor="radioL2">
-                                                        <span className="textxlrg">£</span><span className="offerPriceTxt">54</span><span className="text5xlrg">99</span>
-                                                        <span className="savingsText text2xlrg coloraltgreen bold">SAVE £11*</span>
-                                                    </label>
-                                                </td>
-                                                <td className="wDivide">&nbsp;</td>
-                                                <td className="w25 customContainer offerContent">
-                                                    <input className="radio offerIdRadios defaultRadio" name="offers" type="radio" value="O-24946" />
-                                                    <label htmlFor="radioM2">
-                                                        <span className="textxlrg">£</span><span className="offerPriceTxt">69</span><span className="text5xlrg">99</span>
-                                                        <span className="savingsText text2xlrg coloraltgreen bold">SAVE £14**</span>
-                                                    </label>
-                                                </td>
-                                                <td className="wDivide">&nbsp;</td>
-                                                <td className="w25 customContainer offerContent">
-                                                    <input className="radio offerIdRadios" name="offers" type="radio" value="O-24947" />
-                                                    <label htmlFor="radioH2">
-                                                        <span className="textxlrg">£</span><span className="offerPriceTxt">99</span><span className="text5xlrg">99</span>
-                                                        <span className="savingsText text2xlrg coloraltgreen bold">SAVE £20<sup>§</sup></span>
-                                                    </label>
-                                                </td>
-                                            </tr> */}
                                         </tbody>
                                     </table>
                                     {(subs.display.durations.some((duration) => duration.num > 1) && /toggle/.test(pS.LDBM)) &&
@@ -239,9 +180,9 @@ export class PrettyGrid extends React.Component {
                                 </div>
                             </div>
                             {subs.ldbms && <LegalLongDurationBilledMonthly/>}
-                            <div className="textCenter topSpacingBlock">
+                            {/* <div className="textCenter topSpacingBlock">
                                 <a className="compareButton text3xlrg" href="#offerPageCompare">Compare memberships<br /><span className="icon iconArrowDown text6xlrg"></span></a>
-                            </div>
+                            </div> */}
                         </form>
                     </div>
                 </section>

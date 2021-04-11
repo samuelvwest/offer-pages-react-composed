@@ -18,10 +18,12 @@ const SupportSection = connect(mapStateToProps)((props) => {
     const bonsaiSupportSectionTest = pS.windowWidth >= pS.breaks.control.desktop && /control/.test(props.variables.offerings);
     if (props.variables.supportSection && !bonsaiSupportSectionTest){
         return (
-            <div className={`feature-wrap-new flex-container ${classesMaker(`sparkly-dragon`)}`}>
-                <img className="feature-img-new mobile-support-img" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/phone1.png" />
+            <div className={`feature-wrap-new flex-container ${classesMaker(`sparkly-dragon`)} offerings-variable--${props.variables.offerings}`}>
                 <div className="feature-description-new">
-                    <p className="feature-title-new">Support</p>
+                    <p className="feature-title-new">
+                        <img className="feature-img-new mobile-support-img" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/phone1.png" />
+                        Support
+                    </p>
                     <strong className="textlrg bamboo4">Need help?</strong>
                     <span className="bamboo4 help-contact">1-800-ANCESTRY</span>
                     <br /><span className="support-timings-txt">7 days a week, 9am–11pm ET</span>

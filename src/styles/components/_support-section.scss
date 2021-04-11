@@ -1,11 +1,25 @@
 .support-section {
 
     &.support-section--sparkly-dragon {
-        box-sizing: border-box;
-        margin: 0 auto;
-        max-width: 100%;
-        padding: 12px;
-        width: 984px;
+        background-color: #ffffff;
+        &.offerings-variable--control {
+            @media (min-width: 601px) {
+                background-color: transparent;
+            }
+        }
+
+        .feature-description-new {
+            box-sizing: border-box;
+            margin: 0 auto;
+            max-width: 100%;
+            padding: 12px;
+            width: 984px;
+            text-align: center;
+            // @media (min-width: 601px) {
+                text-align: left;
+                padding-left:46px;
+            // }
+        }
         
         &.flex-container {
             display: flex;
@@ -14,13 +28,19 @@
             }
         }
         
-        &.feature-wrap-new {
-            margin-bottom: 25px;
+        .feature-title-new {
+            position:relative;
+            display:block;
+            // margin-bottom: 25px;
         }
 
         .feature-img-new {
             align-self: baseline;
             margin-right: 10px;
+            // @media (min-width: 601px) {
+                position:absolute;
+                right:100%;
+            // }
         }
 
         .mobile-support-img {

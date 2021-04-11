@@ -1,4 +1,10 @@
 .features-grid--sparklydragon {
+    background-color: #ffffff;
+    &.offerings-variable--control {
+        @media (min-width: 601px) {
+            background-color: transparent;
+        }
+    }
 
     a {
         text-decoration:none;
@@ -22,6 +28,7 @@
         th {
             // @media (min-width: 768px) {
                 border-bottom: 0;
+                border-top-width:0;
                 &.rec-acc {
                     border-right-width:0;
                     height:90px;
@@ -165,11 +172,13 @@
     }
 
     .plan-comparison-chart {
-        max-width: 400px;
-        margin: 10px auto;
+        max-width: 500px;
+        width:calc(100% - 20px);
+        margin: 0 auto;
+        padding: 20px 0;
         @media (min-width: 768px) {
-            max-width:none;
-            margin: 100px 8px 10px 8px;
+            max-width:1000px;
+            // padding: 20;
         }
         .table-title {
             th {
@@ -266,6 +275,16 @@
     }
 
     .plan-comparison-chart--offerings-control {
+        @media (min-width: 601px) {
+            max-width: 930px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px auto;
+        }
+        @media (min-width: 769px) {
+            border-radius:5px;
+        }
         .usrecords-img {
             path, .circleplus {
                 fill: #1c88b0;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { MaryDQuote } from '../TestimonialSection';
 import { LegalNewspapersBasic } from '../LegalText';
 
 const mapStateToProps = (state) => {
@@ -58,58 +59,66 @@ const BonsaiOfferings = connect(mapStateToProps)((props) => {
     const columnWidth = 88;
     const filteredFeaturesData = [...featuresData].filter((featureData) => subs.display.packages.some((pkgData) => featureData.appliesTo.indexOf(pkgData.id) > -1));
     return (
-        <section className={`benefitListCon ${classesMaker(`bonsaigrid`)}`}>
-            <table className="compareTable2">
-                    <tbody>
-                        <tr className="tableHeadingWrap rounded topright">
-                            <th scope="col"></th>
-                            {subs.display.packages.map((pkgData, index, array) => {
-                                const leftRoundTest = index === 0
-                                const rightRoundTest = index === (array.length - 1)
-                                return (
-                                    <th key={pkgData.id}
-                                        scope="col" 
-                                        className={`tableHeading${(leftRoundTest || rightRoundTest) ? ` rounded` : ``}${leftRoundTest ? ` topleft` : ``}${rightRoundTest ? ` topright` : ``}`} 
-                                        style={{
-                                            right: `${columnWidth * (array.length - 1 - index)}px`
-                                        }}
-                                    >
-                                        {pkgData.name.split(' ').map((str, index) => <span key={index}>{index > 0 && <br />}{str}</span>)}
-                                    </th>
-                                )
-                            })}
-                        </tr>
-                        {filteredFeaturesData.map((featureData, index, array) => {
-                            const lastRowTest = index === (array.length - 1);
-                            return (
-                                <tr key={index} 
-                                    className={`compareTxt${index === 0 ? ` topCompare` : ``}${lastRowTest ? ` rounded bottom` : ``}`}
-                                    style={{
-                                        paddingRight: `${(columnWidth * subs.display.packages.length) + 10}px`
-                                    }}
-                                >
-                                    <th scope="row" className="noTopSpacing">
-                                        {featureData.text}
-                                    </th>
-                                    {subs.display.packages.map((pkgData, index, array) => (
-                                        <td key={pkgData.id}
-                                            className={`leafCol${lastRowTest ? ` rounded bottomright` : ``}`}
+        <div className={`${classesMaker(`bonsaigrid`)} offerings-variable--${props.variables.offerings}`}>
+            <section className="benefitListCon">
+                {props.variables.testimonialSection &&
+                    <div className="testimonials">
+                        <p className="quote textalt">“<MaryDQuote />”</p>
+                        <p className="source"><strong>Mary D.</strong> – Ancestry Member</p>
+                    </div>
+                }
+                <table className="compareTable2">
+                        <tbody>
+                            <tr className="tableHeadingWrap rounded topright">
+                                <th scope="col"></th>
+                                {subs.display.packages.map((pkgData, index, array) => {
+                                    const leftRoundTest = index === 0
+                                    const rightRoundTest = index === (array.length - 1)
+                                    return (
+                                        <th key={pkgData.id}
+                                            scope="col" 
+                                            className={`tableHeading${(leftRoundTest || rightRoundTest) ? ` rounded` : ``}${leftRoundTest ? ` topleft` : ``}${rightRoundTest ? ` topright` : ``}`} 
                                             style={{
                                                 right: `${columnWidth * (array.length - 1 - index)}px`
                                             }}
                                         >
-                                            {featureData.appliesTo.indexOf(pkgData.id) === -1 ?
-                                                <span className="screenReaderText">no</span> :
-                                                <span className="icon iconLeaf"><span className="screenReaderText">yes</span></span>
-                                            }
-                                        </td>
-                                    ))}
-                                </tr>
-                            )
-                        })}
-                </tbody>
-            </table>
-    </section>
+                                            {pkgData.name.split(' ').map((str, index) => <span key={index}>{index > 0 && <br />}{str}</span>)}
+                                        </th>
+                                    )
+                                })}
+                            </tr>
+                            {filteredFeaturesData.map((featureData, index, array) => {
+                                const lastRowTest = index === (array.length - 1);
+                                return (
+                                    <tr key={index} 
+                                        className={`compareTxt${index === 0 ? ` topCompare` : ``}${lastRowTest ? ` rounded bottom` : ``}`}
+                                        style={{
+                                            paddingRight: `${(columnWidth * subs.display.packages.length) + 10}px`
+                                        }}
+                                    >
+                                        <th scope="row" className="noTopSpacing">
+                                            {featureData.text}
+                                        </th>
+                                        {subs.display.packages.map((pkgData, index, array) => (
+                                            <td key={pkgData.id}
+                                                className={`leafCol${lastRowTest ? ` rounded bottomright` : ``}`}
+                                                style={{
+                                                    right: `${columnWidth * (array.length - 1 - index)}px`
+                                                }}
+                                            >
+                                                {featureData.appliesTo.indexOf(pkgData.id) === -1 ?
+                                                    <span className="screenReaderText">no</span> :
+                                                    <span className="icon iconLeaf"><span className="screenReaderText">yes</span></span>
+                                                }
+                                            </td>
+                                        ))}
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+            </section>
+        </div>
     )
 })
 

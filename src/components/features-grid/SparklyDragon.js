@@ -238,8 +238,8 @@ export class SparklyDragon extends React.Component {
             )
         })
         return (
-            <div className={classesMaker('sparklydragon')}>
-                <section className={`plan-comparison-chart plan-comparison-chart--offerings-${this.props.variables.offerings}`} id="plan-comparision">
+            <div className={`${classesMaker('sparklydragon')} offerings-variable--${this.props.variables.offerings}`}>
+                <section className={`plan-comparison-chart plan-comparison-chart--offerings-${this.props.variables.offerings}`}>
                     <table>
                         <tbody>
                             <tr className="table-title">

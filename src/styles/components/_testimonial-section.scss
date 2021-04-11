@@ -1,0 +1,90 @@
+.testimonial-section {
+
+    &.testimonial-section--colorstack {
+        background: #f2f1e9;
+        padding: 20px 20px 40px;
+        
+        .quote {
+            background-color: #fff;
+            border-radius: 20px;
+            font-family: Georgia;
+            font-size: 22px;
+            font-style: italic;
+            line-height: 38px;
+            padding: 30px 35px;
+            position: relative;
+        }
+
+        .quoteArrow {
+            border: 20px solid #fff;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            position: absolute;
+            bottom: -30px;
+            left: 2px;
+        }
+
+        .quoteNameCon {
+            padding: 45px 20px 0;
+        }
+
+        .fullPgImgSprite {
+            background-image: url(https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/ftlp-mobile-more-sprite3.png);
+            background-repeat: no-repeat;
+            float: left;
+            margin: auto;
+            width: 173px;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .otherBenefitsCon .fullPgImgSprite {
+                float: none;
+            }
+        }
+
+        .fullPgImgSprite.quoteImg {
+            background-position: -44px -538px;
+            float: left;
+            height: 81px;
+            margin-right: 20px;
+            width: 83px;
+        }
+
+    }
+
+    &.testimonial-section--prettygrid {
+        background-color: #71b5b0;
+        height: 221px;
+        position:relative;
+        @media only screen and (max-width: 1279px) {
+            max-width:calc(100% - 90px);
+        }
+        
+        .page {
+            position: relative;
+        }
+
+        .testimonialBkg {
+            background-image: url(https://www.ancestrycdn.com/mars/landing/offer/2018/hero-tree/3080-hero-tree-offer-testimonial-bkg.jpg);
+            background-size: 100% 100%;
+            position: absolute;
+            right: -90px;
+            top: 0;
+            width: 1005px;
+            &:after {
+                content: "";
+                display: block;
+                height: 0;
+                padding-bottom: 21.99005%;
+            }
+        }
+
+        .testimonialContent {
+            position: relative;
+            max-width:1000px;
+            margin:0 auto;
+        }
+
+    }
+
+}

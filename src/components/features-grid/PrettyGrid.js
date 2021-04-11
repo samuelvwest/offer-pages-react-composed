@@ -67,67 +67,50 @@ const PrettyGrid = connect(mapStateToProps)((props) => {
     const filteredFeaturesData = [...featuresData].filter((featureData) => subs.display.packages.some((pkgData) => featureData.appliesTo.indexOf(pkgData.id) > -1));
 
     return (
-        <section className={classesMaker(`prettygrid`)}>
+        <section className={`${classesMaker(`prettygrid`)} offerings-variable--${props.variables.offerings}`}>
             <div className="page pagePadded pageWidth1 clearfix">
-            <table className="offerCompareTable">
-                <tbody>
-                    <tr>
-                        <th className="w40">
-                            <h2 className="text3xlrg coloraltblue">Compare our memberships:</h2>
-                        </th>
-                        {subs.display.packages.map((pkgData) => {
-                            const bgColorClass = `bgColor-${pkgData.id}`;
-                            return (
-                                <th key={pkgData.id} 
-                                    className={`w20 bgDark textCenter ${bgColorClass} ${bgColorClass}--offerings-${props.variables.offerings}`}
-                                    style={featureCheckColumnStyles}
-                                >
-                                    <h2 className="text2xlrg">{pkgData.name}</h2>
-                                </th>
-                            )
-                        })}
-                    </tr>
-
-                    {filteredFeaturesData.map((featureData, index) => {
-                        return (
-                            <tr key={index}>
-                                <td className="w40">
-                                    {featureData.text}
-                                </td>
-                                {subs.display.packages.map((pkgData) => (
-                                    <td key={pkgData.id}
-                                        className="w20 textCenter"
+                <table className="offerCompareTable">
+                    <tbody>
+                        <tr>
+                            <th className="w40">
+                                <h2 className="text3xlrg coloraltblue">Compare our memberships:</h2>
+                            </th>
+                            {subs.display.packages.map((pkgData) => {
+                                const bgColorClass = `bgColor-${pkgData.id}`;
+                                return (
+                                    <th key={pkgData.id} 
+                                        className={`w20 bgDark textCenter ${bgColorClass} ${bgColorClass}--offerings-${props.variables.offerings}`}
                                         style={featureCheckColumnStyles}
                                     >
-                                        {featureData.appliesTo.indexOf(pkgData.id) !== -1 &&
-                                            <div className="icon iconLeaf text2xlrg"></div>
-                                        }
+                                        <h2 className="text2xlrg">{pkgData.name}</h2>
+                                    </th>
+                                )
+                            })}
+                        </tr>
+
+                        {filteredFeaturesData.map((featureData, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td className="w40">
+                                        {featureData.text}
                                     </td>
-                                ))}
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            {/* <ul className="paymentMethodList clearfix topSpacingBlock">
-                <li>
-                    <p className="italic">Payment methods</p>
-                </li>
-                <li>
-                    <div className="paymentMethod pymtVisa"><span className="hideVisually">VISA</span></div>
-                </li>
-                <li>
-                    <div className="paymentMethod pymtMasterCard"><span className="hideVisually">MasterCard</span></div>
-                </li>
-                <li>
-                    <div className="paymentMethod pymtAmex"><span className="hideVisually">American Express</span></div>
-                </li>
-                <li>
-                    <div className="paymentMethod pymtPayPal"><span className="hideVisually">PayPal</span></div>
-                </li>
-            </ul> */}
-        </div>
-    </section>
+                                    {subs.display.packages.map((pkgData) => (
+                                        <td key={pkgData.id}
+                                            className="w20 textCenter"
+                                            style={featureCheckColumnStyles}
+                                        >
+                                            {featureData.appliesTo.indexOf(pkgData.id) !== -1 &&
+                                                <div className="icon iconLeaf text2xlrg"></div>
+                                            }
+                                        </td>
+                                    ))}
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </section>
     )
 })
 

@@ -1,7 +1,10 @@
 .offerings-style--prettygrid {
+    background-color: #fff;
 
     .offerPageForm {
-        background-color: #fff;
+        max-width: 100%;
+        width: 984px;
+        margin:0 auto;
         .page {
             position: relative;
         }
@@ -39,11 +42,15 @@
                     text-align: center;
                     border-radius: 8px 8px 0 0;
                     .badge {
+                        font-size:13px;
                         box-shadow: 0 2px 7px 0 rgba(0, 0, 0,0.2);
                         left: 10%;
                         position: absolute;
                         top: -15px;
                         width: 80%;
+                        @media (min-width: 650px) {
+                            font-size:15px;
+                        }
                         + h2 {
                             margin-top: 10px;
                         }

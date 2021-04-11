@@ -3,7 +3,7 @@
         &.offerings-variable--sparkly-dragon,
         &.offerings-variable--pretty-grid {
             background-color:#ffffff;
-            margin-bottom: -20px;
+            // margin-bottom: -20px;
         }
         
         .greenTxt {
@@ -30,6 +30,12 @@
             top: 0;
             width: 100%;
             z-index:10;
+        }
+        &.offerings-variable--pretty-grid .offerGrid .documentsImg {
+            max-width:200px;
+            @media (min-width: 1005px) {
+                max-width: none;
+            }
         }
 
         .priceGrid .ancCol1,

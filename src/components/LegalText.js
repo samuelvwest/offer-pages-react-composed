@@ -116,12 +116,14 @@ export const LegalPromoSaves = ({ saveOffers }) => {
 }
 
 export const LegalText = connect(mapStateToProps)((props) => (
-    <div className="legal-text">
-        {!window._ldbmLegalRendered && props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly fromFullLegal={true} />}
-        {props.pageSettings.elligibility === `freetrial` ? <LegalFreeTrial /> : <LegalHardOffer />}
-        {props.pageSettings.subscriptions.durationSaveOffers && <LegalDurationSaves saveOffers={props.pageSettings.subscriptions.durationSaveOffers} />}
-        {props.pageSettings.subscriptions.promoSaveOffers && <LegalPromoSaves saveOffers={props.pageSettings.subscriptions.promoSaveOffers} />}
-        {!!props.pageSettings.subscriptions.display.packages.find((pkg) => pkg.id === `allaccess`) && <LegalNewspapersBasic />}
+    <div className={`legal-text-wrap offerings-variable--${props.variables.offerings}`}>
+        <div className="legal-text">
+            {!window._ldbmLegalRendered && props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly fromFullLegal={true} />}
+            {props.pageSettings.elligibility === `freetrial` ? <LegalFreeTrial /> : <LegalHardOffer />}
+            {props.pageSettings.subscriptions.durationSaveOffers && <LegalDurationSaves saveOffers={props.pageSettings.subscriptions.durationSaveOffers} />}
+            {props.pageSettings.subscriptions.promoSaveOffers && <LegalPromoSaves saveOffers={props.pageSettings.subscriptions.promoSaveOffers} />}
+            {!!props.pageSettings.subscriptions.display.packages.find((pkg) => pkg.id === `allaccess`) && <LegalNewspapersBasic />}
+        </div>
     </div>
 ))
 

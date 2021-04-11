@@ -5,6 +5,7 @@ export const variables = getVariablesLocal() || {
         headerText: `control`,
         timeline: false,
         offerings: `control`,
+        testimonialSection: true,
         featuresGrid: `control`,
         supportSection: true,
         videoSection: false,

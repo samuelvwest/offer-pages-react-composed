@@ -1,4 +1,8 @@
 .features-grid--colorgrid {
+    &.offerings-variable--sparkly-dragon,
+    &.offerings-variable--pretty-grid {
+        background-color: #fff;
+    }
 
     tr {
         border-bottom: 1px solid #fff;
