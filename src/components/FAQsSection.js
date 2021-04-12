@@ -104,7 +104,7 @@ export class FAQsSection extends React.Component {
     render() {
         if (this.props.variables.faqsSection) {
             return (
-                <div className={`mb-4 ${classesMaker('sparkly-dragon')}`}>
+                <div className={`${classesMaker('sparkly-dragon')} offerings-variable--${this.props.variables.offerings}`}>
                     <section className="faq-section">
                         <div className="expand-container faq-title-wrap pad-spacing-top-none spacing-bottom-md">
                             <h3 className="text4xlrg bold faq-title">Frequently Asked Questions</h3>

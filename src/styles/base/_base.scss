@@ -30,9 +30,11 @@
     max-width:100%;
     margin:0;
     background-color:#ffffff;
+    border-top: solid 1px #ddd;
     &.offerings-variable--control {
         @media (min-width: 601px) {
             background-color:transparent;
+            border: none;
         }
     }
     &.offerings-variable--sparkly-dragon,
@@ -97,4 +99,7 @@
             top:0;
         }
     }
+}
+.legal-text-wrap.offerings-variable--control .legal-text {
+    max-width: 900px;
 }

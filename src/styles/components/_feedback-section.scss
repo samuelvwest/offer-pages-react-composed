@@ -2,17 +2,41 @@
 
     &.feedback-section--sparkly-dragon {
         box-sizing: border-box;
-        margin: 0 auto;
-        max-width: 100%;
-        padding: 12px;
-        width: 984px;
+        padding: 0 20px;
+        background-color: #fff;
+        margin:0;
         
         &.over-the-top {
             position: relative;
             z-index: 10;
         }
 
-        .disclaimer-wrap, .feedback, .seperate-products {
+        .feedback {
+            margin: 0 auto;
+            max-width: 100%;
+            padding: 30px 0;
+            width: 984px;
+            border-top: solid 1px #ddd;
+        }
+        &.offerings-variable--control {
+            @media (min-width: 601px) {
+                background-color: transparent;
+                padding: 10px 20px;
+                .feedback {
+                    width: 930px;
+                    background-color: #fff;
+                    padding: 20px;
+                    border: solid 1px #ddd;
+                }
+            }
+            @media (min-width: 768px) {
+                .feedback {
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .disclaimer-wrap, .seperate-products {
             margin: 10px;
         }
 

@@ -27,8 +27,7 @@ export class ExamplesSection extends React.Component {
     render() {
         if (this.props.variables.examplesSection) {
             return (
-                <div className={`ancGrid ancGridEqual exampleWrapper examples-outer-wrap-desk ${classesMaker(`sparkly-dragon`)}`}>
-                    <hr className="hr-line-mtb10 mlr-0"></hr>
+                <div className={`ancGrid ancGridEqual exampleWrapper examples-outer-wrap-desk ${classesMaker(`sparkly-dragon`)}  offerings-variable--${this.props.variables.offerings}`}>
                     {this.props.pageSettings.windowWidth < this.props.pageSettings.breaks.sparklydragon.desktop ? 
                         <section className="con example-content pg-4">
                             <header className="conHeader">

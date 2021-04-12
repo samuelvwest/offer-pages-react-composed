@@ -2,10 +2,33 @@
 
     &.faqs-section--sparkly-dragon {
         box-sizing: border-box;
-        margin: 0 auto;
-        max-width: 100%;
-        padding: 12px;
-        width: 984px;
+        background-color: #ffffff;
+        padding: 0 20px;
+        &.offerings-variable--control {
+            @media (min-width: 601px) {
+                padding: 10px 20px;
+                background-color: transparent;
+            }
+        }
+
+        .faq-section {
+            margin: 0 auto;
+            max-width: 100%;
+            padding: 30px 0;
+            border-top: solid 1px #ddd;
+            width: 968px;
+        }
+        &.offerings-variable--control .faq-section {
+            @media (min-width: 601px) {
+                width:930px;
+                background-color:#fff;
+                padding: 20px;
+                border: solid 1px #ddd;
+            }
+            @media (min-width: 769px) {
+                border-radius:5px;
+            }
+        }
         
         .expand-container {
             display: flex;

@@ -123,14 +123,15 @@ export class OfferPage extends React.Component {
                 <HeaderStyle />
                 <Offerings />
                 <SupportSection />
-                <TestimonialSection />
                 <FeaturesGrid />
+                <TestimonialSection />
                 <VideoSection />
-                {/* <ExamplesSection /> */}
-                {/* <PrivacySection /> */}
-                {/* <FAQsSection /> */}
-                {/* <OtherProductsSection /> */}
-                {/* <FeedbackSection /> */}
+                <ExamplesSection />
+                <PrivacySection />
+                <FAQsSection />
+                <OtherProductsSection />
+                <FeedbackSection />
+                {this.props.variables.displayLowerOffer && <Offerings />}
                 <LegalText />
             </div>
         )

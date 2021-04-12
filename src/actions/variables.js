@@ -21,6 +21,30 @@ export const removeVariablesLocal = () => {
     delete window.localStorage.variables;
 }
 
+// Calculate lower offerings location
+const variableHeightValues = {
+    testimonialSection: 3,
+    featuresGrid: 10,
+    supportSection: 1,
+    videoSection: 2,
+    examplesSection: 5,
+    privacySection: 1,
+    faqsSection: 4,
+    otherProductsSection: 2,
+    feedbackSection: 1
+}
+
+export const displayLowerOfferCalculation = (variables) => {
+    let score = 0;
+    Object.keys(variableHeightValues).forEach((key) => {
+        const varVal = variables[key];
+        if (!!varVal && !/not-included/.test(varVal)) {
+            score = score + variableHeightValues[key];
+        }
+    })
+    return score > 18;
+}
+
 // Replace Variables in REDUX
 export const replaceVariables = (variables) => ({
     type: 'REPLACE_VARIABLES',
