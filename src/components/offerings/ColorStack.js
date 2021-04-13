@@ -24,7 +24,7 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
     const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
     return (
-        <div className={classesMaker('colorstack')}>
+        <div className={`${classesMaker('colorstack')} offerings-placement--${props.placement}`}>
             <form action="/checkout/mli?">
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />
@@ -57,7 +57,7 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                         </div>
                         {toggleTest && subs.selectedOffer.renewMonths !== 1 && 
                             <p className="durationLDBMButton">
-                                <button type="button" onClick={() => this.props.modifyPageSettings({
+                                <button type="button" onClick={() => props.modifyPageSettings({
                                     LDBM: (subs.selectedOffer.ldbm ? `toggle-back` : `toggle-front`),
                                     selectedOffer: { 
                                         renewMonths: pS.selectedOffer.renewMonths, 

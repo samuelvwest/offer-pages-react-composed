@@ -115,16 +115,22 @@ export const LegalPromoSaves = ({ saveOffers }) => {
     )
 }
 
-export const LegalText = connect(mapStateToProps)((props) => (
+export const LegalTextWrapper = connect(mapStateToProps)((props) => (
     <div className={`legal-text-wrap offerings-variable--${props.variables.offerings}`}>
         <div className="legal-text">
+            {props.children}
+        </div>
+    </div>
+))
+
+export const LegalText = connect(mapStateToProps)((props) => (
+    <LegalTextWrapper>
             {!window._ldbmLegalRendered && props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly fromFullLegal={true} />}
             {props.pageSettings.elligibility === `freetrial` ? <LegalFreeTrial /> : <LegalHardOffer />}
             {props.pageSettings.subscriptions.durationSaveOffers && <LegalDurationSaves saveOffers={props.pageSettings.subscriptions.durationSaveOffers} />}
             {props.pageSettings.subscriptions.promoSaveOffers && <LegalPromoSaves saveOffers={props.pageSettings.subscriptions.promoSaveOffers} />}
             {!!props.pageSettings.subscriptions.display.packages.find((pkg) => pkg.id === `allaccess`) && <LegalNewspapersBasic />}
-        </div>
-    </div>
+    </LegalTextWrapper>
 ))
 
 export default LegalText

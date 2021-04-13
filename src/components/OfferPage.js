@@ -14,6 +14,7 @@ import PrivacySection from './PrivacySection';
 import FAQsSection from './FAQsSection';
 import OtherProductsSection from './OtherProductsSection';
 import FeedbackSection from './FeedbackSection';
+import InfoSections from './InfoSections';
 import LegalText from './LegalText';
 
 const mapStateToProps = (state) => ({
@@ -118,20 +119,21 @@ export class OfferPage extends React.Component {
         //     this.props.modifyVariables(newState);
         // };
         return (
-            <div>
+            <div className={`page-wrap page-wrap--offerings-variable-${this.props.variables.offerings} page-wrap--location-${this.props.pageSettings.location} page-wrap--elligibility-${this.props.pageSettings.elligibility}`}>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
                 <HeaderStyle />
-                <Offerings />
+                <Offerings placement="top" />
                 <SupportSection />
                 <FeaturesGrid />
+                <InfoSections />
                 <TestimonialSection />
                 <VideoSection />
                 <ExamplesSection />
-                <PrivacySection />
                 <FAQsSection />
+                {this.props.variables.displayLowerOffer && <Offerings placement="bottom" />}
                 <OtherProductsSection />
+                <PrivacySection />
                 <FeedbackSection />
-                {this.props.variables.displayLowerOffer && <Offerings />}
                 <LegalText />
             </div>
         )

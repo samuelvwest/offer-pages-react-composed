@@ -1,3 +1,11 @@
+.page-wrap {
+    &.page-wrap--offerings-variable-control {
+        &.page-wrap--location-join {
+            background-color: #f0eee9;
+        }
+    }
+}
+
 .offerings-style {
     &.offerings-style--greentop {
         padding-top: 20px;
@@ -151,10 +159,11 @@
         
         .seeAllMemSection {
             display:block;
+            padding: 0 20px;
             margin: 20px 0;
             .legal-text__paragraph {
-                color: #6a6865;
-                margin: 15px 15px 5px 14px;
+                // color: #6a6865;
+                // margin: 15px 15px 5px 14px;
                 &:nth-last-of-type(1) {
                     // margin: 0px 15px 15px 14px;
                 }
@@ -184,6 +193,21 @@
         //     min-height: 300px;
         //     flex-direction: column-reverse;
         // }
+
+        &.offerings-placement--bottom {
+            div.ancCol.w60 {
+                margin: 0 auto;
+                float: none;
+                padding: 0;
+            }
+            .ftSubOfferForm {
+                margin: 0 auto;
+            }
+            .seeAllMemBtn {
+                display:block;
+                margin:0 auto;
+            }
+        }
 
     }
 }

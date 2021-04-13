@@ -27,7 +27,7 @@ export class SparklyDragon extends React.Component {
         const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
         const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
         return (
-            <div className={classesMaker('sparklydragon')}>
+            <div className={`${classesMaker('sparklydragon')} offerings-placement--${this.props.placement}`}>
                 <div className="page-container">
                     <div className="buttonpills-wrap">
                         <div className="buttonpills-inner" style={{ width: `${(40 + ((subs.display.durations.length - (subs.display.durations.length < 4 ? 0 : 1)) * 105))}px`}}>

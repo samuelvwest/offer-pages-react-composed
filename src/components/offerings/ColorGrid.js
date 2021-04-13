@@ -23,7 +23,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const subs = pS.subscriptions;
     const rowClasses = [ `priceSmallRow`, `priceMediumLowRow`, `priceMediumHighRow`, `priceTallRow` ]
     return (
-        <section className={`formCon ${classesMaker('colorgrid')}`}>
+        <section className={`formCon ${classesMaker('colorgrid')} offerings-placement--${props.placement}`}>
             <form className="form clearfix" action="/checkout/mli?">
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />

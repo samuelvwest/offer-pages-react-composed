@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AncestryIcon, Circle, IllustrationLeaf } from './SVGs';
+import { AncestryIcon, Circle, ArrowLineMobile, ArrowLineLeft, ArrowLineCenter, ArrowLineRight, IllustrationLeaf } from './SVGs';
 
 const mapStateToProps = (state) => {
     return {
@@ -26,6 +26,16 @@ export class ExamplesSection extends React.Component {
     }
     render() {
         if (this.props.variables.examplesSection) {
+            let offerColors = [ `#6ba410`, `#0079a3`, `#61527e` ];
+            if (!/sparkly/.test(this.props.variables.offerings)) {
+                if (this.props.pageSettings.windowWidth < this.props.pageSettings.breaks.control.tablet) {
+                    offerColors = [ `#1c88b0`, `#9cbf3b`, `#d68b35` ];
+                } else if (/pretty/.test(this.props.variables.offerings)) {
+                    offerColors = [ `#0079a3`, `#6ba410`, `#655586` ];
+                } else {
+                    offerColors = [ `#0079a3`, `#6ba410`, `#655586` ];
+                }
+            }
             return (
                 <div className={`ancGrid ancGridEqual exampleWrapper examples-outer-wrap-desk ${classesMaker(`sparkly-dragon`)}  offerings-variable--${this.props.variables.offerings}`}>
                     {this.props.pageSettings.windowWidth < this.props.pageSettings.breaks.sparklydragon.desktop ? 
@@ -50,7 +60,12 @@ export class ExamplesSection extends React.Component {
                                                 <div className="usercontainer">
                                                     <div className="userTitleWrapper">
                                                         <h6 className="userCardTitle">Heidi C.</h6>
-                                                        <p className="userCardSubTitle member">Found in U.S. records</p>
+                                                        <p className="userCardSubTitle">
+                                                            <span className="user-subtitle-dot">
+                                                                <Circle fillColor={offerColors[0]} />
+                                                            </span>
+                                                            Found in U.S. records
+                                                        </p>
                                                     </div>
                                                     <div className="userCardPile">
                                                         <span className="userCardImg userCardPortrait user-card-img-new" title="Person 1 Name, birth-death">
@@ -61,6 +76,7 @@ export class ExamplesSection extends React.Component {
                                             </div>
                                             <div className="btnToggle topSpacing">
                                                 <button type="button"
+                                                    style={{ backgroundColor: offerColors[0] }}
                                                     className={`ancBtn see-story-btn full-width ${/heidi/.test(this.state.storyExpanded) ? `noDisplay` : ``}`} 
                                                     onClick={() => {this.changeStoryExpanded('heidi')}}
                                                 >
@@ -68,7 +84,7 @@ export class ExamplesSection extends React.Component {
                                                 </button>
                                             </div>
                                             <div className={`story-wrap-mbl memberExpand topSpacing ${!/heidi/.test(this.state.storyExpanded) ? `noDisplay` : ``}`}>
-                                                <img className="full-width" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/green-line-mbl.svg" />
+                                                <ArrowLineMobile classNames="full-width" strokeColor={offerColors[0]} />
                                                 <div className="expandHeaderClose">
                                                     <header className="conHeader topSpacing">
                                                         <h2 className="conTitle example-stories-title">
@@ -125,7 +141,7 @@ export class ExamplesSection extends React.Component {
                                                     </div>
                                                 </div>
                                                 <div className="btnToggle topSpacing flex-container">
-                                                    <button className="ancBtn close-story-btn-mbl usdis-story-close-mbl" type="button" onClick={() => {this.changeStoryExpanded('none')}}>Close</button> 
+                                                    <button className="ancBtn close-story-btn-mbl usdis-story-close-mbl" type="button" style={{ backgroundColor: offerColors[0] }} onClick={() => {this.changeStoryExpanded('none')}}>Close</button> 
                                                     <img className="mt-2 img-fluid-width mob-example-img story1-crocs-img show320" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/story1-crocs-img.png" />
                                                 </div>
                                             </div>
@@ -146,7 +162,12 @@ export class ExamplesSection extends React.Component {
                                                 <div className="usercontainer">
                                                     <div className="userTitleWrapper">
                                                         <h6 className="userCardTitle">Ben C.(<AncestryIcon /> Employee)</h6>
-                                                        <p className="userCardSubTitle member-blue">Found in international records</p>
+                                                        <p className="userCardSubTitle">
+                                                            <span className="user-subtitle-dot">
+                                                                <Circle fillColor={offerColors[1]} />
+                                                            </span>
+                                                            Found in international records
+                                                        </p>
                                                     </div>
                                                     <div className="userCardPile">
                                                         <span className="userCardImg userCardPortrait user-card-img-new">
@@ -156,10 +177,16 @@ export class ExamplesSection extends React.Component {
                                                 </div>
                                             </div>
                                             <div className="btnToggle topSpacing">
-                                                <button className={`ancBtn blue see-story-btn ${/ben/.test(this.state.storyExpanded) ? `noDisplay` : ``}`} type="button" onClick={() => {this.changeStoryExpanded('ben')}}>See story</button>
+                                                <button type="button"
+                                                    style={{ backgroundColor: offerColors[1] }}
+                                                    className={`ancBtn blue see-story-btn ${/ben/.test(this.state.storyExpanded) ? `noDisplay` : ``}`} 
+                                                    onClick={() => {this.changeStoryExpanded('ben')}}
+                                                >
+                                                    See story
+                                                </button>
                                             </div>
                                             <div className={`story-wrap-mbl memberExpand topSpacing ${!/ben/.test(this.state.storyExpanded) ? `noDisplay` : ``}`}>
-                                                <img className="full-width" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/blue-line-mbl.svg" />
+                                                <ArrowLineMobile classNames="full-width" strokeColor={offerColors[1]} />
                                                 <div className="expandHeaderClose">
                                                     <header className="conHeader topSpacing">
                                                         <h2 className="conTitle example-stories-title">Ben’s Story<span className="closeIcon closeIconMbl" onClick={() => {this.changeStoryExpanded('none')}}></span></h2>
@@ -205,7 +232,7 @@ export class ExamplesSection extends React.Component {
                                                     </div>
                                                 </div>
                                                 <div className="btnToggle topSpacing" id="closeBtnContainer">
-                                                    <button className="ancBtn blue close-story-btn-mbl" type="button" onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
+                                                    <button className="ancBtn blue close-story-btn-mbl" type="button" style={{ backgroundColor: offerColors[1] }} onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,7 +264,7 @@ export class ExamplesSection extends React.Component {
                                                             <h6 className="userCardTitle">Heidi C.</h6>
                                                             <p className="userCardSubTitle usercard-subtitle-new">
                                                                 <span className="user-subtitle-dot">
-                                                                    <Circle fillColor="#6BA410" />
+                                                                    <Circle fillColor={offerColors[0]} />
                                                                 </span>
                                                                 Found in U.S. records
                                                             </p>
@@ -251,6 +278,7 @@ export class ExamplesSection extends React.Component {
                                                 </div>
                                                 <div className="btnToggle topSpacing">
                                                     <button type="button" 
+                                                        style={{ backgroundColor: offerColors[0] }}
                                                         className={`ancBtn see-story-btn full-width ${/heidi/.test(this.state.storyExpanded) ? `noDisplay` : ``}`} 
                                                         onClick={() => {this.changeStoryExpanded('heidi')}}
                                                     >
@@ -279,7 +307,7 @@ export class ExamplesSection extends React.Component {
                                                             </h6>
                                                             <p className="userCardSubTitle usercard-subtitle-new">
                                                                 <span className="user-subtitle-dot">
-                                                                    <Circle fillColor="#0079A3" />
+                                                                    <Circle fillColor={offerColors[1]} />
                                                                 </span>
                                                                 Found in international records
                                                             </p>
@@ -293,6 +321,7 @@ export class ExamplesSection extends React.Component {
                                                 </div>
                                                 <div className="btnToggle topSpacing">
                                                     <button type="button" 
+                                                        style={{ backgroundColor: offerColors[1] }}
                                                         className={`ancBtn blue see-story-btn full-width ${/ben/.test(this.state.storyExpanded) ? `noDisplay` : ``}`} 
                                                         onClick={() => {this.changeStoryExpanded('ben')}}
                                                     >
@@ -320,7 +349,7 @@ export class ExamplesSection extends React.Component {
                                                             <h6 className="userCardTitle">Michelle M.</h6>
                                                             <p className="userCardSubTitle usercard-subtitle-new">
                                                                 <span className="user-subtitle-dot">
-                                                                    <Circle fillColor="#61527E" />
+                                                                    <Circle fillColor={offerColors[2]} />
                                                                 </span>
                                                                 <span>Found on Fold3.com and <span className="story3-examples-caption">Newspapers.com</span></span>
                                                             </p>
@@ -334,6 +363,7 @@ export class ExamplesSection extends React.Component {
                                                 </div>
                                                 <div className="btnToggle topSpacing">
                                                     <button type="button" 
+                                                        style={{ backgroundColor: offerColors[2] }}
                                                         className={`ancBtn allaccess-btn-bgcolor see-story-btn full-width ${/michelle/.test(this.state.storyExpanded) ? `noDisplay` : ``}`}
                                                         onClick={() => {this.changeStoryExpanded('michelle')}}
                                                     >
@@ -348,7 +378,7 @@ export class ExamplesSection extends React.Component {
 
 
                             <div className={`story-wrap memberExpand mt-2 usdis-story-wrap-desk ${!/heidi/.test(this.state.storyExpanded) ? `noDisplay` : ``}`}>
-                                <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/green-line-desk.svg" className="full-width" />
+                                <ArrowLineLeft classNames="full-width" strokeColor={offerColors[0]} />
                                 <div className="expandHeaderClose rel-pos">
                                     <header className="conHeader topSpacing rel-pos">
                                         <h2 className="conTitle example-stories-title">Heidi’s Story</h2>
@@ -388,12 +418,12 @@ export class ExamplesSection extends React.Component {
                                         </div>
                                     </div>
                                     <div className="btnToggle topSpacing textCenter storyCloseBtnContainer center-btn">
-                                        <button className="ancBtn stories-close-btn" type="button" onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
+                                        <button className="ancBtn stories-close-btn" type="button" style={{ backgroundColor: offerColors[0] }} onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
                                     </div>
                                 </div>
                             </div>
                             <div className={`story-wrap memberExpand mt-2 ${!/ben/.test(this.state.storyExpanded) ? `noDisplay` : ``}`}>
-                                <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/blue-line-desk.svg" className="full-width" />
+                                <ArrowLineCenter classNames="full-width" strokeColor={offerColors[1]} />
                                 <div className="expandHeaderClose rel-pos">
                                     <header className="conHeader topSpacing rel-pos">
                                         <h2 className="conTitle example-stories-title">Ben’s Story</h2>
@@ -436,12 +466,12 @@ export class ExamplesSection extends React.Component {
                                         </div>
                                     </div>
                                     <div className="btnToggle topSpacing textCenter storyCloseBtnContainer center-btn">
-                                        <button className="ancBtn stories-close-btn blue" type="button" onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
+                                        <button className="ancBtn stories-close-btn blue" type="button" style={{ backgroundColor: offerColors[1] }} onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
                                     </div>
                                 </div>
                             </div>
                             <div className={`story-wrap memberExpand mt-2 ${!/michelle/.test(this.state.storyExpanded) ? `noDisplay` : ``}`}>
-                                <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/violet-line-desk.svg" className="full-width" />
+                                <ArrowLineRight classNames="full-width" strokeColor={offerColors[2]} />
                                 <div className="expandHeaderClose rel-pos">
                                     <header className="conHeader topSpacing rel-pos">
                                         <h2 className="conTitle example-stories-title">Michelle’s Story</h2>
@@ -526,7 +556,7 @@ export class ExamplesSection extends React.Component {
                                         </div>
                                     </div>
                                     <div className="btnToggle topSpacing textCenter storyCloseBtnContainer center-btn">
-                                        <button className="ancBtn stories-close-btn allaccess-btn-bgcolor" type="button" onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
+                                        <button className="ancBtn stories-close-btn allaccess-btn-bgcolor" type="button" style={{ backgroundColor: offerColors[2] }} onClick={() => {this.changeStoryExpanded('none')}}>Close</button>
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,185 @@
+.info-sections {
+
+    &.info-sections--control {
+        background-color:#fff;
+        padding: 20px 0;
+        &.offerings-variable--control {
+            @media (min-width: 601px) {
+                background-color: transparent;
+            }
+        }
+
+        &.otherBenefitsCon {
+            background: #fff;
+
+            h3 {
+                margin-top: 0;
+                @media only screen and (max-width: 480px) {
+                    margin-top: 20px;
+                }
+            }
+            
+            .exploreCon {
+                background: #f0eee9;
+                padding: 30px 20px 40px;
+            }
+
+            .growCon {
+                color: #fff;
+                padding: 40px 20px;
+            }
+
+            .goCon {
+                background: #f0eee9;
+                min-height: 193px;
+                padding: 40px 20px;
+            }
+
+            .getCon {
+                color: #fff;
+                padding: 40px 20px;
+            }
+
+            .fullPgImgSprite {
+                float: left;
+                margin: auto;
+                width: 173px;
+                &.exploreImg {
+                    background-position: 0 0;
+                    height: 120px;
+                }
+                &.growImg {
+                    background-position: 0 -128px;
+                    height: 110px;
+                    margin-bottom: 30px;
+                    @media only screen and (max-width: 480px) {
+                        margin-bottom:0;
+                    }
+                }
+                &.goImg {
+                    background-position: 0 -253px;
+                    height: 142px;
+                }
+                &.getImg {
+                    background-color: #fff;
+                    background-position: 0 -408px;
+                    height: 123px;
+                    margin: 0 20px 50px 0;
+                    @media only screen and (max-width: 480px) {
+                        margin: auto;
+                    }
+                }
+                &.loadedBgImg {
+                    background-image: url(https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/ftlp-mobile-more-sprite3.png);
+                    background-repeat: no-repeat;
+                    @media only screen and (max-width: 480px) {
+                        float:none;
+                    }
+                }
+            }
+
+        }
+
+        .ftSubPageSection {
+            overflow: hidden;
+            position: relative;
+
+            &.recordsCon {
+                background-color: #1b88b0;
+            }
+
+            &.familyTreeCon {
+                background-color: #534d46;
+            }
+
+            &.timelinesCon {
+                background-color: #ffffff;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                letter-spacing: normal;
+                text-transform: none;
+            }
+
+            .page {
+                padding: 0 10px;
+            }
+
+            .ftSubPageGrid > .ancCol {
+                position: relative;
+                vertical-align: middle;
+            }
+
+            .ftSubSectionTitle {
+                font-size: 40px;
+                font-weight: 300;
+                line-height: 1.2;
+                @media only screen and (max-width: 767px) {
+                    font-size: 32px;
+                }
+            }
+
+            .ftSubPageGrid .ftSubPageBkgCol {
+                height: 465px;
+                @media only screen and (max-width: 767px) {
+                    height: 375px;
+                }
+            }
+
+            .recordsImg {
+                background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-recordbkg.jpg) repeat-y;
+                background-position: 100% 100%;
+                background-size: 100% auto;
+                height: inherit;
+                left: -4.16%;
+                max-width: 100%;
+                position: absolute;
+                top: 0;
+                width: 491px;
+            }
+
+            .familyTreeImg {
+                background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-familytree.png) no-repeat;
+                display: block;
+                height: 361px;
+                left: 30px;
+                position: absolute;
+                top: 35px;
+                width: 627px;
+            }
+
+            .timelinesImg {
+                background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-timelinebkg.png) no-repeat;
+                background-position: 0 100%;
+                background-size: 100% auto;
+                bottom: 0;
+                display: block;
+                height: 430px;
+                left: -20px;
+                max-width: 100%;
+                position: absolute;
+                width: 447px;
+            }
+
+            .recordsContentWrap {
+                max-width: 410px;
+                width: 100%;
+            }
+
+            .ftSubSectionIntro {
+                font-size: 20px;
+                @media only screen and (max-width: 767px) {
+                    font-size: 18px;
+                }
+            }
+
+            .timelinesContentWrap {
+                max-width: 385px;
+                width: 100%;
+            }
+
+        }
+
+    }
+
+}

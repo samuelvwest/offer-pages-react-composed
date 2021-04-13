@@ -103,3 +103,13 @@
 .legal-text-wrap.offerings-variable--control .legal-text {
     max-width: 900px;
 }
+
+.offerings-placement--bottom {
+    padding-top: 30px;
+    border-top: solid 1px #ddd;
+    &.offerings-style--bonsaigrid,
+    &.offerings-style--colorgrid,
+    &.offerings-style--greentop {
+        border: none;
+    }
+}

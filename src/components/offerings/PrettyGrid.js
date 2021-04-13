@@ -39,7 +39,7 @@ export class PrettyGrid extends React.Component {
         const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
         const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
         return (
-            <div className={classesMaker('prettygrid')}>
+            <div className={`${classesMaker('prettygrid')} offerings-placement--${this.props.placement}`}>
                 <section className="offerPageForm">
                     <div className="page pageWidth1 pagePadded">
                         <form className="form" action="/checkout/mli?">

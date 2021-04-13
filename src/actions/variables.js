@@ -26,6 +26,7 @@ const variableHeightValues = {
     testimonialSection: 3,
     featuresGrid: 10,
     supportSection: 1,
+    infoSections: 12,
     videoSection: 2,
     examplesSection: 5,
     privacySection: 1,

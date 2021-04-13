@@ -20,31 +20,37 @@ const mapVariableToProps = (state) => {
     }
 };
 
+const mapVariablesToProps = (state) => {
+    return {
+        variables: state.variables
+    }
+};
+
 const Control = connect(mapPageSettingsStateToProps)((props) => {
     if (props.pageSettings.windowWidth < props.pageSettings.breaks.control.tablet) {
         // Color Stack for Phone on all offer pages
-        return <ColorStack/>
+        return <ColorStack placement={props.placement}/>
     } else if (props.pageSettings.location === 'join') {
         // Green Top for Tablet & Desktop for CARE pages
-        return <GreenTop/>
+        return <GreenTop placement={props.placement}/>
     } else if (props.pageSettings.windowWidth < props.pageSettings.breaks.control.desktop) {
         // Color Grid for Tablet on FTLP & HOLP
-        return <ColorGrid/>
+        return <ColorGrid placement={props.placement}/>
     } else {
         // Bonsai Grid for Desktp on FTLP & HOLP
-        return <BonsaiGrid/>
+        return <BonsaiGrid placement={props.placement}/>
     }
 });
 
 
-const Offerings = connect(mapVariableToProps)(({ offerings }) => {
+const Offerings = connect(mapVariableToProps)(({ offerings, placement }) => {
     switch (offerings) {
         case 'sparkly-dragon':
-            return <SparklyDragon/>
+            return <SparklyDragon placement={placement} />
         case 'pretty-grid':
-            return <PrettyGrid/>
+            return <PrettyGrid placement={placement} />
         default: 
-            return <Control/>;
+            return <Control placement={placement} />;
     }
 });
 

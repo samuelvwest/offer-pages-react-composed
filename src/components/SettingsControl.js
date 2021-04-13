@@ -463,6 +463,21 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
+                <h5 className="settings__group__name">Info Sections</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="infoSections" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="infoSections" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
+            <div className="settings__group">
                 <h5 className="settings__group__name">Support Section</h5>
                 <SettingsButton 
                     settingGroup="variables"

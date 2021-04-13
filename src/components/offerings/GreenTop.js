@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
 import BonsaiGrid from './BonsaiGrid';
-import { LegalSup, LegalLongDurationBilledMonthly, LegalDurationSaves, LegalText } from '../LegalText';
+import { LegalSup, LegalLongDurationBilledMonthly, LegalDurationSaves, LegalTextWrapper, LegalText } from '../LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -34,7 +34,7 @@ export class GreenTop extends React.Component {
         const ldbmDurations = [];
         const durationSaveOffers = [];
         return (
-            <div className={classesMaker('greentop')}>
+            <div className={`${classesMaker('greentop')} offerings-placement--${this.props.placement}`}>
                 <section className="ftSubOfferSection mainOfferSection">
                     <div className="page">
                         <div className="ancGrid full480">
@@ -135,8 +135,12 @@ export class GreenTop extends React.Component {
                                 <BonsaiGrid/>
                                 <LegalText/>
                             </div>
-                            {ldbmDurations.length > 0 && <LegalLongDurationBilledMonthly durations={ldbmDurations} />}
-                            {durationSaveOffers.length > 0 && <LegalDurationSaves durationSaveOffers={durationSaveOffers} />}
+                            {(ldbmDurations.length > 0 || durationSaveOffers.length > 0) && 
+                                <LegalTextWrapper>
+                                    {ldbmDurations.length > 0 && <LegalLongDurationBilledMonthly durations={ldbmDurations} />}
+                                    {durationSaveOffers.length > 0 && <LegalDurationSaves durationSaveOffers={durationSaveOffers} />}
+                                </LegalTextWrapper>
+                            }
                         </div>
                     </div>
                 </section>

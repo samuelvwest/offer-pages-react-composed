@@ -8,6 +8,9 @@
         min-width: 500px;
         padding: 12px;
         width: 984px;
+        &.offerings-placement--bottom {
+            padding-top: 50px;
+        }
 
         .greenTxt {
             color: #648200;
