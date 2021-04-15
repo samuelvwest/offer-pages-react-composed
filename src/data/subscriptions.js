@@ -47,7 +47,7 @@ export const subscriptions = [
             MSRP: 24.99
         },
         offerIDs: {
-            initial: 'O-23590',
+            initial: 'O-25401',
             renewal: 'O-25370',
             migration: 'O-26218'
         }
@@ -247,7 +247,7 @@ export const subscriptions = [
             MSRP: 149
         },
         offerIDs: {
-            initial: 'O-25405',
+            initial: 'O-22056',
             renewal: 'O-22054',
             migration: 'O-23637'
         }
@@ -348,7 +348,7 @@ export const subscriptions = [
         },
         offerIDs: {
             initial: 'TD_AA-3MR-3MB_I',
-            renewal: 'TD_AA-3MR-3MB_R',
+            renewal: 'O-26590',
             migration: 'TD_AA-3MR-3MB_M'
         }
     }, {
@@ -387,7 +387,7 @@ export const subscriptions = [
             MSRP: 199
         },
         offerIDs: {
-            initial: 'O-25410',
+            initial: 'O-24567',
             renewal: 'O-24566',
             migration: 'O-24568'
         }

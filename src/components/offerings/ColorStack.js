@@ -78,12 +78,30 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                 const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
                                 return packageTest && renewMonthsTest && ldbmTest;
                             });
+                            const selectedTest = offer.packageID === pS.selectedOffer.packageID && offer.renewalPeriod.renewMonths === pS.selectedOffer.renewMonths && offer.ldbm === pS.selectedOffer.ldbm;
                             return (
                                 <div key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className={offer.packageData.order === 3 ? `orangePackageRow` : offer.packageData.order === 2 ? `greenPackageRow` : `bluePackageRow`}>
                                     <div className="annualPriceCon priceCon ancGrid">
-                                        <label className="priceLink clearfix" htmlFor={offer.id}>
+                                        <label className="priceLink clearfix" htmlFor={offer.id}
+                                            onClick={
+                                                (e) => {
+                                                    props.modifyPageSettings({ 
+                                                        selectedOffer: { 
+                                                            renewMonths: offer.renewalPeriod.renewMonths, 
+                                                            packageID: offer.packageID,
+                                                            ldbm: offer.ldbm
+                                                        }
+                                                    })
+                                                    setTimeout(() => {
+                                                        document.querySelector(`.offerings-placement--${props.placement} form`).submit();
+                                                    }, 250);
+                                                }
+                                            }
+                                        >
                                             <input 
                                                 value={offer.offerIDs[pS.elligibility]} 
+                                                checked={selectedTest} 
+                                                onChange={() => {}}
                                                 className="radioBtn"
                                                 type="radio" 
                                                 name="offers" 

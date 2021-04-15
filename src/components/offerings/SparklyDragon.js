@@ -85,6 +85,7 @@ export class SparklyDragon extends React.Component {
                                     const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
                                     return packageTest && renewMonthsTest && ldbmTest;
                                 });
+                                const selectedTest = offer.packageID === pS.selectedOffer.packageID && offer.renewalPeriod.renewMonths === pS.selectedOffer.renewMonths && offer.ldbm === pS.selectedOffer.ldbm;
                                 const pkgVars = offer.packageData.order === 3  ? {
                                     genericClass: `allacc`,
                                     wrapClasses: `allacc-plan-wrap allacc-plan-br-mbl`,
@@ -114,7 +115,22 @@ export class SparklyDragon extends React.Component {
                                     arrowClass: `us-dis-arrow`
                                 }
                                 return (
-                                    <section key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`}  className={`subs-plan-outer-wrap`} onClick={this.emptyFunction}>
+                                    <section key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`}  className={`subs-plan-outer-wrap`}
+                                        onClick={
+                                            (e) => {
+                                                this.props.modifyPageSettings({ 
+                                                    selectedOffer: { 
+                                                        renewMonths: offer.renewalPeriod.renewMonths, 
+                                                        packageID: offer.packageID,
+                                                        ldbm: offer.ldbm
+                                                    }
+                                                })
+                                                setTimeout(() => {
+                                                    document.querySelector(`.offerings-placement--${this.props.placement} form`).submit();
+                                                }, 250);
+                                            }
+                                        }
+                                    >
                                         <div className={`subs-plan-wrap ${pkgVars.wrapClasses}`}>
                                             {!!offer.durationSavings && <div className="saving-plan-sixmonths">Save {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></div>}
                                             <div className={`plan-hero-img ${pkgVars.heroClass}`}>
@@ -149,7 +165,9 @@ export class SparklyDragon extends React.Component {
                                                 <span className={`icon iconArrowRight ${pkgVars.arrowClass}`}></span>
                                             </div>
                                             <input 
-                                                value={offer.offerIDs[subs.offerElligibilityType]} 
+                                                value={offer.offerIDs[pS.elligibility]} 
+                                                checked={selectedTest} 
+                                                onChange={() => {}}
                                                 className="radioBtn hide"
                                                 type="radio" 
                                                 name="offers" 

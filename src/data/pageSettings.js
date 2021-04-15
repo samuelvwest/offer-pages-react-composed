@@ -24,8 +24,8 @@ export const pageSettings = getPageSettingsLocal() || {
             tablet: 601
         }
     },
-    LDBM: 'side-by-side', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
-    displayDurations: [1, 3, 6, 12], // 1, 3, 6, 12
+    LDBM: 'toggle-front', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
+    displayDurations: [1, 6], // 1, 3, 6, 12
     displayPackages: ['usdiscovery', 'worldexplorer', 'allaccess'], // 'usdiscovery', 'worldexplorer', 'allaccess' 
     selectedOffer: {
         renewMonths: 1, // must be included in 'displayDurations' setting
@@ -45,6 +45,10 @@ export const pageSettings = getPageSettingsLocal() || {
     packagesData
 }
 
+if (/ancestry/.test(location.hostname)) {
+    pageSettings.location = getLocation();
+    pageSettings.elligibility = getElligibility();
+}
 pageSettings.returnURL = getReturnURL();
 pageSettings.displayPackages = filterDisplayPackages(pageSettings.displayPackages, packagesData, pageSettings.denyLevel);
 pageSettings.subscriptions = buildDisplayOffersData(pageSettings, subscriptions);

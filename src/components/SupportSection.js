@@ -15,7 +15,7 @@ const classesMaker = (styleName) => {
 const SupportSection = connect(mapStateToProps)((props) => {
     const pS = props.pageSettings;
     const subs = pS.subscriptions;
-    const bonsaiSupportSectionTest = pS.windowWidth >= pS.breaks.control.desktop && /control/.test(props.variables.offerings);
+    const bonsaiSupportSectionTest = pS.windowWidth >= pS.breaks.control.desktop && /control/.test(props.variables.offerings) && !/join/.test(props.pageSettings.location);
     if (props.variables.supportSection && !bonsaiSupportSectionTest){
         return (
             <div className={`feature-wrap-new flex-container ${classesMaker(`sparkly-dragon`)} offerings-variable--${props.variables.offerings}`}>

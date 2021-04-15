@@ -41,7 +41,7 @@ export const getReturnURL = () => {
 // Determine if elligible for Free Trial offer
 export const getElligibility = (location, subscriptionElligibility) => {
     const loc = location || getLocation();
-    console.log(loc);
+    // console.log(loc);
     let subEl = 'initial';
     const bait = document.cookie.match(`BAIT([^; ]+)`);
     if (!!bait) {

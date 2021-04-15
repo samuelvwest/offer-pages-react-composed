@@ -21,10 +21,16 @@ const classesMaker = (styleName) => {
 
 export class GreenTop extends React.Component {
     seeAllOptionsModal = () => {
-        const seeAllOptionsModal = ui.modal('.modal--top-greentop', {
-            width: 900
-        });
-	    seeAllOptionsModal.open();
+        if (!!window.ui && window.ui.modal) {
+            const seeAllOptionsModal = ui.modal('.modal--top-greentop', {
+                width: 900
+            });
+            seeAllOptionsModal.open();
+        } else if (!!window.$ && !!window.$.modal) {
+            $('.modal--top-greentop').modal({
+                width: '900px'
+            });
+        }
     }
     render() {
         const pS = this.props.pageSettings;

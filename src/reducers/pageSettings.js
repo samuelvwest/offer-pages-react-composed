@@ -24,7 +24,7 @@ export default (state = pageSettings, action) => {
                     action.pageSettings.denyLevel || state.denyLevel
                 )
             }
-            const subscriptionsToUse = !!action.pageSettings.subscriptions ? action.pageSettings.subscriptions : state.subscriptions.offersMap
+            const subscriptionsToUse = !!action.pageSettings.subscriptions ? action.pageSettings.subscriptions : state.subscriptions.offersMap;
             nextState.subscriptions = buildDisplayOffersData(nextState, subscriptionsToUse);
             setPageSettingsLocal(nextState);
             return nextState;

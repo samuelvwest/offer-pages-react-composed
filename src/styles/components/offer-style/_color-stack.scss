@@ -13,6 +13,7 @@
                 overflow: hidden;
                 text-align: center;
                 button {
+                    position:relative;
                     border: 1px solid #54534f;
                     border-top-left-radius: 15px;
                     border-bottom-left-radius: 15px;
@@ -29,6 +30,7 @@
                     &.inactivePill {
                         background-color: #fff;
                         color: #54534f;
+                        z-index:1;
                     }
                     &.activePill {
                         background-color: #54534f;

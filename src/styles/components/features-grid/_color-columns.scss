@@ -37,6 +37,20 @@
             color: #bf5500; 
         }
     }
+    &.offerings-variable--sparkly-dragon {
+        .txtColor {
+            color:#6ba410; 
+            &.txtColor--usdiscovery {
+                color:#6ba410; 
+            }
+            &.txtColor--worldexplorer {
+                color:#0079a3; 
+            }
+            &.txtColor--allaccess {
+                color: #61527e; 
+            }
+        }
+    }
 
     .greenTxt { 
         color:#9cbf3b; 

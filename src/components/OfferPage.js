@@ -61,18 +61,24 @@ export class OfferPage extends React.Component {
     getDenyPackageLevel = () => {
         // console.log('ran deny type function');
         if (this.props.pageSettings.location === 'join') {
+            const setDenyType = () => {
+                const denyPackage = this.props.pageSettings.packagesData.find((pkg) => pkg.denyStr === window.deniedTo.DenyToV1);
+                console.log(denyPackage);
+                this.props.modifyPageSettings({
+                    denyLevel: !!denyPackage ? denyPackage.order : 'NA'
+                });
+            }
             if (!window.deniedTo || (!!window.deniedTo && !window.deniedTo.DenyToV1)) {
                 window._gDTI = setInterval(() => {
                     // console.log('checked');
                     if (!!window.deniedTo && !!window.deniedTo.DenyToV1 && !!window.deniedTo.DenyToV2) {
-                        const denyPackage = this.props.pageSettings.packagesData.find((pkg) => pkg.denyStr === window.deniedTo.DenyToV1);
-                        this.props.modifyPageSettings({
-                            denyLevel: !!denyPackage ? denyPackage.order : 'NA'
-                        });
+                        setDenyType();
                         // console.log('cleared interval');
                         clearInterval(window._gDTI);
                     }
                 }, 100)
+            } else {
+                setDenyType();
             }
         }
     }
@@ -97,27 +103,20 @@ export class OfferPage extends React.Component {
             document.head.appendChild(script);
         }
         window.removeEventListener('resize', this.updateDimensions);
+        this.getDenyPackageLevel();
         this.setupTargetIntegration();
-        window._rS = (newState) => {
-            this.props.replaceSubscriptions(newState);
+        // window._rS = (newState) => {
+        //     this.props.replaceSubscriptions(newState);
+        // };
+        window._mPS = (newState) => {
+            this.props.modifyPageSettings(newState);
         };
     }
     componentDidMount() {
       window.addEventListener('resize', this.updateDimensions);
+      this.setTitleAttribute();
     }
     render() {
-        this.setTitleAttribute();
-        this.getDenyPackageLevel();
-        // this.displayOffersData = buildDisplayOffersData({
-        //     pS: this.props.pageSettings,
-        //     oM: this.props.subscriptions
-        // });
-        window._mPS = (newState) => {
-            this.props.modifyPageSettings(newState);
-        };
-        // window._mV = (newState) => {
-        //     this.props.modifyVariables(newState);
-        // };
         return (
             <div className={`page-wrap page-wrap--offerings-variable-${this.props.variables.offerings} page-wrap--location-${this.props.pageSettings.location} page-wrap--elligibility-${this.props.pageSettings.elligibility}`}>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
@@ -125,8 +124,8 @@ export class OfferPage extends React.Component {
                 <Offerings placement="top" />
                 <SupportSection />
                 <FeaturesGrid />
-                <InfoSections />
                 <TestimonialSection />
+                <InfoSections />
                 <VideoSection />
                 <ExamplesSection />
                 <FAQsSection />

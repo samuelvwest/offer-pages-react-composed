@@ -6,8 +6,7 @@ import { modifyVariables, removeVariablesLocal } from '../actions/variables';
 
 const mapStateToProps = (state) => ({
     pageSettings: state.pageSettings,
-    variables: state.variables,
-    subscriptions: state.subscriptions
+    variables: state.variables
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,10 +16,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const modifyGroup = /pageSettings/.test(props.settingGroup) ? props.modifyPageSettings : props.modifyVariables;
+    let additionalFunc = () => {};
     let activeTest = props[props.settingGroup][props.settingAttribute] === props.settingValue;
     let modifications = {};
     modifications[props.settingAttribute] = props.settingValue;
-    if (/settingsCollapsed/.test(props.settingAttribute)) {
+    if (/selectedOffer/.test(props.settingAttribute)) {
+        activeTest = props.settingValue.renewMonths === props.pageSettings.selectedOffer.renewMonths && props.settingValue.packageID === props.pageSettings.selectedOffer.packageID && props.settingValue.ldbm === props.pageSettings.selectedOffer.ldbm;
+    } else if (/settingsCollapsed/.test(props.settingAttribute)) {
         activeTest = props.pageSettings.settingsCollapsed;
         modifications.settingsCollapsed = !props.pageSettings.settingsCollapsed;
     } else if (/displayPackages/.test(props.settingAttribute)) {
@@ -53,6 +55,29 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
             activeTest = !activeTest;
             modifications.subscriptions = promoSubscriptions;
         }
+    } else if (/packageEmphasis/.test(props.settingAttribute)) {
+        additionalFunc = () => {
+            props.modifyPageSettings({
+                selectedOffer: {
+                    renewMonths: props.pageSettings.selectedOffer.renewMonths,
+                    packageID: props.settingValue,
+                    ldbm: props.pageSettings.selectedOffer.ldbm 
+                }
+            });
+        }
+    } else if (/durationEmphasis/.test(props.settingAttribute)) {
+        let pSMods = {};
+        pSMods.selectedOffer = {
+            renewMonths: /monthly/.test(props.settingValue) ? 1 : 6,
+            packageID: props.pageSettings.selectedOffer.packageID,
+            ldbm: /sabm/.test(props.settingValue) 
+        }
+        if (/toggle/.test(props.pageSettings.LDBM) && pSMods.selectedOffer.renewMonths > 1) {
+            pSMods.LDBM = `toggle-${pSMods.selectedOffer.ldbm ? `front` : `back`}`;
+        }
+        additionalFunc = () => {
+            props.modifyPageSettings(pSMods);
+        }
     }
     const classes = `settings__group__button settings__group__button--${props.displayText.toLowerCase().replace(/ /g, '-')}${activeTest ? ` settings__group__button--active` : ``}`;
     if (props.pageSettings.location === 'join' && !window.deniedTo) {
@@ -61,7 +86,10 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
             DenyToV2: 'Ancestry_World_Deluxe'
         }
     }
-    return <button className={classes} onClick={() => modifyGroup(modifications)}>{props.displayText}</button>
+    return <button className={classes} onClick={() => {
+        modifyGroup(modifications);
+        additionalFunc();
+    }}>{props.displayText}</button>
 });
 
 const SettingsDropDown = connect(mapStateToProps, mapDispatchToProps)((props) => {
@@ -308,24 +336,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
-                <h5 className="settings__group__name">Current Offer</h5>
-                <SettingsDropDown 
-                    settingGroup="pageSettings"
-                    settingAttribute="bestOffer" 
-                    settingValue="displayDurations"
-                />
-                <SettingsDropDown 
-                    settingGroup="pageSettings"
-                    settingAttribute="bestOffer" 
-                    settingValue="ldbm"
-                />
-                <SettingsDropDown 
-                    settingGroup="pageSettings"
-                    settingAttribute="bestOffer" 
-                    settingValue="displayPackages"
-                />
-            </div>
-            <div className="settings__group">
                 <h5 className="settings__group__name">Subscriptions</h5>
                 <SettingsButton 
                     settingGroup="pageSettings"
@@ -390,13 +400,13 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingGroup="variables"
                     settingAttribute="timeline" 
                     settingValue={false} 
-                    displayText="Control (Hidden)" 
+                    displayText="Control (not included)" 
                 />
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="timeline" 
                     settingValue={true} 
-                    displayText="Present" 
+                    displayText="Included" 
                 />
             </div>
             <div className="settings__group">
@@ -421,16 +431,58 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
-                <h5 className="settings__group__name">Testimonial Section</h5>
+                <h5 className="settings__group__name">Package Emphasis</h5>
                 <SettingsButton 
                     settingGroup="variables"
-                    settingAttribute="testimonialSection" 
+                    settingAttribute="packageEmphasis" 
+                    settingValue="usdiscovery" 
+                    displayText="U.S. Discovery" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="packageEmphasis" 
+                    settingValue="worldexplorer" 
+                    displayText="World Explorer" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="packageEmphasis" 
+                    settingValue="allaccess" 
+                    displayText="All Access" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Duration Emphasis</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="durationEmphasis" 
+                    settingValue="monthly" 
+                    displayText="Monthly" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="durationEmphasis" 
+                    settingValue="semi-annual" 
+                    displayText="Semi-Annual" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="durationEmphasis" 
+                    settingValue="sabm" 
+                    displayText="SABM" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Support Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="supportSection" 
                     settingValue={true} 
                     displayText="Control (included)" 
                 />
                 <SettingsButton 
                     settingGroup="variables"
-                    settingAttribute="testimonialSection" 
+                    settingAttribute="supportSection" 
                     settingValue={false} 
                     displayText="Not Included" 
                 />
@@ -463,6 +515,21 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
+                <h5 className="settings__group__name">Testimonial Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="testimonialSection" 
+                    settingValue={true} 
+                    displayText="Control (included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="testimonialSection" 
+                    settingValue={false} 
+                    displayText="Not Included" 
+                />
+            </div>
+            <div className="settings__group">
                 <h5 className="settings__group__name">Info Sections</h5>
                 <SettingsButton 
                     settingGroup="variables"
@@ -478,21 +545,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
-                <h5 className="settings__group__name">Support Section</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="supportSection" 
-                    settingValue={true} 
-                    displayText="Control (included)" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="supportSection" 
-                    settingValue={false} 
-                    displayText="Not Included" 
-                />
-            </div>
-            <div className="settings__group">
                 <h5 className="settings__group__name">Video Section</h5>
                 <SettingsButton 
                     settingGroup="variables"
@@ -503,8 +555,14 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="videoSection" 
-                    settingValue={true} 
-                    displayText="Included" 
+                    settingValue="modal" 
+                    displayText="Modal" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="videoSection" 
+                    settingValue="embedded" 
+                    displayText="Embedded" 
                 />
             </div>
             <div className="settings__group">
@@ -518,21 +576,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="examplesSection" 
-                    settingValue={true} 
-                    displayText="Included" 
-                />
-            </div>
-            <div className="settings__group">
-                <h5 className="settings__group__name">Privacy Section</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="privacySection" 
-                    settingValue={false} 
-                    displayText="Control (not included)" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="privacySection" 
                     settingValue={true} 
                     displayText="Included" 
                 />
@@ -563,6 +606,21 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="otherProductsSection" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Privacy Section</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="privacySection" 
+                    settingValue={false} 
+                    displayText="Control (not included)" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="privacySection" 
                     settingValue={true} 
                     displayText="Included" 
                 />

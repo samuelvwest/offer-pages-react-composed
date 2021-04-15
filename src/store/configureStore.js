@@ -2,7 +2,6 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 // import thunk from 'redux-thunk';
 import pageSettingReducers from '../reducers/pageSettings';
 import variablesReducer from '../reducers/variables';
-import subscriptionsReducer from '../reducers/subscriptions';
 // import panelsReducer from '../reducers/panels';
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

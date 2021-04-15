@@ -25,17 +25,23 @@ export class VideoSection extends React.Component {
     render() {
         const pS = this.props.pageSettings;
         const subs = pS.subscriptions;
-        if (this.props.variables.videoSection) {
+        if (!!this.props.variables.videoSection) {
             return pS.windowWidth <= pS.breaks.sparklydragon.desktop ? (
                 <div className={`video-section-outer-wrapper offerings-variable--${this.props.variables.offerings}`}>
                     <section className={`video-section-container ${classesMaker(`sparkly-dragon`)}`}>
                         <p className="title">How does Ancestry® work?</p>
                         <p className="subtitle">Find out in this 52-second video.</p>
-                        <button type="button" className="watch-now-btn-new" onClick={this.howItWorksVideoModal}>
-                            <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/youtube.png" className="youtube-img-new" />
-                            <span className="bold">Watch now</span>
-                        </button>
-                        <div className="relationship-map"></div>
+                        {/modal/.test(this.props.variables.videoSection) &&
+                            <button type="button" className="watch-now-btn-new" onClick={this.howItWorksVideoModal}>
+                                <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/youtube.png" className="youtube-img-new" />
+                                <span className="bold">Watch now</span>
+                            </button>
+                        }
+                        <div className={`relationship-map relationship-map--${this.props.variables.videoSection}`}>
+                            {/embedded/.test(this.props.variables.videoSection) && 
+                                <iframe src="https://www.youtube.com/embed/cFdFkzt45Xw?enablejsapi=1&amp;autoplay=0&amp;rel=0" frameBorder="0" allowFullScreen=""></iframe>
+                            }
+                        </div>
                     </section>
                 </div>
             ) : (
@@ -47,12 +53,18 @@ export class VideoSection extends React.Component {
                         <div className="hdaw-flex-item hdaw-content">
                             <p className="title">How does Ancestry® work?</p>
                             <p className="subtitle">Find out in this 54-second video.</p>
-                            <button type="button" id="watch-now-new" className="watch-now-btn-new" onClick={this.howItWorksVideoModal}>
-                                <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/youtube.png" className="youtube-img-new" />
-                                <span className="bold">Watch now</span>
-                            </button>
+                            {/modal/.test(this.props.variables.videoSection) && 
+                                <button type="button" id="watch-now-new" className="watch-now-btn-new" onClick={this.howItWorksVideoModal}>
+                                    <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/youtube.png" className="youtube-img-new" />
+                                    <span className="bold">Watch now</span>
+                                </button>
+                            }
                         </div>
-                        <div className="hdaw-flex-item relationship-map"></div>
+                        <div className={`hdaw-flex-item relationship-map relationship-map--${this.props.variables.videoSection}`}>
+                            {/embedded/.test(this.props.variables.videoSection) && 
+                                <iframe src="https://www.youtube.com/embed/cFdFkzt45Xw?enablejsapi=1&amp;autoplay=0&amp;rel=0" frameBorder="0" allowFullScreen=""></iframe>
+                            }
+                        </div>
                     </section>
                 </div>
             )
