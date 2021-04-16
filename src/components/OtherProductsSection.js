@@ -20,12 +20,12 @@ const OtherProductsSection = connect(mapStateToProps)((props) => {
         return (
             <div className={`other-products-wrapper offerings-variable--${props.variables.offerings}`}>
                 <div className={`seperate-products mb-6 ${classesMaker(`sparkly-dragon`)}`}>
-                    <h1 className="conTitle feature-title">Separate Products</h1>
+                    <h1 className="conTitle feature-title">Other Products</h1>
                     <div className="products-wrapper">
                         <a className="logo-dna-wrap-new" href="https://www.ancestry.com/dna/">
                             <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/logo-dna.png" className="logo-dna-new" />
                         </a>
-                        <a className="logo-health-wrap-new" href="https://www.ancestry.com/health">
+                        <a className="logo-health-wrap-new" href="https://www.ancestry.com/cs/gift-selection">
                             <AncestryLogo classNames="logo-ancestry-full" />
                             <GiftIcon classNames="gift-icon" />
                         </a>

@@ -82,16 +82,42 @@ export class OfferPage extends React.Component {
             }
         }
     }
+    updatePageSettingsforEmphasis = (varObj) => {
+        if (!!varObj.packageEmphasis || !!varObj.durationEmphasis) {
+            const pSMods = {
+                selectedOffer: {
+                    renewMonths: this.props.pageSettings.selectedOffer.renewMonths,
+                    packageID: this.props.pageSettings.selectedOffer.packagID,
+                    ldbm: this.props.pageSettings.selectedOffer.ldbm 
+                }
+            }
+            if (!!varObj.packageEmphasis) {
+                pSMods.selectedOffer.packageID = varObj.packageEmphasis
+            }
+            if (!!varObj.durationEmphasis) {
+                pSMods.selectedOffer.renewMonths = /monthly/.test(varObj.durationEmphasis) ? 1 : 6
+                pSMods.selectedOffer.ldbm = /sabm/.test(varObj.durationEmphasis)
+                if (/toggle/.test(this.props.pageSettings.LDBM) && pSMods.selectedOffer.renewMonths > 1) {
+                    pSMods.LDBM = `toggle-${pSMods.selectedOffer.ldbm ? `front` : `back`}`;
+                }
+            }
+            this.props.modifyPageSettings(pSMods);
+        }
+    }
     setupTargetIntegration = () => {
         if (!!window.tao && !!window.tao.g) {
             if (!!window.tao.g.modifyVariables) {
+                console.log(`state from init: `, window.tao.g.modifyVariables);
+                this.updatePageSettingsforEmphasis(window.tao.g.modifyVariables);
                 this.props.modifyVariables(tao.g.modifyVariables);
                 delete tao.g.modifyVariables;
-                window._mV = (newState) => {
-                    this.props.modifyVariables(newState);
-                };
             }
         }
+        window._mV = (newState) => {
+            console.log(`state from _mV: `, newState);
+            this.updatePageSettingsforEmphasis(newState);
+            this.props.modifyVariables(newState);
+        };
     }
     componentWillMount = () => {
         if (!window.coreJSLoad && !document.querySelector('script[src*="core.js"]') && !window.ui) {

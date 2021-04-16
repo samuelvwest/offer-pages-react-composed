@@ -2,15 +2,16 @@ import { showSettingsTest } from './pageSettings';
 
 // Set variables {} in localStorage
 export const setVariablesLocal = (variables) => {
-    if (showSettingsTest()) {
+    // if (showSettingsTest()) {
         const variablesObj = Object.assign({}, variables)
         window.localStorage.variables = JSON.stringify(variablesObj);
-    }
+    // }
 }
 
 // Get variables {} from localStorage
 export const getVariablesLocal = () => {
-    if (!!window.localStorage && !!window.localStorage.variables && showSettingsTest()) {
+    // if (!!window.localStorage && !!window.localStorage.variables && showSettingsTest()) {
+    if (!!window.localStorage && !!window.localStorage.variables) {
         return JSON.parse(window.localStorage.variables);
     }
     return false;

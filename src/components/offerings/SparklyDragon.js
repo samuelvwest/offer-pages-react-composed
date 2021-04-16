@@ -85,7 +85,7 @@ export class SparklyDragon extends React.Component {
                                     const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
                                     return packageTest && renewMonthsTest && ldbmTest;
                                 });
-                                const selectedTest = offer.packageID === pS.selectedOffer.packageID && offer.renewalPeriod.renewMonths === pS.selectedOffer.renewMonths && offer.ldbm === pS.selectedOffer.ldbm;
+                                const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
                                 const pkgVars = offer.packageData.order === 3  ? {
                                     genericClass: `allacc`,
                                     wrapClasses: `allacc-plan-wrap allacc-plan-br-mbl`,
@@ -192,7 +192,7 @@ export class SparklyDragon extends React.Component {
                                         const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
                                         return packageTest && renewMonthsTest && ldbmTest;
                                     });
-                                    const selectedTest = offer.packageID === pS.selectedOffer.packageID && offer.renewalPeriod.renewMonths === pS.selectedOffer.renewMonths && offer.ldbm === pS.selectedOffer.ldbm;
+                                    const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
                                     const pkgVars = offer.packageData.order === 3  ? {
                                         secClass: `allacc-sec`,
                                         psWrapClass: `allacc-ps-wrap`,

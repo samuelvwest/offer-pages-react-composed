@@ -78,7 +78,7 @@ const ColorStack = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                 const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
                                 return packageTest && renewMonthsTest && ldbmTest;
                             });
-                            const selectedTest = offer.packageID === pS.selectedOffer.packageID && offer.renewalPeriod.renewMonths === pS.selectedOffer.renewMonths && offer.ldbm === pS.selectedOffer.ldbm;
+                            const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
                             return (
                                 <div key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className={offer.packageData.order === 3 ? `orangePackageRow` : offer.packageData.order === 2 ? `greenPackageRow` : `bluePackageRow`}>
                                     <div className="annualPriceCon priceCon ancGrid">

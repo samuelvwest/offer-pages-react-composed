@@ -119,3 +119,13 @@
     }
 
 }
+
+.header-style--greentop {
+    .header-text--prettygrid {
+        .coloraltgreen {
+            @media only screen and (min-width: 601px) {
+                color:#ffffff;
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 // Test if settings should be displayed
 export const showSettingsTest = () => {
-    return /at_preview|localhost:8080/.test(document.location.href)
+    return /localhost:8080|showsettings/.test(document.location.href)
             && !/hidesettings/.test(document.location.href);
 }
 

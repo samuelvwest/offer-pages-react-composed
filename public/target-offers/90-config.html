@@ -11,13 +11,13 @@
                 </style>`, document.body, 'prepend');
             tao.f.windu({
                 name: 'placeHideExcluders',
-                selector: '#HeaderRegion, #BannerRegion, #FooterRegion',
+                selector: '#HeaderRegion, #BannerRegion, #FooterRegion, .highlightedMbox',
                 attach: function(elem) {
                     elem.classList.add('mvtShow')
                 }
             });
             tao.f.windu({
-                name: 'removeInpageStyles',
+                name: 'removePageStyles',
                 selector: 'body > style:not(#mvtSetupStyles)',
                 attach: function(elem) {
                     tao.f.removeNode(elem);
@@ -30,8 +30,8 @@
                     return !!document.getElementById('HeaderRegion');
                 },
                 do: function() {
-                    tao.f.insertNode('<div id="app" class="mvtShow"></div>', document.getElementById('HeaderRegion'), 'after');
                     tao.f.insertNode('<style id="mvtHideBodyStyle">#app.mvtShow { opacity: 0; }</style>', document.head);
+                    tao.f.insertNode('<div id="app" class="mvtShow"></div>', document.getElementById('HeaderRegion'), 'after');
 
                     // Show body after styles and scripts are loaded
                     tao.g.mvtAppFilesLoaded = 0;
@@ -44,17 +44,17 @@
 
                     // App Styles
                     var mvtStyles = document.createElement('link');
-                    mvtStyles.type = "text/css";
-                    mvtStyles.rel = "stylesheet";
-                    mvtStyles.href = 'https://www.ancestrycdn.com/tao/mvtstyles.css';
-                    mvtStyles.setAttribute("onload", "tao.f.showMVTApp();");
+                        mvtStyles.type = "text/css";
+                        mvtStyles.rel = "stylesheet";
+                        mvtStyles.href = 'https://www.ancestrycdn.com/tao/mvtstyles.css';
+                        mvtStyles.setAttribute("onload", "tao.f.showMVTApp();");
                     document.head.appendChild(mvtStyles);
 
                     // App Script
                     var mvtScript = document.createElement('script');
-                    mvtScript.type = 'text/javascript';
-                    mvtScript.src = 'https://www.ancestrycdn.com/tao/mvtbundle.js';
-                    mvtScript.setAttribute("onload", "tao.f.showMVTApp();");
+                        mvtScript.type = 'text/javascript';
+                        mvtScript.src = 'https://www.ancestrycdn.com/tao/mvtbundle.js';
+                        mvtScript.setAttribute("onload", "tao.f.showMVTApp();");
                     document.head.appendChild(mvtScript);
                 }
             });

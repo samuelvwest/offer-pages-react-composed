@@ -1,0 +1,11 @@
+<script>
+    // Set up variable control function if not defined yet
+    window._mV = window._mV || function(newState) {
+        tao.g.modifyVariables = tao.g.modifyVariables || {};
+        Object.keys(newState).forEach((key) => {
+            tao.g.modifyVariables[key] = newState[key];
+        });
+    }
+    // Set this variable variant definition.
+    window._mV({ offerings: `control` })
+</script>
