@@ -1,4 +1,11 @@
-import { durationTexts } from '../data/subscriptions'
+import { durationTexts } from '../data/subscriptions';
+
+const roundNum = function(num, decimals, roundDown) {
+    const decs = decimals || 0;
+    const multDiv = 10 ** decs;
+    const dirFunc = !!roundDown ? Math.floor : Math.ceil;
+    return (dirFunc(num * multDiv) / multDiv).toFixed(decs)
+}
 
 export const buildDisplayOffersData = (pageSettings, subscriptions) => {
     const data = {
@@ -46,8 +53,8 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
             });
         }
         // Add monthly equivalent pricing (MEP)
-        offer.renewalPeriod.displayPriceMEP = (offer.renewalPeriod.displayPrice / offer.renewalPeriod.renewMonths).toFixed(2)
-        offer.renewalPeriod.MSRPMEP = (offer.renewalPeriod.MSRP / offer.renewalPeriod.renewMonths).toFixed(2)
+        offer.renewalPeriod.displayPriceMEP = roundNum(offer.renewalPeriod.displayPrice / offer.renewalPeriod.renewMonths, 2, true)
+        offer.renewalPeriod.MSRPMEP = roundNum(offer.renewalPeriod.MSRP / offer.renewalPeriod.renewMonths, 2, true)
         // Add promo savings if applicable
         if (offer.renewalPeriod.displayPrice < offer.renewalPeriod.MSRP) {
             data.promoSaveOffers = data.promoSaveOffers || [];
