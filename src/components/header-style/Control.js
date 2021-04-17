@@ -21,7 +21,7 @@ const classesMaker = (styleName, offeringsVariable) => {
 }
 
 export const ColorStack = connect(mapStateToProps)((props) => (
-    <div className={classesMaker('colorstack', props.variables.offerings)}>
+    <div className={classesMaker('colorstack', props.variables.offerings )}>
         <section className="aboveFoldCon">
             <h1 className="chooseMemText" elementtiming="ancestry_meaningful_paint">
                 <HeaderText />

@@ -63,7 +63,7 @@ export class OfferPage extends React.Component {
         if (this.props.pageSettings.location === 'join') {
             const setDenyType = () => {
                 const denyPackage = this.props.pageSettings.packagesData.find((pkg) => pkg.denyStr === window.deniedTo.DenyToV1);
-                console.log(denyPackage);
+                // console.log(denyPackage);
                 this.props.modifyPageSettings({
                     denyLevel: !!denyPackage ? denyPackage.order : 'NA'
                 });
@@ -107,14 +107,14 @@ export class OfferPage extends React.Component {
     setupTargetIntegration = () => {
         if (!!window.tao && !!window.tao.g) {
             if (!!window.tao.g.modifyVariables) {
-                console.log(`state from init: `, window.tao.g.modifyVariables);
+                // console.log(`state from init: `, window.tao.g.modifyVariables);
                 this.updatePageSettingsforEmphasis(window.tao.g.modifyVariables);
                 this.props.modifyVariables(tao.g.modifyVariables);
                 delete tao.g.modifyVariables;
             }
         }
         window._mV = (newState) => {
-            console.log(`state from _mV: `, newState);
+            // console.log(`state from _mV: `, newState);
             this.updatePageSettingsforEmphasis(newState);
             this.props.modifyVariables(newState);
         };

@@ -26,6 +26,13 @@ export class SparklyDragon extends React.Component {
         const ftTest = /initial/.test(pS.elligibility);
         const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
         const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
+        const maxDurationSavings = {
+            test: !!subs.durationSaveOffers
+        }
+        if (maxDurationSavings.test) {
+            maxDurationSavings.max = Math.max.apply(null, subs.durationSaveOffers.map((ofr => ofr.durationSavings.display)));
+            maxDurationSavings.offer = subs.durationSaveOffers.find((ofr) => ofr.durationSavings.display === maxDurationSavings.max)
+        }
         return (
             <div className={`${classesMaker('sparklydragon')} offerings-placement--${this.props.placement}`}>
                 <div className="page-container">
@@ -52,10 +59,14 @@ export class SparklyDragon extends React.Component {
                                         </button>
                                     )
                                 })}
-                                {/* <div className="arrow" id="save20" onClick={this.emptyFunction}>
-                                    <span className="textsml">Saves $$</span>
-                                </div> */}
                             </div>
+                            {maxDurationSavings.test && 
+                                <div className="arrow">
+                                    <span className="textsml">
+                                        Save <span className="arrow__upto">up to</span> <strong>{maxDurationSavings.offer.currency}{maxDurationSavings.offer.durationSavings.display}</strong>
+                                    </span>
+                                </div>
+                            }
                             {toggleTest && subs.selectedOffer.renewMonths !== 1 && 
                                 <p className="durationLDBMButton">
                                     <button type="button" onClick={() => this.props.modifyPageSettings({

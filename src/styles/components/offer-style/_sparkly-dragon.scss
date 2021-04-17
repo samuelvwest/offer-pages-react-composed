@@ -217,6 +217,55 @@
                     }
                 }
             }
+            .arrow {
+                position: absolute;
+                background-color: #ffe300;
+                height: 43px!important;
+                width: 43px;
+                line-height:1.16em;
+                right: -35px;
+                top: -5px;
+                border: 1px solid #ffcd00;
+                border-radius: 2px;
+                text-align: center;
+                z-index: 10;
+                cursor: pointer;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 8px;
+                    left: -20px;
+                    right: 0;
+                    margin: 0 0;
+                    width: 0;
+                    height: 0;
+                    border-top: solid 12px transparent;
+                    border-left: solid 12px #ffe300;
+                    border-right: solid 8px transparent;
+                    border-bottom: 12px solid transparent;
+                    transform: rotate(-180deg);
+                    z-index: 10;
+                }
+                .arrow__upto {
+                    display:none;
+                }
+                @media (min-width:430px) {
+                    height: 24px !important;
+                    top: 7px;
+                    width: 75px;
+                    right: -66px;
+                    &:after {
+                        top: 0;
+                    }
+                }
+                @media (min-width:540px) {
+                    width: 108px;
+                    right: -95px;
+                    .arrow__upto {
+                        display:inline-block;
+                    }
+                }
+            }
         }
     
         .durationLDBMButton {
@@ -374,10 +423,14 @@
     
         .subs-plan-desc {
             @media screen and (min-width: 320px) and (max-width: 767px) {
-                flex: 0 0 280px;
+                flex: 0 0 250px;
                 text-align: left;
                 margin-right: 25px;
-                margin-right: calc(100% - 339px);
+                margin-right: calc(100% - 309px);
+                @media screen and (min-width: 360px) {
+                    flex: 0 0 280px;
+                    margin-right: calc(100% - 339px);
+                }
                 &.allacc-plan-desc {
                     margin-left: -5px;
                     // flex: 0 0 214px;
@@ -664,6 +717,7 @@
     
         .tooltip {
             .tooltiptext {
+                display:none;
                 visibility: hidden;
                 position: absolute;
                 width: 230px;
@@ -678,12 +732,19 @@
                 padding: 10px;
                 box-shadow: 0 2px 9px rgba(0, 0, 0, 0.25);
                 text-align: left;
+                &.tooltip-news-wrap-new {
+                    left: -21px;
+                    @media (min-width: 875px) {
+                        left: auto;
+                    }
+                }
                 div:not(:last-child) {
                     margin-bottom: 10px;
                 }
             }
             &:hover {
                 .tooltiptext {
+                    display:block;
                     visibility:visible;
                     opacity:1;
                 }

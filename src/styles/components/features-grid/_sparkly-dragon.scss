@@ -286,7 +286,7 @@
             border-radius:5px;
         }
         .usrecords-img {
-            path, .circleplus {
+            path, path + circle {
                 fill: #1c88b0;
                 @media (min-width: 601px) {
                     fill: #6ba410;
@@ -294,7 +294,7 @@
             }
         }
         .usnintrecords-img {
-            path, .circleplus {
+            path, path + circle {
                 fill: #9cbf3b;
                 @media (min-width: 601px) {
                     fill: #0079a3;
@@ -302,7 +302,7 @@
             }
         }
         .allaccess-img {
-            path, .circleplus {
+            path, path + circle {
                 fill: #d68b35;
                 @media (min-width: 601px) {
                     fill: #61527e;
@@ -313,7 +313,7 @@
 
     .plan-comparison-chart--offerings-pretty-grid {
         .usrecords-img {
-            path, .circleplus {
+            path, path + circle {
                 fill: #1c88b0;
                 @media (min-width: 601px) {
                     fill: #0079a3;
@@ -321,7 +321,7 @@
             }
         }
         .usnintrecords-img {
-            path, .circleplus {
+            path, path + circle {
                 fill: #9cbf3b;
                 @media (min-width: 601px) {
                     fill: #6ba410;
@@ -329,7 +329,7 @@
             }
         }
         .allaccess-img {
-            path, .circleplus {
+            path, path + circle {
                 fill: #d68b35;
                 @media (min-width: 601px) {
                     fill: #655586;

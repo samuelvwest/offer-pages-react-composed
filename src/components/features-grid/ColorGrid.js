@@ -44,7 +44,7 @@ const ColorGrid = connect(mapStateToProps)((props) => {
     return (
         <table className={`${classesMaker(`colorgrid`)} offerings-variable--${props.variables.offerings}`}>
             <tbody>
-                <tr className={(/control/.test(props.variables.offerings) && subs.display.packages.length === 3) ? `hiddenRow` : ``}>
+                <tr className={(/control/.test(props.variables.offerings) && subs.display.packages.length === 3 && !/join/.test(pS.location)) ? `hiddenRow` : ``}>
                     <td className="w40 offerLeftCol" scope="row"></td>
                     {subs.display.packages.map((pkgData) => (
                         <th key={pkgData.id} className={`w20 compareCheckCol columnHead columnHead--${/allaccess/.test(pkgData.id) ? `purple` : /worldexplorer/.test(pkgData.id) ? `blue` : `green`}`}>{pkgData.name}</th>

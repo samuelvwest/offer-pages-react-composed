@@ -162,3 +162,18 @@
 
     }
 }
+
+.page-wrap--location-join {
+    .header-style {
+        &.header-style--sparklydragon {
+            &.offerings-variable--control {
+                @media (min-width:601px) {
+                    background-color: #f0eee9;
+                    section.memOptions:before {
+                        background-image: linear-gradient(179.8deg, rgba(245, 245, 245, .93) .49%, #f0eee9 86.83%), url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/dt-header-bg.png);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,4 @@
 .features-grid--colorgrid {
-    &.offerings-variable--sparkly-dragon,
-    &.offerings-variable--pretty-grid {
-        background-color: #fff;
-    }
 
     tr {
         border-bottom: 1px solid #fff;
@@ -48,7 +44,6 @@
             position: relative;
             text-align: center;
             background-color: #9CBE30;
-            background-color: #9CBE30;
             &.columnHead--blue {
                 background-color: #1B88B0;
             }
@@ -77,4 +72,62 @@
     .coloraltFuji2 {
         color: #60527E;
     }
+
+
+    &.offerings-variable--sparkly-dragon {
+        background-color: #fff;
+
+        .compareCheckCol {
+            &.columnHead {
+                background-color: #6ba410;
+                &.columnHead--blue {
+                    background-color: #0079a3;
+                }
+                &.columnHead--purple {
+                    background-color: #61527e;
+                }
+            }
+        }
+    
+        .coloraltBamboo2 {
+            color: #6ba410;
+        }
+    
+        .coloraltWave3 {
+            color: #0079a3;
+        }
+    
+        .coloraltFuji2 {
+            color: #61527e;
+        }
+    }
+
+    &.offerings-variable--pretty-grid {
+        background-color: #fff;
+
+        .compareCheckCol {
+            &.columnHead {
+                background-color: #0079a3;
+                &.columnHead--blue {
+                    background-color: #6ba410;
+                }
+                &.columnHead--purple {
+                    background-color: #655586;
+                }
+            }
+        }
+    
+        .coloraltBamboo2 {
+            color: #0079a3;
+        }
+    
+        .coloraltWave3 {
+            color: #6ba410;
+        }
+    
+        .coloraltFuji2 {
+            color: #655586;
+        }
+    }
+    
 }
