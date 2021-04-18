@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { USMap, Globe, GlobePlus, PlusCircle } from '../SVGs';
 import { LegalSup, LegalDurationSaveLine, LegalLongDurationBilledMonthly } from '../LegalText';
 
@@ -83,7 +84,18 @@ export class SparklyDragon extends React.Component {
                             }
                         </div>
                     </div>
-                    {pS.windowWidth < pS.breaks.sparklydragon.desktop ? <form action="/checkout/mli?" className="form freetrial-form">
+                    {pS.windowWidth < pS.breaks.sparklydragon.desktop ? <form action="/checkout/mli?" className="form freetrial-form" 
+                        ref={(ref) => { this.sparklyDragonForm = ref }}
+                        onSubmit={(e) => {
+                            adobeTargetTrackEvent({
+                                eventType: 'offersFormSubmit',
+                                formLoc: this.props.placement,
+                                offerID: subs.selectedOffer.id,
+                                offeringsCreative: `sparklydragon`
+                            })
+                            e.target.submit()
+                        }}
+                    >
                         <input type="hidden" name="direct" value="1" /> 
                         <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
                         <input type="hidden" name="quantities" value="1" /> 
@@ -137,7 +149,7 @@ export class SparklyDragon extends React.Component {
                                                     }
                                                 })
                                                 setTimeout(() => {
-                                                    document.querySelector(`.offerings-placement--${this.props.placement} form`).submit();
+                                                    this.sparklyDragonForm.dispatchEvent(new Event('submit'));
                                                 }, 250);
                                             }
                                         }
@@ -190,7 +202,14 @@ export class SparklyDragon extends React.Component {
                             })}
                         </div>
                     </form> :
-                    <form action="/checkout/mli?" className="form freetrial-form" id="signupForm">
+                    <form action="/checkout/mli?" className="form freetrial-form" onSubmit={() => {
+                        adobeTargetTrackEvent({
+                            eventType: 'offersFormSubmit',
+                            formLoc: this.props.placement,
+                            offerID: subs.selectedOffer.id,
+                            offeringsCreative: `sparklydragon`
+                        })
+                    }}>
                         <input type="hidden" name="direct" value="1" /> 
                         <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
                         <input type="hidden" name="quantities" value="1" /> 

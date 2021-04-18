@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { LegalSup, LegalLongDurationBilledMonthly } from '../LegalText';
 
 const mapStateToProps = (state) => {
@@ -25,7 +26,14 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
     const fullRowOffersTest = subs.display.durations.length > (pS.windowWidth < pS.breaks.control.desktop ? 2 : 3);
     return (
         <div className={`${classesMaker('bonsaigrid')} offerings-placement--${props.placement}`}>
-            <form action="/checkout/mli?" className="bonsai-container dnSignupForm">
+            <form action="/checkout/mli?" className="bonsai-container dnSignupForm" onSubmit={() => {
+                adobeTargetTrackEvent({
+                    eventType: 'offersFormSubmit',
+                    formLoc: props.placement,
+                    offerID: subs.selectedOffer.id,
+                    offeringsCreative: `bonsaigrid`
+                })
+            }}>
                 {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                 <input type="hidden" name="direct" value="1" />
                 <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />

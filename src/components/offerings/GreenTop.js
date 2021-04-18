@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import BonsaiGrid from './BonsaiGrid';
 import { LegalSup, LegalLongDurationBilledMonthly, LegalDurationSaves, LegalTextWrapper, LegalText } from '../LegalText';
 
@@ -45,7 +46,14 @@ export class GreenTop extends React.Component {
                     <div className="page">
                         <div className="ancGrid full480">
                             <div className="ancCol w60">
-                                <form action="/checkout/mli?" className="ftSubOfferForm dnSignupForm">
+                                <form action="/checkout/mli?" className="ftSubOfferForm dnSignupForm" onSubmit={() => {
+                                    adobeTargetTrackEvent({
+                                        eventType: 'offersFormSubmit',
+                                        formLoc: this.props.placement,
+                                        offerID: subs.selectedOffer.id,
+                                        offeringsCreative: `greentop`
+                                    })
+                                }}>
                                     {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                                     <input type="hidden" name="direct" value="1" />
                                     <input type="hidden" name="rtype" value={/initial/.test(pS.elligibility) ? '14' : '11'} />
@@ -138,7 +146,7 @@ export class GreenTop extends React.Component {
                         <div className="seeAllMemSection">
                             <button className="link bold text2xlrg seeAllMemBtn" type="button" onClick={this.seeAllOptionsModal}>See all membership options</button>
                             <div className="modal modal--top-greentop">
-                                <BonsaiGrid/>
+                                <BonsaiGrid placement="modal"/>
                                 <LegalText/>
                             </div>
                             {(ldbmDurations.length > 0 || durationSaveOffers.length > 0) && 

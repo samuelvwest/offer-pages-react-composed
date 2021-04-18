@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import ColorStack from './ColorStack';
 import { LegalSup, LegalDurationSaveLine, LegalLongDurationBilledMonthly } from '../LegalText';
 
@@ -42,7 +43,18 @@ export class PrettyGrid extends React.Component {
             <div className={`${classesMaker('prettygrid')} offerings-placement--${this.props.placement}`}>
                 <section className="offerPageForm">
                     <div className="page pageWidth1 pagePadded">
-                        <form className="form" action="/checkout/mli?">
+                        <form className="form" action="/checkout/mli?" 
+                            ref={(ref) => { this.sparklyDragonForm = ref }}
+                            onSubmit={(e) => {
+                                adobeTargetTrackEvent({
+                                    eventType: 'offersFormSubmit',
+                                    formLoc: this.props.placement,
+                                    offerID: subs.selectedOffer.id,
+                                    offeringsCreative: `prettygrid`
+                                })
+                                e.target.submit();
+                            }}
+                        >
                             <input type="hidden" name="direct" value="1" />
                             <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} />
                             <input type="hidden" name="quantities" value="1" />
@@ -176,7 +188,14 @@ export class PrettyGrid extends React.Component {
                                 <div className="ancGridBreak768"></div>
                                 <div className="ancCol w30 offerFormCtaCol">
                                     <div className="offerFormCtaArrow hide768"></div>
-                                    <a href="" className="ancBtn orange lrg offerFormSubmitBtn">{/initial/.test(pS.elligibility) ? <span className="free-trial-submit-button">Start free trial<LegalSup supRef="freeTrial"/></span> : /renewal/.test(pS.elligibility) ? `Become a member` : `Upgrade membership`}</a>
+                                    <a href="" className="ancBtn orange lrg offerFormSubmitBtn"
+                                        onClick={(e) => { 
+                                            e.preventDefault();
+                                            this.sparklyDragonForm.dispatchEvent(new Event('submit')); 
+                                        }}
+                                    >
+                                        {/initial/.test(pS.elligibility) ? <span className="free-trial-submit-button">Start free trial<LegalSup supRef="freeTrial"/></span> : /renewal/.test(pS.elligibility) ? `Become a member` : `Upgrade membership`}
+                                    </a>
                                 </div>
                             </div>
                             {subs.ldbms && <LegalLongDurationBilledMonthly/>}
