@@ -18,7 +18,7 @@ const OtherProductsSection = connect(mapStateToProps)((props) => {
     const subs = pS.subscriptions;
     if (props.variables.otherProductsSection) {
         return (
-            <div className={`other-products-wrapper offerings-variable--${props.variables.offerings}`}>
+            <div className={`other-products-wrapper offerings-variable--${props.variables.offerings} scroll-tracking--otherProductsSection`}>
                 <div className={`seperate-products mb-6 ${classesMaker(`sparkly-dragon`)}`}>
                     <h1 className="conTitle feature-title">Other Products</h1>
                     <div className="products-wrapper">

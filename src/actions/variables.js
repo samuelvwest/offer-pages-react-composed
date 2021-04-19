@@ -23,28 +23,99 @@ export const removeVariablesLocal = () => {
 }
 
 // Calculate lower offerings location
-const variableHeightValues = {
-    testimonialSection: 3,
-    featuresGrid: 10,
-    supportSection: 1,
-    infoSections: 12,
-    videoSection: 2,
-    examplesSection: 5,
-    privacySection: 1,
-    faqsSection: 4,
-    otherProductsSection: 2,
-    feedbackSection: 1
+export const variablesData = {
+    headerStyle: {
+        trackViewport: false,
+        heightScore: 0
+    },
+    headerText: {
+        trackViewport: false,
+        heightScore: 0
+    },
+    timeline: {
+        trackViewport: false,
+        heightScore: 0
+    },
+    offerings: {
+        trackViewport: false,
+        heightScore: 0
+    },
+    packageEmphasis: {
+        trackViewport: false,
+        heightScore: 0
+    },
+    durationEmphasis: {
+        trackViewport: false,
+        heightScore: 0
+    },
+    testimonialSection: {
+        trackViewport: true,
+        heightScore: 3
+    },
+    featuresGrid: {
+        trackViewport: true,
+        heightScore: 10
+    },
+    supportSection: {
+        trackViewport: true,
+        heightScore: 1
+    },
+    infoSections: {
+        trackViewport: true,
+        heightScore: 12
+    },
+    videoSection: {
+        trackViewport: true,
+        heightScore: 2
+    },
+    examplesSection: {
+        trackViewport: true,
+        heightScore: 5
+    },
+    privacySection: {
+        trackViewport: true,
+        heightScore: 1
+    },
+    faqsSection: {
+        trackViewport: true,
+        heightScore: 4
+    },
+    otherProductsSection: {
+        trackViewport: true,
+        heightScore: 2
+    },
+    feedbackSection: {
+        trackViewport: true,
+        heightScore: 1
+    },
+    lowerOfferings: {
+        trackViewport: true,
+        heightScore: 0
+    }
 }
 
-export const displayLowerOfferCalculation = (variables) => {
+export const lowerOfferingsDisplayCalculation = (variables) => {
     let score = 0;
-    Object.keys(variableHeightValues).forEach((key) => {
-        const varVal = variables[key];
-        if (!!varVal && !/not-included/.test(varVal)) {
-            score = score + variableHeightValues[key];
+    Object.keys(variablesData).forEach((key) => {
+        const variableStr = variables[key];
+        if (!!variableStr && !/not-included/.test(variableStr)) {
+            score = score + variablesData[key].heightScore;
         }
     })
     return score > 18;
+}
+
+export const mapScrollTrackingVariables = (variables) => {
+    const scrollableElems = Object.keys(variables).filter((key) => {
+        const variableStr = variables[key];
+        // console.log(key, variablesData[key])
+        return (
+            !!variableStr 
+            && !/not-included/.test(variableStr)
+            && variablesData[key].trackViewport
+        )
+    })
+    return scrollableElems
 }
 
 // Replace Variables in REDUX

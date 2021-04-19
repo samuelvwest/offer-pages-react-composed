@@ -25,7 +25,7 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
     const inFeatureGridTest = pS.windowWidth >= pS.breaks.control.desktop && /control/.test(props.variables.featuresGrid);
     if (props.variables.testimonialSection && !inFeatureGridTest) {
         return pS.windowWidth <= pS.breaks.control.tablet ? (
-            <section className={`quoteCon ${classesMaker('colorstack')}`}>
+            <section className={`quoteCon ${classesMaker('colorstack')} scroll-tracking--testimonialSection`}>
                 <div className="quote">
                     <p>“<MaryDQuote />”</p>
                     <div className="quoteArrow"></div>
@@ -36,7 +36,7 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
                 </div>
             </section>
         ) : (
-            <section className={`offerPageTestimonial ${classesMaker('prettygrid')}`}>
+            <section className={`offerPageTestimonial ${classesMaker('prettygrid')} scroll-tracking--testimonialSection`}>
                 <div className="page pageWidth1 pagePadded">
                     <div className="testimonialBkg"></div>
                     <div className="testimonialContent coloralt4 topSpacingBlock">

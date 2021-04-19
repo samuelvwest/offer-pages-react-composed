@@ -17,7 +17,7 @@ const InfoSections = connect(mapStateToProps)((props) => {
     const subs = pS.subscriptions;
     if (props.variables.infoSections) {
         return pS.windowWidth < pS.breaks.control.tablet ? (
-            <section className={`otherBenefitsCon ${classesMaker(`control`)} offerings-variable--${props.variables.offerings}`}>
+            <section className={`otherBenefitsCon ${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}>
                 <section className="exploreCon">
                     <div className="fullPgImgSprite lazyBgImg exploreImg loadedBgImg"></div>
                     <h3 className="text5xlrg">Explore records</h3>
@@ -40,7 +40,7 @@ const InfoSections = connect(mapStateToProps)((props) => {
                 </section>
             </section>
         ) : (
-            <div className={`${classesMaker(`control`)} offerings-variable--${props.variables.offerings}`}>
+            <div className={`${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}>
                 <section className="ftSubPageSection recordsCon">
                     <div className="page bgDark">
                         <div className="ancGrid ancGridEqual ftSubPageGrid">

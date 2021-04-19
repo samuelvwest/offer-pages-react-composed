@@ -59,7 +59,7 @@ const BonsaiOfferings = connect(mapStateToProps)((props) => {
     const columnWidth = 88;
     const filteredFeaturesData = [...featuresData].filter((featureData) => subs.display.packages.some((pkgData) => featureData.appliesTo.indexOf(pkgData.id) > -1));
     return (
-        <div className={`${classesMaker(`bonsaigrid`)} offerings-variable--${props.variables.offerings}`}>
+        <div className={`${classesMaker(`bonsaigrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}>
             <section className="benefitListCon">
                 {props.variables.testimonialSection &&
                     <div className="testimonials">

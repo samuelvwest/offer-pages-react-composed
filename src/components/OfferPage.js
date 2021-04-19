@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../actions/pageSettings';
-import { modifyVariables } from '../actions/variables';
+import { modifyVariables, mapScrollTrackingVariables } from '../actions/variables';
+import { adobeTargetTrackEvent, elemIsInViewport } from '../actions/tracking';
 import SettingsControl from './SettingsControl';
 import HeaderStyle from './header-style/HeaderStyle';
 import Offerings from './offerings/Offerings';
@@ -55,6 +56,27 @@ export class OfferPage extends React.Component {
                     windowHeight: window.outerWidth
                 });
                 delete window._resizeBuffer;
+            }, 500)
+        }
+    }
+    trackElemsInViewport = () => {
+        if (!window._scrollTrackingData.triggered) {
+            window._scrollTrackingData.triggered = true;
+            setTimeout(() => {
+                const toReport = window._scrollTrackingData.elems.reportable.filter((elemStr) => {
+                    return !window._scrollTrackingData.elems.reported.some((elemStr2) => elemStr === elemStr2);
+                })
+                toReport.forEach((elemStr) => {
+                    if (elemIsInViewport(document.querySelector(`.scroll-tracking--${elemStr}`))) {
+                        window._scrollTrackingData.elems.reported.push(elemStr);
+                        adobeTargetTrackEvent({ 
+                            eventType: 'sectionInView',
+                            section: elemStr
+                        })
+                    }
+                })
+                // console.log(window._scrollTrackingData);
+                window._scrollTrackingData.triggered = false;
             }, 500)
         }
     }
@@ -129,6 +151,18 @@ export class OfferPage extends React.Component {
             document.head.appendChild(script);
         }
         window.removeEventListener('resize', this.updateDimensions);
+        if (!window._scrollTrackingData) {
+            window._scrollTrackingData = {
+                triggered: false,
+                elems: {
+                    reportable: [],
+                    reported: []
+                }
+            }
+        }
+        // mapScrollTrackingVariables(this.props.variables)
+        console.log(window._scrollTrackingData);
+        window.removeEventListener('scroll', this.trackElemsInViewport);
         this.getDenyPackageLevel();
         this.setupTargetIntegration();
         // window._rS = (newState) => {
@@ -140,9 +174,11 @@ export class OfferPage extends React.Component {
     }
     componentDidMount() {
       window.addEventListener('resize', this.updateDimensions);
+      window.addEventListener('scroll', this.trackElemsInViewport);
       this.setTitleAttribute();
     }
     render() {
+        window._scrollTrackingData.elems.reportable = mapScrollTrackingVariables(this.props.variables)
         return (
             <div className={`page-wrap page-wrap--offerings-variable-${this.props.variables.offerings} page-wrap--location-${this.props.pageSettings.location} page-wrap--elligibility-${this.props.pageSettings.elligibility}`}>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
@@ -155,7 +191,7 @@ export class OfferPage extends React.Component {
                 <VideoSection />
                 <ExamplesSection />
                 <FAQsSection />
-                {this.props.variables.displayLowerOffer && <Offerings placement="bottom" />}
+                {this.props.variables.lowerOfferings && <Offerings placement="bottom" />}
                 <OtherProductsSection />
                 <PrivacySection />
                 <FeedbackSection />

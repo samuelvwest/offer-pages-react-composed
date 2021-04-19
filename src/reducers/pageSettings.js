@@ -1,6 +1,7 @@
 import pageSettings from '../data/pageSettings';
 import { setPageSettingsLocal, getElligibility } from '../actions/pageSettings';
 import { buildDisplayOffersData, filterDisplayPackages } from './../actions/subscriptions';
+import { adobeTargetTrackEvent } from './../actions/tracking';
 
 export default (state = pageSettings, action) => {
     switch (action.type) {
@@ -27,6 +28,12 @@ export default (state = pageSettings, action) => {
             const subscriptionsToUse = !!action.pageSettings.subscriptions ? action.pageSettings.subscriptions : state.subscriptions.offersMap;
             nextState.subscriptions = buildDisplayOffersData(nextState, subscriptionsToUse);
             setPageSettingsLocal(nextState);
+            if (!!action.pageSettings.selectedOffer) {
+                adobeTargetTrackEvent({ 
+                    eventType: 'changedSelectedOffer',
+                    offerID: nextState.subscriptions.selectedOffer.id
+                })
+            }
             return nextState;
         default: 
             return state;

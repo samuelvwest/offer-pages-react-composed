@@ -67,7 +67,7 @@ const PrettyGrid = connect(mapStateToProps)((props) => {
     const filteredFeaturesData = [...featuresData].filter((featureData) => subs.display.packages.some((pkgData) => featureData.appliesTo.indexOf(pkgData.id) > -1));
 
     return (
-        <section className={`${classesMaker(`prettygrid`)} offerings-variable--${props.variables.offerings}`}>
+        <section className={`${classesMaker(`prettygrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}>
             <div className="page pagePadded pageWidth1 clearfix">
                 <table className="offerCompareTable">
                     <tbody>

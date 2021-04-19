@@ -1,4 +1,4 @@
-import { getVariablesLocal, displayLowerOfferCalculation } from '../actions/variables';
+import { getVariablesLocal, lowerOfferingsDisplayCalculation } from '../actions/variables';
 
 export const variables = getVariablesLocal() || {
     headerStyle: `control`,
@@ -19,6 +19,6 @@ export const variables = getVariablesLocal() || {
     feedbackSection: false
 }
 
-variables.displayLowerOffer = displayLowerOfferCalculation(variables);
+variables.lowerOfferings = lowerOfferingsDisplayCalculation(variables);
 
 export default variables;

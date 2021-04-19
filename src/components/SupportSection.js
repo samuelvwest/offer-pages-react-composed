@@ -18,7 +18,7 @@ const SupportSection = connect(mapStateToProps)((props) => {
     const bonsaiSupportSectionTest = pS.windowWidth >= pS.breaks.control.desktop && /control/.test(props.variables.offerings) && !/join/.test(props.pageSettings.location);
     if (props.variables.supportSection && !bonsaiSupportSectionTest){
         return (
-            <div className={`feature-wrap-new flex-container ${classesMaker(`sparkly-dragon`)} offerings-variable--${props.variables.offerings}`}>
+            <div className={`feature-wrap-new flex-container ${classesMaker(`sparkly-dragon`)} offerings-variable--${props.variables.offerings} scroll-tracking--supportSection`}>
                 <div className="feature-description-new">
                     <p className="feature-title-new">
                         <img className="feature-img-new mobile-support-img" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/phone1.png" />

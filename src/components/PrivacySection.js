@@ -17,7 +17,7 @@ const PrivacySection = connect(mapStateToProps)((props) => {
     const subs = pS.subscriptions;
     if (props.variables.privacySection) {
         return (
-            <div className={`privacy-wrapper offerings-variable--${props.variables.offerings}`}>
+            <div className={`privacy-wrapper offerings-variable--${props.variables.offerings} scroll-tracking--privacySection`}>
                 <div className={`privacy-container mb-6 over-the-top m10 ${classesMaker(`sparkly-dragon`)}`}>
                     <div className="privacy-head-wrapper">
                         <h1 className="conTitle feature-title flex-container flex-center">

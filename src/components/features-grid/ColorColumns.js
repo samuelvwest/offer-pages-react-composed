@@ -50,7 +50,7 @@ const ColorColumns = connect(mapStateToProps)((props) => {
         });
     })
     return (
-        <div className={`${classesMaker('colorcolumns')} offerings-variable--${props.variables.offerings}`}>
+        <div className={`${classesMaker('colorcolumns')} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}>
             <div className="compareCon">
                 <table className="compareTable">
                     <caption className="textCenter bold">Compare memberships</caption>

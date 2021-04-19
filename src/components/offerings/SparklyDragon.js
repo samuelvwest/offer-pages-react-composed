@@ -35,7 +35,7 @@ export class SparklyDragon extends React.Component {
             maxDurationSavings.offer = subs.durationSaveOffers.find((ofr) => ofr.durationSavings.display === maxDurationSavings.max)
         }
         return (
-            <div className={`${classesMaker('sparklydragon')} offerings-placement--${this.props.placement}`}>
+            <div className={`${classesMaker('sparklydragon')} offerings-placement--${this.props.placement}${/bottom/.test(this.props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
                 <div className="page-container">
                     <div className="buttonpills-wrap">
                         <div className="buttonpills-inner" style={{ width: `${(40 + ((subs.display.durations.length - (subs.display.durations.length < 4 ? 0 : 1)) * 105))}px`}}>
@@ -96,6 +96,7 @@ export class SparklyDragon extends React.Component {
                             e.target.submit()
                         }}
                     >
+                        {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                         <input type="hidden" name="direct" value="1" /> 
                         <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
                         <input type="hidden" name="quantities" value="1" /> 
@@ -210,6 +211,7 @@ export class SparklyDragon extends React.Component {
                             offeringsCreative: `sparklydragon`
                         })
                     }}>
+                        {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                         <input type="hidden" name="direct" value="1" /> 
                         <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
                         <input type="hidden" name="quantities" value="1" /> 

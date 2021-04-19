@@ -41,7 +41,7 @@ export class GreenTop extends React.Component {
         const ldbmDurations = [];
         const durationSaveOffers = [];
         return (
-            <div className={`${classesMaker('greentop')} offerings-placement--${this.props.placement}`}>
+            <div className={`${classesMaker('greentop')} offerings-placement--${this.props.placement}${/bottom/.test(this.props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
                 <section className="ftSubOfferSection mainOfferSection">
                     <div className="page">
                         <div className="ancGrid full480">

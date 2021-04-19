@@ -40,7 +40,7 @@ export class PrettyGrid extends React.Component {
         const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
         const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
         return (
-            <div className={`${classesMaker('prettygrid')} offerings-placement--${this.props.placement}`}>
+            <div className={`${classesMaker('prettygrid')} offerings-placement--${this.props.placement}${/bottom/.test(this.props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
                 <section className="offerPageForm">
                     <div className="page pageWidth1 pagePadded">
                         <form className="form" action="/checkout/mli?" 
@@ -55,6 +55,7 @@ export class PrettyGrid extends React.Component {
                                 e.target.submit();
                             }}
                         >
+                            {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
                             <input type="hidden" name="direct" value="1" />
                             <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} />
                             <input type="hidden" name="quantities" value="1" />

@@ -25,7 +25,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
     const headingHeightClass = !subs.ldbms ? 'two-lines' : (/toggle/.test(pS.LDBM) && subs.display.durations.length > 2) ? 'four-lines' : 'three-lines';
     const fullRowOffersTest = subs.display.durations.length > (pS.windowWidth < pS.breaks.control.desktop ? 2 : 3);
     return (
-        <div className={`${classesMaker('bonsaigrid')} offerings-placement--${props.placement}`}>
+        <div className={`${classesMaker('bonsaigrid')} offerings-placement--${props.placement}${/bottom/.test(props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
             <form action="/checkout/mli?" className="bonsai-container dnSignupForm" onSubmit={() => {
                 adobeTargetTrackEvent({
                     eventType: 'offersFormSubmit',

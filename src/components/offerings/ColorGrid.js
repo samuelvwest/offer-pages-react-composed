@@ -24,7 +24,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
     const subs = pS.subscriptions;
     const rowClasses = [ `priceSmallRow`, `priceMediumLowRow`, `priceMediumHighRow`, `priceTallRow` ]
     return (
-        <section className={`formCon ${classesMaker('colorgrid')} offerings-placement--${props.placement}`}>
+        <section className={`formCon ${classesMaker('colorgrid')} offerings-placement--${props.placement}${/bottom/.test(props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
             <form className="form clearfix" action="/checkout/mli?" onSubmit={() => {
                 adobeTargetTrackEvent({
                     eventType: 'offersFormSubmit',
