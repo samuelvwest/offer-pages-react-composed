@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+.cache
+.vscode
+*.xls
+*.xlsm
+*.xltx
+*.xltm
+*.pptx
+*.ppt
+*.psd
+*.ai
+*.mov
+*.avi
+*.vlc
