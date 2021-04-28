@@ -166,7 +166,7 @@ export class SparklyDragon extends React.Component {
                                                     <br />
                                                     {/usdiscovery/.test(pkgData.id) && <span className="textsml plan-subtitle">Access to billions of U.S. records.</span>}
                                                     {/worldexplorer/.test(pkgData.id) && <span className="textsml plan-subtitle">Access billions of U.S. <span className="bold">and</span> International&nbsp;records.</span>}
-                                                    {/allaccess/.test(pkgData.id) && <span className="textsml plan-subtitle">Everything above, <span className="bold">plus</span> access to Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" /> and&nbsp;Fold3.</span>}
+                                                    {/allaccess/.test(pkgData.id) && <span className="textsml plan-subtitle">Everything above, <span className="bold">plus</span> access to Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /> and&nbsp;Fold3.</span>}
                                                 </h1>
                                                 <span className={`plan-detail ${pkgVars.detailClassStr}${offer.renewalPeriod.renewMonths === 1 ? `-monthly` : ``}-plan-detail${(ftTest && offer.renewalPeriod.renewMonths > 1) ? ` plan-detail--longduration` : ``}${!!offer.promoSavings ? ` plan-detail--promosavings` : ``} ${!ftTest ? `plan-detail--hardoffer` : ``} textsml`}>
                                                     <span className={`plan-price-wrap ${!ftTest ? `plan-price-wrap--hardoffer` : ``} ${pkgVars.colorClass}`}>
@@ -181,7 +181,7 @@ export class SparklyDragon extends React.Component {
                                                         </span>
                                                         {offer.renewalPeriod.renewMonths === 1 ? `/month` : offer.ldbm ? `/mo.` : ``}
                                                     </span>
-                                                    {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`} <span className="border-highlight">{offer.renewalPeriod.renewMonths} months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
+                                                    {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`} <span className="border-highlight">{offer.renewalPeriod.renewMonths} months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} />}
                                                     {ftTest && <span> after free trial</span>}
                                                 </span> 
                                             </div>
@@ -307,7 +307,7 @@ export class SparklyDragon extends React.Component {
                                                         </span>
                                                         {offer.renewalPeriod.renewMonths === 1 ? `/month` : offer.ldbm ? `/mo.` : ``}
                                                     </span>
-                                                    {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`}&nbsp;<span className="border-highlight">{offer.renewalPeriod.renewMonths}&nbsp;months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
+                                                    {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`}&nbsp;<span className="border-highlight">{offer.renewalPeriod.renewMonths}&nbsp;months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} />}
                                                 </span>
                                                 {!!offer.durationSavings && 
                                                     <div className="saving-plan-sixmonths">
@@ -367,7 +367,7 @@ export class SparklyDragon extends React.Component {
                                                                 </div>
                                                                 <span className="news-basic-text-tab">Basic</span>
                                                                 <div className="textsml text-left">
-                                                                    <a href="javascript:;">What's this?<LegalSup supRef="newspapersBasic" /></a>
+                                                                    <a href="javascript:;">What's this?<LegalSup supRef="newspapersBasic" goToOnClick={true} /></a>
                                                                 </div>
                                                                 <span className="tooltiptext tooltip-bottom normal tooltip-news-wrap-new">
                                                                     <div>Search for family stories in more than 142 million articles on Newspaper.com.</div>

@@ -243,11 +243,11 @@
             min-height: 50px;
             padding: 9px 34px;
         }
-    }
-
-    .free-trial-submit-button {
-        margin-top: -5px;
-        display: block;
+        // .free-trial-submit-button {
+        > span {
+            margin-top: -5px;
+            display: block;
+        }
     }
 
 

@@ -4,7 +4,7 @@ import { modifyPageSettings } from '../../actions/pageSettings';
 import { scrollTo } from '../../actions/utilities';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
 import ColorStack from './ColorStack';
-import { LegalSup, LegalDurationSaveLine, LegalLongDurationBilledMonthly } from '../LegalText';
+import { LegalSup, LegalLongDurationBilledMonthly } from '../LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -76,7 +76,7 @@ export class PrettyGrid extends React.Component {
                                                     }
                                                     const pkgVars = pkgData.order === 3  ? {
                                                         colorClass: `bgColor2`,
-                                                        description: <p className="noTopSpacing hide480 textsml">Get full membership to: Ancestry.com, Fold3.com, &amp; Newspapers.com Basic<LegalSup supRef="newspapersBasic" /></p>
+                                                        description: <p className="noTopSpacing hide480 textsml">Get full membership to: Ancestry.com, Fold3.com, &amp; Newspapers.com Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /></p>
                                                     } : pkgData.order === 2 ? {
                                                         colorClass: `bgColor4`,
                                                         description: <p className="noTopSpacing hide480 textsml">Access all U.S. &amp; international records on Ancestry</p>
@@ -179,7 +179,7 @@ export class PrettyGrid extends React.Component {
                                                                                 return <span key={index} className={useClass}>{num}</span>
                                                                             })}
                                                                         </span>
-                                                                        {offer.ldbm && <span className="offerPriceTxt--ldbm">per&nbsp;month<LegalSup supRef="longDurationBilledMonthly" /></span>}
+                                                                        {offer.ldbm && <span className="offerPriceTxt--ldbm">per&nbsp;month<LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} /></span>}
                                                                         {!!offer.durationSavings && <span className="savingsText text2xlrg coloraltgreen bold">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></span>}
                                                                     </label>
                                                                 </td>
@@ -207,7 +207,7 @@ export class PrettyGrid extends React.Component {
                                             this.sparklyDragonForm.dispatchEvent(new Event('submit')); 
                                         }}
                                     >
-                                        {/initial/.test(pS.elligibility) ? <span className="free-trial-submit-button">Start free trial<LegalSup supRef="freeTrial"/></span> : /renewal/.test(pS.elligibility) ? `Become a member` : `Upgrade membership`}
+                                        {/initial/.test(pS.elligibility) ? <span className="free-trial-submit-button">Start free trial<LegalSup supRef="freeTrial" /></span> : /renewal/.test(pS.elligibility) ? <span>Become a member<LegalSup supRef="hardOffer" /></span> : `Upgrade membership`}
                                     </a>
                                 </div>
                             </div>

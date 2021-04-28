@@ -27,37 +27,41 @@ const classesMaker = (styleName) => {
 
 const ColorStack = connect(mapElligibilityStateToProps)(({ elligibility }) => (
     <span className={classesMaker('colorstack')}>
-        Choose a membership to try
+        Choose a membership to&nbsp;try
         {/initial/.test(elligibility) ? 
             <span> 
-                <strong className="header-text__free-for">FREE for 14 days.</strong><LegalSup supRef="freeTrial"/>
+                <strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} />
             </span> : 
-            <span>.</span>
+            <span>.<LegalSup supRef="hardOffer" goToOnClick={true}/></span>
         }
     </span>
 ));
 
-const GreenTop = () => (
-    <span className={classesMaker('greentop')}>We're giving you access to <i>your</i>&nbsp;history.</span>
-);
+const GreenTop = connect(mapElligibilityStateToProps)(({ elligibility }) => {
+    return (
+        <span className={classesMaker('greentop')}>
+            We're giving you access to <i>your</i>&nbsp;history.<LegalSup supRef={/initial/.test(elligibility) ? `freeTrial` : `hardOffer`} goToOnClick={true} />
+        </span>
+    )
+});
 
 const ColorGrid = connect(mapElligibilityStateToProps)(({ elligibility }) => (
     <span className={classesMaker('colorgrid')}>
         Discover your family story with an Ancestry&nbsp;membership
         {/initial/.test(elligibility) ? 
-            <span><strong className="header-text__free-for">FREE for 14 days.</strong><LegalSup supRef="freeTrial"/></span> : 
-            <span>.</span>
+            <span><strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} /></span> : 
+            <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
         }
     </span>
 ));
 
 const BonsaiGrid = connect(mapElligibilityStateToProps)(({ elligibility }) => /initial/.test(elligibility) ? (
     <span className={classesMaker('bonsaigrid')}>
-        Explore the world's largest online family history resource<span className="header-text__free-for">FREE for 14 days.<LegalSup supRef="freeTrial"/></span>
+        Explore the world's largest online family history resource<span className="header-text__free-for">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
     </span>
 ) : (
     <span className={classesMaker('bonsaigrid')}>
-        Start exploring the world’s largest online family history resource today.
+        Start exploring the world’s largest online family history resource&nbsp;today.<LegalSup supRef="hardOffer" goToOnClick={true} />
     </span>
 ));
 
@@ -79,8 +83,9 @@ const Control = connect(mapStateToProps)(( { pageSettings: pS } ) => {
 const SparklyDragon = connect(mapElligibilityStateToProps)(({ elligibility }) => (
     <span className={classesMaker('sparklydragon')}>
         Connect with your ancestors through historical documents. 
-        {/initial/.test(elligibility) && 
-            <span className="header-text__free-for">Free for 14 days<LegalSup supRef="freeTrial"/></span>
+        {/initial/.test(elligibility) ? 
+            <span className="header-text__free-for">Free for 14 days<LegalSup supRef="freeTrial" goToOnClick={true} /></span> :
+            <LegalSup supRef="hardOffer" goToOnClick={true} />
         }
     </span>
 ));
@@ -93,11 +98,11 @@ const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
     // Control text for Bonsai Grid design – desktop on FTLP & HOLP
     return /initial/.test(pS.elligibility) ? (
         <span className={classesMaker('prettygrid')}>
-            Try us <span className="coloraltgreen">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial"/></span>
+            Try us <span className="coloraltgreen">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
         </span>
     ) : (
         <span className={classesMaker('prettygrid')}>
-            Start tracing your family tree
+            Start tracing your family&nbsp;tree.<LegalSup supRef="hardOffer" goToOnClick={true} />
         </span>
     )
 });

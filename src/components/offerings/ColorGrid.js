@@ -70,7 +70,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                     <h2 className="text3xlrg">{pkgData.name}</h2>
                                     {/usdiscovery/.test(pkgData.id) && <p className="textlrg">Uncover your family story in U.S. records</p>}
                                     {/worldexplorer/.test(pkgData.id) && <p className="textxlrg">Unlock global content &amp; collections</p>}
-                                    {/allaccess/.test(pkgData.id) && <p className="textxlrg">All of Ancestry, Fold3, Newspapers.com Basic<LegalSup supRef="newspapersBasic" /></p>}
+                                    {/allaccess/.test(pkgData.id) && <p className="textxlrg">All of Ancestry, Fold3, Newspapers.com Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /></p>}
                                 </div>
                                 {subs.display.durations.map((duration) => {
                                     const offer = subs.display.offersMap.find((offer) => {
@@ -105,7 +105,7 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                                     {!!offer.durationSavings && <span className="saveText textxlrg">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /><br /></span>}
                                                     {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>}
                                                     <span className="priceText text4xlrg">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}</span>
-                                                    {offer.ldbm && <span className="priceText textlrg"><br />per month<LegalSup supRef="longDurationBilledMonthly" /></span>}
+                                                    {offer.ldbm && <span className="priceText textlrg"><br />per month<LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} /></span>}
                                                     {/initial/.test(pS.elligibility) && <span className="freeTrialText textlrg"><br />after free trial</span>}
                                                 </div>
                                             </label>

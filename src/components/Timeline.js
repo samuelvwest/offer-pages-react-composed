@@ -37,7 +37,7 @@ const Timeline = connect(mapStateToProps)((props) => {
                                 Today&nbsp;•&nbsp;  
                                 <span className="today-date normal">{monthsArr[firstDay.getMonth()]} {firstDay.getDate()}</span>
                             </div>
-                            <p>FREE 14-day trial<LegalSup supRef="freeTrial"/></p>
+                            <p>FREE 14-day trial<LegalSup supRef="freeTrial" goToOnClick={true}/></p>
                             <div className="myright-circle"></div>
                             <div className="mybilldate">
                                 First&nbsp;Bill&nbsp;•&nbsp;

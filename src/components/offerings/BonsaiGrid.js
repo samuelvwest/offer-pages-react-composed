@@ -74,7 +74,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                         </p>
                                                         <ul>
                                                             <li>Ancestry</li>
-                                                            <li>Newspapers.com Basic<LegalSup supRef="newspapersBasic" /></li>
+                                                            <li>Newspapers.com Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /></li>
                                                             <li>Fold3.com</li>
                                                         </ul>
                                                     </div>}
@@ -113,7 +113,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                                         />
                                                                         <span className="bold greenTxt text4xlrg">
                                                                             {offer.promoSavings && (!offer.ldbm  ? <span className="strike-through-price">{offer.currency}{offer.renewalPeriod.MSRP}<LegalSup supRef="promoSave" /></span> : <span className="strike-through-price">{offer.currency}{offer.renewalPeriod.MSRPMEP}/mo.<LegalSup supRef="promoSave" /></span>)}
-                                                                            {!offer.ldbm  ? <span>{offer.currency}{offer.renewalPeriod.displayPrice}</span> : <span>{offer.currency}{offer.renewalPeriod.displayPriceMEP}/mo.<LegalSup supRef="longDurationBilledMonthly" /></span>}
+                                                                            {!offer.ldbm  ? <span>{offer.currency}{offer.renewalPeriod.displayPrice}</span> : <span>{offer.currency}{offer.renewalPeriod.displayPriceMEP}/mo.<LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} /></span>}
                                                                         </span>
                                                                         {/initial/.test(pS.elligibility) && <p>after free trial</p>}
                                                                     </label>

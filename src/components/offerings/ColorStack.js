@@ -126,7 +126,7 @@ export class ColorStack extends React.Component {
                                                 <div className="ancCol w75">
                                                     {/usdiscovery/.test(pkgData.id) && <span className="ancCol durationTxt">All U.S. records</span>}
                                                     {/worldexplorer/.test(pkgData.id) && <span className="ancCol durationTxt">Everything on Ancestry</span>}
-                                                    {/allaccess/.test(pkgData.id) && <span className="ancCol durationTxt">Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" /></strong></span>}
+                                                    {/allaccess/.test(pkgData.id) && <span className="ancCol durationTxt">Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /></strong></span>}
                                                     <span className="ancCol linkArrow icon iconArrowRight"></span>
                                                     <span className={`ancCol w60 priceTextCon ${offer.ldbm ? `priceTextCon--ldbm` : ``}${(offer.promoSavings && /initial/.test(pS.elligibility)) ? ` priceTextCon--promo` : ``}`}>
                                                         {!offer.ldbm && /initial/.test(pS.elligibility) && <span className="daysFree">14 DAYS FREE<br /></span>}
@@ -138,13 +138,10 @@ export class ColorStack extends React.Component {
                                                                     <LegalSup supRef="promoSave" />
                                                                 </span>
                                                             }
-                                                            {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : `${offer.renewalPeriod.displayPriceMEP}/month`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
+                                                            {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : `${offer.renewalPeriod.displayPriceMEP}/month`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} />}
                                                         </span>
                                                         {offer.ldbm && /initial/.test(pS.elligibility) && <span className="priceTxt"><br />after free trial</span>}
                                                     </span> 
-
-                                                    {/* {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>} */}
-                                                    
                                                     {offer.renewalPeriod.renewMonths === 1 && <span className={`ancCol w40 cancelText${offer.promoSavings ? ` cancelText--promo` : ``}`}>Cancel anytime</span>}
                                                     {!!offer.durationSavings && <span className={`ancCol w40 cancelText${offer.promoSavings ? ` cancelText--promo` : ``} saveText`}><strong>SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></strong></span>}
                                                 </div>

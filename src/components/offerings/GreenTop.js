@@ -115,7 +115,7 @@ export class GreenTop extends React.Component {
                                                                 }
                                                                 {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}
                                                             </span> 
-                                                            <span className="textlrg">/{offer.renewalPeriod.renewMonths === 1 ? `month` : !offer.ldbm ? `${offer.renewalPeriod.renewMonths} months` : `per mo.`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}</span>
+                                                            <span className="textlrg">/{offer.renewalPeriod.renewMonths === 1 ? `month` : !offer.ldbm ? `${offer.renewalPeriod.renewMonths} months` : `per mo.`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} />}</span>
                                                         </h4>
                                                         {/initial/.test(pS.elligibility) && <p className="bold coloralt1 noTopSpacing">after free trial</p>}
                                                         {toggleButtonTest &&
@@ -147,7 +147,7 @@ export class GreenTop extends React.Component {
                             </button>
                             <div className="modal modal--top-greentop">
                                 <BonsaiGrid placement="modal"/>
-                                <LegalText/>
+                                <LegalText inModal={true} />
                             </div>
                             {(ldbmDurations.length > 0 || durationSaveOffers.length > 0) && 
                                 <LegalTextWrapper>

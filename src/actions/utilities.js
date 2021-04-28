@@ -1,3 +1,5 @@
+import { adobeTargetTrackEvent } from './tracking';
+
 export const openModal = (selector, settings) => {
     if (!!window.ui && window.ui.modal) {
         const modal = ui.modal(document.querySelector(selector), settings);
@@ -7,10 +9,10 @@ export const openModal = (selector, settings) => {
     }
 }
 
-export const scrollTo = (selector) => {
-    console.log(selector);
+export const scrollTo = (selector, tracking) => {
+    // console.log(selector);
     const elems = [].slice.call(document.querySelectorAll(selector));
-    console.log(elems);
+    // console.log(elems);
     const target = {
         elem: document.querySelector(selector),
         offset: 0,
@@ -37,7 +39,7 @@ export const scrollTo = (selector) => {
                 target.block = rect.top > heightNum ? 'end' : 'start';
                 target.offset = rect.top > heightNum ? heightNum : 0;
             }
-            console.log(rect, target.proximity, target.elem);
+            // console.log(rect, target.proximity, target.elem);
         })
     }
     target.elem.classList.add(`scroll-highlight`);
@@ -54,6 +56,8 @@ export const scrollTo = (selector) => {
                 block: target.block
             })
         }
+    } else {
+        console.log('no scroll', target);
     }
     setTimeout(function() {
         target.elem.classList.add(`scroll-highligh--deactivate`);
@@ -62,4 +66,10 @@ export const scrollTo = (selector) => {
             target.elem.classList.remove(`scroll-highligh--deactivate`);
         }, 1000)
     }, 1000)
+    if (!!tracking) {
+        adobeTargetTrackEvent({
+            eventType: 'scrollTo',
+            button: tracking
+        })
+    }
 }

@@ -87,7 +87,7 @@ const ColorColumns = connect(mapStateToProps)((props) => {
                                 >
                                     {/usdiscovery/.test(pkgData.id) && <span>15 billion US records</span>}
                                     {/worldexplorer/.test(pkgData.id) && <span>20 billion global records</span>}
-                                    {/allaccess/.test(pkgData.id) && <span>20 billion global records <br/>500 million military records on Fold3® <br/>1 billion articles on Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" /></span>}
+                                    {/allaccess/.test(pkgData.id) && <span>20 billion global records <br/>500 million military records on Fold3® <br/>1 billion articles on Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /></span>}
                                 </td>
                             ))}
                         </tr>
