@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { openModal } from '../actions/utilities';
+import { adobeTargetTrackEvent } from '../actions/tracking';
 
 const mapStateToProps = (state) => {
     return {
@@ -17,25 +19,36 @@ const HowAncestryWorksVideo = () => <iframe width="600" height="338" src="https:
 
 export class VideoSection extends React.Component {
     howItWorksVideoModal = () => {
-        const modalSettings = {
+        openModal('.modal--how-ancestry-works-video', {
             destroyOnClose: true,
             open: true,
             showLoading: true,
             width: 600
-        }
-        if (!!window.ui && window.ui.modal) {
-            const howItWorksModal = ui.modal('.modal--how-ancestry-works-video', modalSettings);
-            howItWorksModal.open();
-        } else if (!!window.$ && !!window.$.modal) {
-            $('.modal--how-ancestry-works-video').modal(modalSettings);
-        }
+        })
+        adobeTargetTrackEvent({
+            eventType: 'clickButton',
+            button: 'videoModal'
+        })
+    }
+    videoWrapperTracker = () => {
+        adobeTargetTrackEvent({
+            eventType: 'clickButton',
+            button: 'playVideo'
+        })
     }
     render() {
         const pS = this.props.pageSettings;
         const subs = pS.subscriptions;
         if (!!this.props.variables.videoSection) {
             return pS.windowWidth <= pS.breaks.sparklydragon.desktop ? (
-                <div className={`video-section-outer-wrapper offerings-variable--${this.props.variables.offerings} scroll-tracking--videoSection`}>
+                <div className={`video-section-outer-wrapper offerings-variable--${this.props.variables.offerings} scroll-tracking--videoSection`}
+                    onClick={() => {
+                        adobeTargetTrackEvent({
+                            eventType: 'clickSection',
+                            section: 'videoSection'
+                        })
+                    }}
+                >
                     <section className={`video-section-container ${classesMaker(`sparkly-dragon`)}`}>
                         <p className="title">How does Ancestry® work?</p>
                         <p className="subtitle">Find out in this 52-second video.</p>
@@ -58,7 +71,14 @@ export class VideoSection extends React.Component {
                     </section>
                 </div>
             ) : (
-                <div className={`video-section-outer-wrapper video-section-outer-wrapper--${this.props.variables.videoSection} offerings-variable--${this.props.variables.offerings} scroll-tracking--videoSection`}>
+                <div className={`video-section-outer-wrapper video-section-outer-wrapper--${this.props.variables.videoSection} offerings-variable--${this.props.variables.offerings} scroll-tracking--videoSection`}
+                    onClick={() => {
+                        adobeTargetTrackEvent({
+                            eventType: 'clickSection',
+                            section: 'videoSection'
+                        })
+                    }}
+                >
                     <section className={`how-does-ancestry-work flex-container ${classesMaker(`sparkly-dragon`)}`}>
                         <div className="hdaw-flex-item">
                             <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.11/images/illustration-leaf.svg" className="ancestry-leaf" />

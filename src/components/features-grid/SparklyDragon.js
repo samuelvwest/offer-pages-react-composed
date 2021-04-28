@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { USMap, Globe, GlobePlus, CheckIcon, XIcon } from '../SVGs';
 import { LegalNewspapersBasic } from '../LegalText';
 
@@ -87,14 +88,16 @@ const featuresData = [
                 <span className="table-row-head">
                     <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.17/images/newspapers.svg" className="table-newspapers-img" /> 
                 </span>
+                <span className="textsml basicsubs-wrap">
+                    <span className="mr-1">Basic subscription</span>
+                </span>
                 <div className="tooltip">
-                    <span className="textsml basicsubs-wrap">
-                        <span className="mr-1">Basic subscription</span>
-                        <img className="align-middle" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.10/images/question.png" />
+                    <img className="align-middle" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.10/images/question.png" />
+                    <span className="tooltiptext tooltip-top normal">
+                        <LegalNewspapersBasic />
                     </span>
-                    <span className="tooltiptext tooltip-top normal"><LegalNewspapersBasic /></span>
                 </div>
-                <div className="topSpacing plan-para-color">Search for family stories in more than 142 million U.S. and world articles on&nbps;Newspapers.com™.</div>
+                <div className="topSpacing plan-para-color">Search for family stories in more than 142 million U.S. and world articles on&nbspyarn;Newspapers.com™.</div>
             </div>,
         appliesTo: [ 'allaccess' ]
     }, {
@@ -238,7 +241,15 @@ export class SparklyDragon extends React.Component {
             )
         })
         return (
-            <div className={`${classesMaker('sparklydragon')} offerings-variable--${this.props.variables.offerings} scroll-tracking--featuresGrid`}>
+            <div className={`${classesMaker('sparklydragon')} offerings-variable--${this.props.variables.offerings} scroll-tracking--featuresGrid`}
+                onClick={() => {
+                    adobeTargetTrackEvent({
+                        eventType: 'clickSection',
+                        section: 'featuresGrid',
+                        gridType: `sparklyDragon`
+                    })
+                }}
+            >
                 <section className={`plan-comparison-chart plan-comparison-chart--offerings-${this.props.variables.offerings}`}>
                     <table>
                         <tbody>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { LegalNewspapersBasic } from '../LegalText';
 
 const mapStateToProps = (state) => {
@@ -42,7 +43,15 @@ const ColorGrid = connect(mapStateToProps)((props) => {
     const subs = pS.subscriptions;
     const filteredFeaturesData = [...featuresData].filter((featureData) => subs.display.packages.some((pkgData) => featureData.appliesTo.indexOf(pkgData.id) > -1));
     return (
-        <table className={`${classesMaker(`colorgrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}>
+        <table className={`${classesMaker(`colorgrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}
+            onClick={() => {
+                adobeTargetTrackEvent({
+                    eventType: 'clickSection',
+                    section: 'featuresGrid',
+                    gridType: `colorGrid`
+                })
+            }}
+        >
             <tbody>
                 <tr className={(/control/.test(props.variables.offerings) && subs.display.packages.length === 3 && !/join/.test(pS.location)) ? `hiddenRow` : ``}>
                     <td className="w40 offerLeftCol" scope="row"></td>

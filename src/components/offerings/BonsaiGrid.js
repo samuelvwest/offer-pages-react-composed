@@ -135,7 +135,14 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                             <div className="ctaBox">
                                 <input type="submit" className="ancBtn orange lrg subBtn" value={/initial/.test(pS.elligibility) ? `Start FREE trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`} />
                                {props.variables.supportSection && 
-                                    <div className="myAccountInfo">
+                                    <div className="myAccountInfo scroll-tracking--supportSection" 
+                                        onClick={() => {
+                                            adobeTargetTrackEvent({
+                                                eventType: 'clickSection',
+                                                section: 'supportSection'
+                                            })
+                                        }}
+                                    >
                                         <div className="oldphone"></div>
                                         <p className="textsml">Subscribe or cancel any time by calling <span className="bold greenTxt textlrg phoneNumb">1-800-ANCESTRY</span></p>
                                         <p className="greenTxt"><small>(7 days a week, 9am-11pm ET)</small></p>

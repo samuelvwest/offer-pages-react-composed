@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
+import { openModal } from '../../actions/utilities';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
 import BonsaiGrid from './BonsaiGrid';
 import { LegalSup, LegalLongDurationBilledMonthly, LegalDurationSaves, LegalTextWrapper, LegalText } from '../LegalText';
@@ -22,16 +23,13 @@ const classesMaker = (styleName) => {
 
 export class GreenTop extends React.Component {
     seeAllOptionsModal = () => {
-        if (!!window.ui && window.ui.modal) {
-            const seeAllOptionsModal = ui.modal('.modal--top-greentop', {
-                width: 900
-            });
-            seeAllOptionsModal.open();
-        } else if (!!window.$ && !!window.$.modal) {
-            $('.modal--top-greentop').modal({
-                width: '900px'
-            });
-        }
+        openModal('.modal--top-greentop', {
+            width: `900px`
+        })
+        adobeTargetTrackEvent({
+            eventType: 'clickButton',
+            button: 'seeOptionsModal'
+        })
     }
     render() {
         const pS = this.props.pageSettings;
@@ -144,7 +142,9 @@ export class GreenTop extends React.Component {
                             }
                         </div>
                         <div className="seeAllMemSection">
-                            <button className="link bold text2xlrg seeAllMemBtn" type="button" onClick={this.seeAllOptionsModal}>See all membership options</button>
+                            <button className="link bold text2xlrg seeAllMemBtn" type="button" onClick={this.seeAllOptionsModal}>
+                                See all membership options
+                            </button>
                             <div className="modal modal--top-greentop">
                                 <BonsaiGrid placement="modal"/>
                                 <LegalText/>

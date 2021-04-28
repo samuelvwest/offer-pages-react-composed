@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../actions/tracking';
 import { AncestryLogo, GiftIcon } from './SVGs';
 
 const mapStateToProps = (state) => {
@@ -18,14 +19,35 @@ const OtherProductsSection = connect(mapStateToProps)((props) => {
     const subs = pS.subscriptions;
     if (props.variables.otherProductsSection) {
         return (
-            <div className={`other-products-wrapper offerings-variable--${props.variables.offerings} scroll-tracking--otherProductsSection`}>
+            <div className={`other-products-wrapper offerings-variable--${props.variables.offerings} scroll-tracking--otherProductsSection`}
+                onClick={() => {
+                    adobeTargetTrackEvent({
+                        eventType: 'clickSection',
+                        section: 'otherProductsSection'
+                    })
+                }}
+            >
                 <div className={`seperate-products mb-6 ${classesMaker(`sparkly-dragon`)}`}>
                     <h1 className="conTitle feature-title">Other Products</h1>
                     <div className="products-wrapper">
-                        <a className="logo-dna-wrap-new" href="https://www.ancestry.com/dna/">
+                        <a className="logo-dna-wrap-new" href="https://www.ancestry.com/dna/"
+                            onClick={() => {
+                                adobeTargetTrackEvent({
+                                    eventType: 'clickButton',
+                                    button: 'otherProdDNA'
+                                })
+                            }}
+                        >
                             <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/logo-dna.png" className="logo-dna-new" />
                         </a>
-                        <a className="logo-health-wrap-new" href="https://www.ancestry.com/cs/gift-selection">
+                        <a className="logo-health-wrap-new" href="https://www.ancestry.com/cs/gift-selection"
+                            onClick={() => {
+                                adobeTargetTrackEvent({
+                                    eventType: 'clickButton',
+                                    button: 'otherProdGiftSub'
+                                })
+                            }}
+                        >
                             <AncestryLogo classNames="logo-ancestry-full" />
                             <GiftIcon classNames="gift-icon" />
                         </a>

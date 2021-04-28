@@ -113,3 +113,11 @@
         border: none;
     }
 }
+
+.scroll-highlight {
+    background-color: #fdf29d95;
+    transition: all 1.0s;
+    &.scroll-highligh--deactivate {
+        background-color: transparent;
+    }
+}

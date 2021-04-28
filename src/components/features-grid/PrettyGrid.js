@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { LegalNewspapersBasic } from '../LegalText';
 import ColorColumns from './ColorColumns';
 
@@ -67,7 +68,15 @@ const PrettyGrid = connect(mapStateToProps)((props) => {
     const filteredFeaturesData = [...featuresData].filter((featureData) => subs.display.packages.some((pkgData) => featureData.appliesTo.indexOf(pkgData.id) > -1));
 
     return (
-        <section className={`${classesMaker(`prettygrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}>
+        <section className={`${classesMaker(`prettygrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}
+            onClick={() => {
+                adobeTargetTrackEvent({
+                    eventType: 'clickSection',
+                    section: 'featuresGrid',
+                    gridType: `prettyGrid`
+                })
+            }}
+        >
             <div className="page pagePadded pageWidth1 clearfix">
                 <table className="offerCompareTable">
                     <tbody>

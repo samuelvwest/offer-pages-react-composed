@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../actions/tracking';
 
 const mapStateToProps = (state) => {
     return {
@@ -17,7 +18,14 @@ const InfoSections = connect(mapStateToProps)((props) => {
     const subs = pS.subscriptions;
     if (props.variables.infoSections) {
         return pS.windowWidth < pS.breaks.control.tablet ? (
-            <section className={`otherBenefitsCon ${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}>
+            <section className={`otherBenefitsCon ${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}
+                onClick={() => {
+                    adobeTargetTrackEvent({
+                        eventType: 'clickSection',
+                        section: 'infoSections'
+                    })
+                }}
+            >
                 <section className="exploreCon">
                     <div className="fullPgImgSprite lazyBgImg exploreImg loadedBgImg"></div>
                     <h3 className="text5xlrg">Explore records</h3>
@@ -40,7 +48,14 @@ const InfoSections = connect(mapStateToProps)((props) => {
                 </section>
             </section>
         ) : (
-            <div className={`${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}>
+            <div className={`${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}
+                onClick={() => {
+                    adobeTargetTrackEvent({
+                        eventType: 'clickSection',
+                        section: 'infoSections'
+                    })
+                }}
+            >
                 <section className="ftSubPageSection recordsCon">
                     <div className="page bgDark">
                         <div className="ancGrid ancGridEqual ftSubPageGrid">

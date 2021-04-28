@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../actions/tracking';
 
 const mapStateToProps = (state) => {
     return {
@@ -25,7 +26,14 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
     const inFeatureGridTest = pS.windowWidth >= pS.breaks.control.desktop && /control/.test(props.variables.featuresGrid);
     if (props.variables.testimonialSection && !inFeatureGridTest) {
         return pS.windowWidth <= pS.breaks.control.tablet ? (
-            <section className={`quoteCon ${classesMaker('colorstack')} scroll-tracking--testimonialSection`}>
+            <section className={`quoteCon ${classesMaker('colorstack')} scroll-tracking--testimonialSection`}
+                onClick={() => {
+                    adobeTargetTrackEvent({
+                        eventType: 'clickSection',
+                        section: 'testimonialSection'
+                    })
+                }}
+            >
                 <div className="quote">
                     <p>“<MaryDQuote />”</p>
                     <div className="quoteArrow"></div>
@@ -36,8 +44,15 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
                 </div>
             </section>
         ) : (
-            <section className={`offerPageTestimonial ${classesMaker('prettygrid')} scroll-tracking--testimonialSection`}>
-                <div className="page pageWidth1 pagePadded">
+            <section className={`offerPageTestimonial ${classesMaker('prettygrid')} scroll-tracking--testimonialSection`}
+                onClick={() => {
+                    adobeTargetTrackEvent({
+                        eventType: 'clickSection',
+                        section: 'testimonialSection'
+                    })
+                }}
+            >
+                <div className="pagePadded">
                     <div className="testimonialBkg"></div>
                     <div className="testimonialContent coloralt4 topSpacingBlock">
                         <h2 className="italic text4xlrg"><MaryDQuote brk={true} />”</h2>

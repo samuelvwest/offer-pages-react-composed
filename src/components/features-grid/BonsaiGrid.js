@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { MaryDQuote } from '../TestimonialSection';
 import { LegalNewspapersBasic } from '../LegalText';
 
@@ -62,12 +63,27 @@ const BonsaiOfferings = connect(mapStateToProps)((props) => {
         <div className={`${classesMaker(`bonsaigrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}>
             <section className="benefitListCon">
                 {props.variables.testimonialSection &&
-                    <div className="testimonials">
+                    <div className="testimonials scroll-tracking--testimonialSection"
+                        onClick={() => {
+                            adobeTargetTrackEvent({
+                                eventType: 'clickSection',
+                                section: 'testimonialSection'
+                            })
+                        }}
+                    >
                         <p className="quote textalt">“<MaryDQuote />”</p>
                         <p className="source"><strong>Mary D.</strong> – Ancestry Member</p>
                     </div>
                 }
-                <table className="compareTable2">
+                <table className="compareTable2"
+                    onClick={() => {
+                        adobeTargetTrackEvent({
+                            eventType: 'clickSection',
+                            section: 'featuresGrid',
+                            gridType: `bonsai`
+                        })
+                    }}
+                >
                         <tbody>
                             <tr className="tableHeadingWrap rounded topright">
                                 <th scope="col"></th>

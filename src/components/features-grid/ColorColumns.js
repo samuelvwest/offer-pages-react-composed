@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { LegalSup } from '../LegalText';
 
 const mapStateToProps = (state) => {
@@ -50,7 +51,15 @@ const ColorColumns = connect(mapStateToProps)((props) => {
         });
     })
     return (
-        <div className={`${classesMaker('colorcolumns')} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}>
+        <div className={`${classesMaker('colorcolumns')} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}
+            onClick={() => {
+                adobeTargetTrackEvent({
+                    eventType: 'clickSection',
+                    section: 'featuresGrid',
+                    gridType: `colorColumns`
+                })
+            }}
+        >
             <div className="compareCon">
                 <table className="compareTable">
                     <caption className="textCenter bold">Compare memberships</caption>

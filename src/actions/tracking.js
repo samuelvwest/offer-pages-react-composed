@@ -3,11 +3,24 @@ export const adobeTargetTrackEvent = (params) => {
         mbox:'spaEventTracking',
         params
     };
-    if (!!window.tao && !!window.tao.f && !!window.tao.f.trackEvent) {
-        tao.f.trackEvent(passObj);
-        console.log('sent: ', passObj.params);
+    if (!!params.mbox) {
+        passObj.mbox = params.mbox;
+        delete params.mbox;
+    }
+    const trackStr = JSON.stringify(params);
+    if (!!window.tao && !!window.tao.g && !!window.tao.f && !!window.tao.f.trackEvent) {
+        window.tao.g.spaTrackedEvents = window.tao.g.spaTrackedEvents || [];
+        if (!window.tao.g.spaTrackedEvents.some((tS) => tS === trackStr)) {
+            window.tao.f.trackEvent(passObj);
+            window.tao.g.spaTrackedEvents.push(trackStr);
+            console.log('sent: ', passObj);
+        }
     } else {
-        console.log('not sent: ', passObj.params);
+        window._spaTrackedEvents = window._spaTrackedEvents || [];
+        if (!window._spaTrackedEvents.some((tS) => tS === trackStr)) {
+            window._spaTrackedEvents.push(trackStr);
+            console.log('not sent: ', passObj);
+        }
     }
 }
 

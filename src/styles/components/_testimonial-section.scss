@@ -66,12 +66,13 @@
 
         .testimonialBkg {
             background-image: url(https://www.ancestrycdn.com/mars/landing/offer/2018/hero-tree/3080-hero-tree-offer-testimonial-bkg.jpg);
-            background-size: 100% 100%;
+            background-size: calc(100% + 90px) 100%;
+            // background-position: 90px;
             position: absolute;
-            right: -90px;
+            right:0;
             top: 0;
             width: 1005px;
-            margin-right: 90px;
+            // margin-right: 90px;
             &:after {
                 content: "";
                 display: block;

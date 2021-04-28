@@ -126,6 +126,36 @@ export class OfferPage extends React.Component {
             this.props.modifyPageSettings(pSMods);
         }
     }
+    buildVariantTracking = (passObj) => {
+        const milBuffer = 5000
+        if (!window._bVT) {
+            window._bVT = {
+                bufferMark: new Date().getTime() + milBuffer,
+                started: false,
+                complete: false,
+                passObj: {
+                    mbox: `spaVariantTracking`
+                }
+            }
+        } else {
+            window._bVT.bufferMark = new Date().getTime() + milBuffer;
+        }
+        Object.keys(passObj).forEach((key) => {
+            window._bVT.passObj[key] = passObj[key]
+        })
+        if (!window._bVT.started) {
+            window._bVT.started = true;
+            window._bVT.interval = setInterval(() => {
+                const currentTimeTest = new Date().getTime() > window._bVT.bufferMark;
+                console.log(currentTimeTest);
+                if (!window._bVT.complete && currentTimeTest) {
+                    adobeTargetTrackEvent(window._bVT.passObj);
+                    window._bVT.complete = true;
+                    clearInterval(window._bVT.interval);
+                }
+            }, 200)
+        }
+    }
     setupTargetIntegration = () => {
         if (!!window.tao && !!window.tao.g) {
             if (!!window.tao.g.modifyVariables) {
@@ -139,6 +169,7 @@ export class OfferPage extends React.Component {
             // console.log(`state from _mV: `, newState);
             this.updatePageSettingsforEmphasis(newState);
             this.props.modifyVariables(newState);
+            this.buildVariantTracking(newState);
         };
     }
     componentWillMount = () => {
@@ -159,9 +190,10 @@ export class OfferPage extends React.Component {
                     reported: []
                 }
             }
+            this.trackElemsInViewport();
         }
         // mapScrollTrackingVariables(this.props.variables)
-        console.log(window._scrollTrackingData);
+        // console.log(window._scrollTrackingData);
         window.removeEventListener('scroll', this.trackElemsInViewport);
         this.getDenyPackageLevel();
         this.setupTargetIntegration();

@@ -38,7 +38,7 @@ const ColorStack = connect(mapElligibilityStateToProps)(({ elligibility }) => (
 ));
 
 const GreenTop = () => (
-    <span className={classesMaker('greentop')}>We're giving you access to <i>your</i> history.</span>
+    <span className={classesMaker('greentop')}>We're giving you access to <i>your</i>&nbsp;history.</span>
 );
 
 const ColorGrid = connect(mapElligibilityStateToProps)(({ elligibility }) => (

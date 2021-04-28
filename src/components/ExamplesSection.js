@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../actions/tracking';
 import { AncestryIcon, Circle, ArrowLineMobile, ArrowLineLeft, ArrowLineCenter, ArrowLineRight, IllustrationLeaf } from './SVGs';
 
 const mapStateToProps = (state) => {
@@ -23,6 +24,10 @@ export class ExamplesSection extends React.Component {
     }
     changeStoryExpanded = (newSetting) => {
         this.setState({ storyExpanded: newSetting })
+        adobeTargetTrackEvent({
+            eventType: 'clickButton',
+            button: `seeStory--${newSetting}`
+        })
     }
     render() {
         if (this.props.variables.examplesSection) {
@@ -37,7 +42,14 @@ export class ExamplesSection extends React.Component {
                 }
             }
             return (
-                <div className={`ancGrid ancGridEqual exampleWrapper examples-outer-wrap-desk ${classesMaker(`sparkly-dragon`)}  offerings-variable--${this.props.variables.offerings} scroll-tracking--examplesSection`}>
+                <div className={`ancGrid ancGridEqual exampleWrapper examples-outer-wrap-desk ${classesMaker(`sparkly-dragon`)}  offerings-variable--${this.props.variables.offerings} scroll-tracking--examplesSection`}
+                    onClick={() => {
+                        adobeTargetTrackEvent({
+                            eventType: 'clickSection',
+                            section: 'examplesSection'
+                        })
+                    }}
+                >
                     {this.props.pageSettings.windowWidth < this.props.pageSettings.breaks.sparklydragon.desktop ? 
                         <section className="con example-content pg-4">
                             <header className="conHeader">

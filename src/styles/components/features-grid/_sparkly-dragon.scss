@@ -548,6 +548,36 @@
         position: relative;
         display: inline-block;
         color: #006080;
+        .tooltiptext {
+            visibility: hidden;
+            position: absolute;
+            width: 230px;
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity .6s;
+            padding: 10px;
+            box-shadow: 0 2px 9px rgba(0, 0, 0, 0.25);
+            text-align: left;
+            .legal-text__paragraph {
+                padding: 0px 0px 0 15px;
+                .legal-text__sup {
+                    top: 0;
+                    left: -10px;
+                }
+            }
+        }
+        &:hover {
+            .tooltiptext {
+                display: block;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
     }
 
     .tooltip-top {
@@ -563,23 +593,6 @@
             border-style: solid;
             border-color: #fff transparent transparent transparent;
         }
-    }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        position: absolute;
-        width: 230px;
-        background-color: #fff;
-        color: #000;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity .6s;
-        padding: 10px;
-        box-shadow: 0 2px 9px rgba(0, 0, 0, 0.25);
-        text-align: left;
     }
 
     .basicsubs-wrap {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { scrollTo } from '../actions/utilities';
 
 const mapStateToProps = (state) => {
     return {
@@ -21,20 +22,46 @@ const legalSups = {
     newspapersBasic: `‡`
 }
 
-export const LegalSup = ({ supRef }) => (
-    <sup className={`legal-text__sup${/\*/.test(legalSups[supRef]) ? ` legal-text__sup--asterisk` : ``}`}>{legalSups[supRef]}</sup>
-)
+Object.keys(legalSups).forEach((supTxt) => {
+    legalSups[supTxt] = {
+        sup: legalSups[supTxt],
+        count: 0
+    }
+})
+
+let ldbmLegalRendered = false;
+
+export const LegalSup = (props) => {
+    const supObj = legalSups[props.supRef];
+    let oCF = () => {};
+    if (!!props.para) {
+        supObj.count = 0;
+    } else {
+        supObj.count++;
+        oCF = () => {
+            scrollTo(`.legal-text__paragraph--${props.supRef}`)
+        }
+    }
+    // console.log(props.supRef, supObj.sup, supObj.count);
+    return (
+        <sup className={`legal-text__sup${/\*/.test(supObj.sup) ? ` legal-text__sup--asterisk` : ``}`}
+            onClick={() => { oCF(); }}
+        >
+            {supObj.sup}
+        </sup>
+    )
+}
 
 export const LegalFreeTrial = () => (
-    <p className={classesMaker(`legal-text__paragraph`, `free-trial`)}>
-        <LegalSup supRef="freeTrial"/>
+    <p className={classesMaker(`legal-text__paragraph`, `freeTrial`)}>
+        <LegalSup supRef="freeTrial" para={true} />
         One free trial per user. Free trial requires registration with a valid credit or debit card. You will be charged the full amount of your chosen membership price on expiry of the free trial, unless you cancel at least 2 days before the end of your free trial by visiting your My Account section or by calling 1-800-ANCESTRY. Memberships auto-renew at the end of your subscription period and your payment method will be debited the then applicable rate. To avoid auto-renewing cancel at least 2 days before your renewal date by visiting My Account or calling&nbsp;1-800-ANCESTRY.
     </p>
 )
 
 export const LegalHardOffer = () => (
-    <p className={classesMaker(`legal-text__paragraph`, `hard-offer`)}>
-        <LegalSup supRef="hardOffer"/>
+    <p className={classesMaker(`legal-text__paragraph`, `hardOffer`)}>
+        <LegalSup supRef="hardOffer" para={true} />
         Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>. See our <a href="/cs/legal/renewal-cancellation-terms" target="_blank">Renewal and Cancellation Terms</a> for further&nbsp;details.
     </p>
 )
@@ -55,12 +82,10 @@ export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) =
             const orWord = array.length === (currentIndex + 1) ? ` or` : ``;
             return accumulator + connector + orWord + ` ${currentValue}`
         })
-        if (!props.fromFullLegal) {
-            window._ldbmLegalRendered = true;
-        }
+        ldbmLegalRendered = !props.fromFullLegal;
         return (
-            <p className={classesMaker(`legal-text__paragraph`, `ldbm`)}>
-                <LegalSup supRef="longDurationBilledMonthly"/>
+            <p className={classesMaker(`legal-text__paragraph`, `longDurationBilledMonthly`)}>
+                <LegalSup supRef="longDurationBilledMonthly" para={true} />
                 You are committing to {durWords} subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.    
             </p>
         )
@@ -68,9 +93,9 @@ export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) =
     return <div></div>
 });
 
-export const LegalNewspapersBasic = () => (
-    <p className={classesMaker(`legal-text__paragraph`, `newspapers-basic`)}>
-        <LegalSup supRef="newspapersBasic"/>
+export const LegalNewspapersBasic = ({ fromFullLegal }) => (
+    <p className={classesMaker(`legal-text__paragraph`, `newspapersBasic`)}>
+         <LegalSup supRef="newspapersBasic" para={!!fromFullLegal} />
         Other subscriptions to Newspapers.com may be available but are not included in the All Access&nbsp;package. 
     </p>
 )
@@ -86,10 +111,13 @@ export const LegalDurationSaves = connect(mapStateToProps)((props) => {
         }
     })
     return (
-        <p className={classesMaker(`legal-text__paragraph`, `duration-saves`)}>
-            <LegalSup supRef="durationSave"/>
+        <p className={classesMaker(`legal-text__paragraph`, `durationSave`)}>
+            <LegalSup supRef="durationSave" para={true} />
             {uniqueSaves.map((offer, index) => (
-                <span key={index}>{index > 0 && <br />}<LegalDurationSaveLine offer={offer}/></span>
+                <span key={index}>
+                    {index > 0 && <br />}
+                    <LegalDurationSaveLine offer={offer} />
+                </span>
             ))}
         </p>
     )
@@ -105,12 +133,15 @@ export const LegalPromoSaves = ({ saveOffers }) => {
         }
     })
     return (
-        <p className={classesMaker(`legal-text__paragraph`, `promo-saves`)}>
-            <LegalSup supRef="promoSave"/>
+        <p className={classesMaker(`legal-text__paragraph`, `promoSave`)}>
+            <LegalSup supRef="promoSave" para={true} />
             {uniqueSaves.map((offer, index) => (
-                <span key={index}>{index > 0 && <br />}<LegalPromoSaveLine offer={offer}/></span>
+                <span key={index}>
+                    {index > 0 && <br />}
+                    <LegalPromoSaveLine offer={offer} />
+                </span>
             ))}
-            <br />Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by contacting us. See our Renewal and Cancellation Terms for further details.
+            <br />Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by contacting us. See our Renewal and Cancellation Terms for further&nbsp;details.
         </p>
     )
 }
@@ -123,14 +154,18 @@ export const LegalTextWrapper = connect(mapStateToProps)((props) => (
     </div>
 ))
 
-export const LegalText = connect(mapStateToProps)((props) => (
-    <LegalTextWrapper>
-            {!window._ldbmLegalRendered && props.pageSettings.subscriptions.ldbms && <LegalLongDurationBilledMonthly fromFullLegal={true} />}
-            {props.pageSettings.elligibility === `freetrial` ? <LegalFreeTrial /> : <LegalHardOffer />}
-            {props.pageSettings.subscriptions.durationSaveOffers && <LegalDurationSaves saveOffers={props.pageSettings.subscriptions.durationSaveOffers} />}
-            {props.pageSettings.subscriptions.promoSaveOffers && <LegalPromoSaves saveOffers={props.pageSettings.subscriptions.promoSaveOffers} />}
-            {!!props.pageSettings.subscriptions.display.packages.find((pkg) => pkg.id === `allaccess`) && <LegalNewspapersBasic />}
-    </LegalTextWrapper>
-))
+export const LegalText = connect(mapStateToProps)((props) => {
+    const pS = props.pageSettings;
+    const subs = pS.subscriptions;
+    return (
+        <LegalTextWrapper>
+                {!ldbmLegalRendered && subs.ldbms && <LegalLongDurationBilledMonthly fromFullLegal={true} />}
+                {/initial/.test(pS.elligibility) ? <LegalFreeTrial /> : <LegalHardOffer />}
+                {subs.durationSaveOffers && <LegalDurationSaves saveOffers={subs.durationSaveOffers} />}
+                {subs.promoSaveOffers && <LegalPromoSaves saveOffers={subs.promoSaveOffers} />}
+                {!!subs.display.packages.find((pkg) => pkg.id === `allaccess`) && <LegalNewspapersBasic fromFullLegal={true} />}
+        </LegalTextWrapper>
+    )
+})
 
 export default LegalText

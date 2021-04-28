@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { adobeTargetTrackEvent } from '../actions/tracking';
 import { LegalNewspapersBasic } from './LegalText';
 
 const mapStateToProps = (state) => {
@@ -25,6 +26,10 @@ export class FAQ extends React.Component {
             return { 
                 expanded: !prevState.expanded 
             }
+        })
+        adobeTargetTrackEvent({
+            eventType: 'clickButton',
+            button: 'expandFAQ'
         })
     }
     render() {
@@ -66,6 +71,10 @@ export class FAQGroup extends React.Component {
                     expanded: !prevState.expanded 
                 }
             })
+            adobeTargetTrackEvent({
+                eventType: 'clickButton',
+                button: 'FAQsGroup'
+            })
         }
     }
     render() {
@@ -97,6 +106,10 @@ export class FAQsSection extends React.Component {
                 expandAll: !prevState.expandAll 
             }
         })
+        adobeTargetTrackEvent({
+            eventType: 'clickButton',
+            button: 'showAllFAQs'
+        })
     }
     changeShowAllToHide = () => {
         this.setState({ expandAll: false })
@@ -104,7 +117,14 @@ export class FAQsSection extends React.Component {
     render() {
         if (this.props.variables.faqsSection) {
             return (
-                <div className={`${classesMaker('sparkly-dragon')} offerings-variable--${this.props.variables.offerings} scroll-tracking--faqsSection`}>
+                <div className={`${classesMaker('sparkly-dragon')} offerings-variable--${this.props.variables.offerings} scroll-tracking--faqsSection`}
+                    onClick={() => {
+                        adobeTargetTrackEvent({
+                            eventType: 'clickSection',
+                            section: 'faqsSection'
+                        })
+                    }}
+                >
                     <section className="faq-section">
                         <div className="expand-container faq-title-wrap pad-spacing-top-none spacing-bottom-md">
                             <h3 className="text4xlrg bold faq-title">Frequently Asked Questions</h3>

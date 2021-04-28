@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { modifyPageSettings } from '../../actions/pageSettings';
+import { scrollTo } from '../../actions/utilities';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
 import ColorStack from './ColorStack';
 import { LegalSup, LegalDurationSaveLine, LegalLongDurationBilledMonthly } from '../LegalText';
@@ -115,8 +116,19 @@ export class PrettyGrid extends React.Component {
                                                     <tr key={`${duration.num}MR_${duration.ldbm ? 1 : duration.num}MB`} className="offers-table__row offers-table__row--duration">
                                                         <td className="offers-table__cell offers-table__cell--content offers-table__cell--left-label">
                                                             <span className="text2xlrg">{duration.num === 1 ? `Monthly` : `${duration.num} month`}</span>
-                                                            {(duration.num === 1 || !toggleButtonTest) && <span><br /><a href="#offerPageFooter"><span className="texttiny">Auto Renewing, Cancel&nbsp;Anytime.</span></a></span>} 
-                                                            {toggleButtonTest && <span className="textlrg ldbmToggle"><br /><a onClick={() => this.props.modifyPageSettings({LDBM: (duration.ldbm ? `toggle-back` : `toggle-front`) })}>or pay {duration.ldbm ? `upfront` : `monthly`}</a></span>}
+                                                            {(duration.num === 1 || !toggleButtonTest) && 
+                                                                <span>
+                                                                    <br />
+                                                                    <button type="button" className="link" onClick={() => { scrollTo('.legal-text-wrap') }}>
+                                                                        <span className="texttiny">Auto Renewing, Cancel&nbsp;Anytime.</span>
+                                                                    </button>
+                                                                </span>} 
+                                                            {toggleButtonTest && (
+                                                                <span className="textlrg ldbmToggle">
+                                                                    <br />
+                                                                    <a onClick={() => this.props.modifyPageSettings({LDBM: (duration.ldbm ? `toggle-back` : `toggle-front`) })}>or pay {duration.ldbm ? `upfront` : `monthly`}</a>
+                                                                </span>
+                                                            )}
                                                         </td>
                                                         {splitPackagesArr.map((pkgData, index) => {
                                                             if (pkgData.divider) {
@@ -180,9 +192,9 @@ export class PrettyGrid extends React.Component {
                                     </table>
                                     {(subs.display.durations.some((duration) => duration.num > 1) && /toggle/.test(pS.LDBM)) &&
                                         <p className="textxsml italic textRight payGoModalBtn">
-                                            <a href="#offerPageFooter">   
+                                            <button type="button" className="link" onClick={() => { scrollTo('.legal-text-wrap') }}>
                                                 <span className="texttiny">Auto Renewing, Cancel&nbsp;Anytime.</span>
-                                            </a>
+                                            </button>
                                         </p>
                                     }
                                 </div>

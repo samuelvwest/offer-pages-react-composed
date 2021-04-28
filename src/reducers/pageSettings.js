@@ -29,10 +29,17 @@ export default (state = pageSettings, action) => {
             nextState.subscriptions = buildDisplayOffersData(nextState, subscriptionsToUse);
             setPageSettingsLocal(nextState);
             if (!!action.pageSettings.selectedOffer) {
-                adobeTargetTrackEvent({ 
-                    eventType: 'changedSelectedOffer',
-                    offerID: nextState.subscriptions.selectedOffer.id
+                const passObj = {
+                    eventType: 'changedSelectedOffer'
+                };
+                Object.keys(action.pageSettings.selectedOffer).forEach((key) => {
+                    if (state.selectedOffer[key] !== action.pageSettings.selectedOffer[key]) {
+                        passObj[key] = action.pageSettings.selectedOffer[key];
+                    }
                 })
+                if (Object.keys(passObj).length > 1) {
+                    adobeTargetTrackEvent(passObj)
+                }
             }
             return nextState;
         default: 
