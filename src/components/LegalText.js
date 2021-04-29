@@ -36,17 +36,20 @@ let ldbmLegalRendered = false;
 
 export const LegalSup = (props) => {
     const supObj = legalSups[props.supRef];
-    // if (!!props.para) {
-    //     supObj.counts.paras++;
-    // } else {
-    //     supObj.counts.sups++;
-    // }
+    if (!!props.para) {
+        supObj.counts.paras++;
+    } else {
+        supObj.counts.sups++;
+    }
     // console.log(props.supRef, supObj.sup, supObj.count);
     return (
         <sup className={`legal-text__sup${/\*/.test(supObj.sup) ? ` legal-text__sup--asterisk` : ``}`}
             onClick={() => { 
                 if (!!props.goToOnClick) {
-                    scrollTo(`.legal-text__paragraph--${props.supRef}:not(.legal-text__paragraph--inModal)`, `supRef-${props.supRef}`);
+                    scrollTo({
+                        selector: `.legal-text__paragraph--${props.supRef}:not(.legal-text__paragraph--inModal)`, 
+                        trackStr: `supRef-${props.supRef}`
+                    });
                 }
             }}
         >
@@ -58,14 +61,16 @@ export const LegalSup = (props) => {
 export const LegalFreeTrial = ({ inModal }) => (
     <p className={classesMaker(`legal-text__paragraph`, `freeTrial`, inModal)}>
         <LegalSup supRef="freeTrial" para={true} />
-        One free trial per user. Free trial requires registration with a valid credit or debit card. You will be charged the full amount of your chosen membership price on expiry of the free trial, unless you cancel at least 2 days before the end of your free trial by visiting your My Account section or by calling 1-800-ANCESTRY. Memberships auto-renew at the end of your subscription period and your payment method will be debited the then applicable rate. To avoid auto-renewing cancel at least 2 days before your renewal date by visiting My Account or calling&nbsp;1-800-ANCESTRY.
+        <span>One free trial per user. Free trial requires registration with a valid credit or debit card. You will be charged the full amount of your chosen membership price on expiry of the free trial, unless you cancel at least 2 days before the end of your free trial by visiting your My Account section or by calling 1-800-ANCESTRY. Memberships auto-renew at the end of your subscription period and your payment method will be debited the then applicable rate. To avoid auto-renewing cancel at least 2 days before your renewal date by visiting My Account or calling&nbsp;1-800-ANCESTRY.</span>
     </p>
 )
 
 export const LegalHardOffer = ({ inModal }) => (
     <p className={classesMaker(`legal-text__paragraph`, `hardOffer`, inModal)}>
-        <LegalSup supRef="hardOffer" para={true} />
-        Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>. See our <a href="/cs/legal/renewal-cancellation-terms" target="_blank">Renewal and Cancellation Terms</a> for further&nbsp;details.
+        {legalSups.hardOffer.counts.sups > 0 &&
+            <LegalSup supRef="hardOffer" para={true} />
+        }
+        <span>Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>. See our <a href="/cs/legal/renewal-cancellation-terms" target="_blank">Renewal and Cancellation Terms</a> for further&nbsp;details.</span>
     </p>
 )
 
@@ -89,7 +94,10 @@ export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) =
         return (
             <p className={classesMaker(`legal-text__paragraph`, `longDurationBilledMonthly`, props.inModal)}>
                 <LegalSup supRef="longDurationBilledMonthly" para={true} />
-                You are committing to {durWords} subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.    
+                {legalSups.freeTrial.counts.sups === 0 && legalSups.hardOffer.counts.sups === 0 && 
+                    `Your membership will automatically renew at the end of your subscription at list price. `
+                }
+                <span>You are committing to {durWords} subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.</span>   
             </p>
         )
     }
@@ -99,7 +107,7 @@ export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) =
 export const LegalNewspapersBasic = ({ fromFullLegal, inModal }) => (
     <p className={classesMaker(`legal-text__paragraph`, `newspapersBasic`, inModal)}>
          <LegalSup supRef="newspapersBasic" para={!!fromFullLegal} />
-        Other subscriptions to Newspapers.com may be available but are not included in the All Access&nbsp;package. 
+        <span>Other subscriptions to Newspapers.com may be available but are not included in the All Access&nbsp;package. </span>
     </p>
 )
 
@@ -148,7 +156,7 @@ export const LegalPromoSaves = ({ saveOffers, inModal }) => {
                     <LegalPromoSaveLine offer={offer} />
                 </span>
             ))}
-            <br />Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by contacting us. See our Renewal and Cancellation Terms for further&nbsp;details.
+            <br /><span>Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by contacting us. See our Renewal and Cancellation Terms for further&nbsp;details.</span>
         </p>
     )
 }

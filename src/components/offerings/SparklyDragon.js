@@ -84,314 +84,319 @@ export class SparklyDragon extends React.Component {
                             }
                         </div>
                     </div>
-                    {pS.windowWidth < pS.breaks.sparklydragon.desktop ? <form action="/checkout/mli?" className="form freetrial-form" 
-                        ref={(ref) => { this.sparklyDragonForm = ref }}
-                        onSubmit={(e) => {
-                            adobeTargetTrackEvent({
-                                eventType: 'offersFormSubmit',
-                                formLoc: this.props.placement,
-                                offerID: subs.selectedOffer.id,
-                                offeringsCreative: `sparklydragon`
-                            })
-                            e.target.submit()
-                        }}
-                    >
-                        {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
-                        <input type="hidden" name="direct" value="1" /> 
-                        <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
-                        <input type="hidden" name="quantities" value="1" /> 
-                        <input type="hidden" name="flow" value="3" />
-                        <div className="ancGrid ancGridEqual center-grid hide768 show480 subs-plan-container">
-                            {subs.display.packages.map((pkgData) => {
-                                const offer = subs.display.offersMap.find((ofr) => {
-                                    const packageTest = pkgData.id === ofr.packageID;
-                                    const renewMonthsTest = subs.selectedOffer.renewalPeriod.renewMonths === ofr.renewalPeriod.renewMonths;
-                                    const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
-                                    return packageTest && renewMonthsTest && ldbmTest;
-                                });
-                                const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
-                                const pkgVars = offer.packageData.order === 3  ? {
-                                    genericClass: `allacc`,
-                                    wrapClasses: `allacc-plan-wrap allacc-plan-br-mbl`,
-                                    heroClass: `allacc-geo-mbl`,
-                                    img: `allacc-mbl.png`,
-                                    descClass: ` allacc-plan-desc`,
-                                    detailClassStr: `allaccess`,
-                                    colorClass: `allaccess-color`,
-                                    arrowClass: `allacc-arrow`
-                                } : offer.packageData.order === 2 ? {
-                                    genericClass: `worlddel`,
-                                    wrapClasses: `world-ex-plan-wrap usnintrecords`,
-                                    heroClass: `world-ex-geo-mbl`,
-                                    img: `world-delx-mbl.png`,
-                                    descClass: ``,
-                                    detailClassStr: `usnint`,
-                                    colorClass: `Wave3`,
-                                    arrowClass: `world-ex-arrow`
-                                } : {
-                                    genericClass: `usdis`,
-                                    wrapClasses: `us-dis-plan-wrap usrecords`,
-                                    heroClass: `us-dis-geo-mbl`,
-                                    img: `us-dis-mbl.png`,
-                                    descClass: ``,
-                                    detailClassStr: `us`,
-                                    colorClass: `bamboo3`,
-                                    arrowClass: `us-dis-arrow`
-                                }
-                                return (
-                                    <section key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`}  className={`subs-plan-outer-wrap`}
-                                        onClick={
-                                            (e) => {
-                                                this.props.modifyPageSettings({ 
-                                                    selectedOffer: { 
-                                                        renewMonths: offer.renewalPeriod.renewMonths, 
-                                                        packageID: offer.packageID,
-                                                        ldbm: offer.ldbm
-                                                    }
-                                                })
-                                                setTimeout(() => {
-                                                    this.sparklyDragonForm.dispatchEvent(new Event('submit'));
-                                                }, 250);
-                                            }
+                    {pS.windowWidth < pS.breaks.sparklydragon.desktop ? 
+                        (
+                            <form action="/checkout/mli?" className="form freetrial-form" 
+                                ref={(ref) => { this.sparklyDragonForm = ref }}
+                                onSubmit={(e) => {
+                                    adobeTargetTrackEvent({
+                                        eventType: 'offersFormSubmit',
+                                        formLoc: this.props.placement,
+                                        offerID: subs.selectedOffer.id,
+                                        offeringsCreative: `sparklydragon`
+                                    })
+                                    e.target.submit()
+                                }}
+                            >
+                                {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
+                                <input type="hidden" name="direct" value="1" /> 
+                                <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
+                                <input type="hidden" name="quantities" value="1" /> 
+                                <input type="hidden" name="flow" value="3" />
+                                <div className="ancGrid ancGridEqual center-grid hide768 show480 subs-plan-container">
+                                    {subs.display.packages.map((pkgData) => {
+                                        const offer = subs.display.offersMap.find((ofr) => {
+                                            const packageTest = pkgData.id === ofr.packageID;
+                                            const renewMonthsTest = subs.selectedOffer.renewalPeriod.renewMonths === ofr.renewalPeriod.renewMonths;
+                                            const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
+                                            return packageTest && renewMonthsTest && ldbmTest;
+                                        });
+                                        const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
+                                        const pkgVars = offer.packageData.order === 3  ? {
+                                            genericClass: `allacc`,
+                                            wrapClasses: `allacc-plan-wrap allacc-plan-br-mbl`,
+                                            heroClass: `allacc-geo-mbl`,
+                                            img: `allacc-mbl.png`,
+                                            descClass: ` allacc-plan-desc`,
+                                            detailClassStr: `allaccess`,
+                                            colorClass: `allaccess-color`,
+                                            arrowClass: `allacc-arrow`
+                                        } : offer.packageData.order === 2 ? {
+                                            genericClass: `worlddel`,
+                                            wrapClasses: `world-ex-plan-wrap usnintrecords`,
+                                            heroClass: `world-ex-geo-mbl`,
+                                            img: `world-delx-mbl.png`,
+                                            descClass: ``,
+                                            detailClassStr: `usnint`,
+                                            colorClass: `Wave3`,
+                                            arrowClass: `world-ex-arrow`
+                                        } : {
+                                            genericClass: `usdis`,
+                                            wrapClasses: `us-dis-plan-wrap usrecords`,
+                                            heroClass: `us-dis-geo-mbl`,
+                                            img: `us-dis-mbl.png`,
+                                            descClass: ``,
+                                            detailClassStr: `us`,
+                                            colorClass: `bamboo3`,
+                                            arrowClass: `us-dis-arrow`
                                         }
-                                    >
-                                        <div className={`subs-plan-wrap ${pkgVars.wrapClasses}`}>
-                                            {!!offer.durationSavings && <div className="saving-plan-sixmonths">Save {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></div>}
-                                            <div className={`plan-hero-img ${pkgVars.heroClass}`}>
-                                                <img src={`https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.96/images/${pkgVars.img}`} />
-                                            </div>
-                                            <div className={`subs-plan-desc${pkgVars.descClass}`}>
-                                                <h1 className="conTitle planTitle">
-                                                    {pkgData.name}
-                                                    <br />
-                                                    {/usdiscovery/.test(pkgData.id) && <span className="textsml plan-subtitle">Access to billions of U.S. records.</span>}
-                                                    {/worldexplorer/.test(pkgData.id) && <span className="textsml plan-subtitle">Access billions of U.S. <span className="bold">and</span> International&nbsp;records.</span>}
-                                                    {/allaccess/.test(pkgData.id) && <span className="textsml plan-subtitle">Everything above, <span className="bold">plus</span> access to Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /> and&nbsp;Fold3.</span>}
-                                                </h1>
-                                                <span className={`plan-detail ${pkgVars.detailClassStr}${offer.renewalPeriod.renewMonths === 1 ? `-monthly` : ``}-plan-detail${(ftTest && offer.renewalPeriod.renewMonths > 1) ? ` plan-detail--longduration` : ``}${!!offer.promoSavings ? ` plan-detail--promosavings` : ``} ${!ftTest ? `plan-detail--hardoffer` : ``} textsml`}>
-                                                    <span className={`plan-price-wrap ${!ftTest ? `plan-price-wrap--hardoffer` : ``} ${pkgVars.colorClass}`}>
-                                                        <span className={`plan-price ${!ftTest ? `plan-price--hardoffer` : ``}`}>
-                                                            {!!offer.promoSavings && 
-                                                                <span className={`strike-through-price ${!ftTest ? `strike-through-price--hardoffer` : ``}`}>
-                                                                    {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
-                                                                    <LegalSup supRef="promoSave" />
-                                                                </span>
+                                        return (
+                                            <section key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`}  className={`subs-plan-outer-wrap`}
+                                                onClick={
+                                                    (e) => {
+                                                        this.props.modifyPageSettings({ 
+                                                            selectedOffer: { 
+                                                                renewMonths: offer.renewalPeriod.renewMonths, 
+                                                                packageID: offer.packageID,
+                                                                ldbm: offer.ldbm
                                                             }
-                                                            {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}
-                                                        </span>
-                                                        {offer.renewalPeriod.renewMonths === 1 ? `/month` : offer.ldbm ? `/mo.` : ``}
-                                                    </span>
-                                                    {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`} <span className="border-highlight">{offer.renewalPeriod.renewMonths} months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} />}
-                                                    {ftTest && <span> after free trial</span>}
-                                                </span> 
-                                            </div>
-                                            <div className={`right-arrow-wrap ${pkgVars.colorClass}`}>
-                                                <span className={`icon iconArrowRight ${pkgVars.arrowClass}`}></span>
-                                            </div>
-                                            <input 
-                                                value={offer.offerIDs[pS.elligibility]} 
-                                                checked={selectedTest} 
-                                                onChange={() => {}}
-                                                className="radioBtn hide"
-                                                type="radio" 
-                                                name="offers" 
-                                                aria-labelledby={offer.description} 
-                                            />
-                                        </div>
-                                    </section>
-                                )
-                            })}
-                        </div>
-                    </form> :
-                    <form action="/checkout/mli?" className="form freetrial-form" onSubmit={() => {
-                        adobeTargetTrackEvent({
-                            eventType: 'offersFormSubmit',
-                            formLoc: this.props.placement,
-                            offerID: subs.selectedOffer.id,
-                            offeringsCreative: `sparklydragon`
-                        })
-                    }}>
-                        {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
-                        <input type="hidden" name="direct" value="1" /> 
-                        <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
-                        <input type="hidden" name="quantities" value="1" /> 
-                        <input type="hidden" name="flow" value="3" />
-                        <div className={`ancGrid ancGridEqual center-grid hide480 plan-select-tiles plan-select-tiles--${subs.display.packages.length}`}>
-                            {subs.display.packages.map((pkgData) => {
-                                    const offer = subs.display.offersMap.find((ofr) => {
-                                        const packageTest = pkgData.id === ofr.packageID;
-                                        const renewMonthsTest = subs.selectedOffer.renewalPeriod.renewMonths === ofr.renewalPeriod.renewMonths;
-                                        const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
-                                        return packageTest && renewMonthsTest && ldbmTest;
-                                    });
-                                    const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
-                                    const pkgVars = offer.packageData.order === 3  ? {
-                                        secClass: `allacc-sec`,
-                                        psWrapClass: `allacc-ps-wrap`,
-                                        borderClass: `allacc-border`,
-                                        labelClass: `allacc-subs-label`,
-                                        radioTxtClass: ``,
-                                        freeTxtClass: `allaccess-color`,
-                                        planDetailClass: `allaccess-${offer.renewalPeriod.renewMonths === 1 ? `monthly-` : ``}plan-detail`,
-                                        colorClass: `allaccess-color`,
-                                        ctaClasses: `allaccess-btn-bgcolor mt-2`,
-                                        headerImgElem:<div className="allacc-plan-img-wrap"><GlobePlus /></div>
-                                    } : offer.packageData.order === 2 ? {
-                                        secClass: ``,
-                                        psWrapClass: `worldex-ps-wrap`,
-                                        borderClass: `worldex-border`,
-                                        labelClass: `worldex-subs-label`,
-                                        radioTxtClass: `worldex-radio-txt`,
-                                        freeTxtClass: `usnintrecordsFreeText`,
-                                        planDetailClass: `usnint-${offer.renewalPeriod.renewMonths === 1 ? `monthly-` : ``}plan-detail`,
-                                        colorClass: `Wave3`,
-                                        ctaClasses: `blue worldex-bgcolor free-trial-btn-md-up`,
-                                        headerImgElem:<div className="usint-plan-img-wrap"><Globe classNames="usnintrecords-img" /></div>
-                                    } : {
-                                        secClass: `usrecords`,
-                                        psWrapClass: `usdis-ps-wrap`,
-                                        borderClass: `usrecords-border`,
-                                        labelClass: `us-subs-label`,
-                                        radioTxtClass: ``,
-                                        freeTxtClass: `usrecordsFreeText`,
-                                        planDetailClass: `us-${offer.renewalPeriod.renewMonths === 1 ? `monthly-` : ``}plan-detail`,
-                                        colorClass: `bamboo3`,
-                                        ctaClasses: `usdis-bgcolor free-trial-btn-md-up`,
-                                        headerImgElem:<div className="us-plan-img-wrap"><USMap classNames="usrecords-img" /></div>
-                                    }
-                                    return (
-                                        <section 
-                                            key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`}  
-                                            className={`ancCol w33 con ${pkgVars.secClass} grey-border p10 rounded-2 ${pkgVars.psWrapClass} ${selectedTest ? pkgVars.borderClass : ``}`} 
-                                            onClick={() => this.props.modifyPageSettings({ 
-                                                selectedOffer: { 
-                                                    renewMonths: offer.renewalPeriod.renewMonths, 
-                                                    packageID: offer.packageID,
-                                                    ldbm: offer.ldbm
+                                                        })
+                                                        setTimeout(() => {
+                                                            this.sparklyDragonForm.dispatchEvent(new Event('submit'));
+                                                        }, 250);
+                                                    }
                                                 }
-                                            })}
-                                        >
-                                            <header className="conHeader plan-select-header">
-                                                <label className={`container ${pkgVars.labelClass}`}>
-                                                    <span className={`textxlrg radio-text ${pkgVars.radioTxtClass} text-left`}>{pkgData.name}</span> 
+                                            >
+                                                <div className={`subs-plan-wrap ${pkgVars.wrapClasses}`}>
+                                                    {!!offer.durationSavings && <div className="saving-plan-sixmonths">Save {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></div>}
+                                                    <div className={`plan-hero-img ${pkgVars.heroClass}`}>
+                                                        <img src={`https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.96/images/${pkgVars.img}`} />
+                                                    </div>
+                                                    <div className={`subs-plan-desc${pkgVars.descClass}`}>
+                                                        <h1 className="conTitle planTitle">
+                                                            {pkgData.name}
+                                                            <br />
+                                                            {/usdiscovery/.test(pkgData.id) && <span className="textsml plan-subtitle">Access to billions of U.S. records.</span>}
+                                                            {/worldexplorer/.test(pkgData.id) && <span className="textsml plan-subtitle">Access billions of U.S. <span className="bold">and</span> International&nbsp;records.</span>}
+                                                            {/allaccess/.test(pkgData.id) && <span className="textsml plan-subtitle">Everything above, <span className="bold">plus</span> access to Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" /> and&nbsp;Fold3.</span>}
+                                                        </h1>
+                                                        <span className={`plan-detail ${pkgVars.detailClassStr}${offer.renewalPeriod.renewMonths === 1 ? `-monthly` : ``}-plan-detail${(ftTest && offer.renewalPeriod.renewMonths > 1) ? ` plan-detail--longduration` : ``}${!!offer.promoSavings ? ` plan-detail--promosavings` : ``} ${!ftTest ? `plan-detail--hardoffer` : ``} textsml`}>
+                                                            <span className={`plan-price-wrap ${!ftTest ? `plan-price-wrap--hardoffer` : ``} ${pkgVars.colorClass}`}>
+                                                                <span className={`plan-price ${!ftTest ? `plan-price--hardoffer` : ``}`}>
+                                                                    {!!offer.promoSavings && 
+                                                                        <span className={`strike-through-price ${!ftTest ? `strike-through-price--hardoffer` : ``}`}>
+                                                                            {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
+                                                                            <LegalSup supRef="promoSave" />
+                                                                        </span>
+                                                                    }
+                                                                    {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}
+                                                                </span>
+                                                                {offer.renewalPeriod.renewMonths === 1 ? `/month` : offer.ldbm ? `/mo.` : ``}
+                                                            </span>
+                                                            {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`} <span className="border-highlight">{offer.renewalPeriod.renewMonths} months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
+                                                            {ftTest && <span> after free trial</span>}
+                                                        </span> 
+                                                    </div>
+                                                    <div className={`right-arrow-wrap ${pkgVars.colorClass}`}>
+                                                        <span className={`icon iconArrowRight ${pkgVars.arrowClass}`}></span>
+                                                    </div>
                                                     <input 
                                                         value={offer.offerIDs[pS.elligibility]} 
                                                         checked={selectedTest} 
                                                         onChange={() => {}}
-                                                        className="radio" // might need to add {numtext}month-subs-input class
+                                                        className="radioBtn hide"
                                                         type="radio" 
                                                         name="offers" 
                                                         aria-labelledby={offer.description} 
                                                     />
-                                                    <span className="checkmark"></span>
-                                                </label>
-                                                {pkgVars.headerImgElem}
-                                            </header>
-                                            <div className="conBody">
-                                                {ftTest && 
-                                                    <span className={`${pkgVars.freeTxtClass} text4xlrg`}>
-                                                        <strong>14 days free</strong>
-                                                    </span> 
-                                                }
-                                                <span className={pkgVars.planDetailClass}>
-                                                    {ftTest && <span><br />then </span>}
-                                                    <span className={`plan-price-wrap ${!ftTest ? `plan-price-wrap--hardoffer` : ``}`}>
-                                                        <span className={`plan-price ${!ftTest ? `plan-price--hardoffer` : ``}`}>
-                                                            {!!offer.promoSavings && 
-                                                                <span className="strike-through-price">
-                                                                    {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
-                                                                    <LegalSup supRef="promoSave" />
+                                                </div>
+                                            </section>
+                                        )
+                                    })}
+                                </div>
+                            </form> 
+                        ) : (
+                            <form action="/checkout/mli?" className="form freetrial-form" onSubmit={() => {
+                                adobeTargetTrackEvent({
+                                    eventType: 'offersFormSubmit',
+                                    formLoc: this.props.placement,
+                                    offerID: subs.selectedOffer.id,
+                                    offeringsCreative: `sparklydragon`
+                                })
+                            }}>
+                                {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
+                                <input type="hidden" name="direct" value="1" /> 
+                                <input type="hidden" name="rtype" value={ftTest ? '14' : '11'} /> 
+                                <input type="hidden" name="quantities" value="1" /> 
+                                <input type="hidden" name="flow" value="3" />
+                                <div className={`ancGrid ancGridEqual center-grid hide480 plan-select-tiles plan-select-tiles--${subs.display.packages.length}`}>
+                                    {subs.display.packages.map((pkgData) => {
+                                            const offer = subs.display.offersMap.find((ofr) => {
+                                                const packageTest = pkgData.id === ofr.packageID;
+                                                const renewMonthsTest = subs.selectedOffer.renewalPeriod.renewMonths === ofr.renewalPeriod.renewMonths;
+                                                const ldbmTest = subs.selectedOffer.ldbm === ofr.ldbm;
+                                                return packageTest && renewMonthsTest && ldbmTest;
+                                            });
+                                            const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
+                                            const pkgVars = offer.packageData.order === 3  ? {
+                                                secClass: `allacc-sec`,
+                                                psWrapClass: `allacc-ps-wrap`,
+                                                borderClass: `allacc-border`,
+                                                labelClass: `allacc-subs-label`,
+                                                radioTxtClass: ``,
+                                                freeTxtClass: `allaccess-color`,
+                                                planDetailClass: `allaccess-${offer.renewalPeriod.renewMonths === 1 ? `monthly-` : ``}plan-detail`,
+                                                colorClass: `allaccess-color`,
+                                                ctaClasses: `allaccess-btn-bgcolor mt-2`,
+                                                headerImgElem:<div className="allacc-plan-img-wrap"><GlobePlus /></div>
+                                            } : offer.packageData.order === 2 ? {
+                                                secClass: ``,
+                                                psWrapClass: `worldex-ps-wrap`,
+                                                borderClass: `worldex-border`,
+                                                labelClass: `worldex-subs-label`,
+                                                radioTxtClass: `worldex-radio-txt`,
+                                                freeTxtClass: `usnintrecordsFreeText`,
+                                                planDetailClass: `usnint-${offer.renewalPeriod.renewMonths === 1 ? `monthly-` : ``}plan-detail`,
+                                                colorClass: `Wave3`,
+                                                ctaClasses: `blue worldex-bgcolor free-trial-btn-md-up`,
+                                                headerImgElem:<div className="usint-plan-img-wrap"><Globe classNames="usnintrecords-img" /></div>
+                                            } : {
+                                                secClass: `usrecords`,
+                                                psWrapClass: `usdis-ps-wrap`,
+                                                borderClass: `usrecords-border`,
+                                                labelClass: `us-subs-label`,
+                                                radioTxtClass: ``,
+                                                freeTxtClass: `usrecordsFreeText`,
+                                                planDetailClass: `us-${offer.renewalPeriod.renewMonths === 1 ? `monthly-` : ``}plan-detail`,
+                                                colorClass: `bamboo3`,
+                                                ctaClasses: `usdis-bgcolor free-trial-btn-md-up`,
+                                                headerImgElem:<div className="us-plan-img-wrap"><USMap classNames="usrecords-img" /></div>
+                                            }
+                                            return (
+                                                <section 
+                                                    key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`}  
+                                                    className={`ancCol w33 con ${pkgVars.secClass} grey-border p10 rounded-2 ${pkgVars.psWrapClass} ${selectedTest ? pkgVars.borderClass : ``}`} 
+                                                    onClick={() => this.props.modifyPageSettings({ 
+                                                        selectedOffer: { 
+                                                            renewMonths: offer.renewalPeriod.renewMonths, 
+                                                            packageID: offer.packageID,
+                                                            ldbm: offer.ldbm
+                                                        }
+                                                    })}
+                                                >
+                                                    <header className="conHeader plan-select-header">
+                                                        <label className={`container ${pkgVars.labelClass}`}>
+                                                            <span className={`textxlrg radio-text ${pkgVars.radioTxtClass} text-left`}>{pkgData.name}</span> 
+                                                            <input 
+                                                                value={offer.offerIDs[pS.elligibility]} 
+                                                                checked={selectedTest} 
+                                                                onChange={() => {}}
+                                                                className="radio" // might need to add {numtext}month-subs-input class
+                                                                type="radio" 
+                                                                name="offers" 
+                                                                aria-labelledby={offer.description} 
+                                                            />
+                                                            <span className="checkmark"></span>
+                                                        </label>
+                                                        {pkgVars.headerImgElem}
+                                                    </header>
+                                                    <div className="conBody">
+                                                        {ftTest && 
+                                                            <span className={`${pkgVars.freeTxtClass} text4xlrg`}>
+                                                                <strong>14 days free</strong>
+                                                            </span> 
+                                                        }
+                                                        <span className={pkgVars.planDetailClass}>
+                                                            {ftTest && <span><br />then </span>}
+                                                            <span className={`plan-price-wrap ${!ftTest ? `plan-price-wrap--hardoffer` : ``}`}>
+                                                                <span className={`plan-price ${!ftTest ? `plan-price--hardoffer` : ``}`}>
+                                                                    {!!offer.promoSavings && 
+                                                                        <span className="strike-through-price">
+                                                                            {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
+                                                                            <LegalSup supRef="promoSave" />
+                                                                        </span>
+                                                                    }
+                                                                    {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}
                                                                 </span>
-                                                            }
-                                                            {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}
-                                                        </span>
-                                                        {offer.renewalPeriod.renewMonths === 1 ? `/month` : offer.ldbm ? `/mo.` : ``}
-                                                    </span>
-                                                    {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`}&nbsp;<span className="border-highlight">{offer.renewalPeriod.renewMonths}&nbsp;months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} />}
-                                                </span>
-                                                {!!offer.durationSavings && 
-                                                    <div className="saving-plan-sixmonths">
-                                                        Saves {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" />
-                                                        <div className="tooltip">
-                                                            <img className="ques-icon" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.10/images/question.png" /> 
-                                                            <span className="tooltiptext tooltip-bottom normal">
-                                                                <span className={`${pkgVars.colorClass} bold`}><LegalSup supRef="durationSave" /></span>
-                                                                <LegalDurationSaveLine offer={offer}/>
+                                                                {offer.renewalPeriod.renewMonths === 1 ? `/month` : offer.ldbm ? `/mo.` : ``}
                                                             </span>
-                                                        </div>
-                                                    </div>
-                                                }
-                                                <hr className="hr-line-mtb10 border-bt-cl plan-month-line" />
-                                                <p className="plan-description">
-                                                    {/usdiscovery/.test(pkgData.id) && <span>Access <span className="bold">billions of U.S. records</span> on Ancestry® to find your ancestors’&nbsp;stories.</span>}
-                                                    {/worldexplorer/.test(pkgData.id) && <span>Access <span className="bold">billions of international and U.S. records</span> on Ancestry® to find your ancestors’&nbsp;stories.</span>}
-                                                    {/allaccess/.test(pkgData.id) && <span>Access billions of international and U.S. records on Ancestry® to find your ancestors’ stories. <span className="bold">Plus, access military and newspaper records on:</span></span>}
-                                                    
-                                                    {/* {/sparklydragon/.test(this.props.variables.testimonials) &&
-                                                        <span className="text-left textsml see-example-text">
-                                                            <a href="#examples-head-md-up" onClick={this.emptyFunction}>See example</a>
+                                                            {offer.renewalPeriod.renewMonths !== 1 && <span> {!offer.ldbm ? `every` : `for`}&nbsp;<span className="border-highlight">{offer.renewalPeriod.renewMonths}&nbsp;months</span></span>}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} />}
                                                         </span>
-                                                    } */}
-                                                </p>
-                                                {!/allaccess/.test(pkgData.id) ? <br /> :
-                                                    <div className="allaccess-img-container flex-container topSpacingBlock flex-center">
-                                                        <div className="tooltip">
-                                                            <div className="fold-img-wrapper">
+                                                        {!!offer.durationSavings && 
+                                                            <div className="saving-plan-sixmonths">
+                                                                Saves {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" />
+                                                                <div className="tooltip">
+                                                                    <img className="ques-icon" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.10/images/question.png" /> 
+                                                                    <span className="tooltiptext tooltip-bottom normal">
+                                                                        <span className={`${pkgVars.colorClass} bold`}><LegalSup supRef="durationSave" /></span>
+                                                                        <LegalDurationSaveLine offer={offer}/>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        <hr className="hr-line-mtb10 border-bt-cl plan-month-line" />
+                                                        <p className="plan-description">
+                                                            {/usdiscovery/.test(pkgData.id) && <span>Access <span className="bold">billions of U.S. records</span> on Ancestry® to find your ancestors’&nbsp;stories.</span>}
+                                                            {/worldexplorer/.test(pkgData.id) && <span>Access <span className="bold">billions of international and U.S. records</span> on Ancestry® to find your ancestors’&nbsp;stories.</span>}
+                                                            {/allaccess/.test(pkgData.id) && <span>Access billions of international and U.S. records on Ancestry® to find your ancestors’ stories. <span className="bold">Plus, access military and newspaper records on:</span></span>}
+                                                            
+                                                            {/* {/sparklydragon/.test(this.props.variables.testimonials) &&
+                                                                <span className="text-left textsml see-example-text">
+                                                                    <a href="#examples-head-md-up" onClick={this.emptyFunction}>See example</a>
+                                                                </span>
+                                                            } */}
+                                                        </p>
+                                                        {!/allaccess/.test(pkgData.id) ? <br /> :
+                                                            <div className="allaccess-img-container flex-container topSpacingBlock flex-center">
+                                                                <div className="tooltip">
+                                                                    <div className="fold-img-wrapper">
+                                                                        <div>
+                                                                            <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.13/images/fold.svg" className="fold-img" />
+                                                                        </div>
+                                                                        <div className="textsml text-left">
+                                                                            <a href="javascript:;">What's this?</a>
+                                                                        </div>
+                                                                        <span className="tooltiptext tooltip-bottom normal">
+                                                                            <div>Search for family stories in more than 537 million U.S. military records on Fold3.</div>
+                                                                            <div className="fold-callout-img-wrap textCenter rel-pos">
+                                                                                <div className="fold-callout-img-inner-wrap">
+                                                                                    <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/fold3-callout-img.png" className="fold-callout-img" />
+                                                                                </div>
+                                                                                <a href="#examples-head-md-up" onClick={this.emptyFunction}>
+                                                                                    <button className="ancBtn full-width allaccess-btn-bgcolor see-example-btn" type="button">See example</button>
+                                                                                </a>
+                                                                            </div>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
                                                                 <div>
-                                                                    <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.13/images/fold.svg" className="fold-img" />
+                                                                    <PlusCircle />
                                                                 </div>
-                                                                <div className="textsml text-left">
-                                                                    <a href="javascript:;">What's this?</a>
-                                                                </div>
-                                                                <span className="tooltiptext tooltip-bottom normal">
-                                                                    <div>Search for family stories in more than 537 million U.S. military records on Fold3.</div>
-                                                                    <div className="fold-callout-img-wrap textCenter rel-pos">
-                                                                        <div className="fold-callout-img-inner-wrap">
-                                                                            <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/fold3-callout-img.png" className="fold-callout-img" />
+                                                                <div className="tooltip">
+                                                                    <div className="newspaper-img-wrapper">
+                                                                        <div className="rel-pos">
+                                                                            <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.13/images/newpapers.svg" className="newspapers-img" /> 
+                                                                            <sup className="news-basic-text">Basic</sup>
                                                                         </div>
-                                                                        <a href="#examples-head-md-up" onClick={this.emptyFunction}>
-                                                                            <button className="ancBtn full-width allaccess-btn-bgcolor see-example-btn" type="button">See example</button>
-                                                                        </a>
-                                                                    </div>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <PlusCircle />
-                                                        </div>
-                                                        <div className="tooltip">
-                                                            <div className="newspaper-img-wrapper">
-                                                                <div className="rel-pos">
-                                                                    <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.13/images/newpapers.svg" className="newspapers-img" /> 
-                                                                    <sup className="news-basic-text">Basic</sup>
-                                                                </div>
-                                                                <span className="news-basic-text-tab">Basic</span>
-                                                                <div className="textsml text-left">
-                                                                    <a href="javascript:;">What's this?<LegalSup supRef="newspapersBasic" goToOnClick={true} /></a>
-                                                                </div>
-                                                                <span className="tooltiptext tooltip-bottom normal tooltip-news-wrap-new">
-                                                                    <div>Search for family stories in more than 142 million articles on Newspaper.com.</div>
-                                                                    <div className="newspaper-callout-img-wrap textCenter rel-pos">
-                                                                        <div className="newspaper-callout-img-inner-wrap">
-                                                                            <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/newspapers-callout-img.png" className="newspaper-callout-img" />
+                                                                        <span className="news-basic-text-tab">Basic</span>
+                                                                        <div className="textsml text-left">
+                                                                            <a href="javascript:;">What's this?<LegalSup supRef="newspapersBasic" goToOnClick={true} /></a>
                                                                         </div>
-                                                                        <a href="#examples-head-md-up" onClick={this.emptyFunction}>
-                                                                            <button className="ancBtn full-width allaccess-btn-bgcolor see-example-btn" type="button">See example</button>
-                                                                        </a>
+                                                                        <span className="tooltiptext tooltip-bottom normal tooltip-news-wrap-new">
+                                                                            <div>Search for family stories in more than 142 million articles on Newspapers.com.</div>
+                                                                            <div className="newspaper-callout-img-wrap textCenter rel-pos">
+                                                                                <div className="newspaper-callout-img-inner-wrap">
+                                                                                    <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/newspapers-callout-img.png" className="newspaper-callout-img" />
+                                                                                </div>
+                                                                                <a href="#examples-head-md-up" onClick={this.emptyFunction}>
+                                                                                    <button className="ancBtn full-width allaccess-btn-bgcolor see-example-btn" type="button">See example</button>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div className="textsml tooltip-subtext"><LegalSup supRef="newspapersBasic" />Other subsciptions to Newspapers.com may be available, but are not included in the All Access package</div>
+                                                                        </span>
                                                                     </div>
-                                                                    <div className="textsml tooltip-subtext"><LegalSup supRef="newspapersBasic" />Other subsciptions to Newspapers.com may be available, but are not included in the All Access package</div>
-                                                                </span>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        }
                                                     </div>
-                                                }
-                                            </div>
-                                            {selectedTest && <button className={`ancBtn free-trial-button full-width mb-0 ${pkgVars.ctaClasses}`} type="submit">{/initial/.test(pS.elligibility) ? `Start free trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`}</button>}
-                                        </section>
-                                    )
-                                })}
-                        </div>
-                    </form>}
+                                                    {selectedTest && <button className={`ancBtn free-trial-button full-width mb-0 ${pkgVars.ctaClasses}`} type="submit">{/initial/.test(pS.elligibility) ? `Start free trial` : /renewal/.test(pS.elligibility) ? `Get started` : `Upgrade now`}</button>}
+                                                </section>
+                                            )
+                                        })}
+                                </div>
+                            </form>
+                        )
+                    }
                     {subs.ldbms && <LegalLongDurationBilledMonthly/>}
                 </div>
             </div>

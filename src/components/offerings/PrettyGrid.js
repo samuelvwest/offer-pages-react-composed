@@ -119,7 +119,14 @@ export class PrettyGrid extends React.Component {
                                                             {(duration.num === 1 || !toggleButtonTest) && 
                                                                 <span>
                                                                     <br />
-                                                                    <button type="button" className="link" onClick={() => { scrollTo('.legal-text-wrap') }}>
+                                                                    <button type="button" className="link" 
+                                                                        onClick={() => { 
+                                                                            scrollTo({
+                                                                                selector: '.legal-text__paragraph--freeTrial, .legal-text__paragraph--hardOffer',
+                                                                                trackStr: 'auto-renewing--cancel'
+                                                                            }) 
+                                                                        }}
+                                                                    >
                                                                         <span className="texttiny">Auto Renewing, Cancel&nbsp;Anytime.</span>
                                                                     </button>
                                                                 </span>} 
@@ -192,7 +199,14 @@ export class PrettyGrid extends React.Component {
                                     </table>
                                     {(subs.display.durations.some((duration) => duration.num > 1) && /toggle/.test(pS.LDBM)) &&
                                         <p className="textxsml italic textRight payGoModalBtn">
-                                            <button type="button" className="link" onClick={() => { scrollTo('.legal-text-wrap') }}>
+                                            <button type="button" className="link" 
+                                                onClick={() => { 
+                                                    scrollTo({
+                                                        selector: '.legal-text__paragraph--freeTrial, .legal-text__paragraph--hardOffer',
+                                                        trackStr: 'auto-renewing--cancel'
+                                                    }) 
+                                                }}
+                                            >
                                                 <span className="texttiny">Auto Renewing, Cancel&nbsp;Anytime.</span>
                                             </button>
                                         </p>

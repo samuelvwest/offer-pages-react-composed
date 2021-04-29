@@ -102,7 +102,7 @@ const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
         </span>
     ) : (
         <span className={classesMaker('prettygrid')}>
-            Start tracing your family&nbsp;tree.<LegalSup supRef="hardOffer" goToOnClick={true} />
+            Start tracing your family&nbsp;tree.<LegalSup supRef="hardOffer" goToOnClick={true}/>
         </span>
     )
 });

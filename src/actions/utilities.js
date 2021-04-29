@@ -9,7 +9,7 @@ export const openModal = (selector, settings) => {
     }
 }
 
-export const scrollTo = (selector, tracking) => {
+export const scrollTo = ({ selector, trackStr, highlight = true }) => {
     // console.log(selector);
     const elems = [].slice.call(document.querySelectorAll(selector));
     // console.log(elems);
@@ -19,38 +19,35 @@ export const scrollTo = (selector, tracking) => {
         block: 'start',
         proximity: 1000000
     }
-    if (elems.length > 1) {
-        elems.forEach((el) => {
-            const rect = el.getBoundingClientRect();
-            const heightNum = (window.innerHeight || document.documentElement.clientHeight) - rect.height;
-            let proxCompNum = rect.top;
-            if (rect.top > 0) {
-                if (rect.top < heightNum) {
-                    proxCompNum = 0;
-                } else {
-                    proxCompNum = rect.top - heightNum;
-                }
+    elems.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const heightNum = (window.innerHeight || document.documentElement.clientHeight) - rect.height;
+        let proxCompNum = rect.top;
+        if (rect.top > 0) {
+            if (rect.top < heightNum) {
+                proxCompNum = 0;
             } else {
-                proxCompNum = -1 * rect.top;
+                proxCompNum = rect.top - heightNum;
             }
-            if (proxCompNum < target.proximity) {
-                target.elem = el;
-                target.proximity = proxCompNum;
-                target.block = rect.top > heightNum ? 'end' : 'start';
-                target.offset = rect.top > heightNum ? heightNum : 0;
-            }
-            // console.log(rect, target.proximity, target.elem);
-        })
-    }
-    target.elem.classList.add(`scroll-highlight`);
-    if (target.proximity > 0) {
+        } else {
+            proxCompNum = -1 * rect.top;
+        }
+        if (proxCompNum < target.proximity) {
+            target.elem = el;
+            target.proximity = proxCompNum;
+            target.block = rect.top > heightNum ? 'end' : 'start';
+            target.offset = rect.top > heightNum ? heightNum : 0;
+        }
+        // console.log(rect, target.proximity, target.elem);
+    })
+    if (target.proximity > 0 && !!target.elem) {
         if (!!window.$ && !!window.$.Animation) {
-            console.log('jquery');
+            // console.log('jquery');
             window.$('html, body').stop().animate({
                 'scrollTop': $(target.elem).offset().top + target.offset
             }, 800, 'swing');
         } else {
-            console.log('native');
+            // console.log('native');
             target.elem.scrollIntoView({
                 behavior: 'smooth',
                 block: target.block
@@ -59,17 +56,22 @@ export const scrollTo = (selector, tracking) => {
     } else {
         console.log('no scroll', target);
     }
-    setTimeout(function() {
-        target.elem.classList.add(`scroll-highligh--deactivate`);
+    if (highlight) {
+        target.elem.classList.add(`scroll-highlight`);
         setTimeout(function() {
-            target.elem.classList.remove(`scroll-highlight`);
-            target.elem.classList.remove(`scroll-highligh--deactivate`);
-        }, 1000)
-    }, 1000)
-    if (!!tracking) {
+            target.elem.classList.add(`scroll-highlight--activate`);
+            setTimeout(function() {
+                target.elem.classList.remove(`scroll-highlight--activate`);
+                setTimeout(function() {
+                    target.elem.classList.remove(`scroll-highlight`);
+                }, 1000)
+            }, 1000)
+        }, 100)
+    }
+    if (!!trackStr) {
         adobeTargetTrackEvent({
             eventType: 'scrollTo',
-            button: tracking
+            button: trackStr
         })
     }
 }
