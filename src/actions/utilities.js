@@ -53,8 +53,8 @@ export const scrollTo = ({ selector, trackStr, highlight = true }) => {
                 block: target.block
             })
         }
-    } else {
-        console.log('no scroll', target);
+    // } else {
+    //     console.log('no scroll', target);
     }
     if (highlight) {
         target.elem.classList.add(`scroll-highlight`);

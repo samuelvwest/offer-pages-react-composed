@@ -151,7 +151,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                             </div>
                         </div>
                     </div>
-                    {subs.ldbms && <LegalLongDurationBilledMonthly/>}
+                    {subs.ldbms && <LegalLongDurationBilledMonthly inModal={!!props.placement && /modal/.test(props.placement)} />}
                 </section>
             </form>
         </div>

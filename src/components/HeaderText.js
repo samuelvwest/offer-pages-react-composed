@@ -9,6 +9,14 @@ const mapStateToProps = (state) => {
     }
 };
 
+const simpleMapStateToProps = (state) => {
+    return {
+        elligibility: state.pageSettings.elligibility,
+        headerText: state.variables.headerText,
+        timeline: state.variables.timeline
+    }
+}
+
 const mapElligibilityStateToProps = (state) => {
     return {
         elligibility: state.pageSettings.elligibility
@@ -25,43 +33,51 @@ const classesMaker = (styleName) => {
     return `header-text header-text--${styleName}`
 }
 
-const ColorStack = connect(mapElligibilityStateToProps)(({ elligibility }) => (
+const ColorStack = connect(simpleMapStateToProps)(({ elligibility, timeline }) => (
     <span className={classesMaker('colorstack')}>
         Choose a membership to&nbsp;try
         {/initial/.test(elligibility) ? 
             <span> 
                 <strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} />
             </span> : 
-            <span>.<LegalSup supRef="hardOffer" goToOnClick={true}/></span>
+            <span>.{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true} />}</span>
         }
     </span>
 ));
 
-const GreenTop = connect(mapElligibilityStateToProps)(({ elligibility }) => {
+const GreenTop = connect(simpleMapStateToProps)(({ elligibility, timeline }) => {
     return (
         <span className={classesMaker('greentop')}>
-            We're giving you access to <i>your</i>&nbsp;history.<LegalSup supRef={/initial/.test(elligibility) ? `freeTrial` : `hardOffer`} goToOnClick={true} />
+            We're giving you access to <i>your</i>&nbsp;history.
+            {/initial/.test(elligibility) ? (
+                    <LegalSup supRef="freeTrial" goToOnClick={true} />
+                ) : !timeline ? (
+                    <LegalSup supRef="hardOffer" goToOnClick={true} />
+                ) : (
+                    <span></span>
+                )
+            }
         </span>
     )
 });
 
-const ColorGrid = connect(mapElligibilityStateToProps)(({ elligibility }) => (
+const ColorGrid = connect(simpleMapStateToProps)(({ elligibility, timeline }) => (
     <span className={classesMaker('colorgrid')}>
         Discover your family story with an Ancestry&nbsp;membership
         {/initial/.test(elligibility) ? 
             <span><strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} /></span> : 
-            <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
+            <span>.{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}</span>
         }
     </span>
 ));
 
-const BonsaiGrid = connect(mapElligibilityStateToProps)(({ elligibility }) => /initial/.test(elligibility) ? (
+const BonsaiGrid = connect(simpleMapStateToProps)(({ elligibility, timeline }) => /initial/.test(elligibility) ? (
     <span className={classesMaker('bonsaigrid')}>
         Explore the world's largest online family history resource<span className="header-text__free-for">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
     </span>
 ) : (
     <span className={classesMaker('bonsaigrid')}>
-        Start exploring the world’s largest online family history resource&nbsp;today.<LegalSup supRef="hardOffer" goToOnClick={true} />
+        Start exploring the world’s largest online family history resource&nbsp;today.{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}
     </span>
 ));
 
@@ -80,17 +96,17 @@ const Control = connect(mapStateToProps)(( { pageSettings: pS } ) => {
     return <BonsaiGrid/>
 });
 
-const SparklyDragon = connect(mapElligibilityStateToProps)(({ elligibility }) => (
+const SparklyDragon = connect(simpleMapStateToProps)(({ elligibility, timeline }) => (
     <span className={classesMaker('sparklydragon')}>
         Connect with your ancestors through historical documents. 
         {/initial/.test(elligibility) ? 
             <span className="header-text__free-for">Free for 14 days<LegalSup supRef="freeTrial" goToOnClick={true} /></span> :
-            <LegalSup supRef="hardOffer" goToOnClick={true} />
+            <span>{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}</span>
         }
     </span>
 ));
 
-const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
+const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS, variables } ) => {
     if (window.innerWidth < pS.breaks.prettyGrid.tablet) {
         // Control text from Color Stack design – phone on all offer pages
         return <ColorStack/>
@@ -102,7 +118,7 @@ const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
         </span>
     ) : (
         <span className={classesMaker('prettygrid')}>
-            Start tracing your family&nbsp;tree.<LegalSup supRef="hardOffer" goToOnClick={true}/>
+            Start tracing your family&nbsp;tree.{!variables.timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}
         </span>
     )
 });
