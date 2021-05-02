@@ -585,14 +585,20 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="faqsSection" 
-                    settingValue={false} 
+                    settingValue="not-included" 
                     displayText="Control (not included)" 
                 />
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="faqsSection" 
-                    settingValue={true} 
-                    displayText="Included" 
+                    settingValue="sparkly-dragon" 
+                    displayText="Sparkly Dragon" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="faqsSection" 
+                    settingValue="pretty-grid"
+                    displayText="Pretty Grid" 
                 />
             </div>
             <div className="settings__group">

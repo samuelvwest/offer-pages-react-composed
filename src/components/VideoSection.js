@@ -38,7 +38,6 @@ export class VideoSection extends React.Component {
     }
     render() {
         const pS = this.props.pageSettings;
-        const subs = pS.subscriptions;
         if (!!this.props.variables.videoSection) {
             return pS.windowWidth <= pS.breaks.sparklydragon.desktop ? (
                 <div className={`video-section-outer-wrapper offerings-variable--${this.props.variables.offerings} scroll-tracking--videoSection`}
@@ -107,7 +106,7 @@ export class VideoSection extends React.Component {
                 </div>
             )
         }
-        return <div></div>
+        return <div className="video-section--not-included"></div>
     }
 };
 

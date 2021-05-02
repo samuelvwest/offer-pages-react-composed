@@ -62,7 +62,7 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
             </section> 
         )
     }
-    return <div></div>
+    return <div className="testimonial-section--not-included"></div>
 })
 
 export default TestimonialSection;

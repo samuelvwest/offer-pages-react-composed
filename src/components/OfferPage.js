@@ -12,7 +12,7 @@ import SupportSection from './SupportSection';
 import VideoSection from './VideoSection';
 import ExamplesSection from './ExamplesSection';
 import PrivacySection from './PrivacySection';
-import FAQsSection from './FAQsSection';
+import FAQsSection from './faqs-section/FAQsSection';
 import OtherProductsSection from './OtherProductsSection';
 import FeedbackSection from './FeedbackSection';
 import InfoSections from './InfoSections';
@@ -147,7 +147,7 @@ export class OfferPage extends React.Component {
             window._bVT.started = true;
             window._bVT.interval = setInterval(() => {
                 const currentTimeTest = new Date().getTime() > window._bVT.bufferMark;
-                console.log(currentTimeTest);
+                // console.log(currentTimeTest);
                 if (!window._bVT.complete && currentTimeTest) {
                     adobeTargetTrackEvent(window._bVT.passObj);
                     window._bVT.complete = true;

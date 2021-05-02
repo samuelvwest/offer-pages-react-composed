@@ -13,12 +13,10 @@ const classesMaker = (styleName) => {
     return `container container--${styleName} privacy-section privacy-section--${styleName}`
 }
 
-const PrivacySection = connect(mapStateToProps)((props) => {
-    const pS = props.pageSettings;
-    const subs = pS.subscriptions;
-    if (props.variables.privacySection) {
+const PrivacySection = connect(mapStateToProps)(({ pageSettings: pS, variables }) => {
+    if (variables.privacySection) {
         return (
-            <div className={`privacy-wrapper offerings-variable--${props.variables.offerings} scroll-tracking--privacySection`}
+            <div className={`privacy-wrapper offerings-variable--${variables.offerings} scroll-tracking--privacySection`}
                 onClick={() => {
                     adobeTargetTrackEvent({
                         eventType: 'clickSection',
@@ -46,7 +44,7 @@ const PrivacySection = connect(mapStateToProps)((props) => {
             </div>
         )
     }
-    return <div></div>
+    return <div className="privacy-section--not-included"></div>
 });
 
 export default PrivacySection;

@@ -13,12 +13,10 @@ const classesMaker = (styleName) => {
     return `container container--${styleName} info-sections info-sections--${styleName}`
 }
 
-const InfoSections = connect(mapStateToProps)((props) => {
-    const pS = props.pageSettings;
-    const subs = pS.subscriptions;
-    if (props.variables.infoSections) {
+const InfoSections = connect(mapStateToProps)(({ pageSettings: pS, variables }) => {
+    if (variables.infoSections) {
         return pS.windowWidth < pS.breaks.control.tablet ? (
-            <section className={`otherBenefitsCon ${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}
+            <section className={`otherBenefitsCon ${classesMaker(`control`)} offerings-variable--${variables.offerings} scroll-tracking--infoSections`}
                 onClick={() => {
                     adobeTargetTrackEvent({
                         eventType: 'clickSection',
@@ -48,7 +46,7 @@ const InfoSections = connect(mapStateToProps)((props) => {
                 </section>
             </section>
         ) : (
-            <div className={`${classesMaker(`control`)} offerings-variable--${props.variables.offerings} scroll-tracking--infoSections`}
+            <div className={`${classesMaker(`control`)} offerings-variable--${variables.offerings} scroll-tracking--infoSections`}
                 onClick={() => {
                     adobeTargetTrackEvent({
                         eventType: 'clickSection',
@@ -102,7 +100,7 @@ const InfoSections = connect(mapStateToProps)((props) => {
             </div>
         )
     }
-    return <div></div>
+    return <div className="info-sections--not-included"></div>
 });
 
 export default InfoSections;

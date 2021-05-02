@@ -37,7 +37,7 @@ const HeaderStyle = connect(mapVariableToProps)(({ featuresGrid }) => {
         case 'pretty-grid':
             return <PrettyGrid/>
         case 'not-included':
-            return <div></div>
+            return <div className="features-grid--not-included"></div>
         default: 
             return <Control/>;
     }

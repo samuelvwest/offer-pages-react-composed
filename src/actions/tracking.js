@@ -25,6 +25,7 @@ export const adobeTargetTrackEvent = (params) => {
 }
 
 export const elemIsInViewport = (elem) => {
+    // console.log(elem);
     const rect = elem.getBoundingClientRect();
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     const percentFromBottom = 0.4;

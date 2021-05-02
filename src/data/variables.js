@@ -14,7 +14,7 @@ export const variables = getVariablesLocal() || {
     videoSection: false,
     examplesSection: false,
     privacySection: false,
-    faqsSection: false,
+    faqsSection: `not-included`,
     otherProductsSection: false,
     feedbackSection: false
 }

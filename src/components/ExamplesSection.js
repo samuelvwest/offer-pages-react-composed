@@ -577,7 +577,7 @@ export class ExamplesSection extends React.Component {
                 </div>
             )
         }
-        return <div></div>
+        return <div className="examples-section--not-included"></div>
     }
 };
 
