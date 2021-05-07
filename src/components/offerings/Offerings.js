@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { scrollTo } from '../../actions/utilities';
 import ColorStack from './ColorStack';
 import ColorGrid from './ColorGrid';
 import BonsaiGrid from './BonsaiGrid';
@@ -25,6 +26,24 @@ const mapVariablesToProps = (state) => {
         variables: state.variables
     }
 };
+
+export const OffersLink = connect(mapVariableToProps)(({ offerings }) => (
+    <section className={`offerings-scroll-link finalCTACon offerings-variable--${offerings}`}>
+        <div className="btnCon">
+            <button className="ancBtn lrg"
+                onClick={() => {
+                    scrollTo({
+                        selector: `.offerings-style`, 
+                        trackStr: `scroll-to-offers-link`,
+                        highlight: false
+                    })
+                }}
+            >
+                Choose a membership
+            </button>
+        </div>
+    </section>
+))
 
 const Control = connect(mapPageSettingsStateToProps)((props) => {
     if (props.pageSettings.windowWidth < props.pageSettings.breaks.control.tablet) {

@@ -64,4 +64,29 @@
     }
     // Run React Setup function in case it hasn't run yet.
     window.tao.f.setupMVTScripts();
+
+
+
+    // Profile Attribute check/set
+    // if ('${profile.someCustomProfileAttribute}' !== "true") {
+    //     console.log("Entered test = ",'${profile.someCustomProfileAttribute}');
+    //     adobe.target.trackEvent({
+    //         mbox: 'entered-health-flow-test',
+    //         params: {
+    //             'profile.someCustomProfileAttribute': "true"
+    //         }
+    //     });
+    // }
+
+
+    // Profile Attribute check/set
+    var entryProfileStr = '${profile.presentationMessageEntry}';
+    console.log('profile.presentationMessageEntry', !!entryProfileStr);
+    if (entryProfileStr !== 'true') {
+        window.tao.g.additionalVariantAttributes = {
+            presentationMessageEntry: true,
+            'profile.presentationMessageEntry': 'true'
+        }
+    }
+    console.log(window.tao.g.additionalVariantAttributes);
 </script>

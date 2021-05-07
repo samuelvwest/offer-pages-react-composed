@@ -1,0 +1,94 @@
+<script>
+    // Monitor for confirmation card on Order Summary page
+    tao.f.windu({
+        name: 'LTRLookForConfirmationCard',
+        when: function() {
+            return (
+                !!document.querySelector('.flipCardComponent--order-summary')
+                && !!document.querySelector('.productDetails--offer')
+                && !!document.querySelector('.flipCardComponent__confirmMessage strong')
+            );
+        },
+        do: function() {
+            var cartText = document.querySelector('.flipCardComponent--order-summary').innerText;
+            var orderID = document.querySelector('.flipCardComponent__confirmMessage strong').innerText;
+            var mapLTRs = {
+                usdiscovery: {
+                    monthly: 214,
+                    quarterly: 214 * 1.42,
+                    semi: 330,
+                    sabm: 280,
+                    annual: 455,
+                    abm: 325
+                },
+                worldexplorer: {
+                    monthly: 278,
+                    quarterly: 278 * 1.42,
+                    quarterly1for3: 210,
+                    semi: 447,
+                    sabm: 425,
+                    annual: 732,
+                    abm: 525
+                },
+                allaccess: {
+                    monthly: 278 * 1.25,
+                    quarterly: 278 * 1.42 * 1.25,
+                    quarterly1for3: 210 * 1.25,
+                    semi: 447 * 1.25,
+                    sabm: 425 * 1.25,
+                    annual: 732 * 1.25,
+                    abm: 525 * 1.25
+                }
+            }
+            var score = 0;
+            var productPurchasedStr = tao.f.customId(true, true)
+            var products = [].slice.call(document.querySelectorAll('.productDetails--offer'));
+            products.forEach(function(product) {
+                var txt = product.parentNode.innerText;
+                var amount = Number(txt.match(/\$\d+\.\d+/)[0].replace('$',''));
+                if (/(G|g)ift/.test(txt)) {
+                    // console.log('gift in cart and not scored');
+                } else if (/AncestryDNA kit \(\d/.test(txt)) {
+                    var quantity = Number(txt.match(/\(\d+\)/)[0].replace(/\(|\)/g, ''));
+                    var cogs = quantity * 42;
+                    // console.log('dna kit detected', quantity, cogs, amount);
+                    productPurchasedStr = productPurchasedStr + ',' + product.innerText.replace(/ |\)+/g, '').replace(/\(/i, '|');
+                    score = score + amount - cogs;
+                } else if (/(M|m)embership/.test(txt)) {
+                    var packageStr = /(A|a)ll (A|a)ccess/.test(txt) ? 'allaccess' : /(W|w)orld (E|e)xplorer/.test(txt) ? 'worldexplorer' : 'usdiscovery';
+                    var durationStr = 'monthly';
+                    // console.log(txt);
+                    if (/each month|\/month/.test(txt)) {
+                        durationStr = /12 month|year|twelve/.test(txt) ? 'abm' : 'sabm'; 
+                    } else if (/(\d|) months|year|annual|semi|quarterly/.test(txt)) {
+                        durationStr =  /year|12 months|twelve/.test(txt) ? 'annual' : /semi|6 months|six/.test(txt) ? 'semi' : 'quarterly';
+                        // console.log(amount);
+                        if (durationStr === 'quarterly') {
+                            var compareStr = '-.' + (amount - 1);
+                            // console.log(compareStr);
+                            if (new RegExp(compareStr, 'i').test(cartText)) {
+                                durationStr = 'quarterly1for3';
+                            }
+                        }
+                    }
+                    var freeTrialTest = /14 days free/.test(txt);
+                    var freeTrialAdjustment = freeTrialTest ? 0.85 : 1;
+                    var subcriptionType = freeTrialTest ? 'freetrial' : 'hardoffer';
+                    // console.log(packageStr, durationStr, mapLTRs[packageStr][durationStr], freeTrialAdjustment);
+                    productPurchasedStr = productPurchasedStr + ',' + packageStr + '|' + durationStr + '|' + subcriptionType;
+                    score = score + (mapLTRs[packageStr][durationStr] * freeTrialAdjustment)
+                }
+            })
+            console.log('Final LTR Score', score);
+            console.log('LTR Products Reported', productPurchasedStr);
+            window.tao.f.trackEvent({
+                mbox: 'ltr_complete',
+                params: {
+                    orderTotal: score,
+                    orderId: orderID,
+                    productPurchasedId: productPurchasedStr
+                }
+            })
+        }
+    })
+</script>

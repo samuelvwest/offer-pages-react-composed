@@ -1,4 +1,4 @@
-import pageSettings from '../data/pageSettings';
+import { pageSettings, displayPackages } from '../data/pageSettings';
 import { setPageSettingsLocal, getElligibility } from '../actions/pageSettings';
 import { buildDisplayOffersData, filterDisplayPackages } from './../actions/subscriptions';
 import { adobeTargetTrackEvent } from './../actions/tracking';
@@ -20,7 +20,7 @@ export default (state = pageSettings, action) => {
             }
             if (!!action.pageSettings.displayPackages || !!action.pageSettings.denyLevel || !!action.pageSettings.packageData) {
                 nextState.displayPackages = filterDisplayPackages(
-                    action.pageSettings.displayPackages || state.displayPackages, 
+                    action.pageSettings.displayPackages || displayPackages, 
                     action.pageSettings.packagesData || state.packagesData, 
                     action.pageSettings.denyLevel || state.denyLevel
                 )
@@ -32,14 +32,17 @@ export default (state = pageSettings, action) => {
                 const passObj = {
                     eventType: 'changedSelectedOffer'
                 };
+                Object.keys(state.selectedOffer).forEach((key) => {
+                    passObj[key] = !!action.pageSettings.selectedOffer[key] ? action.pageSettings.selectedOffer[key].toString() : state.selectedOffer[key].toString();
+                })
                 Object.keys(action.pageSettings.selectedOffer).forEach((key) => {
                     if (state.selectedOffer[key] !== action.pageSettings.selectedOffer[key]) {
-                        passObj[key] = action.pageSettings.selectedOffer[key];
+                        passObj[key] = `${action.pageSettings.selectedOffer[key]}_changed`;
                     }
                 })
-                if (Object.keys(passObj).length > 1) {
+                // if (Object.keys(passObj).length > 1) {
                     adobeTargetTrackEvent(passObj)
-                }
+                // }
             }
             return nextState;
         default: 

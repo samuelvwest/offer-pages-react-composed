@@ -102,7 +102,7 @@ export const lowerOfferingsDisplayCalculation = (variables) => {
             score = score + variablesData[key].heightScore;
         }
     })
-    return score > 18;
+    return score > 18 ? `full` : score > 4 ? `link` : false;
 }
 
 export const mapScrollTrackingVariables = (variables) => {

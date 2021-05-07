@@ -5,7 +5,7 @@ import { modifyVariables, mapScrollTrackingVariables } from '../actions/variable
 import { adobeTargetTrackEvent, elemIsInViewport } from '../actions/tracking';
 import SettingsControl from './SettingsControl';
 import HeaderStyle from './header-style/HeaderStyle';
-import Offerings from './offerings/Offerings';
+import Offerings, { OffersLink }  from './offerings/Offerings';
 import TestimonialSection from './TestimonialSection';
 import FeaturesGrid from './features-grid/FeaturesGrid';
 import SupportSection from './SupportSection';
@@ -127,14 +127,17 @@ export class OfferPage extends React.Component {
         }
     }
     buildVariantTracking = (passObj) => {
-        const milBuffer = 5000
+        console.log('started build variant tracking');
+        const milBuffer = 2000
         if (!window._bVT) {
             window._bVT = {
                 bufferMark: new Date().getTime() + milBuffer,
                 started: false,
                 complete: false,
                 passObj: {
-                    mbox: `spaVariantTracking`
+                    mbox: `spaVariantTracking`,
+                    pageLoc: this.props.pageSettings.location,
+                    denyLevel: this.props.pageSettings.denyLevel
                 }
             }
         } else {
@@ -147,8 +150,13 @@ export class OfferPage extends React.Component {
             window._bVT.started = true;
             window._bVT.interval = setInterval(() => {
                 const currentTimeTest = new Date().getTime() > window._bVT.bufferMark;
-                // console.log(currentTimeTest);
+                console.log(currentTimeTest);
                 if (!window._bVT.complete && currentTimeTest) {
+                    if (!!window.tao.g.additionalVariantAttributes) {
+                        Object.keys(window.tao.g.additionalVariantAttributes).forEach((key) => {
+                            window._bVT.passObj[key] = window.tao.g.additionalVariantAttributes[key];
+                        });
+                    }
                     adobeTargetTrackEvent(window._bVT.passObj);
                     window._bVT.complete = true;
                     clearInterval(window._bVT.interval);
@@ -223,7 +231,8 @@ export class OfferPage extends React.Component {
                 <VideoSection />
                 <ExamplesSection />
                 <FAQsSection />
-                {this.props.variables.lowerOfferings && <Offerings placement="bottom" />}
+                {/link/.test(this.props.variables.lowerOfferings) && <OffersLink/>}
+                {/full/.test(this.props.variables.lowerOfferings) && <Offerings placement="bottom" />}
                 <OtherProductsSection />
                 <PrivacySection />
                 <FeedbackSection />

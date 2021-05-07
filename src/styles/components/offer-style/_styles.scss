@@ -7,3 +7,24 @@
 @import './sparkly-dragon';
 // PRETTY GRID STYLES
 @import './pretty-grid';
+
+// Lower Offers Link Styles
+.offerings-scroll-link.finalCTACon {
+    padding: 40px 20px;
+    background-color:#ffffff;
+    &.offerings-variable--control {
+        @media (min-width: 601px) {
+            background-color: transparent;
+        }
+    }
+    .btnCon {
+        margin: auto;
+        width: 220px;
+        a {
+            border-radius: 20px;
+            margin-top: -20px;
+            text-transform: inherit;
+            width: 220px;
+        }
+    }
+}

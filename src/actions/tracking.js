@@ -25,14 +25,16 @@ export const adobeTargetTrackEvent = (params) => {
 }
 
 export const elemIsInViewport = (elem) => {
-    // console.log(elem);
-    const rect = elem.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    const percentFromBottom = 0.4;
-    const compareHeight = windowHeight * (1 - percentFromBottom); 
-    // console.log(elem, rect.top)
-    return (
-        (rect.top > 0 && rect.top < compareHeight)
-        || (rect.bottom > 0 && rect.bottom <= windowHeight)
-    );
+    if (!!elem) {
+        const rect = elem.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const percentFromBottom = 0.4;
+        const compareHeight = windowHeight * (1 - percentFromBottom); 
+        // console.log(elem, rect.top)
+        return (
+            (rect.top > 0 && rect.top < compareHeight)
+            || (rect.bottom > 0 && rect.bottom <= windowHeight)
+        );
+    }
+    return false
 }
