@@ -64,7 +64,7 @@ export class SparklyDragon extends React.Component {
                             {maxDurationSavings.test && 
                                 <div className="arrow">
                                     <span className="textsml">
-                                        Save <span className="arrow__upto">up to</span> <strong>{maxDurationSavings.offer.currency}{maxDurationSavings.offer.durationSavings.display}</strong>
+                                        Save <span className="arrow__upto">up to</span> <strong>{maxDurationSavings.offer.currency}{maxDurationSavings.offer.durationSavings.display}<LegalSup supRef="durationSave" /></strong>
                                     </span>
                                 </div>
                             }

@@ -66,6 +66,7 @@ export class OfferPage extends React.Component {
                 const toReport = window._scrollTrackingData.elems.reportable.filter((elemStr) => {
                     return !window._scrollTrackingData.elems.reported.some((elemStr2) => elemStr === elemStr2);
                 })
+                // console.log(toReport)
                 toReport.forEach((elemStr) => {
                     if (elemIsInViewport(document.querySelector(`.scroll-tracking--${elemStr}`))) {
                         window._scrollTrackingData.elems.reported.push(elemStr);
@@ -123,12 +124,13 @@ export class OfferPage extends React.Component {
                     pSMods.LDBM = `toggle-${pSMods.selectedOffer.ldbm ? `front` : `back`}`;
                 }
             }
+            pSMods.source = `variableSet`;
             this.props.modifyPageSettings(pSMods);
         }
     }
     buildVariantTracking = (passObj) => {
-        console.log('started build variant tracking');
-        const milBuffer = 2000
+        // console.log('started build variant tracking');
+        const milBuffer = 250
         if (!window._bVT) {
             window._bVT = {
                 bufferMark: new Date().getTime() + milBuffer,
@@ -150,9 +152,9 @@ export class OfferPage extends React.Component {
             window._bVT.started = true;
             window._bVT.interval = setInterval(() => {
                 const currentTimeTest = new Date().getTime() > window._bVT.bufferMark;
-                console.log(currentTimeTest);
+                // console.log(currentTimeTest);
                 if (!window._bVT.complete && currentTimeTest) {
-                    if (!!window.tao.g.additionalVariantAttributes) {
+                    if (!!window.tao && !!window.tao.g && !!window.tao.g.additionalVariantAttributes) {
                         Object.keys(window.tao.g.additionalVariantAttributes).forEach((key) => {
                             window._bVT.passObj[key] = window.tao.g.additionalVariantAttributes[key];
                         });
@@ -218,7 +220,9 @@ export class OfferPage extends React.Component {
       this.setTitleAttribute();
     }
     render() {
-        window._scrollTrackingData.elems.reportable = mapScrollTrackingVariables(this.props.variables)
+        // console.log('variables', this.props.variables);
+        // console.log('tracking vars', mapScrollTrackingVariables(this.props.variables))
+        window._scrollTrackingData.elems.reportable = mapScrollTrackingVariables(this.props.variables);
         return (
             <div className={`page-wrap page-wrap--offerings-variable-${this.props.variables.offerings} page-wrap--location-${this.props.pageSettings.location} page-wrap--elligibility-${this.props.pageSettings.elligibility}`}>
                 {!!this.props.pageSettings.showSettings && <SettingsControl />}
@@ -231,8 +235,8 @@ export class OfferPage extends React.Component {
                 <VideoSection />
                 <ExamplesSection />
                 <FAQsSection />
-                {/link/.test(this.props.variables.lowerOfferings) && <OffersLink/>}
-                {/full/.test(this.props.variables.lowerOfferings) && <Offerings placement="bottom" />}
+                {this.props.variables.lowerOffersLink && <OffersLink/>}
+                {this.props.variables.lowerOfferings && <Offerings placement="bottom" />}
                 <OtherProductsSection />
                 <PrivacySection />
                 <FeedbackSection />

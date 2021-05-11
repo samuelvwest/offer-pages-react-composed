@@ -19,6 +19,8 @@ export const variables = getVariablesLocal() || {
     feedbackSection: false
 }
 
-variables.lowerOfferings = lowerOfferingsDisplayCalculation(variables);
+const lowerOfferingsValue = lowerOfferingsDisplayCalculation(variables)
+variables.lowerOfferings = /full/.test(lowerOfferingsValue);
+variables.lowerOffersLink = /link/.test(lowerOfferingsValue);
 
 export default variables;

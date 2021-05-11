@@ -81,12 +81,12 @@
 
     // Profile Attribute check/set
     var entryProfileStr = '${profile.presentationMessageEntry}';
-    console.log('profile.presentationMessageEntry', !!entryProfileStr);
+    // console.log('profile.presentationMessageEntry', !!entryProfileStr);
     if (entryProfileStr !== 'true') {
         window.tao.g.additionalVariantAttributes = {
             presentationMessageEntry: true,
             'profile.presentationMessageEntry': 'true'
         }
     }
-    console.log(window.tao.g.additionalVariantAttributes);
+    // console.log(window.tao.g.additionalVariantAttributes);
 </script>

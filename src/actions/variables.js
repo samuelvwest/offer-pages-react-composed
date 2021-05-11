@@ -91,6 +91,10 @@ export const variablesData = {
     lowerOfferings: {
         trackViewport: true,
         heightScore: 0
+    },
+    lowerOffersLink: {
+        trackViewport: true,
+        heightScore: 0
     }
 }
 

@@ -37,8 +37,8 @@ const Timeline = connect(mapStateToProps)(({ pageSettings: pS, variables }) => {
         const today = new Date();  
         const nextBill = /initial/.test(pS.elligibility) ? addDays(today, 14) : addMonths(today, subs.selectedOffer.renewalPeriod.billMonths);
         const barColorClass = /usdiscovery/.test(subs.selectedOffer.packageID) ? `usdis` : /worldexplorer/.test(subs.selectedOffer.packageID) ? `worldex` : `allaccess`;
-        console.log(subs.selectedOffer.renewalPeriod.billMonths.toString());
-        console.log(subs.selectedOffer);
+        // console.log(subs.selectedOffer.renewalPeriod.billMonths.toString());
+        // console.log(subs.selectedOffer);
         const vars = /initial/.test(pS.elligibility) ? {
             firstMark: <span>Today&nbsp;•&nbsp;</span>,
             bar: <p>

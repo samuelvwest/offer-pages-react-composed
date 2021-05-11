@@ -10,8 +10,10 @@ export default (state = pageSettings, action) => {
             return action.pageSettings;
         case 'MODIFY_PAGE_SETTINGS':
             const nextState = Object.assign({}, state);
+            // console.log(action.pageSettings);
             Object.keys(action.pageSettings).forEach((key) => {
-                if (key !== 'subscriptions') {
+                if (!/subscriptions|source/.test(key)) {
+                    // console.log(key);
                     nextState[key] = action.pageSettings[key];
                 }
             });
@@ -28,7 +30,8 @@ export default (state = pageSettings, action) => {
             const subscriptionsToUse = !!action.pageSettings.subscriptions ? action.pageSettings.subscriptions : state.subscriptions.offersMap;
             nextState.subscriptions = buildDisplayOffersData(nextState, subscriptionsToUse);
             setPageSettingsLocal(nextState);
-            if (!!action.pageSettings.selectedOffer) {
+            // Selected Offer Tracking 
+            if (!!action.pageSettings.selectedOffer && (!action.pageSettings.source || !/variableSet/.test(action.pageSettings.source))) {
                 const passObj = {
                     eventType: 'changedSelectedOffer'
                 };

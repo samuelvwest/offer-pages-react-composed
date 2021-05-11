@@ -7,7 +7,6 @@ import BonsaiGrid from './BonsaiGrid';
 import GreenTop from './GreenTop';
 import SparklyDragon from './SparklyDragon';
 import PrettyGrid from './PrettyGrid';
-import { promoSubscriptions } from '../../data/subscriptions';
 
 const mapPageSettingsStateToProps = (state) => {
     return {
@@ -28,7 +27,7 @@ const mapVariablesToProps = (state) => {
 };
 
 export const OffersLink = connect(mapVariableToProps)(({ offerings }) => (
-    <section className={`offerings-scroll-link finalCTACon offerings-variable--${offerings}`}>
+    <section className={`offerings-scroll-link finalCTACon offerings-variable--${offerings} scroll-tracking--lowerOffersLink`}>
         <div className="btnCon">
             <button className="ancBtn lrg"
                 onClick={() => {

@@ -103,7 +103,6 @@ export class PrettyGrid extends React.Component {
         this.setState({ expandAll: false })
     }
     render() {
-        console.log('Pretty Grid FAQs');
         const filterStr = RegExp(`all|${/initial/.test(this.props.pageSettings.elligibility) ? `free-trial` : `hard-offer`}`, `i`)
         return (
             <section className={`${classesMaker('pretty-grid')} offerings-variable--${this.props.variables.offerings} offerPageFaq scroll-tracking--faqsSection`}>
