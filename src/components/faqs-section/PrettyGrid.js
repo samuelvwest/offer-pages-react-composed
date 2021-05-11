@@ -42,7 +42,7 @@ const faqs = [
     }, {
         question: <span>How do I cancel my free&nbsp;trial?</span>,
         answer: <p>
-                Cancel anytime during the free trial period online or by calling 0-800-783-1340 (Mon-Fri 9am-10pm, Sat-Sun 9am-8pm&nbsp;GMT)
+                Cancel anytime at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>
             </p>,
         elligibility: `all`
     }
