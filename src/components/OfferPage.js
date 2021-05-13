@@ -174,7 +174,15 @@ export class OfferPage extends React.Component {
                 this.props.modifyVariables(tao.g.modifyVariables);
                 delete tao.g.modifyVariables;
             }
+            if (!!window.tao.g.modifyPageSettings) {
+                // console.log(`state from init: `, window.tao.g.modifyPageSettings);
+                window.tao.g.modifyPageSettings(tao.g.modifyVariables);
+                delete tao.g.window.tao.g.modifyPageSettings;
+            }
         }
+        window._mPS = (newState) => {
+            this.props.modifyPageSettings(newState);
+        };
         window._mV = (newState) => {
             // console.log(`state from _mV: `, newState);
             this.updatePageSettingsforEmphasis(newState);
@@ -210,9 +218,6 @@ export class OfferPage extends React.Component {
         // window._rS = (newState) => {
         //     this.props.replaceSubscriptions(newState);
         // };
-        window._mPS = (newState) => {
-            this.props.modifyPageSettings(newState);
-        };
     }
     componentDidMount() {
       window.addEventListener('resize', this.updateDimensions);
