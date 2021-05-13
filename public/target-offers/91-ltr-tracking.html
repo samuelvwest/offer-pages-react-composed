@@ -15,7 +15,7 @@
             var mapLTRs = {
                 usdiscovery: {
                     monthly: 214,
-                    quarterly: 214 * 1.42,
+                    quarterly: 214 * 1.23,
                     semi: 330,
                     sabm: 280,
                     annual: 455,
@@ -23,7 +23,7 @@
                 },
                 worldexplorer: {
                     monthly: 278,
-                    quarterly: 278 * 1.42,
+                    quarterly: 278 * 1.23,
                     quarterly1for3: 210,
                     semi: 447,
                     sabm: 425,
@@ -31,13 +31,13 @@
                     abm: 525
                 },
                 allaccess: {
-                    monthly: 278 * 1.25,
-                    quarterly: 278 * 1.42 * 1.25,
+                    monthly: 304,
+                    quarterly: 304 * 1.23,
                     quarterly1for3: 210 * 1.25,
-                    semi: 447 * 1.25,
-                    sabm: 425 * 1.25,
-                    annual: 732 * 1.25,
-                    abm: 525 * 1.25
+                    semi: 728,
+                    sabm: 644,
+                    annual: 774,
+                    abm: 550
                 }
             }
             var score = 0;
@@ -45,14 +45,18 @@
             var products = [].slice.call(document.querySelectorAll('.productDetails--offer'));
             products.forEach(function(product) {
                 var txt = product.parentNode.innerText;
-                var amount = Number(txt.match(/\$\d+\.\d+/)[0].replace('$',''));
+                var amount = Number(txt.match(/\d+\.\d+/)[0]);
+                console.log(txt);
                 if (/(G|g)ift/.test(txt)) {
-                    // console.log('gift in cart and not scored');
+                    console.log('gift sub detected', amount);
+                    var packageStr = /(A|a)ll (A|a)ccess/.test(txt) ? 'allaccess' : /(W|w)orld (E|e)xplorer/.test(txt) ? 'worldexplorer' : 'usdiscovery';
+                    productPurchasedStr = productPurchasedStr + ',' + packageStr + '|giftsub|' + amount;
+                    score = score + (amount * 0.88);
                 } else if (/AncestryDNA kit \(\d/.test(txt)) {
                     var quantity = Number(txt.match(/\(\d+\)/)[0].replace(/\(|\)/g, ''));
                     var cogs = quantity * 42;
-                    // console.log('dna kit detected', quantity, cogs, amount);
-                    productPurchasedStr = productPurchasedStr + ',' + product.innerText.replace(/ |\)+/g, '').replace(/\(/i, '|');
+                    console.log('dna kit detected', amount, quantity, cogs);
+                    productPurchasedStr = productPurchasedStr + ',' + product.innerText.replace(/ |\)(\n|.)+/g, '').replace(/\(/i, '|') + '|' + amount;
                     score = score + amount - cogs;
                 } else if (/(M|m)embership/.test(txt)) {
                     var packageStr = /(A|a)ll (A|a)ccess/.test(txt) ? 'allaccess' : /(W|w)orld (E|e)xplorer/.test(txt) ? 'worldexplorer' : 'usdiscovery';
@@ -75,7 +79,7 @@
                     var freeTrialAdjustment = freeTrialTest ? 0.85 : 1;
                     var subcriptionType = freeTrialTest ? 'freetrial' : 'hardoffer';
                     // console.log(packageStr, durationStr, mapLTRs[packageStr][durationStr], freeTrialAdjustment);
-                    productPurchasedStr = productPurchasedStr + ',' + packageStr + '|' + durationStr + '|' + subcriptionType;
+                    productPurchasedStr = productPurchasedStr + ',' + packageStr + '|' + durationStr + '|' + subcriptionType + '|' + amount;
                     score = score + (mapLTRs[packageStr][durationStr] * freeTrialAdjustment)
                 }
             })

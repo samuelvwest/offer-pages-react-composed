@@ -32,7 +32,7 @@ export const OffersLink = connect(mapVariableToProps)(({ offerings }) => (
             <button className="ancBtn lrg"
                 onClick={() => {
                     scrollTo({
-                        selector: `.offerings-style`, 
+                        selector: `.offerings-style:not(.offerings-placement--modal)`, 
                         trackStr: `scroll-to-offers-link`,
                         highlight: false
                     })

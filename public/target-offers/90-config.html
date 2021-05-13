@@ -1,11 +1,11 @@
 <script>
     // Prepare React setup function if not defined yet
-    window.tao.f.setupMVTScripts = window.tao.f.setupMVTScripts || function() {
-        if (!window.tao.g.setupMVTScriptRun) {
+    window.tao.f.setupSPAScripts = window.tao.f.setupSPAScripts || function() {
+        if (!window.tao.g.setupSPAScriptRun) {
             // Adjust styles for other elements on page
             tao.f.insertNode(`
-                <style id="mvtSetupStyles">
-                    body > *:not(.mvtShow) { 
+                <style id="spaSetupStyles" class="spaStyles">
+                    body > *:not(.spaShow) { 
                         display: none; 
                     } 
                 </style>`, document.body, 'prepend');
@@ -13,12 +13,12 @@
                 name: 'placeHideExcluders',
                 selector: '#HeaderRegion, #BannerRegion, #FooterRegion, .highlightedMbox',
                 attach: function(elem) {
-                    elem.classList.add('mvtShow')
+                    elem.classList.add('spaShow')
                 }
             });
             tao.f.windu({
                 name: 'removePageStyles',
-                selector: 'body > style:not(#mvtSetupStyles)',
+                selector: 'body > style:not(.spaStyles)',
                 attach: function(elem) {
                     tao.f.removeNode(elem);
                 }
@@ -30,40 +30,43 @@
                     return !!document.getElementById('HeaderRegion');
                 },
                 do: function() {
-                    tao.f.insertNode('<style id="mvtHideBodyStyle">#app.mvtShow { opacity: 0; }</style>', document.head);
-                    tao.f.insertNode('<div id="app" class="mvtShow"></div>', document.getElementById('HeaderRegion'), 'after');
+                    // tao.f.insertNode('<style id="spaHideBodyStyle">#app.spaShow { opacity: 0; }</style>', document.head);
+                    tao.f.insertNode('<div id="app"></div>', document.getElementById('HeaderRegion'), 'after');
 
                     // Show body after styles and scripts are loaded
-                    tao.g.mvtAppFilesLoaded = 0;
-                    tao.f.showMVTApp = () => {
-                        tao.g.mvtAppFilesLoaded++;
-                        if (tao.g.mvtAppFilesLoaded > 1) {
-                            tao.f.removeNode(document.getElementById('mvtHideBodyStyle'))
+                    tao.g.spaAppFilesLoaded = 0;
+                    tao.f.showSPAApp = () => {
+                        tao.g.spaAppFilesLoaded++;
+                        if (tao.g.spaAppFilesLoaded > 1) {
+                            document.getElementById('app').classList.add('spaShow');
                         }
                     }
 
+                    // Define version last built. majorVersion/minorVersion/bugUpdate
+                    var spaVersionFolders = 'v2/1/2/';
+
                     // App Styles
-                    var mvtStyles = document.createElement('link');
-                        mvtStyles.type = "text/css";
-                        mvtStyles.rel = "stylesheet";
-                        mvtStyles.href = 'https://www.ancestrycdn.com/mars/landing/offer-page-spa/v2/1/2/styles.css';
-                        mvtStyles.setAttribute("onload", "tao.f.showMVTApp();");
-                    document.head.appendChild(mvtStyles);
+                    var spaStyles = document.createElement('link');
+                        spaStyles.type = "text/css";
+                        spaStyles.rel = "stylesheet";
+                        spaStyles.href = 'https://www.ancestrycdn.com/mars/landing/offer-page-spa/' + spaVersionFolders + 'styles.css';
+                        spaStyles.setAttribute("onload", "tao.f.showSPAApp();");
+                    document.head.appendChild(spaStyles);
 
                     // App Script
-                    var mvtScript = document.createElement('script');
-                        mvtScript.type = 'text/javascript';
-                        mvtScript.src = 'https://www.ancestrycdn.com/mars/landing/offer-page-spa/v2/1/2/bundle.js';
-                        mvtScript.setAttribute("onload", "tao.f.showMVTApp();");
-                    document.head.appendChild(mvtScript);
+                    var spaScript = document.createElement('script');
+                        spaScript.type = 'text/javascript';
+                        spaScript.src = 'https://www.ancestrycdn.com/mars/landing/offer-page-spa/' + spaVersionFolders + 'bundle.js';
+                        spaScript.setAttribute("onload", "tao.f.showSPAApp();");
+                    document.head.appendChild(spaScript);
                 }
             });
             // prevent duplicate function runs
-            window.tao.g.setupMVTScriptRun = true;
+            window.tao.g.setupSPAScriptRun = true;
         }
     }
     // Run React Setup function in case it hasn't run yet.
-    window.tao.f.setupMVTScripts();
+    window.tao.f.setupSPAScripts();
 
 
 
