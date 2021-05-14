@@ -26,7 +26,7 @@ export class PrettyGrid extends React.Component {
         const pS = this.props.pageSettings;
         if (this.props.pageSettings.windowWidth < this.props.pageSettings.breaks.prettyGrid.tablet) {
             // Color Stack for Phone on all offer pages
-            return <ColorStack/>
+            return <ColorStack placement={this.props.placement}/>
         }
         const subs = pS.subscriptions;
         const splitPackagesArr = [];

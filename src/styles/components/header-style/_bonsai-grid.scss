@@ -31,6 +31,11 @@
             width: 100%;
             z-index:10;
         }
+        &.offerings-variable--sparkly-dragon {
+            .offerGrid .documentsImg {
+                max-width: 170px;
+            }
+        }
         &.offerings-variable--pretty-grid .offerGrid .documentsImg {
             max-width:200px;
             @media (min-width: 1005px) {
