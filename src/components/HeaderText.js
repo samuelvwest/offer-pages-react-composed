@@ -33,51 +33,49 @@ const classesMaker = (styleName) => {
     return `header-text header-text--${styleName}`
 }
 
-const ColorStack = connect(simpleMapStateToProps)(({ elligibility, timeline }) => (
+const ColorStack = connect(simpleMapStateToProps)(({ elligibility }) => (
     <span className={classesMaker('colorstack')}>
         Choose a membership to&nbsp;try
         {/initial/.test(elligibility) ? 
             <span> 
                 <strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} />
             </span> : 
-            <span>.{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true} />}</span>
+            <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
         }
     </span>
 ));
 
-const GreenTop = connect(simpleMapStateToProps)(({ elligibility, timeline }) => {
+const GreenTop = connect(simpleMapStateToProps)(({ elligibility }) => {
     return (
         <span className={classesMaker('greentop')}>
             We're giving you access to <i>your</i>&nbsp;history.
             {/initial/.test(elligibility) ? (
                     <LegalSup supRef="freeTrial" goToOnClick={true} />
-                ) : !timeline ? (
-                    <LegalSup supRef="hardOffer" goToOnClick={true} />
                 ) : (
-                    <span></span>
+                    <LegalSup supRef="hardOffer" goToOnClick={true} />
                 )
             }
         </span>
     )
 });
 
-const ColorGrid = connect(simpleMapStateToProps)(({ elligibility, timeline }) => (
+const ColorGrid = connect(simpleMapStateToProps)(({ elligibility }) => (
     <span className={classesMaker('colorgrid')}>
         Discover your family story with an Ancestry&nbsp;membership
         {/initial/.test(elligibility) ? 
             <span><strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} /></span> : 
-            <span>.{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}</span>
+            <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
         }
     </span>
 ));
 
-const BonsaiGrid = connect(simpleMapStateToProps)(({ elligibility, timeline }) => /initial/.test(elligibility) ? (
+const BonsaiGrid = connect(simpleMapStateToProps)(({ elligibility }) => /initial/.test(elligibility) ? (
     <span className={classesMaker('bonsaigrid')}>
         Explore the world's largest online family history resource<span className="header-text__free-for">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
     </span>
 ) : (
     <span className={classesMaker('bonsaigrid')}>
-        Start exploring the world’s largest online family history resource&nbsp;today.{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}
+        Start exploring the world’s largest online family history resource&nbsp;today.<LegalSup supRef="hardOffer" goToOnClick={true}/>
     </span>
 ));
 
@@ -96,17 +94,17 @@ const Control = connect(mapStateToProps)(( { pageSettings: pS } ) => {
     return <BonsaiGrid/>
 });
 
-const SparklyDragon = connect(simpleMapStateToProps)(({ elligibility, timeline }) => (
+const SparklyDragon = connect(simpleMapStateToProps)(({ elligibility }) => (
     <span className={classesMaker('sparklydragon')}>
         Connect with your ancestors through historical documents. 
         {/initial/.test(elligibility) ? 
             <span className="header-text__free-for">Free for 14 days<LegalSup supRef="freeTrial" goToOnClick={true} /></span> :
-            <span>{!timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}</span>
+            <span><LegalSup supRef="hardOffer" goToOnClick={true} /></span>
         }
     </span>
 ));
 
-const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS, variables } ) => {
+const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
     if (window.innerWidth < pS.breaks.prettyGrid.tablet) {
         // Control text from Color Stack design – phone on all offer pages
         return <ColorStack/>
@@ -118,7 +116,7 @@ const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS, variables } ) 
         </span>
     ) : (
         <span className={classesMaker('prettygrid')}>
-            Start tracing your family&nbsp;tree.{!variables.timeline && <LegalSup supRef="hardOffer" goToOnClick={true}/>}
+            Start tracing your family&nbsp;tree.<LegalSup supRef="hardOffer" goToOnClick={true} />
         </span>
     )
 });

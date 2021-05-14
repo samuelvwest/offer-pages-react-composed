@@ -1,0 +1,56 @@
+Live Pages
+    HOLP - https://www.ancestry.com/cs/offers/subscribe
+    FTLP - https://www.ancestry.com/cs/offers/freetrial
+    US CARE - https://www.ancestry.com/cs/offers/join?sub=9288674231746560&dbid=2204&url=http%3a%2f%2fsearch.ancestry.com%2fcgi-bin%2fsse.dll%3fgss%3dangs-c%26new%3d1%26rank%3d1%26msT%3d1%26gsfn%3dJohn%26gsln%3dSmith%26MSAV%3d0%26cp%3d0%26catbucket%3drstp%26uidh%3d000%26pcat%3dBMD_BIRTH%26h%3d815672%26db%3dSARMemberApps%26indiv%3d1%26ml_rpos%3d1%26requr%3d9288674231746560%26ur%3d0&gsfn=John&gsln=Smith&h=815672
+    WE CARE - https://www.ancestry.com/cs/offers/join?sub=11540766109237252&dbid=1175&url=http%3a%2f%2fsearch.ancestry.com%2fcgi-bin%2fsse.dll%3fgss%3dangs-c%26new%3d1%26rank%3d1%26msT%3d1%26gsfn%3dJohn%26gsln%3dSmith%26MSAV%3d0%26cp%3d11%26catbucket%3drstp%26cpxt%3d1%26pcat%3d34%26h%3d7130%26recoff%3d7%2b8%26db%3dBreconMarriages%26indiv%3d1%26ml_rpos%3d1%26requr%3d11540766109237252%26ur%3d0&gsfn=John&gsln=Smith&h=7130
+
+
+
+Standards
+    ABs
+        HeaderStyle: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-headerstyle-tr202
+        HeaderText: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-headertext-tr2021
+        Timeline: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-timeline-tr202105
+        Offerings: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-offerings-tr20210
+        PackageEmphasis: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-packageemphasis-t
+        DurationEmphasis: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-durationemphasis-
+        SupportSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-supportsection-tr
+        FeaturesGrid: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-featuresgrid-tr20
+        TestimonialSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-testimonialsectio
+        InfoSections: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-infosections-tr20
+        VideoSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-videosection-tr20
+        ExamplesSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-examplessection-t
+        FAQsSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-faqssection-tr202
+        OtherProductsSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-otherproductssect
+        PrivacySection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-privacysection-tr
+        FeedbackSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-feedbacksection-t
+    MVTs
+        Group One: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/MVT/us_offer_pages_presentationmessage-mvtsgroupone-tr20210513
+        Group Two: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/MVT/us_offer_pages_presentationmessage-standardmvts-grouptwo-tr20210
+        Group Three: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/MVT/us_offer_pages_presentationmessage-standardmvts-groupthree-tr202
+        Group Four: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/MVT/us_offer_pages_presentationmessage-standardmvts-groupfour-tr2021
+
+
+APs 
+    ABs
+        HeaderStyle: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-headerstyle-tr2020
+        HeaderText: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-standardabs-headertext-tr20210
+        Timeline: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-timeline-ap20210513
+        Offerings: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-offerings-ap20210513
+        PackageEmphasis: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-packageemphasis-ap20210
+        DurationEmphasis: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-durationemphasis-ap2021
+        SupportSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-supportsection-ap202105
+        FeaturesGrid: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-featuresgrid-ap20210513
+        TestimonialSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-testimonialsection-ap20
+        InfoSections: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-infosections-ap20210513
+        VideoSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-videosection-ap20210513
+        ExamplesSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-examplessection-ap20210
+        FAQsSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-faqssection-ap20210513
+        OtherProductsSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-otherproductssection-ap
+        PrivacySection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-privacysection-ap202105
+        FeedbackSection: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/A-B/us_offer_pages_presentationmessage-apabs-feedbacksection-ap20210
+    MVTs
+        Group One: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/1-1/us_offer_pages_presentationmessage-apmvtsgroupone-ap20210513
+        Group Two: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/1-1/us_offer_pages_presentationmessage-apmvts-grouptwo-ap20210513
+        Group Three: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/1-1/us_offer_pages_presentationmessage-apmvts-groupthree-ap20210513
+        Group Four: https://experience.adobe.com/#/@ancestry-com/target/activities/reports/1-1/us_offer_pages_presentationmessage-apmvts-groupfour-ap20210513

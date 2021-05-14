@@ -145,6 +145,12 @@ export class OfferPage extends React.Component {
         } else {
             window._bVT.bufferMark = new Date().getTime() + milBuffer;
         }
+        if (typeof window.targetPageParams === 'function') {
+            const pageParams = window.targetPageParams();
+            if (!!pageParams.pageType && /deny/.test(pageParams.pageType)) {
+                window._bVT.passObj.denyType = /wft|weft/.test(pageParams.pageType) ? 'WE' : 'US';
+            }
+        }
         Object.keys(passObj).forEach((key) => {
             window._bVT.passObj[key] = passObj[key]
         })
