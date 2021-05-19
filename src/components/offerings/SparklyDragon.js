@@ -397,7 +397,7 @@ export class SparklyDragon extends React.Component {
                             </form>
                         )
                     }
-                    {subs.ldbms && <LegalLongDurationBilledMonthly/>}
+                    {(subs.selectedOffer.ldbm && subs.ldbms) && <LegalLongDurationBilledMonthly/>}
                 </div>
             </div>
         )

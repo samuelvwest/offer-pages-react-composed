@@ -153,7 +153,7 @@ export class ColorStack extends React.Component {
                         </section>
                     </section>
                 </form>
-                {subs.ldbms && <LegalLongDurationBilledMonthly/>}
+                {(subs.selectedOffer.ldbm && subs.ldbms) && <LegalLongDurationBilledMonthly/>}
             </div>
         )
     }
