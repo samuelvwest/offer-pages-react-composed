@@ -40,9 +40,9 @@ export class SparklyDragon extends React.Component {
                     <div className="buttonpills-wrap">
                         <div className="buttonpills-inner" style={{ width: `${(40 + ((subs.display.durations.length - (subs.display.durations.length < 4 ? 0 : 1)) * 105))}px`}}>
                             <div className="buttonPills">
-                                {subs.display.durations.map((duration, index, array) => {
+                                {subs.display.durations.map((duration) => {
                                     const toggleButtonTest = duration.num > 1 && toggleTest;
-                                    const privateRowTest = duration.num === 1 && (sbsTest || (toggleTest && subs.display.durations.length > 3) || ((subs.display.durations.length % 2) !== 0 && subs.display.durations.length > 3));
+                                    const privateRowTest = duration.num === 1 && (sbsTest || (toggleTest && subs.display.durations.length > 3) || (subs.display.durations.length % 2) !== 0);
                                     const activeTest = duration.num === subs.selectedOffer.renewMonths && (toggleButtonTest ? true : duration.ldbm === subs.selectedOffer.ldbm);
                                     return (
                                         <button key={`${duration.num}MR_${duration.ldbm ? 1 : duration.num}MB`} type="button" 
@@ -55,7 +55,7 @@ export class SparklyDragon extends React.Component {
                                                 }
                                             })}
                                         >
-                                            {duration.num === 1 ? duration.text : `${duration.num} MONTHS`}
+                                            {duration.num === 1 ? duration.text.toUpperCase() : `${duration.num} MONTHS`}
                                             {duration.num !== 1 && subs.ldbms && sbsTest && <span>paid {duration.ldbm ? `monthly` : `upfront`}</span>}
                                         </button>
                                     )

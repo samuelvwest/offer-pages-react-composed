@@ -51,6 +51,20 @@
             }
         }
     }
+    &.offerings-variable--pretty-grid {
+        .txtColor {
+            color:#0079a3; 
+            &.txtColor--usdiscovery {
+                color:#0079a3; 
+            }
+            &.txtColor--worldexplorer {
+                color:#6ba410; 
+            }
+            &.txtColor--allaccess {
+                color: #655586; 
+            }
+        }
+    }
 
     .greenTxt { 
         color:#9cbf3b; 

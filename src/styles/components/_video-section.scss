@@ -95,17 +95,23 @@
                 position:relative;
                 display:block;
                 margin: 20px auto 0 auto;
-                background-image: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/how-ancestry-new.png);
+                background-image: url(https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png);
                 background-size:contain;
                 background-repeat:no-repeat;
                 width:263px;
                 padding-bottom: 99px;
+                &.loadedBgImg{
+                    background-image: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.25/images/how-ancestry-new.png);
+                }
                 @media (min-width: 768px) {
                     width: 497px;
                     max-width:100%;
                     margin-top: 0;
                     padding-bottom:136px;
-                    background-image: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.5/images/how-ancestry.png);
+                    background-image: url(https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png);
+                    &.loadedBgImg{
+                        background-image: url(https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.5/images/how-ancestry.png);
+                    }
                 }
                 &.relationship-map--embedded {
                     padding-bottom: 0;

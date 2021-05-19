@@ -38,7 +38,7 @@ const OtherProductsSection = connect(mapStateToProps)((props) => {
                                 })
                             }}
                         >
-                            <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/logo-dna.png" className="logo-dna-new" />
+                            <img className="logo-dna-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.40/images/logo-dna.png" />
                         </a>
                         <a className="logo-health-wrap-new" href="https://www.ancestry.com/cs/gift-selection"
                             onClick={() => {

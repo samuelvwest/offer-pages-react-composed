@@ -75,3 +75,51 @@ export const scrollTo = ({ selector, trackStr, highlight = true }) => {
         })
     }
 }
+
+export const lazyLoadImgs = () => {
+    // if (!window._lazyLoadImgsInitiated) {
+        window._lazyLoadImgsInitiated = true;
+        var lazyImages = [].slice.call(document.querySelectorAll("img.lazyImg:not(.lazyObserved)"));
+        var lazyBgImages = [].slice.call(document.querySelectorAll(".lazyBgImg:not(.lazyObserved)"));
+        if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazyImg");
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+            lazyImage.classList.add('lazyObserved')
+        });
+        let lazyBgImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyBgImage = entry.target;
+                    lazyBgImage.classList.add("loadedBgImg");
+                }
+            });
+        });
+        lazyBgImages.forEach(function(lazyBgImage) {
+            lazyBgImageObserver.observe(lazyBgImage);
+            lazyBgImage.classList.add('lazyObserved')
+        });
+        } else {
+        // fall back to on scroll lazy load for browsers that don't recognize IntersectionObserver
+        var lazyImg = document.querySelectorAll('.lazyImg'),
+        lazyBgImg = document.querySelectorAll('.lazyBgImg');
+        window.addEventListener('scroll', function() {
+            for (var i = 0; i < lazyImg.length; i++) {
+                lazyImg[i].src = lazyImg[i].getAttribute('data-src');
+            }
+            for (var i = 0; i < lazyBgImg.length; i++) {
+                lazyBgImg[i].classList.add('loadedBgImg');
+            }
+        });
+        }
+    // }
+}

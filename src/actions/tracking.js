@@ -13,8 +13,8 @@ export const adobeTargetTrackEvent = (params) => {
         if (!window.tao.g.spaTrackedEvents.some((tS) => tS === trackStr)) {
             window.tao.f.trackEvent(passObj);
             window.tao.g.spaTrackedEvents.push(trackStr);
-            if (/aiapconfig/.test(document.location.href)) {
-                console.log('sent: ', passObj);
+            if (/aiapconfig|PnMTestOn/.test(document.location.href)) {
+                console.log('sent: ', passObj.mbox, passObj.params);
             }
         }
     } else {

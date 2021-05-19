@@ -28,7 +28,7 @@ const SupportSection = connect(mapStateToProps)(({ pageSettings: pS, variables }
                 >
                     <div className="feature-description-new">
                         <p className="feature-title-new">
-                            <img className="feature-img-new mobile-support-img" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/phone1.png" />
+                            <img className="feature-img-new mobile-support-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/phone1.png" />
                             Support
                         </p>
                         <strong className="textlrg bamboo4">Need help?</strong>

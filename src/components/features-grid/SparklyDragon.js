@@ -18,7 +18,7 @@ const featuresData = [
     {
         type: `global-feature`,
         text: <div>
-                <img className="feature-img-new" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/Leaf Solid.png" />
+                <img className="feature-img-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/Leaf Solid.png" />
                 Ancestry Hints®
                 <div className="topSpacing plan-para-color">Where we do the searching for you to expand your family&nbsp;tree.</div>
             </div>,
@@ -26,7 +26,7 @@ const featuresData = [
     }, {
         type: `global-feature`,
         text: <div>
-                <img className="feature-img-new" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/iconTree.png" />
+                <img className="feature-img-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/iconTree.png" />
                 Family Tree Building&nbsp;Tools
                 <div className="topSpacing plan-para-color">See how you're related to family members across&nbsp;generations.</div>
             </div>,
@@ -34,7 +34,7 @@ const featuresData = [
     }, {
         type: `global-feature`,
         text: <div>
-                <img className="feature-img-new" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/tree_plus.png" />
+                <img className="feature-img-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/tree_plus.png" />
                 Family Tree Sharing
                 <div className="topSpacing plan-para-color">Invite other family and friends to view or edit your&nbsp;tree.</div>
             </div>,
@@ -42,7 +42,7 @@ const featuresData = [
     }, {
         type: `global-feature`,
         text: <div>
-                <img className="feature-img-new" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/pictures.png" />
+                <img className="feature-img-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/pictures.png" />
                 Family Media Upload
                 <div className="topSpacing plan-para-color">Save and preserve family records, stories, and photos to your&nbsp;account.</div>
             </div>,
@@ -50,7 +50,7 @@ const featuresData = [
     }, {
         type: `global-feature`,
         text: <div>
-                <img className="feature-img-new" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/people_man_comment.png" />
+                <img className="feature-img-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/people_man_comment.png" />
                 Ancestry Member Community
                 <div className="topSpacing plan-para-color">Connect with millions of other Ancestry© members to ask for help, share ideas, and make&nbps;discoveries.</div>
             </div>,
@@ -58,7 +58,7 @@ const featuresData = [
     }, {
         type: `global-feature`,
         text: <div>
-                <img className="feature-img-new mobile-support-img" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/phone1.png" />
+                <img className="feature-img-new mobile-support-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/phone1.png" />
                 Support
                 <br /><strong className="textlrg bamboo4">Need help?</strong>
                 <span className="bamboo4 help-contact">1-800-ANCESTRY</span>
@@ -86,13 +86,13 @@ const featuresData = [
         type: `record-access`,
         text: <div>
                 <span className="table-row-head">
-                    <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.17/images/newspapers.svg" className="table-newspapers-img" /> 
+                    <img className="table-newspapers-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.17/images/newspapers.svg" /> 
                 </span>
                 <span className="textsml basicsubs-wrap">
                     <span className="mr-1">Basic subscription</span>
                 </span>
                 <div className="tooltip">
-                    <img className="align-middle" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.10/images/question.png" />
+                    <img className="align-middle lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.10/images/question.png" />
                     <span className="tooltiptext tooltip-top normal">
                         <LegalNewspapersBasic />
                     </span>
@@ -104,7 +104,7 @@ const featuresData = [
         type: `record-access`,
         text: <div>
                 <span className="table-row-head">
-                    <img src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.17/images/fold-3.svg" className="table-fold-img" /> 
+                    <img className="table-fold-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.17/images/fold-3.svg" /> 
                 </span>
                 <span className="textsml">Additional military records</span>
                 <div className="topSpacing plan-para-color">Search for family stories in more than 537 million U.S. military records on&nbsp;Fold3®.</div>

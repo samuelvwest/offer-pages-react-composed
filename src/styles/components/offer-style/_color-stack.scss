@@ -99,6 +99,27 @@
                 }
             }
         }
+        &.offerings-variable--pretty-grid {
+            .ftlpMobileSprite {
+                &.leftPkgImg {
+                    &.leftPkgImg--usdiscovery {
+                        .colorOverlay {
+                            background: #0079a3;
+                        }
+                    }
+                    &.leftPkgImg--worldexplorer {
+                        .colorOverlay {
+                            background: #6ba410;
+                        }
+                    }
+                    &.leftPkgImg--allaccess {
+                        .colorOverlay {
+                            background: #655586;
+                        }
+                    }
+                }
+            }
+        }
 
         .bluePackageRow {
             background-color: #1c88b0;
@@ -106,6 +127,11 @@
             height: 110px;
             overflow: hidden;
             width: 100%;
+        }
+        &.offerings-variable--pretty-grid {
+            .bluePackageRow {
+                background-color: #0079a3;
+            }
         }
 
         .monthlyPriceCon.ancGrid {
@@ -137,6 +163,11 @@
                 color: #fff;
             }
         }
+        &.offerings-variable--pretty-grid {
+            .greenPackageRow {
+                background-color: #6ba410;
+            }
+        }
 
         .orangePackageRow {
             background-color: #d68b35;
@@ -146,6 +177,11 @@
             width: 100%;
             label:link {
                 color: #fff;
+            }
+        }
+        &.offerings-variable--pretty-grid {
+            .orangePackageRow {
+                background-color: #655586;
             }
         }
 

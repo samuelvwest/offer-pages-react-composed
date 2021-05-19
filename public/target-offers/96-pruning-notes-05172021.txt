@@ -1,0 +1,47 @@
+
+Removal Consideration
+    Group One
+        HeaderStyle
+            Control
+    Group Two
+        Offerings
+            Sparkly dragon
+    Group Three
+        TestimonialSection
+
+
+
+
+
+
+
+Looks Promising
+    Group One
+        HeaderStyle
+            Pretty Grid
+            Sparkly Dragon
+        HeaderText
+            Pretty Grid
+    Group Two
+        Offerings
+            Pretty Grid
+        PackageEmphasis
+            All Access
+        DurationEmphasis
+            Semi
+            SABM
+    Group Three
+        InfoSections
+
+
+
+
+
+Important notes
+    Group Two
+        PackageEmphasis
+            All Access      decreases conversion AND increases revenue
+        DurationEmphasis 
+            Semi-annual     ditto above
+            SABM            ditto above
+        

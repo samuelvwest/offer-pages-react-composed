@@ -58,7 +58,7 @@ const InfoSections = connect(mapStateToProps)(({ pageSettings: pS, variables }) 
                     <div className="page bgDark">
                         <div className="ancGrid ancGridEqual ftSubPageGrid">
                             <div className="ancCol w50 ftSubPageBkgCol">
-                                <div className="recordsImg"></div>
+                                <div className="recordsImg lazyBgImg"></div>
                             </div>
                             <div className="ancCol w50 ftSubPageContentCol">
                                 <div className="recordsContentWrap">
@@ -77,7 +77,7 @@ const InfoSections = connect(mapStateToProps)(({ pageSettings: pS, variables }) 
                                 <p className="ftSubSectionIntro familyTreeIntro">Ancestry makes charting your family history easier and faster than you ever imagined. With an intuitive interface and intelligent Hints, you’ll have guidance every step of the way.</p>
                             </div>
                             <div className="ancCol w60 ftSubPageBkgCol">
-                                <div className="familyTreeImg fadeInAnim"></div>
+                                <div className="familyTreeImg fadeInAnim lazyBgImg"></div>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ const InfoSections = connect(mapStateToProps)(({ pageSettings: pS, variables }) 
                     <div className="page">
                         <div className="ancGrid ancGridEqual ftSubPageGrid">
                             <div className="ancCol w50 ftSubPageBkgCol">
-                                <div className="timelinesImg"></div>
+                                <div className="timelinesImg lazyBgImg"></div>
                             </div>
                             <div className="ancCol w50 ftSubPageContentCol">
                                 <div className="timelinesContentWrap">

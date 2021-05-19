@@ -26,7 +26,7 @@ export class ColorStack extends React.Component {
         const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
         const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
         return (
-            <div className={`${classesMaker('colorstack')} offerings-placement--${this.props.placement}${/bottom/.test(this.props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
+            <div className={`${classesMaker('colorstack')} offerings-placement--${this.props.placement}${/bottom/.test(this.props.placement) ? ` scroll-tracking--lowerOfferings` : ``} offerings-variable--${this.props.variables.offerings}`}>
                 <form action="/checkout/mli?" 
                     ref={(ref) => { this.colorStackForm = ref }}
                     onSubmit={(e) => {

@@ -127,7 +127,7 @@
             }
 
             .recordsImg {
-                background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-recordbkg.jpg) repeat-y;
+                background: url(https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png) no-repeat;
                 background-position: 100% 100%;
                 background-size: 100% auto;
                 height: inherit;
@@ -136,20 +136,26 @@
                 position: absolute;
                 top: 0;
                 width: 491px;
+                &.loadedBgImg{
+                    background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-recordbkg.jpg) repeat-y;
+                }
             }
 
             .familyTreeImg {
-                background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-familytree.png) no-repeat;
+                background: url(https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png) no-repeat;
                 display: block;
                 height: 361px;
                 left: 30px;
                 position: absolute;
                 top: 35px;
                 width: 627px;
+                &.loadedBgImg{
+                    background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-familytree.png) no-repeat;
+                }
             }
 
             .timelinesImg {
-                background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-timelinebkg.png) no-repeat;
+                background: url(https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png) no-repeat;
                 background-position: 0 100%;
                 background-size: 100% auto;
                 bottom: 0;
@@ -159,6 +165,9 @@
                 max-width: 100%;
                 position: absolute;
                 width: 447px;
+                &.loadedBgImg{
+                    background: url(https://www.ancestrycdn.com/mars/landing/deny/2016/freetrial-deny-timelinebkg.png) no-repeat;
+                }
             }
 
             .recordsContentWrap {

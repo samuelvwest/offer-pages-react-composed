@@ -29,11 +29,14 @@
         }
 
         .fullPgImgSprite {
-            background-image: url(https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/ftlp-mobile-more-sprite3.png);
+            background:url(https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png);
             background-repeat: no-repeat;
             float: left;
             margin: auto;
             width: 173px;
+            &.loadedBgImg {
+                background-image: url(https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/ftlp-mobile-more-sprite3.png);
+            }
         }
 
         @media only screen and (max-width: 480px) {
@@ -65,14 +68,17 @@
         }
 
         .testimonialBkg {
-            background-image: url(https://www.ancestrycdn.com/mars/landing/offer/2018/hero-tree/3080-hero-tree-offer-testimonial-bkg.jpg);
-            background-size: calc(100% + 90px) 100%;
-            // background-position: 90px;
+            background:url(https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png);
             position: absolute;
             right:0;
             top: 0;
             width: 1005px;
             // margin-right: 90px;
+            &.loadedBgImg {
+                background-image: url(https://www.ancestrycdn.com/mars/landing/offer/2018/hero-tree/3080-hero-tree-offer-testimonial-bkg.jpg);
+                background-size: calc(100% + 90px) 100%;
+                // background-position: 90px;
+            }
             &:after {
                 content: "";
                 display: block;

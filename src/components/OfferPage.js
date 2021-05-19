@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { modifyPageSettings } from '../actions/pageSettings';
 import { modifyVariables, mapScrollTrackingVariables } from '../actions/variables';
 import { adobeTargetTrackEvent, elemIsInViewport } from '../actions/tracking';
+import { lazyLoadImgs } from '../actions/utilities';
 import SettingsControl from './SettingsControl';
 import HeaderStyle from './header-style/HeaderStyle';
 import Offerings, { OffersLink }  from './offerings/Offerings';
@@ -55,8 +56,9 @@ export class OfferPage extends React.Component {
                     windowWidth: window.outerWidth,
                     windowHeight: window.outerWidth
                 });
+                lazyLoadImgs();
                 delete window._resizeBuffer;
-            }, 500)
+            }, 500);
         }
     }
     trackElemsInViewport = () => {
@@ -110,7 +112,7 @@ export class OfferPage extends React.Component {
             const pSMods = {
                 selectedOffer: {
                     renewMonths: this.props.pageSettings.selectedOffer.renewMonths,
-                    packageID: this.props.pageSettings.selectedOffer.packagID,
+                    packageID: this.props.pageSettings.selectedOffer.packageID,
                     ldbm: this.props.pageSettings.selectedOffer.ldbm 
                 }
             }
@@ -230,6 +232,7 @@ export class OfferPage extends React.Component {
       window.addEventListener('resize', this.updateDimensions);
       window.addEventListener('scroll', this.trackElemsInViewport);
       this.setTitleAttribute();
+      lazyLoadImgs();
     }
     render() {
         // console.log('variables', this.props.variables);

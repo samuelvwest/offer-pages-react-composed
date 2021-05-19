@@ -39,7 +39,7 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
                     <div className="quoteArrow"></div>
                 </div>
                 <div className="quoteNameCon">
-                    <div className="fullPgImgSprite quoteImg"></div>
+                    <div className="fullPgImgSprite quoteImg lazyBgImg"></div>
                     <p className="textalt coloralt text2xlrg">Mary D.<br /><span className="textxsml">ANCESTRY MEMBER</span></p>
                 </div>
             </section>
@@ -53,7 +53,7 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
                 }}
             >
                 <div className="pagePadded">
-                    <div className="testimonialBkg"></div>
+                    <div className="testimonialBkg lazyBgImg"></div>
                     <div className="testimonialContent coloralt4 topSpacingBlock">
                         <h2 className="italic text4xlrg"><MaryDQuote brk={true} />”</h2>
                         <p className="textxlrg bold">Mary D. –Ancestry Member</p>

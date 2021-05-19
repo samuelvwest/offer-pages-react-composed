@@ -27,7 +27,7 @@ const PrivacySection = connect(mapStateToProps)(({ pageSettings: pS, variables }
                 <div className={`privacy-container mb-6 over-the-top m10 ${classesMaker(`sparkly-dragon`)}`}>
                     <div className="privacy-head-wrapper">
                         <h1 className="conTitle feature-title flex-container flex-center">
-                            <img className="lock-img" src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.12/images/lock.png" />
+                            <img className="lock-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.12/images/lock.png" />
                             Privacy
                         </h1>
                         <a href="https://www.ancestry.com/cs/legal/privacystatement" target="_blank"
