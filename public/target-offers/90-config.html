@@ -8,6 +8,13 @@
                     body > *:not(.spaShow) { 
                         display: none; 
                     } 
+                    #appLoading.loading {
+                        height:200px;
+                    }
+                    #appLoading.loading:before {
+                        min-height:60px;
+                        min-width:60px;
+                    }
                 </style>`, document.body, 'prepend');
             tao.f.windu({
                 name: 'placeHideExcluders',
@@ -32,18 +39,20 @@
                 do: function() {
                     // tao.f.insertNode('<style id="spaHideBodyStyle">#app.spaShow { opacity: 0; }</style>', document.head);
                     tao.f.insertNode('<div id="app"></div>', document.getElementById('HeaderRegion'), 'after');
+                    tao.f.insertNode('<div id="appLoading" class="spaShow loading"></div>', document.getElementById('HeaderRegion'), 'after');
 
                     // Show body after styles and scripts are loaded
                     tao.g.spaAppFilesLoaded = 0;
                     tao.f.showSPAApp = () => {
                         tao.g.spaAppFilesLoaded++;
                         if (tao.g.spaAppFilesLoaded > 1) {
+                            tao.f.removeNode(document.getElementById('appLoading'));
                             document.getElementById('app').classList.add('spaShow');
                         }
                     }
 
                     // Define version last built. majorVersion/minorVersion/bugUpdate
-                    var spaVersionFolders = 'v2/2/1/';
+                    var spaVersionFolders = 'v2/2/2/';
 
                     // App Styles
                     var spaStyles = document.createElement('link');

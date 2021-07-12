@@ -1,0 +1,28 @@
+<script>
+    // Set up variable control function if not defined yet
+    window._mV = window._mV || function(newState) {
+        tao.g.modifyVariables = tao.g.modifyVariables || {};
+        Object.keys(newState).forEach((key) => {
+            tao.g.modifyVariables[key] = newState[key];
+        });
+    }
+    // Set this variable variant definition.
+    window._mV({ 
+        headerStyle: `pretty-grid`,
+        headerText: `sparkly-dragon`,
+        timeline: false,
+        offerings: `pretty-grid`,
+        packageEmphasis: `worldexplorer`,
+        durationEmphasis: `sabm`,
+        supportSection: false,
+        featuresGrid: `pretty-grid`,
+        testimonialSection: true,
+        infoSections: true,
+        videoSection: false,
+        examplesSection: true,
+        faqsSection: `pretty-grid`,
+        otherProductsSection: true,
+        privacySection: false,
+        feedbackSection: false
+    })
+</script>

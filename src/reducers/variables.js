@@ -13,9 +13,14 @@ export default (state = variables, action) => {
                 nextState[key] = action.variables[key];
             });
             setVariablesLocal(nextState);
-            const lowerOfferingsValue = lowerOfferingsDisplayCalculation(nextState)
-            nextState.lowerOfferings = /full/.test(lowerOfferingsValue);
-            nextState.lowerOffersLink = /link/.test(lowerOfferingsValue);
+            if (
+                typeof action.variables.lowerOfferings === 'undefined' 
+                || typeof action.variables.lowerOffersLink === 'undefined'
+            ) {
+                const lowerOfferingsValue = lowerOfferingsDisplayCalculation(nextState)
+                nextState.lowerOfferings = /full/.test(lowerOfferingsValue);
+                nextState.lowerOffersLink = /link/.test(lowerOfferingsValue);
+            }
             return nextState;
         default: 
             return state;

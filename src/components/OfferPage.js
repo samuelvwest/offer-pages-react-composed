@@ -45,7 +45,7 @@ export class OfferPage extends React.Component {
     // }
     setTitleAttribute = () => {
         document.title = this.props.pageSettings.location === `freetrial` ? 
-            `Start your FREE trial at Ancestry` : this.props.pageSettings.location === 'hardoffer' ? 
+            `Start your FREE trial at Ancestry` : this.props.pageSettings.location === 'subscribe' ? 
             `Become a member` : `Join Ancestry`;
     }
     updateDimensions = () => {
@@ -236,7 +236,7 @@ export class OfferPage extends React.Component {
     }
     render() {
         // console.log('variables', this.props.variables);
-        // console.log('tracking vars', mapScrollTrackingVariables(this.props.variables))
+        // console.log('tracking vars', mapScrollTrackingVariables(this.props.variables));
         window._scrollTrackingData.elems.reportable = mapScrollTrackingVariables(this.props.variables);
         return (
             <div className={`page-wrap page-wrap--offerings-variable-${this.props.variables.offerings} page-wrap--location-${this.props.pageSettings.location} page-wrap--elligibility-${this.props.pageSettings.elligibility}`}>

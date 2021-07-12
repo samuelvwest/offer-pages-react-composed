@@ -1,0 +1,43 @@
+<script>
+    // Set up variable control function if not defined yet
+    window._mV = window._mV || function(newState) {
+        tao.g.modifyVariables = tao.g.modifyVariables || {};
+        Object.keys(newState).forEach((key) => {
+            tao.g.modifyVariables[key] = newState[key];
+        });
+    }
+
+    var liveLocationCheck = document.location.pathname.match(`offers\/?(.*)`),
+        liveLoc = !!liveLocationCheck ? liveLocationCheck[1] : `freetrial`,
+        phoneView = window.innerWidth < 601,
+        tabletView = window.innerWidth >= 601 && window.innerWidth < 769,
+        desktopView = window.innerWidth >= 769;
+    // Set this variable variant definition.
+    var variablesObj = { 
+        headerStyle: `control`,
+        headerText: `control`,
+        timeline: false,
+        offerings: `control`,
+        packageEmphasis: `usdiscovery`,
+        durationEmphasis: `monthly`,
+        supportSection: phoneView || (/freetrial|subscribe/.test(liveLoc) && desktopView),
+        featuresGrid: (phoneView || /join/.test(liveLoc)) ? `not-included` : `control`,
+        testimonialSection: true,
+        infoSections: phoneView || /join/.test(liveLoc),
+        videoSection: false,
+        examplesSection: false,
+        faqsSection: `not-included`,
+        otherProductsSection: false,
+        privacySection: false,
+        feedbackSection: false
+    };
+    if (!phoneView && /join/.test(liveLoc)) {
+        variablesObj.lowerOfferings = true;
+        variablesObj.lowerOffersLink = false;
+    }
+    if (phoneView && /freetrial|subscribe/.test(liveLoc)) {
+        variablesObj.lowerOfferings = false;
+        variablesObj.lowerOffersLink = true;
+    }
+    window._mV(variablesObj)
+</script>
