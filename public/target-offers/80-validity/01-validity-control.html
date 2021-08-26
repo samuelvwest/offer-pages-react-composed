@@ -22,7 +22,7 @@
         durationEmphasis: `monthly`,
         supportSection: phoneView || (/freetrial|subscribe/.test(liveLoc) && desktopView),
         featuresGrid: (phoneView || /join/.test(liveLoc)) ? `not-included` : `control`,
-        testimonialSection: true,
+        testimonialSection: phoneView || /freetrial|subscribe/.test(liveLoc),
         infoSections: phoneView || /join/.test(liveLoc),
         videoSection: false,
         examplesSection: false,

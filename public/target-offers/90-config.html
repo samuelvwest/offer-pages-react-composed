@@ -9,7 +9,7 @@
                         display: none; 
                     } 
                     #appLoading.loading {
-                        height:200px;
+                        min-height:100vh;
                     }
                     #appLoading.loading:before {
                         min-height:60px;
@@ -18,7 +18,7 @@
                 </style>`, document.body, 'prepend');
             tao.f.windu({
                 name: 'placeHideExcluders',
-                selector: '#HeaderRegion, #BannerRegion, #FooterRegion, .highlightedMbox',
+                selector: '#HeaderRegion, #BannerRegion, .highlightedMbox',
                 attach: function(elem) {
                     elem.classList.add('spaShow')
                 }
@@ -48,6 +48,13 @@
                         if (tao.g.spaAppFilesLoaded > 1) {
                             tao.f.removeNode(document.getElementById('appLoading'));
                             document.getElementById('app').classList.add('spaShow');
+                            tao.f.windu({
+                                name: 'placeHideExcluders2',
+                                selector: '#FooterRegion',
+                                attach: function(elem) {
+                                    elem.classList.add('spaShow')
+                                }
+                            });
                         }
                     }
 

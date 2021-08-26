@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { durationTexts, subscriptions, promoSubscriptions } from '../data/subscriptions';
+import { durationTexts, subscriptions, winbackSubscriptions, promoSubscriptions, semiDiscountTest } from '../data/subscriptions';
 import { modifyPageSettings, removePageSettingsLocal } from '../actions/pageSettings';
 import { modifyVariables, removeVariablesLocal } from '../actions/variables';
 
@@ -49,11 +49,26 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
             modifications[props.settingAttribute].splice(modifications[props.settingAttribute].length, 0, durationData.renewMonths);
         }
     } else if (/subscriptions/.test(props.settingAttribute)) {
-        activeTest = !props.pageSettings.subscriptions.promoSaveOffers;
+        activeTest = !(props.pageSettings.subscriptions.offersMap.length < 7);
         modifications.subscriptions = subscriptions;
-        if (/promo/.test(props.settingValue)) {
-            activeTest = !activeTest;
-            modifications.subscriptions = promoSubscriptions;
+        if (/winback/.test(props.settingValue)) {
+            activeTest = props.pageSettings.subscriptions.offersMap.length < 7;
+            modifications.subscriptions = winbackSubscriptions;
+            if (/toggle|only/.test(props.pageSettings.LDBM)) {
+                additionalFunc = () => {
+                    props.modifyPageSettings({
+                        LDBM: false
+                    });
+                }
+            }
+        // } else if (/promo/.test(props.settingValue)) {
+        //     activeTest = !!props.pageSettings.subscriptions.promoSaveOffers;
+        //     modifications.subscriptions = promoSubscriptions;
+        } else if (/sabm/.test(props.settingValue)) {
+            const offersMap = semiDiscountTest[props.settingValue];
+            // console.log(offersMap);
+            activeTest = offersMap.length === props.pageSettings.subscriptions.offersMap.length;
+            modifications.subscriptions = offersMap;
         }
     } else if (/packageEmphasis/.test(props.settingAttribute)) {
         additionalFunc = () => {
@@ -346,9 +361,63 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 
+                    settingValue="winback" 
+                    displayText="Winback Offers"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa30sabm30" 
+                    displayText="SA:30 | SABM:30"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa25sabm25" 
+                    displayText="SA:25 | SABM:25"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa20sabm20" 
+                    displayText="SA:20 | SABM:20"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa15sabm15" 
+                    displayText="SA:15 | SABM:15"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa35sabm25" 
+                    displayText="SA:35 | SABM:25"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa35sabm15" 
+                    displayText="SA:35 | SABM:15"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa30sabm15" 
+                    displayText="SA:30 | SABM:15"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
+                    settingValue="sa25sabm15" 
+                    displayText="SA:25 | SABM:15"
+                />
+                {/* <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
                     settingValue="promo" 
                     displayText="Promo Offers"
-                />
+                /> */}
             </div>
         </SettingsGrouping>
         <SettingsGrouping collapsable={true} groupName="Test Variables">

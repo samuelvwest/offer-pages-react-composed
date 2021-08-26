@@ -29,6 +29,11 @@ export default (state = pageSettings, action) => {
             }
             const subscriptionsToUse = !!action.pageSettings.subscriptions ? action.pageSettings.subscriptions : state.subscriptions.offersMap;
             nextState.subscriptions = buildDisplayOffersData(nextState, subscriptionsToUse);
+            // if (!nextState.subscriptions.ldbms && /toggle-front|only/.test(nextState.LDBM)) {
+            //     // console.log(state)
+            //     // console.log(nextState)
+            //     nextState.LDBM = false;
+            // }
             setPageSettingsLocal(nextState);
             // Selected Offer Tracking 
             if (!!action.pageSettings.selectedOffer && (!action.pageSettings.source || !/variableSet/.test(action.pageSettings.source))) {
