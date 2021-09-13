@@ -79,6 +79,13 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                         const ldbmTest = duration.ldbm === offer.ldbm;
                                         return packageTest && renewMonthsTest && ldbmTest;
                                     });
+                                    const savingsVars = offer.promoSavings ? {
+                                        display: `promoSavings`,
+                                        legalSup: `promoSave`
+                                    } : !!offer.durationSavings ? {
+                                        display: `durationSavings`,
+                                        legalSup: `durationSave`
+                                    } : false;
                                     if (!!offer) {
                                         const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewalPeriod.renewMonths && offer.packageID === subs.selectedOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.selectedOffer.ldbm : true);
                                         return (
@@ -102,8 +109,13 @@ const ColorGrid = connect(mapStateToProps, mapDispatchToProps)((props) => {
                                                 />
                                                 <div className={`checkSelectCon ancCol${selectedTest ? ` icon iconCheck` : ``}`}></div>
                                                 <div className="priceCon ancCol">
-                                                    {!!offer.durationSavings && <span className="saveText textxlrg">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /><br /></span>}
-                                                    {offer.promoSavings && <span className="promoSave" ><span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}<LegalSup supRef="promoSave" /></span><br /></span>}
+                                                    {!!savingsVars && <span className="saveText textxlrg">SAVE {offer.currency}{offer[savingsVars.display].display}<LegalSup supRef={savingsVars.legalSup} /><br /></span>}
+                                                    {offer.promoSavings && 
+                                                        <span className="promoSave" >
+                                                            <span className="strike-through-price">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : `${offer.renewalPeriod.MSRPMEP}/mo.`}
+                                                        </span>
+                                                        <br />
+                                                    </span>}
                                                     <span className="priceText text4xlrg">{offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP}</span>
                                                     {offer.ldbm && <span className="priceText textlrg"><br />per month<LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} /></span>}
                                                     {/initial/.test(pS.elligibility) && <span className="freeTrialText textlrg"><br />after free trial</span>}

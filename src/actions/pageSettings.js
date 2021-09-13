@@ -39,19 +39,40 @@ export const getReturnURL = () => {
 }
 
 // Determine if elligible for Free Trial offer
-export const getElligibility = (location, subscriptionElligibility) => {
+export const getElligibility = ({ location, audiences }) => {
     const loc = location || getLocation();
+    const auds = audiences || [];
+    const getBait = document.cookie.match(`BAIT([^; ]+)`);
+    const bait = !!getBait ? getBait[0] : '';
+    const getOmniture = document.cookie.match(`OMNITURE([^; ]+)`);
+    const omni = !!getOmniture ? getOmniture[0] : '';
     // console.log(loc);
     let subEl = 'initial';
-    const bait = document.cookie.match(`BAIT([^; ]+)`);
-    if (!!bait) {
-        subEl = (!/E(Trial|Sub)%3D1/.test(bait[0]) && !/subscribe/.test(loc)) ? `initial` : !/CSub%3d1/.test(bait[0]) ? 'renewal' :'migration';
-    }
-    if (subscriptionElligibility) {
-        subEl = subscriptionElligibility;
-    }
-    if (/subscribe/.test(loc) && /initial/.test(subEl)) {
-        subEl = 'renewal';
+
+    if (!/freetrial/.test(loc)) { // ensure free trial offer views on this page
+        if ( // renewal tests
+            /subscribe/.test(loc)
+            || /E(Trial|Sub)%3D1/.test(bait)
+            || /(S|s)ubscriber/.test(omni)
+            || [
+                'noydb_w18iwa28jg', // Not Free Trial Elligible Audience
+                'winback_days55_58_90_bau', // Email Winback Discount Test Cell
+                'winback_days55_58_90_sabm', // Email Winback SABM Test Cell
+                'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
+                'noydb_kupi9jrk3n' // Onsite Winback SABM Test Cell
+            ].some((aud) => auds.indexOf(aud) > -1)
+        ) {
+            subEl = 'renewal';
+        }
+        // if ( // migration tests
+        //     /CSub%3d1/.test(bait)
+        //     || /(S|s)ubscriber/.test(omni)
+        //     || [
+        //         'subscribers_global'
+        //     ].some((aud) => auds.indexOf(aud) > -1)
+        // ) {
+        //     subEl = 'migration';
+        // }
     }
     return subEl;
 }

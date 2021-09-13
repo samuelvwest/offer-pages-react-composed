@@ -147,6 +147,13 @@ export class PrettyGrid extends React.Component {
                                                                 const ldbmTest = duration.ldbm === offer.ldbm;
                                                                 return packageTest && renewMonthsTest && ldbmTest;
                                                             });
+                                                            const savingsVars = offer.promoSavings ? {
+                                                                display: `promoSavings`,
+                                                                legalSup: `promoSave`
+                                                            } : !!offer.durationSavings ? {
+                                                                display: `durationSavings`,
+                                                                legalSup: `durationSave`
+                                                            } : false;
                                                             const bestTest = offer.renewalPeriod.renewMonths === subs.bestOffer.renewalPeriod.renewMonths && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.bestOffer.ldbm : true);
                                                             const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewalPeriod.renewMonths && offer.packageID === subs.selectedOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.selectedOffer.ldbm : true);
                                                             return (
@@ -175,7 +182,7 @@ export class PrettyGrid extends React.Component {
                                                                                         const useClass = index === 0 ? `price-group__integer` : `price-group__decimal`;
                                                                                         return <span key={index} className={useClass}>{num}</span>
                                                                                     })}
-                                                                                    <LegalSup supRef="promoSave" />
+                                                                                    <br />
                                                                                 </span>
                                                                             </span>
                                                                         }
@@ -187,7 +194,7 @@ export class PrettyGrid extends React.Component {
                                                                             })}
                                                                         </span>
                                                                         {offer.ldbm && <span className="offerPriceTxt--ldbm">per&nbsp;month<LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} /></span>}
-                                                                        {!!offer.durationSavings && <span className="savingsText text2xlrg coloraltgreen bold">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></span>}
+                                                                        {!!savingsVars && <span className="savingsText text2xlrg coloraltgreen bold">SAVE {offer.currency}{offer[savingsVars.display].display}<LegalSup supRef={savingsVars.legalSup} /></span>}
                                                                     </label>
                                                                 </td>
                                                             )

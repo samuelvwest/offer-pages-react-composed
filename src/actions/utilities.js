@@ -123,3 +123,27 @@ export const lazyLoadImgs = () => {
         }
     // }
 }
+
+// Test Local Storage availability
+export const localStorageTest = () => {
+    if (!window._lSAvail) {
+        const test = 'test';
+        try {
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+            window._lSAvail = true;
+        } catch (e) {
+            window._lSAvail = false;
+        }
+    }
+    return window._lSAvail;
+}
+
+// Get Local Storage Item (parsed)
+export const getLocalStorageItem = (storageKey) => {
+    if (!localStorageTest()) {
+        return 0;
+    }
+    var storageItem = window.localStorage[storageKey];
+    return typeof storageItem === 'undefined' ? 0 : JSON.parse(storageItem);
+}

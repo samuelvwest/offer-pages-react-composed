@@ -25,6 +25,9 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
     } else if (/settingsCollapsed/.test(props.settingAttribute)) {
         activeTest = props.pageSettings.settingsCollapsed;
         modifications.settingsCollapsed = !props.pageSettings.settingsCollapsed;
+    } else if (/audiences/.test(props.settingAttribute)) {
+        activeTest = props.pageSettings[props.settingAttribute].indexOf(props.settingValue) > -1;
+        modifications[props.settingAttribute] = !!activeTest ? [{ remove: props.settingValue }] : [ props.settingValue ]
     } else if (/displayPackages/.test(props.settingAttribute)) {
         modifications[props.settingAttribute] = [...props.pageSettings.displayPackages]
         const pkgData = props.pageSettings.packagesData.find((pkg) => props.settingValue === pkg.id);
@@ -231,6 +234,57 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingAttribute="elligibility" 
                     settingValue="migration" 
                     displayText="Migration" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Audiences</h5>
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="chrome_users"
+                    displayText="Chrome Browser" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="reactivation"
+                    displayText="Reactivation" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="noydb_w18iwa28jg"
+                    displayText="Not Free Trial Elligible" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="winback" 
+                    displayText="Winback" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="winback_days55_58_90_bau" 
+                    displayText="Email Winback Discount Cell" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="winback_days55_58_90_sabm" 
+                    displayText="Email Winback SABM Cell" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="noydb_g3rdljj5qa" 
+                    displayText="Onsite Winback Discount Cell" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="audiences" 
+                    settingValue="noydb_kupi9jrk3n" 
+                    displayText="Onsite Winback SABM Cell" 
                 />
             </div>
             <div className="settings__group">

@@ -68,8 +68,20 @@ export class GreenTop extends React.Component {
                                                 const ldbmTest = duration.ldbm === ofr.ldbm;
                                                 return packageTest && renewMonthsTest && ldbmTest;
                                             });
-                                            if (duration.ldbm) ldbmDurations.push(duration.num)
-                                            if (offer.durationSavings) durationSaveOffers.push(offer)
+                                            if (duration.ldbm) ldbmDurations.push(duration.num);
+                                            let savingsVars = false;
+                                            if (offer.promoSavings) {
+                                                savingsVars = {
+                                                    display: `promoSavings`,
+                                                    legalSup: `promoSave`
+                                                }
+                                            } else if (!!offer.durationSavings) {
+                                                savingsVars = {
+                                                    display: `durationSavings`,
+                                                    legalSup: `durationSave`
+                                                }
+                                                durationSaveOffers.push(offer);
+                                            }
                                             const toggleButtonTest = duration.num > 1 && toggleTest;
                                             const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && (toggleButtonTest ? true : offer.ldbm === subs.selectedOffer.ldbm);
                                             const bestTest = offer.renewalPeriod.renewMonths === subs.bestOffer.renewMonths && (toggleButtonTest ? true : offer.ldbm === subs.bestOffer.ldbm);
@@ -85,7 +97,7 @@ export class GreenTop extends React.Component {
                                                 >
                                                     {(!!offer.durationSavings || bestTest) && subs.display.durations.length > 1 &&
                                                         <p className={`savingsFlag${bestTest ? ` savingsFlag--best` : ``}`}>
-                                                            {bestTest && `BEST`}{!!offer.durationSavings ? `${bestTest ? ` - ` : ``}SAVE ${offer.currency}${offer.durationSavings.display}` : ``}{!!offer.durationSavings && <LegalSup supRef="durationSave" />}
+                                                            {bestTest && `BEST`}{!!savingsVars ? `${bestTest ? ` - ` : ``}SAVE ${offer.currency}${offer[savingsVars.display].display}` : ``}{!!savingsVars && <LegalSup supRef={savingsVars.legalSup} />}
                                                         </p>
                                                     }
                                                     <div className="radCheckWrap">
@@ -109,7 +121,6 @@ export class GreenTop extends React.Component {
                                                                 {offer.promoSavings && 
                                                                     <span className="strike-through-price">
                                                                         {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
-                                                                        <LegalSup supRef="promoSave" />
                                                                         <br />
                                                                     </span>
                                                                 }

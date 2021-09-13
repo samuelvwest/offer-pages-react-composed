@@ -12,15 +12,51 @@ export default (state = pageSettings, action) => {
             const nextState = Object.assign({}, state);
             // console.log(action.pageSettings);
             Object.keys(action.pageSettings).forEach((key) => {
-                if (!/subscriptions|source/.test(key)) {
+                if (!/subscriptions|source|audiences/.test(key)) {
                     // console.log(key);
                     nextState[key] = action.pageSettings[key];
                 }
             });
-            if (!!action.pageSettings.location) {
-                nextState.elligibility = getElligibility(nextState.location, action.pageSettings.elligibility || nextState.elligibility);
+            if (!!action.pageSettings.audiences) {
+                const addArr = [];
+                const removeArr = [];
+                action.pageSettings.audiences.forEach((audience) => {
+                    if (typeof audience === 'string') {
+                        addArr.push(audience)
+                    } else if (typeof audience === 'object') {
+                        if (!!audience.remove) {
+                            removeArr.push(audience.remove);
+                        }
+                        if (!!audience.add) {
+                            addArr.push(audience.add)
+                        }
+                    } else {
+                        console.log('structure of audiences to define is unrecognized')
+                    }                    
+                })
+                addArr.forEach((audience) => {
+                    if (nextState.audiences.indexOf(audience) === -1) {
+                        nextState.audiences.push(audience)
+                    }
+                })
+                removeArr.forEach((audience) => {
+                    const audienceIndex = nextState.audiences.indexOf(audience);
+                    if (audienceIndex > -1) {
+                        nextState.audiences.splice(audienceIndex, 1);
+                    }
+                })
             }
-            if (!!action.pageSettings.displayPackages || !!action.pageSettings.denyLevel || !!action.pageSettings.packageData) {
+            if (!!action.pageSettings.location || !!action.pageSettings.audiences) {
+                nextState.elligibility = action.pageSettings.elligibility || getElligibility({
+                    location: nextState.location, 
+                    audiences: nextState.audiences
+                });
+            }
+            if (
+                !!action.pageSettings.displayPackages 
+                || !!action.pageSettings.denyLevel 
+                || !!action.pageSettings.packageData
+            ) {
                 nextState.displayPackages = filterDisplayPackages(
                     action.pageSettings.displayPackages || displayPackages, 
                     action.pageSettings.packagesData || state.packagesData, 
@@ -34,7 +70,9 @@ export default (state = pageSettings, action) => {
             //     // console.log(nextState)
             //     nextState.LDBM = false;
             // }
-            setPageSettingsLocal(nextState);
+            const localState = Object.assign({}, nextState);
+            localState.audiences = []
+            setPageSettingsLocal(localState);
             // Selected Offer Tracking 
             if (!!action.pageSettings.selectedOffer && (!action.pageSettings.source || !/variableSet/.test(action.pageSettings.source))) {
                 const passObj = {

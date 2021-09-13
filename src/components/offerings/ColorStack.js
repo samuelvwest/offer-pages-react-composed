@@ -92,6 +92,13 @@ export class ColorStack extends React.Component {
                                     return packageTest && renewMonthsTest && ldbmTest;
                                 });
                                 const selectedTest = offer.packageID === subs.selectedOffer.packageID && offer.renewalPeriod.renewMonths === subs.selectedOffer.renewMonths && offer.ldbm === subs.selectedOffer.ldbm;
+                                const savingsVars = offer.promoSavings ? {
+                                    display: `promoSavings`,
+                                    legalSup: `promoSave`
+                                } : !!offer.durationSavings ? {
+                                    display: `durationSavings`,
+                                    legalSup: `durationSave`
+                                } : false;
                                 return (
                                     <div key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className={offer.packageData.order === 3 ? `orangePackageRow` : offer.packageData.order === 2 ? `greenPackageRow` : `bluePackageRow`}>
                                         <div className="annualPriceCon priceCon ancGrid">
@@ -135,7 +142,6 @@ export class ColorStack extends React.Component {
                                                             {offer.promoSavings && 
                                                                 <span className="strike-through-price">
                                                                     {offer.currency}{!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP}
-                                                                    <LegalSup supRef="promoSave" />
                                                                 </span>
                                                             }
                                                             {offer.currency}{!offer.ldbm ? offer.renewalPeriod.displayPrice : `${offer.renewalPeriod.displayPriceMEP}/month`}{offer.ldbm && <LegalSup supRef="longDurationBilledMonthly" />}
@@ -143,7 +149,9 @@ export class ColorStack extends React.Component {
                                                         {offer.ldbm && /initial/.test(pS.elligibility) && <span className="priceTxt"><br />after free trial</span>}
                                                     </span> 
                                                     {offer.renewalPeriod.renewMonths === 1 && <span className={`ancCol w40 cancelText${offer.promoSavings ? ` cancelText--promo` : ``}`}>Cancel anytime</span>}
-                                                    {!!offer.durationSavings && <span className={`ancCol w40 cancelText${offer.promoSavings ? ` cancelText--promo` : ``} saveText`}><strong>SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></strong></span>}
+                                                    {!!savingsVars && 
+                                                        <span className={`ancCol w40 cancelText saveText`}><strong>SAVE {offer.currency}{offer[savingsVars.display].display}<LegalSup supRef={savingsVars.legalSup} /></strong></span>
+                                                    }
                                                 </div>
                                             </label>
                                         </div>

@@ -138,7 +138,7 @@ export const LegalDurationSaves = connect(mapStateToProps)((props) => {
     )
 })
 
-export const LegalPromoSaveLine = ({ offer }) => <span className={classesMaker(`legal-text__line`,`promo-save`)}>A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} subscription {offer.ldbm && `paid monthly `}has a regular price of {offer.currency}{offer.renewalPeriod.MSRP} every&nbsp;{offer.renewalPeriod.renewMonths === 1 ? `month` : `${offer.renewalPeriod.renewMonths}-months`}.</span>
+export const LegalPromoSaveLine = ({ offer }) => <span className={classesMaker(`legal-text__line`,`promo-save`)}>A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} subscription {offer.ldbm && `paid monthly `}has a regular list price of {offer.currency}{offer.renewalPeriod.MSRP} every&nbsp;{offer.renewalPeriod.renewMonths === 1 ? `month` : `${offer.renewalPeriod.renewMonths}-months`}.</span>
 
 export const LegalPromoSaves = ({ saveOffers, inModal }) => {
     const uniqueSaves = [];
@@ -148,16 +148,18 @@ export const LegalPromoSaves = ({ saveOffers, inModal }) => {
         }
     })
     return (
-        <p className={classesMaker(`legal-text__paragraph`, `promoSave`, inModal)}>
-            <LegalSup supRef="promoSave" para={true} />
-            {uniqueSaves.map((offer, index) => (
-                <span key={index}>
-                    {index > 0 && <br />}
-                    <LegalPromoSaveLine offer={offer} />
-                </span>
-            ))}
-            <br /><span>Your subscription will automatically renew at the end of your subscription at list price. If you don't want to renew, cancel at least two days before your renewal date by visiting the My Account section or by contacting us. See our Renewal and Cancellation Terms for further&nbsp;details.</span>
-        </p>
+        <div>
+            <p className={classesMaker(`legal-text__paragraph`, `promoSave`, inModal)}>
+                <LegalSup supRef="promoSave" para={true} />
+                {uniqueSaves.map((offer, index) => (
+                    <span key={index}>
+                        {index > 0 && <br />}
+                        <LegalPromoSaveLine offer={offer} />
+                    </span>
+                ))}
+            </p>
+            <LegalHardOffer inModal={inModal} />
+        </div>
     )
 }
 
@@ -172,17 +174,19 @@ export const LegalTextWrapper = connect(mapStateToProps)((props) => (
 export const LegalText = connect(mapStateToProps)((props) => {
     const pS = props.pageSettings;
     const subs = pS.subscriptions;
-    const joinControlTest = !props.inModal && /join/.test(pS.location) && /control/.test(props.variables.offerings)
+    const joinControlTest = !(window.innerWidth < pS.breaks.control.tablet) && !props.inModal && /join/.test(pS.location) && /control/.test(props.variables.offerings)
     return (
         <LegalTextWrapper>
                 {!ldbmLegalRendered && subs.ldbms && 
                     <LegalLongDurationBilledMonthly fromFullLegal={true} inModal={props.inModal} />
                 }
-                {/initial/.test(pS.elligibility) ? 
-                    <LegalFreeTrial inModal={props.inModal} /> : 
+                {/initial/.test(pS.elligibility) && 
+                    <LegalFreeTrial inModal={props.inModal} />
+                }
+                {(!/initial/.test(pS.elligibility) && !subs.promoSaveOffers) &&
                     <LegalHardOffer inModal={props.inModal} />
                 }
-                {!joinControlTest && subs.durationSaveOffers && 
+                {(!joinControlTest && subs.durationSaveOffers && !subs.promoSaveOffers) && 
                     <LegalDurationSaves saveOffers={subs.durationSaveOffers} inModal={props.inModal} />
                 }
                 {subs.promoSaveOffers && 

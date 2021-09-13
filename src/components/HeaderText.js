@@ -12,16 +12,11 @@ const mapStateToProps = (state) => {
 const simpleMapStateToProps = (state) => {
     return {
         elligibility: state.pageSettings.elligibility,
+        audiences: state.pageSettings.audiences,
         headerText: state.variables.headerText,
         timeline: state.variables.timeline
     }
 }
-
-const mapElligibilityStateToProps = (state) => {
-    return {
-        elligibility: state.pageSettings.elligibility
-    }
-};
 
 const mapVariableStateToProps = (state) => {
     return {
@@ -33,10 +28,16 @@ const classesMaker = (styleName) => {
     return `header-text header-text--${styleName}`
 }
 
-const ColorStack = connect(simpleMapStateToProps)(({ elligibility }) => (
+const winbackHeaderText = <span className="header-text__intro header-text__intro--winback">Save up to 30% on semi&ndash;annual&nbsp;packages.</span>
+
+const ColorStack = connect(mapStateToProps)(( { pageSettings: pS } ) => (
     <span className={classesMaker('colorstack')}>
+        {[
+            'winback_days55_58_90_bau', // Email Winback Discount Test Cell
+            'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
+        ].some((audience) => pS.audiences.indexOf(audience) > -1) && winbackHeaderText}
         Choose a membership to&nbsp;try
-        {/initial/.test(elligibility) ? 
+        {/initial/.test(pS.elligibility) ? 
             <span> 
                 <strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} />
             </span> : 
@@ -45,11 +46,18 @@ const ColorStack = connect(simpleMapStateToProps)(({ elligibility }) => (
     </span>
 ));
 
-const GreenTop = connect(simpleMapStateToProps)(({ elligibility }) => {
+const GreenTop = connect(mapStateToProps)(( { pageSettings: pS } ) => {
+    const winbackTest = [
+            'winback_days55_58_90_bau', // Email Winback Discount Test Cell
+            'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
+        ].some((audience) => pS.audiences.indexOf(audience) > -1);
     return (
-        <span className={classesMaker('greentop')}>
-            We're giving you access to <i>your</i>&nbsp;history.
-            {/initial/.test(elligibility) ? (
+        <span className={`${classesMaker('greentop')}${winbackTest ? ` header-text--greentop--winback` : ``}`}>
+            {winbackTest ?
+                winbackHeaderText :
+                <span>We're giving you access to <i>your</i>&nbsp;history.</span>
+            }
+            {/initial/.test(pS.elligibility) ? (
                     <LegalSup supRef="freeTrial" goToOnClick={true} />
                 ) : (
                     <LegalSup supRef="hardOffer" goToOnClick={true} />
@@ -59,21 +67,34 @@ const GreenTop = connect(simpleMapStateToProps)(({ elligibility }) => {
     )
 });
 
-const ColorGrid = connect(simpleMapStateToProps)(({ elligibility }) => (
+const ColorGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => (
     <span className={classesMaker('colorgrid')}>
-        Discover your family story with an Ancestry&nbsp;membership
-        {/initial/.test(elligibility) ? 
-            <span><strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} /></span> : 
-            <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
+        {[
+            'winback_days55_58_90_bau', // Email Winback Discount Test Cell
+            'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
+        ].some((audience) => pS.audiences.indexOf(audience) > -1) ? 
+            winbackHeaderText : 
+            <span>
+                Discover your family story with an Ancestry&nbsp;membership
+                {/initial/.test(pS.elligibility) ? 
+                    <span><strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} /></span> : 
+                    <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
+                }
+            </span>
         }
     </span>
 ));
 
-const BonsaiGrid = connect(simpleMapStateToProps)(({ elligibility }) => /initial/.test(elligibility) ? (
+const BonsaiGrid = connect(mapStateToProps)(({ pageSettings: pS }) => /initial/.test(pS.elligibility) ? (
     <span className={classesMaker('bonsaigrid')}>
         Explore the world's largest online family history resource<span className="header-text__free-for">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
     </span>
-) : (
+) : [
+        'winback_days55_58_90_bau', // Email Winback Discount Test Cell
+        'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
+    ].some((audience) => pS.audiences.indexOf(audience) > -1) ? 
+winbackHeaderText : 
+(
     <span className={classesMaker('bonsaigrid')}>
         Start exploring the world’s largest online family history resource&nbsp;today.<LegalSup supRef="hardOffer" goToOnClick={true}/>
     </span>

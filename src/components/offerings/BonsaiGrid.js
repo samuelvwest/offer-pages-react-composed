@@ -86,6 +86,13 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                         const ldbmTest = duration.ldbm === offer.ldbm;
                                                         return packageTest && renewMonthsTest && ldbmTest;
                                                     });
+                                                    const savingsVars = offer.promoSavings ? {
+                                                        display: `promoSavings`,
+                                                        legalSup: `promoSave`
+                                                    } : !!offer.durationSavings ? {
+                                                        display: `durationSavings`,
+                                                        legalSup: `durationSave`
+                                                    } : false;
                                                     if (!!offer) {
                                                         const bestTest = offer.renewalPeriod.renewMonths === subs.bestOffer.renewalPeriod.renewMonths && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.bestOffer.ldbm : true);
                                                         const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewalPeriod.renewMonths && offer.packageID === subs.selectedOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.selectedOffer.ldbm : true);
@@ -102,7 +109,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                                         })}
                                                                     >
                                                                         <h3 className="bold show320 textlrg">{offer.renewalPeriod.renewMonths === 1 ? `Monthly` : `${offer.renewalPeriod.renewMonths}-month`} membership</h3>
-                                                                        {!!offer.durationSavings && <p className="bold redTxt coloralt2 textxlrg">SAVE {offer.currency}{offer.durationSavings.display}<LegalSup supRef="durationSave" /></p>}
+                                                                        {!!savingsVars && <p className="bold redTxt coloralt2 textxlrg">SAVE {offer.currency}{offer[savingsVars.display].display}<LegalSup supRef={savingsVars.legalSup} /></p>}
                                                                         <input 
                                                                             value={offer.offerIDs[pS.elligibility]} 
                                                                             checked={selectedTest} 
@@ -112,7 +119,7 @@ const BonsaiOfferings = connect(mapStateToProps, mapDispatchToProps)((props) => 
                                                                             aria-labelledby={offer.description} 
                                                                         />
                                                                         <span className="bold greenTxt text4xlrg">
-                                                                            {offer.promoSavings && (!offer.ldbm  ? <span className="strike-through-price">{offer.currency}{offer.renewalPeriod.MSRP}<LegalSup supRef="promoSave" /></span> : <span className="strike-through-price">{offer.currency}{offer.renewalPeriod.MSRPMEP}/mo.<LegalSup supRef="promoSave" /></span>)}
+                                                                            {offer.promoSavings && <span className="strike-through-price">{offer.currency}{offer.renewalPeriod.MSRP}</span>}
                                                                             {!offer.ldbm  ? <span>{offer.currency}{offer.renewalPeriod.displayPrice}</span> : <span>{offer.currency}{offer.renewalPeriod.displayPriceMEP}/mo.<LegalSup supRef="longDurationBilledMonthly" goToOnClick={true} /></span>}
                                                                         </span>
                                                                         {/initial/.test(pS.elligibility) && <p>after free trial</p>}

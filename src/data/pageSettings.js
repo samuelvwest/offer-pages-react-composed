@@ -1,4 +1,5 @@
 import { showSettingsTest, getPageSettingsLocal, getLocation, getElligibility, getReturnURL } from '../actions/pageSettings';
+import { getLocalStorageItem } from '../actions/utilities';
 import { subscriptions, packagesData } from './subscriptions';
 import { buildDisplayOffersData, filterDisplayPackages } from '../actions/subscriptions';
 
@@ -8,7 +9,7 @@ export const displayDurations = [1, 6] // 1, 3, 6, 12
 export const pageSettings = getPageSettingsLocal() || {
     location: getLocation(),
     denyLevel: 1,
-    elligibility: getElligibility(),
+    elligibility: 'initial',
     showSettings: showSettingsTest(),
     settingsCollapsed: false,
     windowWidth: window.outerWidth,
@@ -25,6 +26,7 @@ export const pageSettings = getPageSettingsLocal() || {
             tablet: 601
         }
     },
+    audiences: [ ], // any audience the CDP views as qualified can be placed as a 'string' in this array to be targeted by any and all components on the page. 
     LDBM: 'toggle-front', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
     displayDurations,
     displayPackages,
@@ -48,7 +50,15 @@ export const pageSettings = getPageSettingsLocal() || {
 
 if (/ancestry/.test(location.hostname)) {
     pageSettings.location = getLocation();
-    pageSettings.elligibility = getElligibility();
+    const customerObj = getLocalStorageItem('customerObject')
+    if (!!customerObj && !!customerObj.lio_segments) {
+        customerObj.lio_segments.forEach((audience) => {
+            if (pageSettings.audiences.indexOf(audience) === -1) {
+                pageSettings.audiences.push(audience);
+            }
+        });
+    }
+    pageSettings.elligibility = getElligibility({ audiences: pageSettings.audiences });
 }
 pageSettings.returnURL = getReturnURL();
 pageSettings.displayPackages = filterDisplayPackages(pageSettings.displayPackages, packagesData, pageSettings.denyLevel);
