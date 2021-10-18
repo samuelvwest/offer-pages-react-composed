@@ -487,27 +487,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
         </SettingsGrouping>
         <SettingsGrouping collapsable={true} groupName="Test Variables">
             <div className="settings__group">
-                <h5 className="settings__group__name">Header Style</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="headerStyle" 
-                    settingValue="control" 
-                    displayText="Control" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="headerStyle" 
-                    settingValue="sparkly-dragon" 
-                    displayText="Sparkly Dragon" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="headerStyle" 
-                    settingValue="pretty-grid" 
-                    displayText="Pretty Grid" 
-                />
-            </div>
-            <div className="settings__group">
                 <h5 className="settings__group__name">Header Text</h5>
                 <SettingsButton 
                     settingGroup="variables"
@@ -526,21 +505,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingAttribute="headerText" 
                     settingValue="pretty-grid" 
                     displayText="Pretty Grid" 
-                />
-            </div>
-            <div className="settings__group">
-                <h5 className="settings__group__name">Timeline</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="timeline" 
-                    settingValue={false} 
-                    displayText="Control (not included)" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="timeline" 
-                    settingValue={true} 
-                    displayText="Included" 
                 />
             </div>
             <div className="settings__group">

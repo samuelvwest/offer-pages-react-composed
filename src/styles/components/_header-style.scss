@@ -1,10 +1,34 @@
-.header-style--prettygrid {
+.header-style {
+
+    // CONTROL STYLES
+    .colorstack {
+        background-color: #fff;
+    }
+    
+    .colorstack .aboveFoldCon {
+        padding: 10px 0 5px;
+    }
+    
+    .colorstack .chooseMemText {
+        color: #54534f;
+        font-size: 14px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .colorstack .header-text--sparkly {
+        > span {
+            font-weight:bold;
+        }
+    }
+
     &.offerings-variable--control {
         @media only screen and (min-width: 601px) {
             margin-bottom: 10px;
         }
     }
 
+    // PRETTY GRID STYLES
     .offerPageHeader {
         background-color: #f7ede3;
         background-image: -webkit-linear-gradient(left, #f7ede3 0%, #f7ede3 60%, #885d4e 40%, #885d4e 100%);

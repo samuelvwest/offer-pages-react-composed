@@ -5,7 +5,7 @@ import { modifyVariables, mapScrollTrackingVariables } from '../actions/variable
 import { adobeTargetTrackEvent, elemIsInViewport } from '../actions/tracking';
 import { lazyLoadImgs } from '../actions/utilities';
 import SettingsControl from './SettingsControl';
-import HeaderStyle from './header-style/HeaderStyle';
+import HeaderStyle from './HeaderStyle';
 import Offerings, { OffersLink }  from './offerings/Offerings';
 import TestimonialSection from './TestimonialSection';
 import FeaturesGrid from './features-grid/FeaturesGrid';
