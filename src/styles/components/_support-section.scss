@@ -1,12 +1,10 @@
 .support-section {
-
-    &.support-section--sparkly-dragon {
         background-color: #ffffff;
-        &.offerings-variable--control {
-            @media (min-width: 601px) {
-                background-color: transparent;
-            }
-        }
+        // &.offerings-variable--control {
+        //     @media (min-width: 601px) {
+        //         background-color: transparent;
+        //     }
+        // }
 
         .feature-description-new {
             box-sizing: border-box;
@@ -58,7 +56,5 @@
         .support-timings-txt {
             color: #777;
         }
-
-    }
-
+        
 }

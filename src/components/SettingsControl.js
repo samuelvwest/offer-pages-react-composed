@@ -267,7 +267,7 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingValue="winback" 
                     displayText="Winback" 
                 />
-                <SettingsButton 
+                {/* <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="audiences" 
                     settingValue="winback_days55_58_90_bau" 
@@ -290,7 +290,7 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingAttribute="audiences" 
                     settingValue="noydb_kupi9jrk3n" 
                     displayText="Onsite Winback SABM Cell" 
-                />
+                /> */}
             </div>
             <div className="settings__group">
                 <h5 className="settings__group__name">Packages</h5>
