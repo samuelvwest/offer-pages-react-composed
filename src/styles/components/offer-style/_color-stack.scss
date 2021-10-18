@@ -1,5 +1,6 @@
 .offerings-style {
     &.offerings-style--colorstack {
+        background-color: #fff;
         padding-bottom: 30px;
 
         .durationSelections {
@@ -79,13 +80,13 @@
                 &.leftPkgImg--usdiscovery {
                     background-position: center 0;
                     .colorOverlay {
-                        background: #1d87af;
+                        background: #0079a3;
                     }
                 }
                 &.leftPkgImg--worldexplorer {
                     background-position: 0 -142px;
                     .colorOverlay {
-                        background: #9cbe3b;
+                        background: #6ba410;
                     }
                 }
                 &.leftPkgImg--allaccess {
@@ -93,45 +94,19 @@
                     background-position: -30px -400px;
                     height: 142px;
                     .colorOverlay {
-                        background: #d48932;
+                        background: #655586;
                         height: 142px;
-                    }
-                }
-            }
-        }
-        &.offerings-variable--pretty-grid {
-            .ftlpMobileSprite {
-                &.leftPkgImg {
-                    &.leftPkgImg--usdiscovery {
-                        .colorOverlay {
-                            background: #0079a3;
-                        }
-                    }
-                    &.leftPkgImg--worldexplorer {
-                        .colorOverlay {
-                            background: #6ba410;
-                        }
-                    }
-                    &.leftPkgImg--allaccess {
-                        .colorOverlay {
-                            background: #655586;
-                        }
                     }
                 }
             }
         }
 
         .bluePackageRow {
-            background-color: #1c88b0;
+            background-color: #0079a3;
             color: #fff;
             height: 110px;
             overflow: hidden;
             width: 100%;
-        }
-        &.offerings-variable--pretty-grid {
-            .bluePackageRow {
-                background-color: #0079a3;
-            }
         }
 
         .monthlyPriceCon.ancGrid {
@@ -154,7 +129,7 @@
         }
 
         .greenPackageRow {
-            background-color: #9cbf3b;
+            background-color: #6ba410;
             color: #fff;
             height: 110px;
             overflow: hidden;
@@ -163,25 +138,15 @@
                 color: #fff;
             }
         }
-        &.offerings-variable--pretty-grid {
-            .greenPackageRow {
-                background-color: #6ba410;
-            }
-        }
 
         .orangePackageRow {
-            background-color: #d68b35;
+            background-color: #655586;
             color: #fff;
             height: 142px;
             overflow: hidden;
             width: 100%;
             label:link {
                 color: #fff;
-            }
-        }
-        &.offerings-variable--pretty-grid {
-            .orangePackageRow {
-                background-color: #655586;
             }
         }
 

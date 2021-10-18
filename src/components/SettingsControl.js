@@ -502,69 +502,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
-                <h5 className="settings__group__name">Offerings</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="offerings" 
-                    settingValue="control" 
-                    displayText="Control" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="offerings" 
-                    settingValue="sparkly-dragon" 
-                    displayText="Sparkly Dragon" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="offerings" 
-                    settingValue="pretty-grid" 
-                    displayText="Pretty Grid" 
-                />
-            </div>
-            <div className="settings__group">
-                <h5 className="settings__group__name">Package Emphasis</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="packageEmphasis" 
-                    settingValue="usdiscovery" 
-                    displayText="U.S. Discovery" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="packageEmphasis" 
-                    settingValue="worldexplorer" 
-                    displayText="World Explorer" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="packageEmphasis" 
-                    settingValue="allaccess" 
-                    displayText="All Access" 
-                />
-            </div>
-            <div className="settings__group">
-                <h5 className="settings__group__name">Duration Emphasis</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="durationEmphasis" 
-                    settingValue="monthly" 
-                    displayText="Monthly" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="durationEmphasis" 
-                    settingValue="semi-annual" 
-                    displayText="Semi-Annual" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="durationEmphasis" 
-                    settingValue="sabm" 
-                    displayText="SABM" 
-                />
-            </div>
-            <div className="settings__group">
                 <h5 className="settings__group__name">Support Section</h5>
                 <SettingsButton 
                     settingGroup="variables"

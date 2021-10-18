@@ -250,7 +250,6 @@ export class OfferPage extends React.Component {
                 <VideoSection />
                 <ExamplesSection />
                 <FAQsSection />
-                {this.props.variables.lowerOffersLink && <OffersLink/>}
                 {this.props.variables.lowerOfferings && <Offerings placement="bottom" />}
                 <OtherProductsSection />
                 <PrivacySection />

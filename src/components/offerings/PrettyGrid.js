@@ -30,7 +30,7 @@ export class PrettyGrid extends React.Component {
         }
         const subs = pS.subscriptions;
         const splitPackagesArr = [];
-        subs.display.packages.forEach((pkgData, index, array) => {
+        subs.display.packages.forEach((pkgData, index) => {
             if (index > 0) {
                 splitPackagesArr.push({ divider: true })
             }
@@ -38,8 +38,6 @@ export class PrettyGrid extends React.Component {
             splitPackagesArr.push(pkgData);
         })
         const ftTest = /initial/.test(pS.elligibility);
-        const toggleTest = !!pS.LDBM && /toggle/.test(pS.LDBM);
-        const sbsTest = !!pS.LDBM && /side-by-side/.test(pS.LDBM);
         return (
             <div className={`${classesMaker('prettygrid')} offerings-placement--${this.props.placement}${/bottom/.test(this.props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
                 <section className="offerPageForm">
@@ -95,24 +93,7 @@ export class PrettyGrid extends React.Component {
                                             </tr>
                                             {subs.display.durations.map((duration) => {
                                                 const toggleButtonTest = duration.num > 1 && !!pS.LDBM && /toggle/.test(pS.LDBM);
-                                                // const includedOffers = subs.display.offersMap.filter((offer) => offer.renewalPeriod.renewMonths === duration.num && offer.ldbm === duration.ldbm);
-                                                // let rowClassIndex = -1;
-                                                // if (includedOffers.some((offer) => !!offer.durationSavings)) rowClassIndex++
-                                                // if (includedOffers.some((offer) => !!offer.promoSavings)) rowClassIndex++
-                                                // if (includedOffers.some((offer) => offer.ldbm)) rowClassIndex++
-                                                // if (/initial/.test(pS.elligibility)) rowClassIndex++
-                                                // const rowClass = rowClasses[Math.max(0,rowClassIndex)]
-                                                // includedOffers.forEach((offer) => offer.rowClass = rowClass);
                                                 return (
-                                                    // <div key={duration.id} className={`priceRow ${rowClass}`}>
-                                                    //     <strong className="text2xlrg">
-                                                    //         {duration.num === 1 ? duration.text : `${duration.num}-month`} membership
-                                                    //         {duration.ldbm && <span><br />paid monthly</span>}
-                                                    //     </strong>
-                                                    //     {duration.num === 1 && <span><br /><span className="textxlrg">Cancel anytime</span></span>}
-                                                    //     {toggleButtonTest && <span className="textxlrg ldbmToggle"><br /><a onClick={() => props.modifyPageSettings({LDBM: (duration.ldbm ? `toggle-back` : `toggle-front`) })}>or pay {duration.ldbm ? `upfront` : `monthly`}</a></span>}
-                                                    // </div>
-
                                                     <tr key={`${duration.num}MR_${duration.ldbm ? 1 : duration.num}MB`} className="offers-table__row offers-table__row--duration">
                                                         <td className="offers-table__cell offers-table__cell--content offers-table__cell--left-label">
                                                             <span className="text2xlrg">{duration.num === 1 ? `Monthly` : `${duration.num} month`}</span>
@@ -154,7 +135,6 @@ export class PrettyGrid extends React.Component {
                                                                 display: `durationSavings`,
                                                                 legalSup: `durationSave`
                                                             } : false;
-                                                            const bestTest = offer.renewalPeriod.renewMonths === subs.bestOffer.renewalPeriod.renewMonths && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.bestOffer.ldbm : true);
                                                             const selectedTest = offer.renewalPeriod.renewMonths === subs.selectedOffer.renewalPeriod.renewMonths && offer.packageID === subs.selectedOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.selectedOffer.ldbm : true);
                                                             return (
                                                                 <td key={`${pkgData.id}_${offer.renewalPeriod.renewMonths}MR_${offer.renewalPeriod.billMonths}BR`} className="offers-table__cell offers-table__cell--content offers-table__cell--offer">
@@ -233,9 +213,6 @@ export class PrettyGrid extends React.Component {
                                 </div>
                             </div>
                             {subs.ldbms && <LegalLongDurationBilledMonthly/>}
-                            {/* <div className="textCenter topSpacingBlock">
-                                <a className="compareButton text3xlrg" href="#offerPageCompare">Compare memberships<br /><span className="icon iconArrowDown text6xlrg"></span></a>
-                            </div> */}
                         </form>
                     </div>
                 </section>
