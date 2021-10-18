@@ -502,21 +502,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
-                <h5 className="settings__group__name">Support Section</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="supportSection" 
-                    settingValue={true} 
-                    displayText="Control (included)" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="supportSection" 
-                    settingValue={false} 
-                    displayText="Not Included" 
-                />
-            </div>
-            <div className="settings__group">
                 <h5 className="settings__group__name">Features Grid</h5>
                 <SettingsButton 
                     settingGroup="variables"
