@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { durationTexts, subscriptions, winbackSubscriptions, promoSubscriptions, semiDiscountTest } from '../data/subscriptions';
+import { durationTexts, subscriptions, winbackSubscriptions, noABMorQBM, promoSubscriptions, semiDiscountTest } from '../data/subscriptions';
 import { modifyPageSettings, removePageSettingsLocal } from '../actions/pageSettings';
 import { modifyVariables, removeVariablesLocal } from '../actions/variables';
 
@@ -69,6 +69,11 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
         //     modifications.subscriptions = promoSubscriptions;
         } else if (/sabm/.test(props.settingValue)) {
             const offersMap = semiDiscountTest[props.settingValue];
+            // console.log(offersMap);
+            activeTest = offersMap.length === props.pageSettings.subscriptions.offersMap.length;
+            modifications.subscriptions = offersMap;
+        } else if (/noABMorQBM/.test(props.settingValue)) {
+            const offersMap = noABMorQBM;
             // console.log(offersMap);
             activeTest = offersMap.length === props.pageSettings.subscriptions.offersMap.length;
             modifications.subscriptions = offersMap;
@@ -421,10 +426,16 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 
+                    settingValue="noABMorQBM" 
+                    displayText="No ABM or QBM"
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="subscriptions" 
                     settingValue="sa30sabm30" 
                     displayText="SA:30 | SABM:30"
                 />
-                <SettingsButton 
+                {/* <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 
                     settingValue="sa25sabm25" 
@@ -465,7 +476,7 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingAttribute="subscriptions" 
                     settingValue="sa25sabm15" 
                     displayText="SA:25 | SABM:15"
-                />
+                /> */}
                 {/* <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 

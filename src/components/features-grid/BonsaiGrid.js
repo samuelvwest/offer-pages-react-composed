@@ -22,7 +22,7 @@ const featuresData = [
         text: <div>Explore more than 537 million records on Fold3, our historical military records&nbsp;website</div>,
         appliesTo: [ 'allaccess' ]
     }, {
-        text: <div>Enjoy unlimited access to more than 3 billion international birth, marriage, death, census, military, church and other&nbsp;records</div>,
+        text: <div>Enjoy unlimited access to more than 5 billion international birth, marriage, death, census, military, church and other&nbsp;records</div>,
         appliesTo: [ 'worldexplorer', 'allaccess' ]
     }, {
         text: <div>Discover your immigrant ancestors and learn more about your family’s homeland in detailed passenger lists, border crossings and&nbsp;more</div>,
