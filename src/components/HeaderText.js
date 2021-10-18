@@ -46,75 +46,6 @@ const ColorStack = connect(mapStateToProps)(( { pageSettings: pS } ) => (
     </span>
 ));
 
-const GreenTop = connect(mapStateToProps)(( { pageSettings: pS } ) => {
-    const winbackTest = [
-            'winback_days55_58_90_bau', // Email Winback Discount Test Cell
-            'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
-        ].some((audience) => pS.audiences.indexOf(audience) > -1);
-    return (
-        <span className={`${classesMaker('greentop')}${winbackTest ? ` header-text--greentop--winback` : ``}`}>
-            {winbackTest ?
-                winbackHeaderText :
-                <span>We're giving you access to <i>your</i>&nbsp;history.</span>
-            }
-            {/initial/.test(pS.elligibility) ? (
-                    <LegalSup supRef="freeTrial" goToOnClick={true} />
-                ) : (
-                    <LegalSup supRef="hardOffer" goToOnClick={true} />
-                )
-            }
-        </span>
-    )
-});
-
-const ColorGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => (
-    <span className={classesMaker('colorgrid')}>
-        {[
-            'winback_days55_58_90_bau', // Email Winback Discount Test Cell
-            'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
-        ].some((audience) => pS.audiences.indexOf(audience) > -1) ? 
-            winbackHeaderText : 
-            <span>
-                Discover your family story with an Ancestry&nbsp;membership
-                {/initial/.test(pS.elligibility) ? 
-                    <span><strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} /></span> : 
-                    <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
-                }
-            </span>
-        }
-    </span>
-));
-
-const BonsaiGrid = connect(mapStateToProps)(({ pageSettings: pS }) => /initial/.test(pS.elligibility) ? (
-    <span className={classesMaker('bonsaigrid')}>
-        Explore the world's largest online family history resource<span className="header-text__free-for">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
-    </span>
-) : [
-        'winback_days55_58_90_bau', // Email Winback Discount Test Cell
-        'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
-    ].some((audience) => pS.audiences.indexOf(audience) > -1) ? 
-winbackHeaderText : 
-(
-    <span className={classesMaker('bonsaigrid')}>
-        Start exploring the world’s largest online family history resource&nbsp;today.<LegalSup supRef="hardOffer" goToOnClick={true}/>
-    </span>
-));
-
-const Control = connect(mapStateToProps)(( { pageSettings: pS } ) => {
-    if (window.innerWidth < pS.breaks.control.tablet) {
-        // Control text from Color Stack design – phone on all offer pages
-        return <ColorStack/>
-    } else if (pS.location === 'join') {
-        // Control text for Green Top design – tablet & desktop on CARE pages
-        return <GreenTop/>
-    } else if (window.innerWidth < pS.breaks.control.desktop) {
-        // Control text for Color Grid design – tablet on FTLP & HOLP
-        return <ColorGrid/>
-    }
-    // Control text for Bonsai Grid design – desktop on FTLP & HOLP
-    return <BonsaiGrid/>
-});
-
 const SparklyDragon = connect(simpleMapStateToProps)(({ elligibility }) => (
     <span className={classesMaker('sparklydragon')}>
         Connect with your ancestors through historical documents. 
@@ -146,10 +77,8 @@ const HeaderText = connect(mapVariableStateToProps)(({ headerText }) => {
     switch (headerText) {
         case 'sparkly-dragon':
             return <SparklyDragon/>
-        case 'pretty-grid':
+        default:
             return <PrettyGrid/>
-        default: 
-            return <Control/>;
     }
 });
 

@@ -500,12 +500,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingValue="sparkly-dragon" 
                     displayText="Sparkly Dragon" 
                 />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="headerText" 
-                    settingValue="pretty-grid" 
-                    displayText="Pretty Grid" 
-                />
             </div>
             <div className="settings__group">
                 <h5 className="settings__group__name">Offerings</h5>

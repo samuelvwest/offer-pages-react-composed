@@ -1,26 +1,10 @@
 .header-text {
     display: inherit;
-    &.header-text--greentop--winback {
-        font-size: 61%;
-    }
 }
 
 .header-text__intro {
     display:block;
     font-size: 123%;
-    // font-weight: bold;
-}
-.header-text {
-    &.header-text--greentop--winback {
-        > .header-text__intro--winback {
-            display: inline;
-        }
-    }
-    &.header-text--colorgrid {
-        > .header-text__intro--winback {
-            font-size: 100%;
-        }
-    }
 }
 
 .header-text__free-for {
