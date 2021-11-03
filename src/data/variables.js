@@ -10,7 +10,6 @@ export const variables = getVariablesLocal() || {
     testimonialSection: true,
     featuresGrid: `control`,
     supportSection: true,
-    infoSections: false,
     videoSection: false,
     examplesSection: false,
     privacySection: false,

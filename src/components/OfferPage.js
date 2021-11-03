@@ -248,7 +248,6 @@ export class OfferPage extends React.Component {
                 <SupportSection />
                 <FeaturesGrid />
                 <TestimonialSection />
-                <InfoSections />
                 <VideoSection />
                 <ExamplesSection />
                 <FAQsSection />
