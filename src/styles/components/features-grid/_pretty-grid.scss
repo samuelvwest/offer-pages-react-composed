@@ -1,11 +1,7 @@
 .features-grid--prettygrid {
     padding-bottom: 20px;
-    &.offerings-variable--sparkly-dragon,
-    &.offerings-variable--pretty-grid {
-        padding-bottom: 0;
-        @media (min-width: 601px) {
-            background-color: #fff;
-        }
+    @media (min-width: 601px) {
+        background-color: #fff;
     }
 
     .page {
@@ -39,41 +35,14 @@
 
     .bgColor-usdiscovery {
         background-color: #0079a3;
-        &.bgColor-usdiscovery--offerings-control {
-            background-color: #9CBE30;
-            @media (min-width: 769px) {
-                background-color: #9CBE30;
-            }
-        }
-        &.bgColor-usdiscovery--offerings-sparkly-dragon {
-            background-color: #6ba410;
-        }
     }
 
     .bgColor-worldexplorer {
         background-color: #6ba410;
-        &.bgColor-worldexplorer--offerings-control {
-            background-color: #1B88B0;
-            @media (min-width: 769px) {
-                background-color: #64AFCA;
-            }
-        }
-        &.bgColor-worldexplorer--offerings-sparkly-dragon {
-            background-color: #1c88b0;
-        }
     }
 
     .bgColor-allaccess {
         background-color: #655586;
-        &.bgColor-allaccess--offerings-control {
-            background-color: #60527E;
-            @media (min-width: 769px) {
-                background-color: #60527E;
-            }
-        }
-        &.bgColor-allaccess--offerings-sparkly-dragon {
-            background-color: #61527e;
-        }
     }
 
     .coloraltblue {

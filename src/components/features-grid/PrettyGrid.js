@@ -68,7 +68,7 @@ const PrettyGrid = connect(mapStateToProps)((props) => {
     const filteredFeaturesData = [...featuresData].filter((featureData) => subs.display.packages.some((pkgData) => featureData.appliesTo.indexOf(pkgData.id) > -1));
 
     return (
-        <section className={`${classesMaker(`prettygrid`)} offerings-variable--${props.variables.offerings} scroll-tracking--featuresGrid`}
+        <section className={`${classesMaker(`prettygrid`)} scroll-tracking--featuresGrid`}
             onClick={() => {
                 adobeTargetTrackEvent({
                     eventType: 'clickSection',
@@ -88,7 +88,7 @@ const PrettyGrid = connect(mapStateToProps)((props) => {
                                 const bgColorClass = `bgColor-${pkgData.id}`;
                                 return (
                                     <th key={pkgData.id} 
-                                        className={`w20 bgDark textCenter ${bgColorClass} ${bgColorClass}--offerings-${props.variables.offerings}`}
+                                        className={`w20 bgDark textCenter ${bgColorClass}`}
                                         style={featureCheckColumnStyles}
                                     >
                                         <h2 className="text2xlrg">{pkgData.name}</h2>

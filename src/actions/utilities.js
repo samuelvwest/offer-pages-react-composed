@@ -101,22 +101,24 @@ export const lazyLoadImgs = () => {
             var lazyImagesSelector = 'img.lazyImg:not(.lazyObserved)';
             var lazyBgImagesSelector = '.lazyBgImg:not(.lazyObserved)';
             if (!!window.windu) {
-                windu.create({
-                    name: 'lazyImages',
-                    selector: lazyImagesSelector,
-                    attach: function (elem) {
-                        lazyImageObserver.observe(elem);
-                        elem.classList.add('lazyObserved')
-                    }
-                });
-                windu.create({
-                    name: 'lazyBgImages',
-                    selector: lazyBgImagesSelector,
-                    attach: function (elem) {
-                        lazyBgImageObserver.observe(elem);
-                        elem.classList.add('lazyObserved')
-                    }
-                });
+                if (!window.windu.data.lazyImages_attach_0 && !window.windu.data.lazyBgImages_attach_0) {
+                    windu.create({
+                        name: 'lazyImages',
+                        selector: lazyImagesSelector,
+                        attach: function (elem) {
+                            lazyImageObserver.observe(elem);
+                            elem.classList.add('lazyObserved')
+                        }
+                    });
+                    windu.create({
+                        name: 'lazyBgImages',
+                        selector: lazyBgImagesSelector,
+                        attach: function (elem) {
+                            lazyBgImageObserver.observe(elem);
+                            elem.classList.add('lazyObserved')
+                        }
+                    });
+                }
             } else {
                 var lazyImages = [].slice.call(document.querySelectorAll(lazyImagesSelector));
                 var lazyBgImages = [].slice.call(document.querySelectorAll(lazyBgImagesSelector));

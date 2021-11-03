@@ -26,43 +26,15 @@
     }
 
     .txtColor {
-        color:#1c88b0; 
+        color:#0079a3; 
         &.txtColor--usdiscovery {
-            color:#1c88b0; 
+            color:#0079a3; 
         }
         &.txtColor--worldexplorer {
-            color:#9cbf3b; 
+            color:#6ba410; 
         }
         &.txtColor--allaccess {
-            color: #bf5500; 
-        }
-    }
-    &.offerings-variable--sparkly-dragon {
-        .txtColor {
-            color:#6ba410; 
-            &.txtColor--usdiscovery {
-                color:#6ba410; 
-            }
-            &.txtColor--worldexplorer {
-                color:#0079a3; 
-            }
-            &.txtColor--allaccess {
-                color: #61527e; 
-            }
-        }
-    }
-    &.offerings-variable--pretty-grid {
-        .txtColor {
-            color:#0079a3; 
-            &.txtColor--usdiscovery {
-                color:#0079a3; 
-            }
-            &.txtColor--worldexplorer {
-                color:#6ba410; 
-            }
-            &.txtColor--allaccess {
-                color: #655586; 
-            }
+            color: #655586; 
         }
     }
 

@@ -1,10 +1,5 @@
 .features-grid--sparklydragon {
     background-color: #ffffff;
-    &.offerings-variable--control {
-        @media (min-width: 601px) {
-            background-color: transparent;
-        }
-    }
 
     a {
         text-decoration:none;
@@ -48,82 +43,26 @@
                         height: 0;
                         left: 0;
                         bottom: 0;
-                        background-image: linear-gradient(to right,#f1f7db,#f1f7db 33.33%,#eff9f9 33.33%,#eff9f8 66.66%,#dcdbe0 66.66%);
+                        background-image: linear-gradient(to right,#c5ecf9,#c5ecf9 33.33%,#e0f2c4 33.33%,#e0f2c4 66.66%,#dbd1ee 66.66%);
                         width: calc(300% + 2px);
                         height: 177px;
                         clip-path: polygon(100% 75%,0 100%,100% 100%);
                         -webkit-clip-path: polygon(100% 75%,0 100%,100% 100%);
                     }
                     &.triangle-start--usdiscovery.triangle-start--worldexplorer.triangle-start--allaccess:before {
-                        background-image: linear-gradient(to right,#f1f7db,#f1f7db 33.33%,#eff9f9 33.33%,#eff9f8 66.66%,#dcdbe0 66.66%);
+                        background-image: linear-gradient(to right,#c5ecf9,#c5ecf9 33.33%,#e0f2c4 33.33%,#e0f2c4 66.66%,#dbd1ee 66.66%);
                     }
                     &.triangle-start--usdiscovery.triangle-start--worldexplorer:not(.triangle-start--allaccess):before {
-                        background-image: linear-gradient(to right,#f1f7db,#f1f7db 50%,#eff9f9 50%);
+                        background-image: linear-gradient(to right,#c5ecf9,#c5ecf9 50%,#e0f2c4 50%);
                         width: calc(200% + 2px);
                     }
                     &.triangle-start--usdiscovery:not(.triangle-start--worldexplorer).triangle-start--allaccess:before {
-                        background-image: linear-gradient(to right,#f1f7db,#f1f7db 50%,#dcdbe0 50%);
+                        background-image: linear-gradient(to right,#c5ecf9,#c5ecf9 50%,#dbd1ee 50%);
                         width: calc(200% + 2px);
                     }
                     &:not(.triangle-start--usdiscovery).triangle-start--worldexplorer.triangle-start--allaccess:before {
-                        background-image: linear-gradient(to right,#eff9f9,#eff9f8 50%,#dcdbe0 50%);
+                        background-image: linear-gradient(to right,#e0f2c4,#e0f2c4 50%,#dbd1ee 50%);
                         width: calc(200% + 2px);
-                    }
-                    &.triangle-start--offerings-control {
-                        &.triangle-start--usdiscovery.triangle-start--worldexplorer.triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#dbeef5,#dbeef5 33.33%,#e5f0c6 33.33%,#e5f0c6 66.66%,#f9e3ca 66.66%);
-                        }
-                        &.triangle-start--usdiscovery.triangle-start--worldexplorer:not(.triangle-start--allaccess):before {
-                            background-image: linear-gradient(to right,#dbeef5,#dbeef5 50%,#e5f0c6 50%);
-                        }
-                        &.triangle-start--usdiscovery:not(.triangle-start--worldexplorer).triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#dbeef5,#dbeef5 50%,#f9e3ca 50%);
-                        }
-                        &:not(.triangle-start--usdiscovery).triangle-start--worldexplorer.triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#e5f0c6,#e5f0c6 50%,#f9e3ca 50%);
-                        }
-                        @media (min-width: 601px) {
-                            &.triangle-start--usdiscovery.triangle-start--worldexplorer.triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#eaf9d3,#eaf9d3 33.33%,#bbe1ed 33.33%,#bbe1ed 66.66%,#e1d7f5 66.66%);
-                            }
-                            &.triangle-start--usdiscovery.triangle-start--worldexplorer:not(.triangle-start--allaccess):before {
-                                background-image: linear-gradient(to right,#eaf9d3,#eaf9d3 50%,#bbe1ed 50%);
-                            }
-                            &.triangle-start--usdiscovery:not(.triangle-start--worldexplorer).triangle-start--allaccess:before {
-                                background-image: linear-gradient(to right,#eaf9d3,#eaf9d3 50%,#e1d7f5 50%);
-                            }
-                            &:not(.triangle-start--usdiscovery).triangle-start--worldexplorer.triangle-start--allaccess:before {
-                                background-image: linear-gradient(to right,#bbe1ed,#bbe1ed 50%,#e1d7f5 50%);
-                            }
-                        }
-                    }
-                    &.triangle-start--offerings-pretty-grid {
-                        &.triangle-start--usdiscovery.triangle-start--worldexplorer.triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#dbeef5,#dbeef5 33.33%,#e5f0c6 33.33%,#e5f0c6 66.66%,#f9e3ca 66.66%);
-                        }
-                        &.triangle-start--usdiscovery.triangle-start--worldexplorer:not(.triangle-start--allaccess):before {
-                            background-image: linear-gradient(to right,#dbeef5,#dbeef5 50%,#e5f0c6 50%);
-                        }
-                        &.triangle-start--usdiscovery:not(.triangle-start--worldexplorer).triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#dbeef5,#dbeef5 50%,#f9e3ca 50%);
-                        }
-                        &:not(.triangle-start--usdiscovery).triangle-start--worldexplorer.triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#e5f0c6,#e5f0c6 50%,#f9e3ca 50%);
-                        }
-                        @media (min-width: 601px) {
-                            &.triangle-start--usdiscovery.triangle-start--worldexplorer.triangle-start--allaccess:before {
-                            background-image: linear-gradient(to right,#c5ecf9,#c5ecf9 33.33%,#e0f2c4 33.33%,#e0f2c4 66.66%,#dbd1ee 66.66%);
-                            }
-                            &.triangle-start--usdiscovery.triangle-start--worldexplorer:not(.triangle-start--allaccess):before {
-                                background-image: linear-gradient(to right,#c5ecf9,#c5ecf9 50%,#e0f2c4 50%);
-                            }
-                            &.triangle-start--usdiscovery:not(.triangle-start--worldexplorer).triangle-start--allaccess:before {
-                                background-image: linear-gradient(to right,#c5ecf9,#c5ecf9 50%,#dbd1ee 50%);
-                            }
-                            &:not(.triangle-start--usdiscovery).triangle-start--worldexplorer.triangle-start--allaccess:before {
-                                background-image: linear-gradient(to right,#e0f2c4,#e0f2c4 50%,#dbd1ee 50%);
-                            }
-                        }
                     }
                 }
             // }
@@ -264,79 +203,24 @@
     .usrecords-img {
         width: 30px;
         height: 18px;
+        path, path + circle {
+            fill: #0079a3;
+        }
     }
 
     .usnintrecords-img {
         width: 20px;
         height: 20px;
+        path, path + circle {
+            fill: #6ba410;
+        }
     }
 
     .allaccess-img {
         width: 30px;
         height: 23px;
-    }
-
-    .plan-comparison-chart--offerings-control {
-        @media (min-width: 601px) {
-            max-width: 930px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 10px auto;
-        }
-        @media (min-width: 769px) {
-            border-radius:5px;
-        }
-        .usrecords-img {
-            path, path + circle {
-                fill: #1c88b0;
-                @media (min-width: 601px) {
-                    fill: #6ba410;
-                }
-            }
-        }
-        .usnintrecords-img {
-            path, path + circle {
-                fill: #9cbf3b;
-                @media (min-width: 601px) {
-                    fill: #0079a3;
-                }
-            }
-        }
-        .allaccess-img {
-            path, path + circle {
-                fill: #d68b35;
-                @media (min-width: 601px) {
-                    fill: #61527e;
-                }
-            }
-        }
-    }
-
-    .plan-comparison-chart--offerings-pretty-grid {
-        .usrecords-img {
-            path, path + circle {
-                fill: #1c88b0;
-                @media (min-width: 601px) {
-                    fill: #0079a3;
-                }
-            }
-        }
-        .usnintrecords-img {
-            path, path + circle {
-                fill: #9cbf3b;
-                @media (min-width: 601px) {
-                    fill: #6ba410;
-                }
-            }
-        }
-        .allaccess-img {
-            path, path + circle {
-                fill: #d68b35;
-                @media (min-width: 601px) {
-                    fill: #655586;
-                }
-            }
+        path, path + circle {
+            fill: #655586;
         }
     }
 
@@ -359,20 +243,8 @@
 
     .usdiscovery-bg {
         background-color: #f1f7db;
-        &.usdiscovery-bg--offerings-control:not(.cross-bg) {
-            background-color: #dbeef5;
-            @media (min-width: 601px) {
-                background-color: #eaf9d3;
-            }
-            @media (min-width: 769px) {
-                background-color: #e7f4be;
-            }
-        }
-        &.usdiscovery-bg--offerings-pretty-grid:not(.cross-bg) {
-            background-color: #dbeef5;
-            @media (min-width: 601px) {
-                background-color: #c5ecf9;
-            }
+        &:not(.cross-bg) {
+            background-color: #c5ecf9;
         }
         position: relative;
         display: inline-block;
@@ -391,20 +263,8 @@
     .worldexplorer-bg {
         position: relative;
         background-color: #eff9f9;
-        &.worldexplorer-bg--offerings-control:not(.cross-bg) {
-            background-color: #e5f0c6;
-            @media (min-width: 601px) {
-                background-color: #bbe1ed;
-            }
-            @media (min-width: 769px) {
-                background-color: #d3ebf4;
-            }
-        }
-        &.worldexplorer-bg--offerings-pretty-grid:not(.cross-bg) {
-            background-color: #e5f0c6;
-            @media (min-width: 601px) {
-                background-color: #e0f2c4;
-            }
+        &:not(.cross-bg) {
+            background-color: #e0f2c4;
         }
         display: inline-block;
         > svg {
@@ -422,20 +282,8 @@
     .allaccess-bg {
         position: relative;
         background-color: #dcdbe0;
-        &.allaccess-bg--offerings-control:not(.cross-bg) {
-            background-color: #f9e3ca;
-            @media (min-width: 601px) {
-                background-color: #e1d7f5;
-            }
-            @media (min-width: 769px) {
-                background-color: #e4daf9;
-            }
-        }
-        &.allaccess-bg--offerings-pretty-grid:not(.cross-bg) {
-            background-color: #f9e3ca;
-            @media (min-width: 601px) {
-                background-color: #dbd1ee;
-            }
+        &:not(.cross-bg) {
+            background-color: #dbd1ee;
         }
         display: inline-block;
         > svg {
@@ -455,60 +303,15 @@
     }
 
     .icon-check-fill-usdis {
-        fill: #6ba410;
-        &.icon-check-fill-usdis--offerings-control {
-            fill: #1c88b0;
-            @media (min-width: 601px) {
-                fill: #6ba410;
-            }
-            @media (min-width: 769px) {
-                fill: #9CBE30;
-            }
-        }
-        &.icon-check-fill-usdis--offerings-pretty-grid {
-            fill: #1c88b0;
-            @media (min-width: 601px) {
-                fill: #0079a3;
-            }
-        }
+        fill: #0079a3;
     }
 
     .icon-check-fill-worldex {
-        fill: #0079a3;
-        &.icon-check-fill-worldex--offerings-control {
-            fill: #9cbf3b;
-            @media (min-width: 601px) {
-                fill: #0079a3;
-            }
-            @media (min-width: 769px) {
-                fill: #64AFCA;
-            }
-        }
-        &.icon-check-fill-worldex--offerings-pretty-grid {
-            fill: #9cbf3b;
-            @media (min-width: 601px) {
-                fill: #6ba410;
-            }
-        }
+        fill: #6ba410;
     }
 
     .icon-check-fill-allacc {
-        fill: #61527e;
-        &.icon-check-fill-allacc--offerings-control {
-            fill: #d68b35;
-            @media (min-width: 601px) {
-                fill: #61527e;
-            }
-            @media (min-width: 769px) {
-                fill: #60527E;
-            }
-        }
-        &.icon-check-fill-allacc--offerings-pretty-grid {
-            fill: #d68b35;
-            @media (min-width: 601px) {
-                fill: #655586;
-            }
-        }
+        fill: #655586;
     }
 
     .plan-comp-check-icon, 
@@ -729,60 +532,15 @@
     }
 
     .color-usdiscovery {
-        color: #6ba410;
-        &.color-usdiscovery--offerings-control {
-            color: #1c88b0;
-            @media (min-width: 601px) {
-                color: #6ba410;
-            }
-            @media (min-width: 769px) {
-                color: #9CBE30;
-            }
-        }
-        &.color-usdiscovery--offerings-pretty-grid {
-            color: #1c88b0;
-            @media (min-width: 601px) {
-                color: #0079a3;
-            }
-        }
+        color: #0079a3;
     }
 
     .color-worldexplorer {
-        color: #0079a3;
-        &.color-worldexplorer--offerings-control {
-            color: #9cbf3b;
-            @media (min-width: 601px) {
-                color: #0079a3;
-            }
-            @media (min-width: 769px) {
-                color: #64AFCA;
-            }
-        }
-        &.color-worldexplorer--offerings-pretty-grid {
-            color: #9cbf3b;
-            @media (min-width: 601px) {
-                color: #6ba410;
-            }
-        }
+        color: #6ba410;
     }
 
     .color-allaccess {
-        color: #61527e;
-        &.color-allaccess--offerings-control {
-            color: #d68b35;
-            @media (min-width: 601px) {
-                color: #61527e;
-            }
-            @media (min-width: 769px) {
-                color: #60527E;
-            }
-        }
-        &.color-allaccess--offerings-pretty-grid {
-            color: #d68b35;
-            @media (min-width: 601px) {
-                color: #655586;
-            }
-        }
+        color: #655586;
     }
 
     .rel-pos {

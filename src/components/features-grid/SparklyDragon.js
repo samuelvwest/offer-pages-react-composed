@@ -113,7 +113,7 @@ const featuresData = [
     }
 ];
 
-const FeatureRow = ({ featureData, idx, subs, mobileTest, offeringsVar }) => {
+const FeatureRow = ({ featureData, idx, subs, mobileTest }) => {
     if (featureData.mobile && featureData.fullRow) {
         return ( 
             <tr key={idx} className={mobileTest ? `mobile-row mobile-row--feature-text` : ``}>
@@ -146,9 +146,9 @@ const FeatureRow = ({ featureData, idx, subs, mobileTest, offeringsVar }) => {
                 const includedTest = featureData.appliesTo.indexOf(pkgData.id) !== -1;
                 return (
                     <td key={pkgData.id}>
-                        <div className={`check-wrapper ${pkgVars.bgClass} ${pkgVars.bgClass}--offerings-${offeringsVar}${!includedTest ? ` cross-bg` : ``}`}>
+                        <div className={`check-wrapper ${pkgVars.bgClass}${!includedTest ? ` cross-bg` : ``}`}>
                             {includedTest ? 
-                                <CheckIcon classNames="plan-comp-check-icon" pathClassNames={`${pkgVars.checkClass} ${pkgVars.checkClass}--offerings-${offeringsVar}`} />  : 
+                                <CheckIcon classNames="plan-comp-check-icon" pathClassNames={pkgVars.checkClass} />  : 
                                 <XIcon classNames="plan-comp-cross-icon" />
                             }
                         </div>
@@ -208,7 +208,7 @@ export class SparklyDragon extends React.Component {
                 colorClass: `color-usdiscovery`
             }
             return (
-                <th key={pkgData.id} className={`bold textxlrg ${pkgVars.colorClass} ${pkgVars.colorClass}--offerings-${this.props.variables.offerings} textCenter align-base ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} `}>
+                <th key={pkgData.id} className={`bold textxlrg ${pkgVars.colorClass} textCenter align-base ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} `}>
                     <span className="show768 hidden-lg-up">
                         {pkgVars.imgFile}
                         {pkgData.name.split(' ').map((str, index) => <span key={index}><br />{str}</span>)}
@@ -234,14 +234,14 @@ export class SparklyDragon extends React.Component {
                 colorClass: `color-usdiscovery`
             }
             return (
-                <th key={pkgData.id} className={`bold textxlrg ${pkgVars.colorClass} ${pkgVars.colorClass}--offerings-${this.props.variables.offerings} textCenter align-base ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} ${firstTest ? `triangle-start ${recordsTriangleClasses.join(' ')}` : ``} triangle-start--offerings-${this.props.variables.offerings}`}>
+                <th key={pkgData.id} className={`bold textxlrg ${pkgVars.colorClass} textCenter align-base ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} ${firstTest ? `triangle-start ${recordsTriangleClasses.join(' ')}` : ``}`}>
                     {firstTest && <div className="least-rec-txt">Least Records</div>}
                     {lastTest && <div className="most-rec-txt">Most<br /><span>Records</span></div>}
                 </th>
             )
         })
         return (
-            <div className={`${classesMaker('sparklydragon')} offerings-variable--${this.props.variables.offerings} scroll-tracking--featuresGrid`}
+            <div className={`${classesMaker('sparklydragon')} scroll-tracking--featuresGrid`}
                 onClick={() => {
                     adobeTargetTrackEvent({
                         eventType: 'clickSection',
@@ -250,7 +250,7 @@ export class SparklyDragon extends React.Component {
                     })
                 }}
             >
-                <section className={`plan-comparison-chart plan-comparison-chart--offerings-${this.props.variables.offerings}`}>
+                <section className={`plan-comparison-chart`}>
                     <table>
                         <tbody>
                             <tr className="table-title">
@@ -272,7 +272,7 @@ export class SparklyDragon extends React.Component {
                                 </tr>
                             }
                             {this.state.showIncludedInAll && useThisFeaturesArray.filter(({ type }) => type === `global-feature`).map((featureData, index) => (
-                                <FeatureRow key={index} featureData={featureData} idx={index} subs={subs} mobileTest={mobileTest} offeringsVar={this.props.variables.offerings} />
+                                <FeatureRow key={index} featureData={featureData} idx={index} subs={subs} mobileTest={mobileTest} />
                             ))}
                             <tr className="table-title">
                                 <th className="rec-acc bold text2xlrg" colSpan={mobileTest ? subs.display.packages.length : 1}>
@@ -286,7 +286,7 @@ export class SparklyDragon extends React.Component {
                                 </tr>
                             }
                             {useThisFeaturesArray.filter(({ type }) => type === `record-access`).map((featureData, index) => (
-                                <FeatureRow key={index} featureData={featureData} idx={index} subs={subs} mobileTest={mobileTest} offeringsVar={this.props.variables.offerings} />
+                                <FeatureRow key={index} featureData={featureData} idx={index} subs={subs} mobileTest={mobileTest} />
                             ))}
                         </tbody>
                     </table>
