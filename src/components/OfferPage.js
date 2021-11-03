@@ -4,6 +4,7 @@ import { modifyPageSettings } from '../actions/pageSettings';
 import { modifyVariables, mapScrollTrackingVariables } from '../actions/variables';
 import { adobeTargetTrackEvent, elemIsInViewport } from '../actions/tracking';
 import { lazyLoadImgs } from '../actions/utilities';
+import { initiateWindu } from '../actions/windu';
 import SettingsControl from './SettingsControl';
 import HeaderStyle from './HeaderStyle';
 import Offerings, { OffersLink }  from './offerings/Offerings';
@@ -208,6 +209,7 @@ export class OfferPage extends React.Component {
             script.src = "https://www.ancestrycdn.com/ui/2.10.0/js/core.js";
             document.head.appendChild(script);
         }
+        initiateWindu();
         window.removeEventListener('resize', this.updateDimensions);
         if (!window._scrollTrackingData) {
             window._scrollTrackingData = {

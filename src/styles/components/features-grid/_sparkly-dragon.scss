@@ -151,6 +151,8 @@
                     .feature-img-new {
                         display:block;
                         margin: 0px auto 10px auto;
+                        width: 18px;
+                        height: 18px;
                         @media (min-width: 768px) {
                             position:absolute;
                             top:12px;
@@ -548,6 +550,10 @@
         position: relative;
         display: inline-block;
         color: #006080;
+        > img {
+            width: 12px;
+            height: 12px;
+        }
         .tooltiptext {
             visibility: hidden;
             position: absolute;

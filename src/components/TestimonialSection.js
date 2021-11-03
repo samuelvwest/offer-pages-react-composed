@@ -22,9 +22,7 @@ export const MaryDQuote = connect(mapStateToProps)((props) => (
 
 const TestimonialSection = connect(mapStateToProps)((props) => {
     const pS = props.pageSettings;
-    const subs = pS.subscriptions;
-    const inFeatureGridTest = pS.windowWidth >= pS.breaks.control.desktop && /control/.test(props.variables.featuresGrid);
-    if (props.variables.testimonialSection && !inFeatureGridTest) {
+    // if (!!props.variables.testimonialSection) {
         return pS.windowWidth <= pS.breaks.control.tablet ? (
             <section className={`quoteCon ${classesMaker('colorstack')} scroll-tracking--testimonialSection`}
                 onClick={() => {
@@ -61,8 +59,8 @@ const TestimonialSection = connect(mapStateToProps)((props) => {
                 </div>
             </section> 
         )
-    }
-    return <div className="testimonial-section--not-included"></div>
+    // }
+    // return <div className="testimonial-section--not-included"></div>
 })
 
 export default TestimonialSection;

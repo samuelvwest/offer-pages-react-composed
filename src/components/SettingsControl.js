@@ -485,7 +485,7 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 /> */}
             </div>
         </SettingsGrouping>
-        <SettingsGrouping collapsable={true} groupName="Test Variables">
+        <SettingsGrouping collapsable={true} groupName="Display Options">
             <div className="settings__group">
                 <h5 className="settings__group__name">Header Text</h5>
                 <SettingsButton 
@@ -512,12 +512,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="featuresGrid" 
-                    settingValue="sparkly-dragon" 
-                    displayText="Sparkly Dragon" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="featuresGrid" 
                     settingValue="pretty-grid" 
                     displayText="Pretty Grid" 
                 />
@@ -525,21 +519,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingGroup="variables"
                     settingAttribute="featuresGrid" 
                     settingValue="not-included" 
-                    displayText="Not Included" 
-                />
-            </div>
-            <div className="settings__group">
-                <h5 className="settings__group__name">Testimonial Section</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="testimonialSection" 
-                    settingValue={true} 
-                    displayText="Control (included)" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="testimonialSection" 
-                    settingValue={false} 
                     displayText="Not Included" 
                 />
             </div>
