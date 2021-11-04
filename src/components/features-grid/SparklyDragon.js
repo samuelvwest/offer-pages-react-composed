@@ -97,7 +97,7 @@ const featuresData = [
                         <LegalNewspapersBasic />
                     </span>
                 </div>
-                <div className="topSpacing plan-para-color">Search for family stories in more than 142 million U.S. and world articles on&nbspyarn;Newspapers.com™.</div>
+                <div className="topSpacing plan-para-color">Search for family stories in more than 142 million U.S. and world articles on&nbsp;Newspapers.com™.</div>
             </div>,
         appliesTo: [ 'allaccess' ]
     }, {
