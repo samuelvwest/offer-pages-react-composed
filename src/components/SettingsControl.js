@@ -567,21 +567,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     displayText="Not included" 
                 />
             </div>
-            <div className="settings__group">
-                <h5 className="settings__group__name">Feedback Section</h5>
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="feedbackSection" 
-                    settingValue={false} 
-                    displayText="Control (not included)" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="feedbackSection" 
-                    settingValue={true} 
-                    displayText="Included" 
-                />
-            </div>
         </SettingsGrouping>
     </div>
 ));

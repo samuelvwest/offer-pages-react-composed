@@ -31,16 +31,6 @@
     margin:0;
     background-color:#ffffff;
     border-top: solid 1px #ddd;
-    &.offerings-variable--control {
-        @media (min-width: 601px) {
-            background-color:transparent;
-            border: none;
-        }
-    }
-    &.offerings-variable--sparkly-dragon,
-    &.offerings-variable--pretty-grid {
-        background-color:#ffffff;
-    }
 }
 
 .legal-text__sup {

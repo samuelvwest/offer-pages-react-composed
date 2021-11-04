@@ -14,7 +14,6 @@ import SupportSection from './SupportSection';
 import VideoSection from './VideoSection';
 import PrivacySection from './PrivacySection';
 import FAQsSection from './FAQsSection';
-import FeedbackSection from './FeedbackSection';
 import InfoSections from './InfoSections';
 import LegalText from './LegalText';
 
@@ -250,7 +249,6 @@ export class OfferPage extends React.Component {
                 <FAQsSection />
                 {this.props.variables.lowerOfferings && <Offerings placement="bottom" />}
                 <PrivacySection />
-                <FeedbackSection />
                 <LegalText />
             </div>
         )
