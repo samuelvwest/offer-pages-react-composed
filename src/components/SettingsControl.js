@@ -549,7 +549,7 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingGroup="variables"
                     settingAttribute="faqsSection" 
                     settingValue={false} 
-                    displayText="Not Included" 
+                    displayText="Not included" 
                 />
             </div>
             <div className="settings__group">
@@ -557,14 +557,14 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="privacySection" 
-                    settingValue={false} 
-                    displayText="Control (not included)" 
+                    settingValue={true} 
+                    displayText="Control (included)" 
                 />
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="privacySection" 
-                    settingValue={true} 
-                    displayText="Included" 
+                    settingValue={false} 
+                    displayText="Not included" 
                 />
             </div>
             <div className="settings__group">

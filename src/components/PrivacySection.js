@@ -16,7 +16,7 @@ const classesMaker = (styleName) => {
 const PrivacySection = connect(mapStateToProps)(({ pageSettings: pS, variables }) => {
     if (variables.privacySection) {
         return (
-            <div className={`privacy-wrapper offerings-variable--${variables.offerings} scroll-tracking--privacySection`}
+            <div className={`privacy-wrapper scroll-tracking--privacySection`}
                 onClick={() => {
                     adobeTargetTrackEvent({
                         eventType: 'clickSection',
@@ -24,7 +24,7 @@ const PrivacySection = connect(mapStateToProps)(({ pageSettings: pS, variables }
                     })
                 }}
             >
-                <div className={`privacy-container mb-6 over-the-top m10 ${classesMaker(`sparkly-dragon`)}`}>
+                <div className={`privacy-container mb-6 over-the-top m10 ${classesMaker(`pretty-grid`)}`}>
                     <div className="privacy-head-wrapper">
                         <h1 className="conTitle feature-title flex-container flex-center">
                             <img className="lock-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.12/images/lock.png" />
