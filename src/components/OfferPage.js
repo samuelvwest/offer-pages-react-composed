@@ -13,7 +13,7 @@ import FeaturesGrid from './features-grid/FeaturesGrid';
 import SupportSection from './SupportSection';
 import VideoSection from './VideoSection';
 import PrivacySection from './PrivacySection';
-import FAQsSection from './faqs-section/FAQsSection';
+import FAQsSection from './FAQsSection';
 import OtherProductsSection from './OtherProductsSection';
 import FeedbackSection from './FeedbackSection';
 import InfoSections from './InfoSections';

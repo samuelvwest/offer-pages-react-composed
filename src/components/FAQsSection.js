@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { adobeTargetTrackEvent } from '../actions/tracking';
-import { LegalNewspapersBasic } from './LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -11,8 +10,42 @@ const mapStateToProps = (state) => {
 }
 
 const classesMaker = (styleName) => {
-    return `container container--${styleName} faqs-section faqs-section--${styleName}`
+    return `container container--${styleName} faqs-section`
 }
+
+const faqs = [
+    {
+        question: <span>Will I be charged during my free&nbsp;trial?</span>,
+        answer: <p>
+                If a free trial is canceled during the trial period, the trial will end automatically, and you will not be charged. Free trials on Ancestry automatically turn into paid subscriptions after two&nbsp;weeks.
+            </p>,
+        elligibility: `free-trial`
+    }, {
+        question: <span>What's included in my free&nbsp;trial?</span>,
+        answer: <p>
+                Free trials are available for each of the three subscriptions available. The subscription you choose for the free trial will be the subscription your trial turns into after two weeks. During the trial period, you have complete access to all records and features available with that&nbsp;subscription.
+            </p>,
+        elligibility: `free-trial`
+    }, {
+        question: <span>When will my subscription&nbsp;renew?</span>,
+        answer: <p>
+                Unless you’ve canceled your membership, it will automatically renew on the Ends On date on your Account Options page, where your current membership is displayed and from which page you can also upgrade and cancel your subscription. When you upgrade from an annual subscription, your new subscription will begin immediately, and you'll receive a refund for the time remaining on your current subscription. When you upgrade from a monthly subscription, a month will be added to the new subscription to compensate for the days remaining on the prior subscription. If you cancel, your subscription will end on your Ends On&nbsp;date.
+            </p>,
+        elligibility: `hard-offer`
+    }, {
+        question: <span>Will I receive updates from&nbsp;Ancestry?</span>,
+        answer: <p>
+                Subscribing to Ancestry emails can help keep you informed about new records and features, product improvements, tips from expert genealogists, success stories, special promotions, and&nbsp;more.
+            </p>,
+        elligibility: `all`
+    }, {
+        question: <span>How do I cancel my free&nbsp;trial?</span>,
+        answer: <p>
+                Cancel anytime at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>
+            </p>,
+        elligibility: `all`
+    }
+]
 
 export class FAQ extends React.Component {
     constructor(props) {
@@ -34,61 +67,15 @@ export class FAQ extends React.Component {
     }
     render() {
         return (
-            <div className="faq-wrap rel-pos privacy-faq-wrap">
-                <div className="faq-inner">
-                    <div className="faq-ques-wrap rel-pos">
-                        <p className={`faq-question${this.props.faqNum} ${this.state.expanded ? `bold` : ``}`}>{this.props.title}</p>
-                        <button type="button" className={`faQuestion link iconAfter iconArrowDownAfter ${this.state.expanded ? `hide` : ``}`} onClick={this.toggleExpanded} aria-expanded={this.state.expanded} aria-controls={`faqAnswer${this.props.faqNum}`}>
-                            <span className="anchor-color">Expand</span>
-                        </button>
-                    </div>
-                    <div className={`faq-ans-wrap ${!this.state.expanded ? `hide` : ``}`}>
-                        {this.props.children}    
-                        <button type="button" className={`faQuestion collapse-ans link iconAfter iconArrowUpAfter`} onClick={this.toggleExpanded} aria-expanded={this.state.expanded} aria-controls={`faqAnswer${this.props.faqNum}`}>
-                            <span className="anchor-color">Collapse</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-}
-
-export class FAQGroup extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            expanded: this.props.expanded || false
-        }
-    }
-    toggleExpanded = () => {
-        if (this.props.expanded) {
-            this.props.changeShowAllToHide();
-            this.setState({ expanded: false })
-        } else {
-            this.setState((prevState) => {
-                return { 
-                    expanded: !prevState.expanded 
-                }
-            })
-            adobeTargetTrackEvent({
-                eventType: 'clickButton',
-                button: 'FAQsGroup'
-            })
-        }
-    }
-    render() {
-        const expanded = this.state.expanded || this.props.expanded;
-        return (
-            <div className="mb-2 rel-pos expand-wrapper">
-                <div className={`faq-item-wrap expand-container rel-pos ${expanded ? `removeBorder` : ``}`} onClick={this.toggleExpanded}>
-                    <p className="faq-question-head">{this.props.title}</p>
-                    <button type="button" className={`link iconAfter ${expanded ? `iconArrowUpAfter` : `iconArrowDownAfter`}`} aria-expanded={this.state.expanded} aria-controls={`faqAnswerGroup${this.props.groupNum}`}></button>
-                </div>
-                <div className={!expanded ? `hide` : ``}>
+            <li>
+                <button className={`faqButton link text3xlrg${this.state.expanded ? ` activeFaqButton`: ``}`} type="button" aria-expanded={this.state.expanded} onClick={this.toggleExpanded}>
+                    {this.props.title}
+                    <span className="icon iconArrowDown"></span>
+                </button>
+                <div className={`faqAnswer${this.state.expanded ? ` faqAnswerActive` : ``}`}>
                     {this.props.children}
                 </div>
-            </div>
+            </li>
         )
     }
 }
@@ -116,101 +103,23 @@ export class FAQsSection extends React.Component {
     }
     render() {
         if (this.props.variables.faqsSection) {
+            const filterStr = RegExp(`all|${/initial/.test(this.props.pageSettings.elligibility) ? `free-trial` : `hard-offer`}`, `i`)
             return (
-                <div className={`${classesMaker('sparkly-dragon')} offerings-variable--${this.props.variables.offerings} scroll-tracking--faqsSection`}
-                    onClick={() => {
-                        adobeTargetTrackEvent({
-                            eventType: 'clickSection',
-                            section: 'faqsSection'
-                        })
-                    }}
-                >
-                    <section className="faq-section">
-                        <div className="expand-container faq-title-wrap pad-spacing-top-none spacing-bottom-md">
-                            <h3 className="text4xlrg bold faq-title">Frequently Asked Questions</h3>
-                            <button type="button" className={`link iconAfter textlrg btn-pointer expandall-btn ${this.state.expandAll ? `iconArrowUpAfter`: `iconArrowDownAfter`}`} onClick={this.toggleExpandedAll} aria-expanded="false">
-                                <span className="mr-1 anchor-color">{this.state.expandAll ? `Hide` : `Show`} All</span>
-                            </button>
-                        </div>
-                        <div className="faqCon">
-                            <FAQGroup title="Privacy" expanded={this.state.expandAll} changeShowAllToHide={this.changeShowAllToHide}>
-                                <FAQ faqNum="1" title="What do you do with my personal information?">
-                                    <p>
-                                        Personal information is information that can identify you, such as your name, email or street address, or it may be information that could reasonably be linked back to you, including your Genetic Information. At Ancestry, your privacy is a top priority. We use your personal information to provide, personalize, improve, update and expand our services. Please review our <a href="https://www.ancestry.com/cs/privacyphilosophy">privacy center</a>, or our <a href="https://www.ancestry.com/cs/legal/privacystatement">privacy statement</a> for more information.
-                                    </p>
+                <section className={`${classesMaker('pretty-grid')} offerPageFaq scroll-tracking--faqsSection`}>
+                    <div className="page pageWidth1 pagePadded">
+                        <h2 className="faqTitle light textCenter">Have questions?</h2>
+                        <ul className="faqContents topSpacingBlock">
+                            {faqs.filter((faq) => filterStr.test(faq.elligibility)).map((faq, index) => (
+                                <FAQ key={index} title={faq.question}>
+                                    {faq.answer}
                                 </FAQ>
-                                <FAQ faqNum="2" title="What personal information do I need to give you in order for you to find my ancestors?">
-                                    <p>
-                                        We can give you some potential information about family members—or Ancestry Hints®—but you will need to explore and verify these in order to learn more about their stories and discover new relatives. Since the number of family members you have to learn about each generation doubles, finding information for all of them isn't a one-and-done experience. Also, Ancestry adds an average of 2 million records to their collections every day—so there is always more to learn and discover.
-                                    </p>
-                                </FAQ>
-                            </FAQGroup>
-                            <FAQGroup title="Membership" expanded={this.state.expandAll} changeShowAllToHide={this.changeShowAllToHide}>
-                                <FAQ faqNum="3" title="Why would I need a monthly membership—can’t you tell me everything about my family upfront?">
-                                    <p>
-                                        We can give you some potential information about family members—or Ancestry Hints®—but you will need to explore and verify these in order to learn more about their stories and discover new relatives. Since the number of family members you have to learn about each generation doubles, finding information for all of them isn't a one-and-done experience. Also, Ancestry adds an average of 2 million records to their collections every day—so there is always more to learn and discover.
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="4" title="Which subscription is right for me?">
-                                    <p>
-                                        You have three membership options to choose from depending on your needs: U.S. Discovery gives you access all U.S. records on Ancestry; World Explorer gives you access all U.S. and international records on Ancestry; All Access gives you membership to Ancestry, Newspapers.com Basic‡, and Fold3.com (military records). 
-                                    </p>
-                                    <LegalNewspapersBasic />
-                                </FAQ>
-                                <FAQ faqNum="5" title="How long will it take to begin making discoveries?">
-                                    <p>
-                                        The more information you provide to Ancestry about your family, the faster Ancestry can typically help you make discoveries. Usually it only takes a few minutes to begin making discoveries. You keep making discoveries as you search records for more information about your family.
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="6" title="Why is this so expensive? Can’t I find the same historical family information on Google?">
-                                    <p>
-                                        Through negotiations directly with governments, municipal, and private record holders, Ancestry has the largest online collection of family history records, including many records that cannot be found elsewhere.
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="7" title="What happens if I cancel?">
-                                    <p>
-                                        If you cancel your membership, you won't be able to view most record images or transcriptions (including those already attached to your tree). You also won't be able to initiate new messages via the Message Center. However, there are some features that will still be available to you. For more information, check out <a href="https://support.ancestry.com/s/article/Accounts-after-Cancellation">Ancestry Accounts after Cancellation.</a>
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="8" title="Are DNA kits included with a subscription?">
-                                    <p>
-                                        DNA kits are not included with a subscription. Each must be purchased separately.
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="9" title="I’m adopted—or don’t know who my parents are—does Ancestry have anything for me?">
-                                    <p>
-                                        Ancestry has many records collections that can help customers involved in adoptions make discoveries. For example, you can try searching for adoption records in the Birth, Marriage &nbsp; Death index or searching for orphanage records in the Census & Voter Lists index.
-                                    </p>
-                                </FAQ>
-                            </FAQGroup>
-                            <FAQGroup title="Records" expanded={this.state.expandAll} changeShowAllToHide={this.changeShowAllToHide}>
-                                <FAQ faqNum="10" title="Where does Ancestry get its family history information?">
-                                    <p>
-                                        Ancestry gathers records directly from a variety of sources including governments, municipal, and private record holders. Many Ancestry members also upload and make their information publicly available—including photos, stories, and other documents.
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="11" title="How many subscribers already use Ancestry? How many family trees have been built on Ancestry?">
-                                    <p>
-                                        Ancestry has more than three million subscribers across its core Ancestry websites. To date, our customers have built over 110 million family trees.
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="12" title="How do I access historical records, and where do I save what I find?">
-                                    <p>
-                                        From any page on Ancestry, click the Search tab and select All Collections. To search a specific type of record, select that record type instead. To search with extra facts, click the Show more options link. To limit your search results to an exact name or date, select exact under a field. If you find a record you want to keep, simply click the Save button to attach it to your tree.
-                                    </p>
-                                </FAQ>
-                                <FAQ faqNum="13" title="How often do you get new historical information—and how much?">
-                                    <p>
-                                        Ancestry adds an average of 2 million records per day (from around the world) to its record collections.
-                                    </p>
-                                </FAQ>
-                            </FAQGroup>
-                        </div>
-                    </section>
-                </div>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
             )
         }
-        return <div></div>
+        return <div className="faqs-section--not-included"></div>
     }
 };
 

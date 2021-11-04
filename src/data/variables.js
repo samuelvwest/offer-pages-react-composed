@@ -12,7 +12,7 @@ export const variables = getVariablesLocal() || {
     supportSection: true,
     videoSection: 'embedded',
     privacySection: false,
-    faqsSection: `not-included`,
+    faqsSection: true,
     otherProductsSection: false,
     feedbackSection: false
 }
