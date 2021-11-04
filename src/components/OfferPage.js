@@ -248,7 +248,7 @@ export class OfferPage extends React.Component {
                 <SupportSection />
                 <FeaturesGrid />
                 <TestimonialSection />
-                {/* <VideoSection /> */}
+                <VideoSection />
                 <ExamplesSection />
                 <FAQsSection />
                 {this.props.variables.lowerOfferings && <Offerings placement="bottom" />}

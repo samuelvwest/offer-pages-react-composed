@@ -533,12 +533,6 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="videoSection" 
-                    settingValue="modal" 
-                    displayText="Modal" 
-                />
-                <SettingsButton 
-                    settingGroup="variables"
-                    settingAttribute="videoSection" 
                     settingValue="embedded" 
                     displayText="Embedded" 
                 />

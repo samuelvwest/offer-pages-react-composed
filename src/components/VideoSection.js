@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { openModal } from '../actions/utilities';
 import { adobeTargetTrackEvent } from '../actions/tracking';
 
 const mapStateToProps = (state) => {
@@ -25,9 +26,9 @@ export class VideoSection extends React.Component {
     }
     render() {
         const pS = this.props.pageSettings;
-        // if (!!this.props.variables.videoSection) {
+        if (!!this.props.variables.videoSection) {
             return pS.windowWidth <= pS.breaks.sparklydragon.desktop ? (
-                <div className={`video-section-outer-wrapper offerings-variable--${this.props.variables.offerings} scroll-tracking--videoSection`}
+                <div className={`video-section-outer-wrapper scroll-tracking--videoSection`}
                     onClick={() => {
                         adobeTargetTrackEvent({
                             eventType: 'clickSection',
@@ -38,13 +39,13 @@ export class VideoSection extends React.Component {
                     <section className={`video-section-container ${classesMaker(`sparkly-dragon`)}`}>
                         <p className="title">How does Ancestry® work?</p>
                         <p className="subtitle">Find out in this 52-second video.</p>
-                        <div className={`relationship-map relationship-map--${this.props.variables.videoSection} lazyBgImg`}>
+                        <div className={`relationship-map relationship-map--video lazyBgImg`}>
                             <HowAncestryWorksVideo />
                         </div>
                     </section>
                 </div>
             ) : (
-                <div className={`video-section-outer-wrapper video-section-outer-wrapper--${this.props.variables.videoSection} offerings-variable--${this.props.variables.offerings} scroll-tracking--videoSection`}
+                <div className={`video-section-outer-wrapper scroll-tracking--videoSection`}
                     onClick={() => {
                         adobeTargetTrackEvent({
                             eventType: 'clickSection',
@@ -60,14 +61,14 @@ export class VideoSection extends React.Component {
                             <p className="title">How does Ancestry® work?</p>
                             <p className="subtitle">Find out in this 54-second video.</p>
                         </div>
-                        <div className={`hdaw-flex-item relationship-map relationship-map--${this.props.variables.videoSection} lazyBgImg`}>
+                        <div className={`hdaw-flex-item relationship-map relationship-map--video lazyBgImg`}>
                             <HowAncestryWorksVideo />
                         </div>
                     </section>
                 </div>
             )
-        // }
-        // return <div className="video-section--not-included"></div>
+        }
+        return <div className="video-section--not-included"></div>
     }
 };
 
