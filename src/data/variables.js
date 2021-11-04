@@ -11,7 +11,6 @@ export const variables = getVariablesLocal() || {
     featuresGrid: `control`,
     supportSection: true,
     videoSection: 'embedded',
-    examplesSection: false,
     privacySection: false,
     faqsSection: `not-included`,
     otherProductsSection: false,

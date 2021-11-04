@@ -12,7 +12,6 @@ import TestimonialSection from './TestimonialSection';
 import FeaturesGrid from './features-grid/FeaturesGrid';
 import SupportSection from './SupportSection';
 import VideoSection from './VideoSection';
-import ExamplesSection from './ExamplesSection';
 import PrivacySection from './PrivacySection';
 import FAQsSection from './faqs-section/FAQsSection';
 import OtherProductsSection from './OtherProductsSection';
@@ -249,7 +248,6 @@ export class OfferPage extends React.Component {
                 <FeaturesGrid />
                 <TestimonialSection />
                 <VideoSection />
-                <ExamplesSection />
                 <FAQsSection />
                 {this.props.variables.lowerOfferings && <Offerings placement="bottom" />}
                 <OtherProductsSection />
