@@ -184,7 +184,7 @@ export class PrettyGrid extends React.Component {
                                             })}
                                         </tbody>
                                     </table>
-                                    {(subs.display.durations.some((duration) => duration.num > 1) && /toggle/.test(pS.LDBM)) &&
+                                    {(subs.display.durations.some((duration) => duration.num > 1) && /toggle-back/.test(pS.LDBM)) &&
                                         <p className="textxsml italic textRight payGoModalBtn">
                                             <button type="button" className="link" 
                                                 onClick={() => { 
@@ -198,6 +198,7 @@ export class PrettyGrid extends React.Component {
                                             </button>
                                         </p>
                                     }
+                                    {subs.ldbms && <LegalLongDurationBilledMonthly/>}
                                 </div>
                                 <div className="ancGridBreak768"></div>
                                 <div className="ancCol w30 offerFormCtaCol">
@@ -212,7 +213,6 @@ export class PrettyGrid extends React.Component {
                                     </a>
                                 </div>
                             </div>
-                            {subs.ldbms && <LegalLongDurationBilledMonthly/>}
                         </form>
                     </div>
                 </section>

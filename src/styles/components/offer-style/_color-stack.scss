@@ -2,6 +2,7 @@
     &.offerings-style--colorstack {
         background-color: #fff;
         padding-bottom: 30px;
+        padding-bottom: 30px;
 
         .durationSelections {
             display:block;
@@ -54,6 +55,8 @@
 
         .durationLDBMButton {
             text-align: center;
+            width: 190px;
+            margin: 5px auto 5px calc(50% - 31px);
             > button {
                 color: #1B88B0;
                 font-size: 14px;

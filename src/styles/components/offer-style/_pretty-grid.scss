@@ -60,6 +60,9 @@
                     text-align: right;
                     background-color: #f8f7f3;
                     border-radius: 0;
+                    > span > button.link {
+                        text-align:right;
+                    }
                 }
                 &.offers-table__cell--offer {
                     background-color: #fff;
@@ -217,9 +220,19 @@
         margin: -3px 0px 0 9px;
     }
 
-    .payGoModalBtn, 
-    a.compareButton {
+    .payGoModalBtn {
         text-decoration: none;
+    }
+
+    .offerFormCtaCol {
+        text-align: center;
+        width: 84%;
+        margin-left: 16%;
+        @media only screen and (min-width: 1005px) {
+            width:auto;
+            margin:auto;
+            text-align: left;
+        }
     }
 
     .offerFormCtaArrow {
@@ -237,11 +250,18 @@
     .offerFormSubmitBtn {
         margin-left: 10px;
         vertical-align: middle;
+        font-size: 20px;
+        line-height: 30px;
+        min-height: 50px;
+        padding: 9px 34px;
+        min-width: 50%;
+        @media only screen and (min-width: 1005px) {
+            min-width:none;
+        }
         @media only screen and (min-width: 1200px) {
             font-size: 20px;
             line-height: 30px;
             min-height: 50px;
-            padding: 9px 34px;
         }
         // .free-trial-submit-button {
         > span {
