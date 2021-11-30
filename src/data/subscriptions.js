@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Build durations texts object
 export const durationTexts = {
     dur1: `Monthly`,
@@ -9,22 +11,25 @@ export const durationTexts = {
 // Packages data object
 export const packagesData = [
     {
-        id: `usdiscovery`,
-        order: 1,
-        name: `U.S. Discovery`,
-        desc: ``,
-        denyStr: `Ancestry_US_Deluxe`
+        id: `usdiscovery`, // Unique ID for package type
+        order: 1, // list order (top-left to bottom-right) compared to other packages
+        name: `U.S. Discovery`, // Package name
+        descName: `All U.S. records`, // Descriptive package name
+        description: `Access all U.S. records on Ancestry`, // package descriptions
+        denyStr: `Ancestry_US_Deluxe` // Record deny string for this package
     }, {
         id: `worldexplorer`,
         order: 2,
         name: `World Explorer`,
-        desc: ``,
+        descName: `Everything on Ancestry`,
+        description: `Access all U.S. & international records on Ancestry`,
         denyStr: `Ancestry_World_Deluxe`
     }, {
         id: `allaccess`,
         order: 3,
         name: `All Access`,
-        desc: ``,
+        descName: `Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic</strong>`,
+        description: `Get full membership to: Ancestry.com, Fold3.com, & Newspapers. Basic`,
         denyStr: `All_Access`
     }
 ]

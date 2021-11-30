@@ -72,21 +72,14 @@ export class PrettyGrid extends React.Component {
                                                     if (pkgData.divider) {
                                                         return <td key={`pkg-divider-${index}`} className="offers-table__cell offers-table__cell--divider">&nbsp;</td>
                                                     }
-                                                    const pkgVars = pkgData.order === 3  ? {
-                                                        colorClass: `bgColor2`,
-                                                        description: <p className="noTopSpacing hide480 textsml">Get full membership to: Ancestry.com, Fold3.com, &amp; Newspapers.com Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /></p>
-                                                    } : pkgData.order === 2 ? {
-                                                        colorClass: `bgColor4`,
-                                                        description: <p className="noTopSpacing hide480 textsml">Access all U.S. &amp; international records on Ancestry</p>
-                                                    } : {
-                                                        colorClass: `bgColor3`,
-                                                        description: <p className="noTopSpacing hide480 textsml">Access all U.S. records on Ancestry</p>
-                                                    }
                                                     return (
-                                                        <td key={pkgData.id} className={`offers-table__cell offers-table__cell--content offers-table__cell--top-label ${pkgVars.colorClass}`}>
+                                                        <td key={pkgData.id} className={`offers-table__cell offers-table__cell--content offers-table__cell--top-label ${pkgData.order === 3 ? `bgColor2` : pkgData.order === 2 ? `bgColor4` : `bgColor3`}`}>
                                                             {pS.bestOffer.packageID === pkgData.id && <div className="badge badgeSize2 badgeColorTeal">MOST POPULAR</div>}
                                                             <h2 className="text3xlrg">{pkgData.name}</h2>
-                                                            {pkgVars.description}
+                                                            <p className="noTopSpacing hide480 textsml">
+                                                                {pkgData.description}
+                                                                {/Basic/.test(pkgData.description) && <LegalSup supRef="newspapersBasic" goToOnClick={true} />}
+                                                            </p>
                                                         </td>
                                                     )
                                                 })}
