@@ -60,13 +60,14 @@ if (/ancestry/.test(location.hostname)) {
     }
     pageSettings.elligibility = getElligibility({ audiences: pageSettings.audiences });
 }
-// if (pageSettings.windowWidth < pageSettings.breaks.prettyGrid.tablet) {
-//     pageSettings.selectedOffer = {
-//         renewMonths: 1, // must be included in 'displayDurations' setting
-//         packageID: 'worldexplorer', // must be included in the 'displayPackages' setting
-//         ldbm: false // true/false value only factored in if 'LDBM' setting is 'side-by-side'
-//     }
-// }
+if (pageSettings.windowWidth < pageSettings.breaks.prettyGrid.tablet) {
+    pageSettings.selectedOffer = {
+        renewMonths: 1, // must be included in 'displayDurations' setting
+        packageID: 'worldexplorer', // must be included in the 'displayPackages' setting
+        ldbm: false // true/false value only factored in if 'LDBM' setting is 'side-by-side'
+    }
+    // pageSettings.LDBM = 'side-by-side'; // --> Waiting to be tested
+}
 pageSettings.returnURL = getReturnURL();
 pageSettings.displayPackages = filterDisplayPackages(pageSettings.displayPackages, packagesData, pageSettings.denyLevel);
 pageSettings.subscriptions = buildDisplayOffersData(pageSettings, subscriptions);
