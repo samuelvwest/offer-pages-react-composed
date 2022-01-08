@@ -11,32 +11,96 @@ export const durationTexts = {
 // Packages data object
 export const packagesData = [
     {
+        id: `treebuilder`,
+        order: 1,
+        name: `Tree Builder`,
+        descName: `Family Tree Builder`,
+        description: `Build your family tree and access free record collections`,
+        denyStr: `Tree_Builder`,
+        icon: 'MiniTree',
+        color: `grey`,
+        type: `freemium`
+    }, {
         id: `usdiscovery`, // Unique ID for package type
-        order: 1, // list order (top-left to bottom-right) compared to other packages
+        order: 2, // list order (top-left to bottom-right) compared to other packages
         name: `U.S. Discovery`, // Package name
         descName: `All U.S. records`, // Descriptive package name
         description: `Access all U.S. records on Ancestry`, // package descriptions
-        denyStr: `Ancestry_US_Deluxe` // Record deny string for this package
+        denyStr: `Ancestry_US_Deluxe`, // Record deny string for this package
+        icon: 'USMap', // Icon that should be used to represent this package
+        color: `blue`, // Color that should be used in association with this package
+        type: `exclusive-entitlements-bundle` // type of entitlements bundle – I.e.: 'freemium', 'exclusive-entitlements-bundle', 'mixable-entitlements-bundle'
     }, {
         id: `worldexplorer`,
-        order: 2,
+        order: 3,
         name: `World Explorer`,
         descName: `Everything on Ancestry`,
         description: `Access all U.S. & international records on Ancestry`,
-        denyStr: `Ancestry_World_Deluxe`
+        denyStr: `Ancestry_World_Deluxe`,
+        icon: 'Globe',
+        color: `green`,
+        type: `exclusive-entitlements-bundle`
     }, {
         id: `allaccess`,
-        order: 3,
+        order: 4,
         name: `All Access`,
         descName: `Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic</strong>`,
-        description: `Get full membership to: Ancestry.com, Fold3.com, & Newspapers. Basic`,
-        denyStr: `All_Access`
+        description: `Get full membership to: Ancestry.com, Fold3.com, & Newspapers.com Basic`,
+        denyStr: `All_Access`,
+        icon: 'GlobePlus',
+        color: `purple`,
+        type: `exclusive-entitlements-bundle`
     }
 ]
+
+// Freemium placeholder offer
+export const freemiumSubscription = ({ pkgID, renewMonths, billMonths }) => {
+    return {
+        packageID: pkgID,
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: renewMonths,
+            billMonths: billMonths,
+            displayPrice: 0,
+            MSRP: 0
+        },
+        offerIDs: {
+            initial: 'O-Registration',
+            renewal: 'O-Registration',
+            migration: 'O-Registration'
+        }
+    }
+}
 
 // Available subscriptions data object
 export const subscriptions = [
     {
+        packageID: 'treebuilder',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 0,
+            billMonths: 0,
+            displayPrice: 0,
+            MSRP: 0
+        },
+        offerIDs: {
+            initial: 'O-Registration',
+            renewal: 'O-Registration',
+            migration: 'O-Registration'
+        }
+    }, {
         packageID: 'usdiscovery',
         currency: '$',
         initialPeriod: {

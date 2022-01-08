@@ -221,6 +221,21 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 />
             </div>
             <div className="settings__group">
+                <h5 className="settings__group__name">Row Labels</h5>
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="displayRowLabels" 
+                    settingValue={true} 
+                    displayText="Included" 
+                />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="displayRowLabels" 
+                    settingValue={false} 
+                    displayText="Not included" 
+                />
+            </div>
+            <div className="settings__group">
                 <h5 className="settings__group__name">Elligibility</h5>
                 <SettingsButton 
                     settingGroup="pageSettings"
@@ -294,6 +309,12 @@ const SettingsControl = connect(mapStateToProps)((props) => (
             </div>
             <div className="settings__group">
                 <h5 className="settings__group__name">Packages</h5>
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="displayPackages" 
+                    settingValue="treebuilder" 
+                    displayText="Tree Builder" 
+                />
                 <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="displayPackages" 
@@ -373,7 +394,7 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     displayText="Toggle Back"
                 />
             </div>
-            <div className="settings__group">
+            {/* <div className="settings__group">
                 <h5 className="settings__group__name">Selected Offer</h5>
                 <SettingsDropDown 
                     settingGroup="pageSettings"
@@ -390,7 +411,7 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingAttribute="selectedOffer" 
                     settingValue="displayPackages"
                 />
-            </div>
+            </div> */}
             <div className="settings__group">
                 <h5 className="settings__group__name">Best Offer</h5>
                 <SettingsDropDown 

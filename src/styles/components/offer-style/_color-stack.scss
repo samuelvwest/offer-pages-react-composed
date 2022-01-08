@@ -2,12 +2,19 @@
     &.offerings-style--colorstack {
         background-color: #fff;
         padding-bottom: 30px;
-        padding-bottom: 30px;
 
-        .durationSelections {
+        .all-options {
+
+        }
+
+        .all-options__durations {
             display:block;
             padding: 0 0 5px 0;
-            .buttonPill {
+            @media only screen and (min-width:601px) {
+                padding: 20px 0;
+            }
+        
+            .pill-buttons {
                 display: block;
                 grid-auto-columns: 35px;
                 padding: 0 10px;
@@ -39,7 +46,7 @@
                         color: #fff;
                         z-index: 10;
                         &.iconCheck:before {
-                            font-size: 11px;
+                            font-size: 72%;
                             margin-left: -15px;
                             margin-right: 10px;
                         }
@@ -51,201 +58,412 @@
                     }
                 }
             }
+    
+            .ldbm-buttons {
+                text-align: center;
+                width: 190px;
+                margin: 5px 0 5px calc(50% - 31px);
+                > button {
+                    color: #1B88B0;
+                    font-size: 14px;
+                    text-decoration: underline;
+                    font-weight: bold;
+                    background:transparent;
+                    border:none;
+                }
+            }
         }
 
-        .durationLDBMButton {
-            text-align: center;
-            width: 190px;
-            margin: 5px 0 5px calc(50% - 31px);
-            > button {
-                color: #1B88B0;
+        .all-options__packages {
+
+            .package-row {
+                position: relative;
+                overflow: hidden;
+                display: block;
+                background-color: #767676;
+                width: 100%;
+                height: auto;
+                margin-bottom: 2px;
+                &.package-row--white {
+                    background-color: #fff;
+                    border: 1px solid #a9a9a9;
+                    border-width: .5px 0;
+                }
+                &.package-row--blue {
+                    background-color: #0079a3;
+                }
+                &.package-row--green {
+                    background-color: #6ba410;
+                }
+                &.package-row--purple {
+                    background-color: #655586;
+                }
+            }
+    
+            .package-row__label {
+                position: relative;
+                display:flex;
+                // height:110px;
+                // min-height: 110px;
+                padding:0;
+                input {
+                    // position:absolute;
+                    display:none;
+                    width:100%;
+                    height:100%;
+                    opacity:0;
+                }
+            }
+    
+            .package-row__left-image-container {
+                position: relative;
+                display: flex;
+                width: 80px;
+                // min-width: 80px;
+                // max-width: 115px;
+                // height: 100%;
+                // min-height: 110px;
+                background-color: rgba(255,255,255,0.42);
+                align-items: center;
+                justify-content: center;
+                &.package-row__left-image-container--white {
+                    background-color: #a9a9a9
+                }
+                .package-row__left-image {
+                    position:relative;
+                    display:flex;
+                    width:72%;
+                    height:0;
+                    padding-bottom:72%;
+                    // background-color: #ffffff;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius:50%;
+                    .package-icon {
+                        position:absolute;
+                        top:0;
+                        left:0;
+                        display:block;
+                        width: 100%;
+                        height: auto;
+                        .white-fill {
+                            // fill: transparent;
+                        }
+                        .black-fill {
+                            fill: #767676;
+                        }
+                        &.package-icon--white {
+                            .white-fill {
+                                fill: #181a1c;
+                            }
+                            .black-fill {
+                                fill: #fff;
+                            }
+                        }
+                        &.package-icon--blue {
+                            .black-fill {
+                                fill: #0079a3;
+                            }
+                        }
+                        &.package-icon--green {
+                            .black-fill {
+                                fill: #6ba410;
+                            }
+                        }
+                        &.package-icon--purple {
+                            .black-fill {
+                                fill: #655586;
+                            }
+                        }
+                        // background-color: #ffffff;
+                        // .solid-color {
+                        //     fill: rgba(255,255,255,0.95);
+                        // }
+                    }
+                }
+            }
+    
+            .package-row__info {
+                position:relative;
+                display:flex;
+                flex-wrap:wrap;
+                width:calc(100% - 80px);
+                color:#fff;
+                padding: 12px;
+                &.package-row__info--white {
+                    color: #181a1c;
+                }
+            }
+    
+            .package-row__desc-name {
+                display: block;
+                // color: #fff;
+                width: calc(100% - 25px);
+                font-weight: 200;
+                line-height: 20px;
+                border-bottom: 1px solid #fff;
+                font-size: 20px;
+                padding: 0 0 12px 0;
+                &.package-row__desc-name--white {
+                    border-color: #181a1c;
+                }
+                @media only screen and (min-width:350px) {
+                    width: calc(100% - 45px);
+                }
+                * {
+                    display: inline;
+                }
+                strong {
+                    font-size: 17px;
+                    margin-top: 3px;
+                    display: inline-block;
+                    width: 184px;
+                    @media only screen and (min-width:450px) {
+                        width:auto;
+                    }
+                }
+                .legal-text__sup {
+                    top: -0.6em;
+                    line-height:15px;
+                }
+            }
+    
+            .package-row__arrow {
+                // position:absolute;
+                // top:5px;
+                // right:0;
+                display:block;
+                width: 25px;
+                font-size: 30px;
+                line-height: 15px;
+                // padding: 15px 0 0;
+                text-align:right;
+                margin-right: 0;
+                @media only screen and (min-width:350px) {
+                    width: 45px;
+                }
+            }
+
+            .package-row__price-text {
+                padding: 10px 10px 0 0;
+                min-width: 60%;
+                // &.package-row__price-text--ldbm {
+                //     margin-top: 5px;
+                // }
+                // &.package-row__price-text--promo {
+                //     @media only screen and (max-width:350px) {
+                //         width:70%;
+                //     }
+                // }
+                // .package-row__price-text--hardoffer {
+                //     font-size:20px;
+                //     font-weight:600;
+                // }
+
+                > span {
+                    display: block;
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height:161%;
+                    &:first-of-type {
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                    .price-text__light {
+                        font-weight: 400;
+                    }
+                    .price-text__heavy {
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .package-row__support-text {
+                display:flex;
+                width: 40%;
+                border-left: 1px solid #fff;
                 font-size: 14px;
-                text-decoration: underline;
-                font-weight: bold;
-                background:transparent;
-                border:none;
-            }
-        }
-
-        .ftlpMobileSprite {
-            background: url('https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/offer-mobile-sprite.jpg') no-repeat;
-            background-size: 150px auto;
-            height: 110px;
-            overflow: hidden;
-            &.leftPkgImg {
-                .colorOverlay {
-                    height: 110px;
-                    opacity: 0.4;
-                    position: relative;
-                    top: 0px;
-                    width: 210px;
-                }
-                &.leftPkgImg--usdiscovery {
-                    background-position: center 0;
-                    .colorOverlay {
-                        background: #0079a3;
-                    }
-                }
-                &.leftPkgImg--worldexplorer {
-                    background-position: 0 -142px;
-                    .colorOverlay {
-                        background: #6ba410;
-                    }
-                }
-                &.leftPkgImg--allaccess {
-                    background-size: 200px auto;
-                    background-position: -30px -400px;
-                    height: 147px;
-                    .colorOverlay {
-                        background: #655586;
-                        height: 147px;
-                    }
+                font-weight: 200;
+                height: 40px;
+                line-height: 123%;
+                margin-top: 10px;
+                padding: 0 5px 0 10px;
+                align-items: center;
+                // justify-content: center;
+                > strong {
+                    font-size: 16px;
                 }
             }
+
         }
 
-        .bluePackageRow {
-            background-color: #0079a3;
-            color: #fff;
-            height: 110px;
-            overflow: hidden;
-            width: 100%;
-        }
 
-        .monthlyPriceCon.ancGrid {
-            margin-top: 0;
-        }
 
-        .annualPriceCon.ancGrid {
-            overflow: hidden;
-            transition: all 0.8s ease;
-            max-height: 180px;
-            margin-top: 0;
-        }
 
-        .annualPriceCon.ancGrid.up {
-            max-height: 0;
-        }
+        // .ftlpMobileSprite {
+        //     background: url('https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/offer-mobile-sprite.jpg') no-repeat;
+        //     background-size: 150px auto;
+        //     height: 110px;
+        //     overflow: hidden;
+        //     &.leftPkgImg {
+        //         .colorOverlay {
+        //             height: 110px;
+        //             opacity: 0.4;
+        //             position: relative;
+        //             top: 0px;
+        //             width: 210px;
+        //         }
+        //         &.leftPkgImg--usdiscovery {
+        //             background-position: center 0;
+        //             .colorOverlay {
+        //                 background: #0079a3;
+        //             }
+        //         }
+        //         &.leftPkgImg--worldexplorer {
+        //             background-position: 0 -142px;
+        //             .colorOverlay {
+        //                 background: #6ba410;
+        //             }
+        //         }
+        //         &.leftPkgImg--allaccess {
+        //             background-size: 200px auto;
+        //             background-position: -30px -400px;
+        //             height: 147px;
+        //             .colorOverlay {
+        //                 background: #655586;
+        //                 height: 147px;
+        //             }
+        //         }
+        //     }
+        // }
 
-        .annualPriceCon::after {
-            clear: both;
-        }
+        // .bluePackageRow {
+        //     background-color: #0079a3;
+        //     color: #fff;
+        //     height: 110px;
+        //     overflow: hidden;
+        //     width: 100%;
+        // }
 
-        .greenPackageRow {
-            background-color: #6ba410;
-            color: #fff;
-            height: 110px;
-            overflow: hidden;
-            width: 100%;
-            label:link {
-                color: #fff;
-            }
-        }
+        // .monthlyPriceCon.ancGrid {
+        //     margin-top: 0;
+        // }
 
-        .orangePackageRow {
-            background-color: #655586;
-            color: #fff;
-            height: 147px;
-            overflow: hidden;
-            width: 100%;
-            label:link {
-                color: #fff;
-            }
-        }
+        // .annualPriceCon.ancGrid {
+        //     overflow: hidden;
+        //     transition: all 0.8s ease;
+        //     max-height: 180px;
+        //     margin-top: 0;
+        // }
 
-        .priceCon input {
-            height: 1px;
-            line-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            width: 1px;
-        }
+        // .annualPriceCon.ancGrid.up {
+        //     max-height: 0;
+        // }
 
-        .monthlyPriceCon span,
-        .annualPriceCon span {
-            color: #fff;
-            font-weight: 200;
-            line-height: 20px;
-        }
+        // .annualPriceCon::after {
+        //     clear: both;
+        // }
 
-        .durationTxt {
-            border-bottom: 1px solid #fff;
-            font-size: 20px;
-            padding: 12px 0;
-            width: 85%;
-        }
+        // .greenPackageRow {
+        //     background-color: #6ba410;
+        //     color: #fff;
+        //     height: 110px;
+        //     overflow: hidden;
+        //     width: 100%;
+        //     label:link {
+        //         color: #fff;
+        //     }
+        // }
 
-        .durationTxt strong {
-            display:inline;
-            font-size: 17px;
-            line-height: 100%;
-            margin-top: 6px;
-        }
+        // .orangePackageRow {
+        //     background-color: #655586;
+        //     color: #fff;
+        //     height: 147px;
+        //     overflow: hidden;
+        //     width: 100%;
+        //     label:link {
+        //         color: #fff;
+        //     }
+        // }
 
-        .ancCol.linkArrow {
-            font-size: 30px;
-            padding: 15px 0 0;
-            width: 15%;
-        }
+        // .priceCon input {
+        //     height: 1px;
+        //     line-height: 0;
+        //     opacity: 0;
+        //     overflow: hidden;
+        //     position: absolute;
+        //     width: 1px;
+        // }
 
-        .priceTextCon {
-            margin-top: 10px;
-            padding: 0 10px 0 0;
-            &.priceTextCon--ldbm {
-                margin-top: 5px;
-            }
-            &.priceTextCon--promo {
-                @media only screen and (max-width:350px) {
-                    width:70%;
-                }
-            }
-            .priceTextCon__priceTxt--hardoffer {
-                font-size:20px;
-            }
-        }
+        // .monthlyPriceCon span,
+        // .annualPriceCon span {
+        //     color: #fff;
+        //     font-weight: 200;
+        //     line-height: 20px;
+        // }
 
-        span.cancelText {
-            border-left: 1px solid #fff;
-            font-size: 14px;
-            height: 40px;
-            line-height: 15px;
-            margin-top: 10px;
-            padding: 0 5px 0 10px;
-            &.cancelText--promo {
-                @media only screen and (max-width:350px) {
-                    width:30%;
-                }
-            }
-        }
+        // .durationTxt {
+        //     border-bottom: 1px solid #fff;
+        //     font-size: 20px;
+        //     padding: 12px 0;
+        //     width: 85%;
+        // }
 
-        span.cancelText.saveText strong {
-            display: inline-block;
-            padding-top: 10px;
-        }
+        // .durationTxt strong {
+        //     display:inline;
+        //     font-size: 17px;
+        //     line-height: 100%;
+        //     margin-top: 6px;
+        // }
 
-        .monthlyPriceCon label,
-        .annualPriceCon label {
-            display: block;
-            padding: 0;
-        }
+        // .ancCol.linkArrow {
+        //     font-size: 30px;
+        //     padding: 15px 0 0;
+        //     width: 15%;
+        // }
 
-        span.daysFree {
-            font-size: 16px;
-            font-weight: 700;
-        }
+        // span.cancelText {
+        //     border-left: 1px solid #fff;
+        //     font-size: 14px;
+        //     font-weight: 200;
+        //     height: 40px;
+        //     line-height: 15px;
+        //     margin-top: 10px;
+        //     padding: 0 5px 0 10px;
+        //     &.cancelText--promo {
+        //         @media only screen and (max-width:350px) {
+        //             width:30%;
+        //         }
+        //     }
+        // }
 
-        span.priceTxt {
-            font-size: 13px;
-            font-weight: 400;
-            &.priceTxt--hardoffer {
-                font-size:20px
-            }
-        }
+        // span.cancelText.saveText strong {
+        //     display: inline-block;
+        //     padding-top: 10px;
+        // }
 
-        span.icon {
-            margin-right: 0px;
-        }
+        // .monthlyPriceCon label,
+        // .annualPriceCon label {
+        //     display: block;
+        //     padding: 0;
+        // }
+
+        // span.daysFree {
+        //     font-size: 16px;
+        //     font-weight: 700;
+        // }
+
+        // span.priceTxt {
+        //     font-size: 13px;
+        //     font-weight: 400;
+        //     &.priceTxt--hardoffer {
+        //         font-size:20px
+        //     }
+        // }
+
+        // span.icon {
+        //     margin-right: 0px;
+        // }
 
     }
 }

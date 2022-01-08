@@ -14,7 +14,7 @@ const classesMaker = (styleName) => {
 }
 
 const SupportSection = connect(mapStateToProps)(({ pageSettings: pS, variables }) => (
-    <div className={`feature-wrap-new flex-container ${classesMaker(`sparkly-dragon`)} scroll-tracking--supportSection`}
+    <div className={`feature-wrap-new ${classesMaker(`sparkly-dragon`)} scroll-tracking--supportSection`}
         onClick={() => {
             adobeTargetTrackEvent({
                 eventType: 'clickSection',

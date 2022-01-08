@@ -46,7 +46,7 @@
             products.forEach(function(product) {
                 var txt = product.parentNode.innerText;
                 var amount = Number(txt.match(/\d+\.\d+/)[0]);
-                // console.log(txt);
+                console.log(txt);
                 if (/(G|g)ift/.test(txt)) {
                     // console.log('gift sub detected', amount);
                     var packageStr = /(A|a)ll (A|a)ccess/.test(txt) ? 'allaccess' : /(W|w)orld (E|e)xplorer/.test(txt) ? 'worldexplorer' : 'usdiscovery';
@@ -83,18 +83,18 @@
                     score = score + (mapLTRs[packageStr][durationStr] * freeTrialAdjustment)
                 }
             })
-            // console.log('Final LTR Score', score);
-            // console.log('LTR Products Reported', productPurchasedStr);
-            window.tao.g.ltrParams = {
-                orderTotal: score,
-                orderId: orderID,
-                productPurchasedId: productPurchasedStr
-            }
-            // console.log(window.tao.g.ltrParams);
-            window.tao.f.trackEvent({
-                mbox: 'ltr_complete',
-                params: window.tao.g.ltrParams
-            })
+            console.log('Final LTR Score', score);
+            console.log('LTR Products Reported', productPurchasedStr);
+            // window.tao.g.ltrParams = {
+            //     orderTotal: score,
+            //     orderId: orderID,
+            //     productPurchasedId: productPurchasedStr
+            // }
+            console.log(window.tao.g.ltrParams);
+            // window.tao.f.trackEvent({
+            //     mbox: 'ltr_complete',
+            //     params: window.tao.g.ltrParams
+            // })
         }
     })
 </script>

@@ -34,9 +34,9 @@
 }
 
 .legal-text__sup {
-    top:-.3em;
+    top:-1em;
     font-size: .61em;
-    vertical-align: super;
+    // vertical-align: super;
     &.legal-text__sup--asterisk {
         top:0;
         font-size: 1em;
@@ -129,6 +129,15 @@
         &:before {
             opacity:0.42;
         }
+    }
+}
+
+svg {
+    .black-fill {
+        fill: #000;
+    }
+    .white-fill {
+        fill: #fff;
     }
 }
 

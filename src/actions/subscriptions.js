@@ -1,4 +1,4 @@
-import { durationTexts } from '../data/subscriptions';
+import { durationTexts, freemiumSubscription } from '../data/subscriptions';
 
 const roundNum = function(num, decimals, roundDown) {
     const decs = decimals || 0;
@@ -17,8 +17,19 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
             durations: [],
             offersMap: []
         },
-        offerElligibilityType: pageSettings.elligibility === `freetrial` ? `initial` : /CSub%3d1/.test(document.cookie) ? 'migration' : 'renewal'
+        // offerElligibilityType: pageSettings.elligibility === `freetrial` ? `initial` : /CSub%3d1/.test(document.cookie) ? 'migration' : 'renewal'
+        offerElligibilityType: pageSettings.elligibility === `freetrial` ? `initial` : 'renewal'
     }
+
+    // // Add in Freemium package types to display since they won't be found in the offers themselves
+    
+    pageSettings.displayPackages.forEach((pkgID) => {
+        const pkgData = pageSettings.packagesData.find(pData => pData.id === pkgID);
+        if (pkgData.type === 'freemium') {
+            data.display.packages.push(pkgData);
+        }
+    })
+
     // Build OfferMap based on Page Settings
     data.display.offersMap = [...subscriptions.filter((offer) => {
         // Define if offer is a longer duration billed monthly
@@ -27,12 +38,21 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
         // Embed package data in offer
         offer.packageData = pageSettings.packagesData.find((pkg) => pkg.id === offer.packageID);
 
+        // Determine if freemium should be included
+
         // Define filter tests
         const packagesTest = pageSettings.displayPackages.indexOf(offer.packageID) > -1;
         const durationsTest = pageSettings.displayDurations.indexOf(offer.renewalPeriod.renewMonths) > -1;
         const ldbmTest = offer.ldbm ? !!pageSettings.LDBM : true;
-        return packagesTest && durationsTest && ldbmTest;
+        return packagesTest 
+            && ((durationsTest && ldbmTest) 
+                || offer.packageData.type === `freemium`);
     })];
+    // // "Freemium" ("Treebuilder") package level should be displayed
+    // if (/treebuilder/.test(pageSettings.displayPackages)) {
+    //     data.display.packages.push(pageSettings.packagesData.find((pkg) => pkg.id === `treebuilder`));
+    // }
+    // Determine actual offerings and display data
     data.display.offersMap.forEach((offer) => {
         // Determine if Long Durations Billed Monthly are supported
         if (offer.ldbm) {
@@ -43,7 +63,9 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
             data.display.packages.push(offer.packageData);
         }
         // Log bill and/or commitment durations to be displayed
-        if (!data.durations.find((duration) => duration.num === offer.renewalPeriod.renewMonths && duration.ldbm === offer.ldbm)) {
+        if (offer.renewalPeriod.renewMonths !== 0
+            && !data.durations.find((duration) => duration.num === offer.renewalPeriod.renewMonths && duration.ldbm === offer.ldbm)
+        ) {
             const durationText = durationTexts[`dur${offer.renewalPeriod.renewMonths}`];
             data.durations.push({
                 id: `${durationText}|${offer.renewalPeriod.renewMonths}|${offer.ldbm}`,
@@ -109,15 +131,19 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
     });
 
     // Finish building packages specific data
-    const minPackageOrder = Math.min.apply(null, data.display.packages.map((pckg) => pckg.order));
+    const minPackageOrder = Math.min.apply(null, data.display.packages.filter((pckg) => pckg.type !== 'freemium').map((pckg) => pckg.order));
     const maxPackageOrder = Math.max.apply(null, data.display.packages.map((pckg) => pckg.order));
     data.display.minPackage = data.display.packages.find((pkg) => pkg.order === minPackageOrder);
     data.display.maxPackage = data.display.packages.find((pkg) => pkg.order === maxPackageOrder);
 
     const findOfferTypeOrClosestToIt = (matchOffer, minOrMax) => {
+        // check for freemium offer
+        let offer = data.display.offersMap.find((ofr) => ofr.packageID === matchOffer.packageID);
+        if (!!offer && 'freemium' === offer.packageData.type) { return offer; }
+        // if not freemium offer, do regular stuff below
         const ldbmTest = (ldbm) => ldbm ? /front|side|only/.test(pageSettings.LDBM) : false;
         // find exact match if can be found
-        let offer = data.display.offersMap.find((ofr) => ofr.packageID === matchOffer.packageID && ofr.renewalPeriod.renewMonths === matchOffer.renewMonths && ldbmTest(matchOffer.ldbm) === ofr.ldbm);
+        offer = data.display.offersMap.find((ofr) => ofr.packageID === matchOffer.packageID && ofr.renewalPeriod.renewMonths === matchOffer.renewMonths && ldbmTest(matchOffer.ldbm) === ofr.ldbm);
         if (!!offer) { return offer; }
         // Check if different package exists with renewal and billing information the same
         offer = data.display.offersMap.find((ofr) => ofr.packageID === data.display[`${minOrMax}Package`].id && ofr.renewalPeriod.renewMonths === matchOffer.renewMonths && ldbmTest(matchOffer.ldbm) === ofr.ldbm);
@@ -130,8 +156,9 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
         if (!!offer) { return offer; }
     }
 
-    data.selectedOffer = findOfferTypeOrClosestToIt(pageSettings.selectedOffer, 'min')
-    data.bestOffer = findOfferTypeOrClosestToIt(pageSettings.bestOffer, 'max')
+    data.selectedOffer = findOfferTypeOrClosestToIt(pageSettings.selectedOffer, 'min');
+    data.bestOffer = findOfferTypeOrClosestToIt(pageSettings.bestOffer, 'max');
+    // console.log(data);
     data.selectedOffer.renewMonths = data.selectedOffer.renewalPeriod.renewMonths;
     data.bestOffer.renewMonths = data.bestOffer.renewalPeriod.renewMonths;
 
