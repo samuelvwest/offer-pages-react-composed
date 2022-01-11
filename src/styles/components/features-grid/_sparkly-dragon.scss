@@ -182,6 +182,10 @@
                             display:block;
                             width:100%;
                             height:100%;
+                            @media (min-width: 769px) {
+                                border: 40px solid #ffffff;
+                                border-width: 40px 0 0 0;
+                            }
                             svg {
                                 display:block;
                                 width:100%;
@@ -195,14 +199,16 @@
                             position: absolute;
                             z-index:3;
                             font-size: 14px;
+                            font-weight:bold;
                             width: 75px;
+                            padding: 5px;
                             &.record-amount-text--least {
                                 bottom: 5px;
                                 text-align: left;
                                 left: 0;
                             }
                             &.record-amount-text--most {
-                                bottom: 47px;
+                                bottom: 45px;
                                 text-align: right;
                                 right: 0;
                             }
@@ -408,10 +414,11 @@
         }
         &.inclusion-wrapper--checkicon {
             &.inclusion-wrapper--white {
-                background-color:#767676;
+                background-color: #ffffff;
+                border:1px solid #767676;
                 > svg.inclusion-icon {
                     .black-fill {
-                        fill:#fff;
+                        fill:#767676;
                     }
                 }
             }

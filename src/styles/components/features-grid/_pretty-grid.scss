@@ -17,8 +17,10 @@
 
     .offerCompareTable th, 
     .offerCompareTable td {
-        padding: 20px;
+        padding: 20px 10px;
         vertical-align: middle;
+        flex-basis:0;
+        flex-grow:1;
     }
 
     .offerCompareTable td {
@@ -29,21 +31,42 @@
         margin-bottom: 0;
     }
 
-
-
-
-
-    .bgColor-usdiscovery {
-        background-color: #0079a3;
+    tr {
+        display:flex;
+        .package-heading-cell {
+            color: #ffffff;
+            font-size:20px;
+            text-align: center;
+            background-color:#767676;
+            &.package-heading-cell--smaller {
+                font-size:15px;
+            }
+            &.package-heading-cell--white {
+                color: #181a1c;
+                background-color:#ffffff;
+                border: 1px solid #767676;
+            }
+            &.package-heading-cell--blue {
+                background-color:#0079a3;
+            }
+            &.package-heading-cell--green {
+                background-color:#6ba410;
+            }
+            &.package-heading-cell--purple {
+                background-color:#655586;
+            }
+        }
+        .feature-text {
+            flex-basis: 40%;
+        }
+        .inclusion-wrapper {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
-    .bgColor-worldexplorer {
-        background-color: #6ba410;
-    }
-
-    .bgColor-allaccess {
-        background-color: #655586;
-    }
+    
 
     .coloraltblue {
         color: #03678b;

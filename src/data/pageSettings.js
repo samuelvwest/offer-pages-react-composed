@@ -11,7 +11,7 @@ export const pageSettings = getPageSettingsLocal() || {
     denyLevel: 1,
     elligibility: 'initial',
     showSettings: showSettingsTest(),
-    displayRowLabels: false,
+    displayRowLabels: true,
     settingsCollapsed: false,
     windowWidth: window.outerWidth,
     windowHeight: window.outerWidth,

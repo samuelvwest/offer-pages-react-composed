@@ -6,52 +6,161 @@
     }
 
     .compareTable { 
-        margin-top:20px; 
+        display:block;
+        width:100%;
         text-align:center; 
-        margin-bottom:40px; 
+        margin: 20px 0; 
+        // margin-bottom:40px; 
+        > * {
+            display:block;
+            width:100%;
+        }
         caption { 
             text-transform:uppercase; 
             color:#5e6770;  
         }
+        tr {
+            display:flex;
+            justify-content: center;
+            width:100%;
+        }
         th { 
             text-align:center; 
             padding:20px 2px; 
+            flex-basis:0;
+            flex-grow:1;
+            &.package-heading-cell {
+                font-size: 20px;
+                font-weight:bold;
+                color: #767676;
+                &.package-heading-cell--smaller {
+                    font-size: 16px;
+                }
+                &.package-heading-cell--white {
+                    color: #ffffff;
+                    background-color: #d6d5d5;
+                }
+                &.package-heading-cell--blue {
+                    color: #0079a3;
+                }
+                &.package-heading-cell--green {
+                    color: #6ba410;
+                }
+                &.package-heading-cell--purple {
+                    color: #655586;
+                }
+            }
+            &.feature-text-cell {
+                padding:30px 2px 10px 2px;
+            }
         }
         td { 
+            flex-basis:0;
+            flex-grow:1;
             padding:4px; 
             &:not(:last-child) { 
                 border-right:1px #dedede solid; 
             }
+            .iconCheck {
+                margin:0;
+                color: #767676;
+                &.iconCheck--white {
+                    color: #ffffff;
+                    background-color: #d6d5d5;
+                }
+                &.iconCheck--blue {
+                    color: #0079a3;
+                }
+                &.iconCheck--green {
+                    color: #6ba410;
+                }
+                &.iconCheck--purple {
+                    color: #655586;
+                }
+            }
         }
     }
 
-    .txtColor {
-        color:#0079a3; 
-        &.txtColor--usdiscovery {
-            color:#0079a3; 
-        }
-        &.txtColor--worldexplorer {
-            color:#6ba410; 
-        }
-        &.txtColor--allaccess {
-            color: #655586; 
-        }
-    }
 
-    .greenTxt { 
-        color:#9cbf3b; 
-    }
+
+
+//     .black-fill {
+//         fill:#d6d5d5;
+//     }
+// }
+// &.inclusion-wrapper--checkicon {
+//     &.inclusion-wrapper--white {
+//         background-color: #ffffff;
+//         border:1px solid #767676;
+//         > svg.inclusion-icon {
+//             .black-fill {
+//                 fill:#767676;
+//             }
+//         }
+//     }
+//     &.inclusion-wrapper--grey {
+//         background-color:#ececec;
+//         > svg.inclusion-icon {
+//             .black-fill {
+//                 fill:#767676;
+//             }
+//         }
+//     }
+//     &.inclusion-wrapper--blue {
+//         background-color:#c5ecf9;
+//         > svg.inclusion-icon {
+//             .black-fill {
+//                 fill:#0079a3;
+//             }
+//         }
+//     }
+//     &.inclusion-wrapper--green {
+//         background-color:#e0f2c4;
+//         > svg.inclusion-icon {
+//             .black-fill {
+//                 fill:#6ba410;
+//             }
+//         }
+//     }
+//     &.inclusion-wrapper--purple {
+//         background-color:#dbd1ee;
+//         > svg.inclusion-icon {
+//             .black-fill {
+//                 fill:#655586;
+//             }
+//         }
+//     }
+// }
+
+
+
+//     .txtColor {
+//         color:#0079a3; 
+//         &.txtColor--usdiscovery {
+//             color:#0079a3; 
+//         }
+//         &.txtColor--worldexplorer {
+//             color:#6ba410; 
+//         }
+//         &.txtColor--allaccess {
+//             color: #655586; 
+//         }
+//     }
+
+//     .greenTxt { 
+//         color:#9cbf3b; 
+//     }
     
-    .blueTxt { 
-        color:#1c88b0; 
-    }
+//     .blueTxt { 
+//         color:#1c88b0; 
+//     }
     
-    .orangeTxt { 
-        color: #bf5500; 
-    }
+//     .orangeTxt { 
+//         color: #bf5500; 
+//     }
     
-    .purpleTxt { 
-        color:#655586; 
-    }
+//     .purpleTxt { 
+//         color:#655586; 
+//     }
 
 }

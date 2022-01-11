@@ -16,7 +16,7 @@ const classesMaker = (styleName) => {
 const featuresData = [
     {
         text: <span>Build your family&nbsp;tree</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         text: <span>Discover new details with Ancestry&nbsp;Hints®</span>,
         appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
@@ -69,8 +69,7 @@ const ColorColumns = connect(mapStateToProps)((props) => {
                                 <th key={pkgData.id} 
                                     scope="col" 
                                     abbr={pkgData.name}
-                                    className={`txtColor txtColor--${pkgData.id} bold text2xlrg`}
-                                    style={styles}
+                                    className={`package-heading-cell package-heading-cell--${pkgData.color} ${(window.outerWidth/subs.display.packages.length) < 100 ? `package-heading-cell--smaller` : ``}`}
                                 >
                                         {pkgData.name}
                                 </th>
@@ -78,7 +77,7 @@ const ColorColumns = connect(mapStateToProps)((props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        {/* <tr>
                             {subs.display.packages.map((pkgData) => (
                                 <td key={pkgData.id} 
                                     data-label={pkgData.name}
@@ -90,12 +89,17 @@ const ColorColumns = connect(mapStateToProps)((props) => {
                                     {/allaccess/.test(pkgData.id) && <span>20 billion global records <br/>500 million military records on Fold3® <br/>1 billion articles on Newspapers.com™ Basic<LegalSup supRef="newspapersBasic" goToOnClick={true} /></span>}
                                 </td>
                             ))}
-                        </tr>
+                        </tr> */}
                         {featureRowsAndHeadsArray.map((featureData, index) => {
                             if (featureData.fullRow) {
                                 return (
                                     <tr key={index}>
-                                        <th colSpan={subs.display.packages.length}>{featureData.text}</th>
+                                        <th 
+                                            colSpan={subs.display.packages.length}
+                                            className="feature-text-cell"
+                                        >
+                                            {featureData.text}
+                                        </th>
                                     </tr>
                                 )
                             }
@@ -104,8 +108,12 @@ const ColorColumns = connect(mapStateToProps)((props) => {
                                     {subs.display.packages.map((pkgData) => {
                                         const includedTest = featureData.appliesTo.indexOf(pkgData.id) !== -1;
                                         return (
-                                            <td key={pkgData.id} data-label={pkgData.name} style={styles}>
-                                                <span className={`${includedTest ? `icon iconCheck` : ``} txtColor txtColor--${pkgData.id} text2xlrg`}>
+                                            <td 
+                                                key={pkgData.id} 
+                                                data-label={pkgData.name} 
+                                                className="feature-check-cell"
+                                            >
+                                                <span className={`${includedTest ? `icon iconCheck iconCheck--${pkgData.color}` : ``} text2xlrg`}>
                                                     <span className="hideVisually">{includedTest ? `Not ` : ``}Included</span>
                                                 </span>
                                             </td>

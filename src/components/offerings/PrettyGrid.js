@@ -25,8 +25,8 @@ const classesMaker = (styleName) => {
 const freemiumStyleAdjuster = (colorStackBreak, placement) => {
     if (window.outerWidth >= colorStackBreak) {
         // make sure height of freemium element matches rest of table because, well, there was no other way. :( 
-        const freemiumLabel = document.querySelector(`.offer-label--freemium`);
-        const firstOfferLabel = document.querySelector(`.offer-label`);
+        const freemiumLabel = document.querySelector(`.offerings-placement--${placement} .offer-label--freemium`);
+        const firstOfferLabel = document.querySelector(`.offerings-placement--${placement} .offer-label`);
         if (!!freemiumLabel) {
             // setTimeout(() => {
                 const extraRows = [].slice.call(document.querySelectorAll(`.offerings-placement--${placement} .offers-grid__row--duration:not(.offers-grid__row--position-first):not(.offers-grid__row--position-only)`))

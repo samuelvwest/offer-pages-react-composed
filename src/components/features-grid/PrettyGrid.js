@@ -41,27 +41,28 @@ const featuresData = [
         appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         text: <span>Organize, preserve and share your family tree online with advanced tools that help you grow your tree and upload photos and&nbsp;stories</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         text: <span>Learn from our exclusive Ancestry Hints – where we do the searching for you to expand your family&nbsp;tree</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         text: <span>Make discoveries in Ancestry special collections with records and help focusing on African-American and Jewish family&nbsp;history</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         text: <span>Get simple-to-understand guidance every step of the way so you can start making discoveries on day&nbsp;one</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }
 ]
 
 const PrettyGrid = connect(mapStateToProps)((props) => {
     const pS = props.pageSettings;
-    if (pS.windowWidth < pS.breaks.prettyGrid.tablet) {
+    const subs = pS.subscriptions;
+    const adjustColorColumnsBreak = Math.max(subs.display.packages.length - 3, 0) * 50;
+    if (pS.windowWidth < (pS.breaks.prettyGrid.tablet + adjustColorColumnsBreak)) {
         // Color Columns for Phone on all offer pages
         return <ColorColumns/>
     }
 
-    const subs = pS.subscriptions;
     const featureCheckColumnStyles = {
         width: `calc(60% / ${subs.display.packages.length})`
     }
@@ -81,32 +82,28 @@ const PrettyGrid = connect(mapStateToProps)((props) => {
                 <table className="offerCompareTable">
                     <tbody>
                         <tr>
-                            <th className="w40">
+                            <th className="feature-text">
                                 <h2 className="text3xlrg coloraltblue">Compare our memberships:</h2>
                             </th>
-                            {subs.display.packages.map((pkgData) => {
-                                const bgColorClass = `bgColor-${pkgData.id}`;
-                                return (
-                                    <th key={pkgData.id} 
-                                        className={`w20 bgDark textCenter ${bgColorClass}`}
-                                        style={featureCheckColumnStyles}
-                                    >
-                                        <h2 className="text2xlrg">{pkgData.name}</h2>
-                                    </th>
-                                )
-                            })}
+                            {subs.display.packages.map((pkgData) => (
+                                <th 
+                                    key={pkgData.id} 
+                                    className={`package-heading-cell package-heading-cell--${pkgData.color} ${(((window.outerWidth * .6) - 40) / subs.display.packages.length) < 110 ? `package-heading-cell--smaller` : ``}`}
+                                >
+                                    {pkgData.name}
+                                </th>
+                            ))}
                         </tr>
 
                         {filteredFeaturesData.map((featureData, index) => {
                             return (
                                 <tr key={index}>
-                                    <td className="w40">
+                                    <td className="feature-text">
                                         {featureData.text}
                                     </td>
                                     {subs.display.packages.map((pkgData) => (
                                         <td key={pkgData.id}
-                                            className="w20 textCenter"
-                                            style={featureCheckColumnStyles}
+                                            className="inclusion-wrapper"
                                         >
                                             {featureData.appliesTo.indexOf(pkgData.id) !== -1 &&
                                                 <div className="icon iconLeaf text2xlrg"></div>

@@ -259,7 +259,7 @@ export class SparklyDragon extends React.Component {
                     {firstTest && 
                         <span 
                             className="triangle"
-                            style={{width: `${array.length}00%`}}
+                            style={{width: `${array.length}03%`}}
                         >
                             <SVGAsset assetID="Triangle" classNames="triangle__svg" />
                         </span>
