@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { freemiumSubscription } from '../../data/subscriptions'
 import { SVGAsset } from '../SVGs';
 import { modifyPageSettings } from '../../actions/pageSettings';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
@@ -110,18 +109,6 @@ export class ColorStack extends React.Component {
                                     display: `durationSavings`,
                                     legalSup: `durationSave`
                                 } : false;
-                                // const rowIcon = () => {
-                                //     switch (offer.packageData.icon) {
-                                //         case 'GlobePlus':
-                                //             return <GlobePlus classNames={`package-icon package-icon--${offer.packageData.color}`} />
-                                //         case 'Globe':
-                                //             return <Globe classNames={`package-icon package-icon--${offer.packageData.color}`} />
-                                //         case 'USMap':
-                                //             return <USMap classNames={`package-icon package-icon--${offer.packageData.color}`} />
-                                //         default:
-                                //             return <AncestryIcon classNames={`package-icon package-icon--${offer.packageData.color}`} />
-                                //     }
-                                // }
                                 return (
                                     <div key={offer.id} className={`package-row package-row--${offer.packageData.color}`}>
                                             <label className="package-row__label" htmlFor={offer.id}

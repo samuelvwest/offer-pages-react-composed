@@ -53,31 +53,6 @@ export const packagesData = [
     }
 ]
 
-// Freemium placeholder offer
-export const freemiumSubscription = ({ pkgID, renewMonths, billMonths }) => {
-    return {
-        packageID: pkgID,
-        currency: '$',
-        initialPeriod: {
-            duration: 14,
-            durationType: 'Day',
-            type: 'Trial',
-            displayPrice: '0'
-        },
-        renewalPeriod: {
-            renewMonths: renewMonths,
-            billMonths: billMonths,
-            displayPrice: 0,
-            MSRP: 0
-        },
-        offerIDs: {
-            initial: 'O-Registration',
-            renewal: 'O-Registration',
-            migration: 'O-Registration'
-        }
-    }
-}
-
 // Available subscriptions data object
 export const subscriptions = [
     {
