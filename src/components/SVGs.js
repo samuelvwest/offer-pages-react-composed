@@ -1,5 +1,11 @@
 import React from 'react';
 
+export const Triangle = ({ classNames }) => (
+    <svg className={!!classNames ? classNames : ``} width="1280" height="1280" viewBox="0 0 1280 1280" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon className="black-fill" points="0 1280 0 0 1280 0 0 1280"/>
+    </svg>
+)
+
 export const AncestryIcon = ({ classNames }) => (
     <svg className={!!classNames ? classNames : ``} width="1280" height="1280" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
@@ -485,15 +491,15 @@ export const PlusCircle = ({ classNames }) => (
     </svg>
 )
 
-export const CheckIcon = ({ classNames, pathClassNames }) => (
+export const CheckIcon = ({ classNames }) => (
     <svg className={!!classNames ? classNames : ``} xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
-        <path className={!!pathClassNames ? pathClassNames : ``} fillRule="evenodd" clipRule="evenodd" d="M4.3125 6.23975C3.7002 5.62744 2.47559 4.40283 1.86328 3.79053C1.39746 4.25635 0.46582 5.18799 0 5.65381C1.05762 6.71436 3.17285 8.83545 4.23047 9.896C6.17285 7.95361 10.0576 4.06885 12 2.12646C11.5547 1.67822 10.6641 0.781738 10.2188 0.333496C8.74219 1.81006 5.78906 4.76318 4.3125 6.23975V6.23975Z" fill="white"></path>
+        <path className="black-fill" clipRule="evenodd" d="M4.3125 6.23975C3.7002 5.62744 2.47559 4.40283 1.86328 3.79053C1.39746 4.25635 0.46582 5.18799 0 5.65381C1.05762 6.71436 3.17285 8.83545 4.23047 9.896C6.17285 7.95361 10.0576 4.06885 12 2.12646C11.5547 1.67822 10.6641 0.781738 10.2188 0.333496C8.74219 1.81006 5.78906 4.76318 4.3125 6.23975V6.23975Z" fill="white"></path>
     </svg>
 )
 
-export const XIcon = ({ classNames, pathClassNames }) => (
+export const XIcon = ({ classNames }) => (
     <svg className={!!classNames ? classNames : ``} xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 12" fill="none">
-        <path className={!!pathClassNames ? pathClassNames : ``} fillRule="evenodd" clipRule="evenodd" d="M12 1.81641C11.5488 1.3623 10.6465 0.454102 10.1953 0C9.14648 1.04883 7.04883 3.14648 6 4.19531C4.9541 3.14648 2.8623 1.04883 1.81641 0C1.3623 0.454102 0.454102 1.3623 0 1.81641C1.04883 2.8623 3.14648 4.9541 4.19531 6C3.14648 7.04883 1.04883 9.14648 0 10.1953C0.454102 10.6465 1.3623 11.5488 1.81641 12C2.8623 10.9512 4.9541 8.85352 6 7.80469C7.04883 8.85352 9.14648 10.9512 10.1953 12C10.6465 11.5488 11.5488 10.6465 12 10.1953C10.9512 9.14648 8.85352 7.04883 7.80469 6C8.85352 4.9541 10.9512 2.8623 12 1.81641V1.81641Z" fill="#d6d5d5"></path>
+        <path className="black-fill" clipRule="evenodd" d="M12 1.81641C11.5488 1.3623 10.6465 0.454102 10.1953 0C9.14648 1.04883 7.04883 3.14648 6 4.19531C4.9541 3.14648 2.8623 1.04883 1.81641 0C1.3623 0.454102 0.454102 1.3623 0 1.81641C1.04883 2.8623 3.14648 4.9541 4.19531 6C3.14648 7.04883 1.04883 9.14648 0 10.1953C0.454102 10.6465 1.3623 11.5488 1.81641 12C2.8623 10.9512 4.9541 8.85352 6 7.80469C7.04883 8.85352 9.14648 10.9512 10.1953 12C10.6465 11.5488 11.5488 10.6465 12 10.1953C10.9512 9.14648 8.85352 7.04883 7.80469 6C8.85352 4.9541 10.9512 2.8623 12 1.81641V1.81641Z" fill="#d6d5d5"></path>
     </svg>
 )
 
@@ -593,3 +599,40 @@ export const IllustrationLeaf = ({ classNames }) => (
         </defs>
     </svg>
 )
+
+export const SVGAsset = ({ assetID, classNames }) => {
+    switch (assetID) {
+        case 'Triangle':
+            return <Triangle classNames={classNames} />
+        case 'AncestryIcon':
+            return <AncestryLogo classNames={classNames} />
+        case 'USMap':
+            return <USMap classNames={classNames} />
+        case 'Globe':
+            return <Globe classNames={classNames} />
+        case 'GlobePlus':
+            return <GlobePlus classNames={classNames} />
+        case 'PlusCircle':
+            return <PlusCircle classNames={classNames} />
+        case 'CheckIcon':
+            return <CheckIcon classNames={classNames} />
+        case 'XIcon':
+            return <XIcon classNames={classNames} />
+        case 'Circle':
+            return <Circle classNames={classNames} />
+        case 'GiftIcon':
+            return <GiftIcon classNames={classNames} />
+        case 'ArrowLineMobile':
+            return <ArrowLineMobile classNames={classNames} />
+        case 'ArrowLineLeft':
+            return <ArrowLineLeft classNames={classNames} />
+        case 'ArrowLineCenter':
+            return <ArrowLineCenter classNames={classNames} />
+        case 'ArrowLineRight':
+            return <ArrowLineRight classNames={classNames} />
+        case 'IllustrationLeaf':
+            return <IllustrationLeaf classNames={classNames} />
+        default:
+            return <AncestryIcon classNames={classNames} />
+    }
+}

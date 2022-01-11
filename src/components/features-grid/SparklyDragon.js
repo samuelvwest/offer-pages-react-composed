@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
-import { USMap, Globe, GlobePlus, CheckIcon, XIcon } from '../SVGs';
+import { SVGAsset, USMap, Globe, GlobePlus, CheckIcon, XIcon } from '../SVGs';
 import { LegalNewspapersBasic } from '../LegalText';
 
 const mapStateToProps = (state) => {
@@ -22,7 +22,7 @@ const featuresData = [
                 Ancestry Hints®
                 <div className="topSpacing plan-para-color">Where we do the searching for you to expand your family&nbsp;tree.</div>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -30,7 +30,7 @@ const featuresData = [
                 Family Tree Building&nbsp;Tools
                 <div className="topSpacing plan-para-color">See how you're related to family members across&nbsp;generations.</div>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -38,7 +38,7 @@ const featuresData = [
                 Family Tree Sharing
                 <div className="topSpacing plan-para-color">Invite other family and friends to view or edit your&nbsp;tree.</div>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -46,7 +46,7 @@ const featuresData = [
                 Family Media Upload
                 <div className="topSpacing plan-para-color">Save and preserve family records, stories, and photos to your&nbsp;account.</div>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -54,7 +54,7 @@ const featuresData = [
                 Ancestry Member Community
                 <div className="topSpacing plan-para-color">Connect with millions of other Ancestry© members to ask for help, share ideas, and make&nbps;discoveries.</div>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -64,13 +64,21 @@ const featuresData = [
                 <span className="bamboo4 help-contact">1-800-ANCESTRY</span>
                 <br /><span className="support-timings-txt">7 days a week, 9am–11pm&nbsp;ET</span>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+    }, {
+        type: `record-access`,
+        text: <div>
+                <span className="bold">Census records</span>
+                <br />
+                <div className="topSpacing plan-para-color">Public census&nbsp;records.</div>
+            </div>,
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         type: `record-access`,
         text: <div>
                 Access to all <span className="bold">U.S. records</span> on&nbsp;Ancestry 
                 <br />
-                <div className="topSpacing plan-para-color">Explore the billions of records in our U.S. record collection including birth, marriage, death and census&nbsp;records.</div>
+                <div className="topSpacing plan-para-color">Explore the billions of records in our U.S. record collection including birth, marriage, death&nbsp;records.</div>
             </div>,
         appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
@@ -144,13 +152,14 @@ const FeatureRow = ({ featureData, idx, subs, mobileTest }) => {
                     checkClass: `icon-check-fill-usdis`
                 }
                 const includedTest = featureData.appliesTo.indexOf(pkgData.id) !== -1;
+                const useIcon = includedTest ?   `CheckIcon` : `XIcon`;
                 return (
                     <td key={pkgData.id}>
-                        <div className={`check-wrapper ${pkgVars.bgClass}${!includedTest ? ` cross-bg` : ``}`}>
-                            {includedTest ? 
-                                <CheckIcon classNames="plan-comp-check-icon" pathClassNames={pkgVars.checkClass} />  : 
-                                <XIcon classNames="plan-comp-cross-icon" />
-                            }
+                        <div className={`inclusion-wrapper inclusion-wrapper--${useIcon.toLowerCase()} inclusion-wrapper--${pkgData.color}`}>
+                            <SVGAsset 
+                                assetID={useIcon}
+                                classNames={`inclusion-icon inclusion-icon--${useIcon.toLowerCase()}`}
+                            />
                         </div>
                     </td>
                 )
@@ -158,6 +167,7 @@ const FeatureRow = ({ featureData, idx, subs, mobileTest }) => {
         </tr>
     )
 }
+
 
 export class SparklyDragon extends React.Component {
     constructor(props) {
@@ -197,26 +207,37 @@ export class SparklyDragon extends React.Component {
         const globalHeadingCells = subs.display.packages.map((pkgData, index, array) =>{
             const recordsTriangleClasses = []
             array.forEach((pD) => recordsTriangleClasses.push(`triangle-start--${pD.id}`))
-            const pkgVars = pkgData.order === 3  ? {
-                imgFile: <GlobePlus classNames="allaccess-img" />,
-                colorClass: `color-allaccess`
-            } : pkgData.order === 2 ? {
-                imgFile: <Globe classNames="usnintrecords-img" />,
-                colorClass: `color-worldexplorer`
-            } : {
-                imgFile: <USMap classNames="usrecords-img" />,
-                colorClass: `color-usdiscovery`
-            }
+            // const pkgVars = pkgData.order === 3  ? {
+            //     imgFile: <GlobePlus classNames="allaccess-img" />,
+            //     colorClass: `color-allaccess`
+            // } : pkgData.order === 2 ? {
+            //     imgFile: <Globe classNames="usnintrecords-img" />,
+            //     colorClass: `color-worldexplorer`
+            // } : {
+            //     imgFile: <USMap classNames="usrecords-img" />,
+            //     colorClass: `color-usdiscovery`
+            // }
+            const iconClasses = `package-icon package-icon--${pkgData.color}`;
             return (
-                <th key={pkgData.id} className={`bold textxlrg ${pkgVars.colorClass} textCenter align-base ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} `}>
-                    <span className="show768 hidden-lg-up">
-                        {pkgVars.imgFile}
-                        {pkgData.name.split(' ').map((str, index) => <span key={index}><br />{str}</span>)}
-                    </span> 
-                    <span className="tb-plan-head hide768">
+                <th key={pkgData.id} className={`package-heading package-heading--${pkgData.color} ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} `}>
+                    <span className="tb-plan-head">
+                        <SVGAsset
+                            assetID={pkgData.icon}
+                            classNames={iconClasses}
+                        />
                         {pkgData.name}
-                        {pkgVars.imgFile}
-                    </span>
+                        {/* {window.outerWidth < 769 ?
+                            pkgData.name.split(' ').map((str, index) => <span key={index}><br />{str}</span>) :
+                            pkgData.name
+                        } */}
+                    </span> 
+                    {/* <span className="tb-plan-head hide768">
+                        {pkgData.name}
+                        <SVGAsset
+                            assetID={pkgData.icon}
+                            classNames={iconClasses}
+                        />
+                    </span> */}
                 </th>
             )
         })
@@ -225,18 +246,26 @@ export class SparklyDragon extends React.Component {
             const firstTest = multipleTest && index === 0
             const lastTest = multipleTest && index === (array.length - 1)
             const recordsTriangleClasses = []
-            array.forEach((pD) => recordsTriangleClasses.push(`triangle-start--${pD.id}`))
-            const pkgVars = pkgData.order === 3  ? {
-                colorClass: `color-allaccess`
-            } : pkgData.order === 2 ? {
-                colorClass: `color-worldexplorer`
-            } : {
-                colorClass: `color-usdiscovery`
-            }
+            // array.forEach((pD) => recordsTriangleClasses.push(`triangle-start--${pD.id}`))
+            // const pkgVars = pkgData.order === 3  ? {
+            //     colorClass: `color-allaccess`
+            // } : pkgData.order === 2 ? {
+            //     colorClass: `color-worldexplorer`
+            // } : {
+            //     colorClass: `color-usdiscovery`
+            // }
             return (
-                <th key={pkgData.id} className={`bold textxlrg ${pkgVars.colorClass} textCenter align-base ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} ${firstTest ? `triangle-start ${recordsTriangleClasses.join(' ')}` : ``}`}>
-                    {firstTest && <div className="least-rec-txt">Least Records</div>}
-                    {lastTest && <div className="most-rec-txt">Most<br /><span>Records</span></div>}
+                <th key={pkgData.id} className={`records-heading-cell records-heading-cell--${pkgData.color} ${(index === 0 || index === (array.length - 1)) ? `rel-pos` : ``} ${firstTest ? `triangle-start ${recordsTriangleClasses.join(' ')}` : ``}`}>
+                    {firstTest && 
+                        <span 
+                            className="triangle"
+                            style={{width: `${array.length}00%`}}
+                        >
+                            <SVGAsset assetID="Triangle" classNames="triangle__svg" />
+                        </span>
+                    }
+                    {firstTest && <div className="record-amount-text record-amount-text--least">Least Records</div>}
+                    {lastTest && <div className="record-amount-text record-amount-text--most">Most<br /><span>Records</span></div>}
                 </th>
             )
         })
@@ -250,7 +279,7 @@ export class SparklyDragon extends React.Component {
                     })
                 }}
             >
-                <section className={`plan-comparison-chart`}>
+                <section className={`comparison-chart`}>
                     <table>
                         <tbody>
                             <tr className="table-title">
@@ -278,9 +307,11 @@ export class SparklyDragon extends React.Component {
                                 <th className="rec-acc bold text2xlrg" colSpan={mobileTest ? subs.display.packages.length : 1}>
                                     <div className="topSpacingBlock">Record Access</div>
                                 </th>
-                                {!mobileTest && recordHeadingCells}
+                                {(!mobileTest && subs.display.packages.length > 1) && 
+                                    recordHeadingCells
+                                }
                             </tr>
-                            {mobileTest && 
+                            {(mobileTest && subs.display.packages.length > 1) && 
                                 <tr className="mobile-row mobile-row--record-access">
                                     {recordHeadingCells}
                                 </tr>
