@@ -102,11 +102,11 @@ const LDBMToggleButton = connect(mapStateToProps, mapDispatchToProps)(({ pageSet
     </a>
 ));
 
-const PackageHeadingCell = ({ pkgData, pS }) => {
+const PackageHeadingCell = ({ pkgData, pS, offerStyles }) => {
     return (
         <div key={pkgData.id} className={`offers-grid__cell offers-grid__cell--${pkgData.color} offers-grid__cell--column-label`}>
             {(pS.subscriptions.bestOffer.packageID === pkgData.id && pS.subscriptions.display.packages.length > 1) && 
-                <div className="badge badgeSize2">
+                <div className={`badge badgeSize2 badge--tier${offerStyles.cells.fontSize}`}>
                     {pS.bestOffer.packageID === pkgData.id ? 
                         `MOST POPULAR` : 
                         `BEST VAlUE`
