@@ -103,11 +103,8 @@
             .package-row__label {
                 position: relative;
                 display:flex;
-                // height:110px;
-                // min-height: 110px;
                 padding:0;
                 input {
-                    // position:absolute;
                     display:none;
                     width:100%;
                     height:100%;
@@ -119,10 +116,6 @@
                 position: relative;
                 display: flex;
                 width: 80px;
-                // min-width: 80px;
-                // max-width: 115px;
-                // height: 100%;
-                // min-height: 110px;
                 background-color: rgba(255,255,255,0.42);
                 align-items: center;
                 justify-content: center;
@@ -135,7 +128,6 @@
                     width:72%;
                     height:0;
                     padding-bottom:72%;
-                    // background-color: #ffffff;
                     align-items: center;
                     justify-content: center;
                     border-radius:50%;
@@ -147,7 +139,7 @@
                         width: 100%;
                         height: auto;
                         .white-fill {
-                            // fill: transparent;
+                            
                         }
                         .black-fill {
                             fill: #767676;
@@ -175,10 +167,6 @@
                                 fill: #655586;
                             }
                         }
-                        // background-color: #ffffff;
-                        // .solid-color {
-                        //     fill: rgba(255,255,255,0.95);
-                        // }
                     }
                 }
             }
@@ -197,7 +185,6 @@
     
             .package-row__desc-name {
                 display: block;
-                // color: #fff;
                 width: calc(100% - 25px);
                 font-weight: 200;
                 line-height: 20px;
@@ -229,14 +216,10 @@
             }
     
             .package-row__arrow {
-                // position:absolute;
-                // top:5px;
-                // right:0;
                 display:block;
                 width: 25px;
                 font-size: 30px;
                 line-height: 15px;
-                // padding: 15px 0 0;
                 text-align:right;
                 margin-right: 0;
                 @media only screen and (min-width:350px) {
@@ -247,18 +230,6 @@
             .package-row__price-text {
                 padding: 10px 10px 0 0;
                 min-width: 60%;
-                // &.package-row__price-text--ldbm {
-                //     margin-top: 5px;
-                // }
-                // &.package-row__price-text--promo {
-                //     @media only screen and (max-width:350px) {
-                //         width:70%;
-                //     }
-                // }
-                // .package-row__price-text--hardoffer {
-                //     font-size:20px;
-                //     font-weight:600;
-                // }
 
                 > span {
                     display: block;
@@ -289,181 +260,12 @@
                 margin-top: 10px;
                 padding: 0 5px 0 10px;
                 align-items: center;
-                // justify-content: center;
                 > strong {
                     font-size: 16px;
                 }
             }
 
         }
-
-
-
-
-        // .ftlpMobileSprite {
-        //     background: url('https://www.ancestrycdn.com/mars/landing/offer/us/ftlp-mobile/offer-mobile-sprite.jpg') no-repeat;
-        //     background-size: 150px auto;
-        //     height: 110px;
-        //     overflow: hidden;
-        //     &.leftPkgImg {
-        //         .colorOverlay {
-        //             height: 110px;
-        //             opacity: 0.4;
-        //             position: relative;
-        //             top: 0px;
-        //             width: 210px;
-        //         }
-        //         &.leftPkgImg--usdiscovery {
-        //             background-position: center 0;
-        //             .colorOverlay {
-        //                 background: #0079a3;
-        //             }
-        //         }
-        //         &.leftPkgImg--worldexplorer {
-        //             background-position: 0 -142px;
-        //             .colorOverlay {
-        //                 background: #6ba410;
-        //             }
-        //         }
-        //         &.leftPkgImg--allaccess {
-        //             background-size: 200px auto;
-        //             background-position: -30px -400px;
-        //             height: 147px;
-        //             .colorOverlay {
-        //                 background: #655586;
-        //                 height: 147px;
-        //             }
-        //         }
-        //     }
-        // }
-
-        // .bluePackageRow {
-        //     background-color: #0079a3;
-        //     color: #fff;
-        //     height: 110px;
-        //     overflow: hidden;
-        //     width: 100%;
-        // }
-
-        // .monthlyPriceCon.ancGrid {
-        //     margin-top: 0;
-        // }
-
-        // .annualPriceCon.ancGrid {
-        //     overflow: hidden;
-        //     transition: all 0.8s ease;
-        //     max-height: 180px;
-        //     margin-top: 0;
-        // }
-
-        // .annualPriceCon.ancGrid.up {
-        //     max-height: 0;
-        // }
-
-        // .annualPriceCon::after {
-        //     clear: both;
-        // }
-
-        // .greenPackageRow {
-        //     background-color: #6ba410;
-        //     color: #fff;
-        //     height: 110px;
-        //     overflow: hidden;
-        //     width: 100%;
-        //     label:link {
-        //         color: #fff;
-        //     }
-        // }
-
-        // .orangePackageRow {
-        //     background-color: #655586;
-        //     color: #fff;
-        //     height: 147px;
-        //     overflow: hidden;
-        //     width: 100%;
-        //     label:link {
-        //         color: #fff;
-        //     }
-        // }
-
-        // .priceCon input {
-        //     height: 1px;
-        //     line-height: 0;
-        //     opacity: 0;
-        //     overflow: hidden;
-        //     position: absolute;
-        //     width: 1px;
-        // }
-
-        // .monthlyPriceCon span,
-        // .annualPriceCon span {
-        //     color: #fff;
-        //     font-weight: 200;
-        //     line-height: 20px;
-        // }
-
-        // .durationTxt {
-        //     border-bottom: 1px solid #fff;
-        //     font-size: 20px;
-        //     padding: 12px 0;
-        //     width: 85%;
-        // }
-
-        // .durationTxt strong {
-        //     display:inline;
-        //     font-size: 17px;
-        //     line-height: 100%;
-        //     margin-top: 6px;
-        // }
-
-        // .ancCol.linkArrow {
-        //     font-size: 30px;
-        //     padding: 15px 0 0;
-        //     width: 15%;
-        // }
-
-        // span.cancelText {
-        //     border-left: 1px solid #fff;
-        //     font-size: 14px;
-        //     font-weight: 200;
-        //     height: 40px;
-        //     line-height: 15px;
-        //     margin-top: 10px;
-        //     padding: 0 5px 0 10px;
-        //     &.cancelText--promo {
-        //         @media only screen and (max-width:350px) {
-        //             width:30%;
-        //         }
-        //     }
-        // }
-
-        // span.cancelText.saveText strong {
-        //     display: inline-block;
-        //     padding-top: 10px;
-        // }
-
-        // .monthlyPriceCon label,
-        // .annualPriceCon label {
-        //     display: block;
-        //     padding: 0;
-        // }
-
-        // span.daysFree {
-        //     font-size: 16px;
-        //     font-weight: 700;
-        // }
-
-        // span.priceTxt {
-        //     font-size: 13px;
-        //     font-weight: 400;
-        //     &.priceTxt--hardoffer {
-        //         font-size:20px
-        //     }
-        // }
-
-        // span.icon {
-        //     margin-right: 0px;
-        // }
 
     }
 }
