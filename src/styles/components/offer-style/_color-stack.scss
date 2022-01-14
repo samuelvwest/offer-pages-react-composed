@@ -229,8 +229,7 @@
 
             .package-row__price-text {
                 padding: 10px 10px 0 0;
-                min-width: 60%;
-
+                width: 60%;
                 > span {
                     display: block;
                     font-size: 13px;
@@ -247,6 +246,11 @@
                         font-weight: 600;
                     }
                 }
+                // &.package-row__price-text--promo {
+                //     .strike-through-price {
+                //         line-height:112%;
+                //     }
+                // }
             }
 
             .package-row__support-text {

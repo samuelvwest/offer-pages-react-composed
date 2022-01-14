@@ -174,17 +174,17 @@ export class OfferPage extends React.Component {
     }
     setupTargetIntegration = () => {
         if (!!window.tao && !!window.tao.g) {
+            if (!!window.tao.g.modifyPageSettings) {
+                // console.log(`state pageSettings from init: `, window.tao.g.modifyPageSettings);
+                this.props.modifyPageSettings(window.tao.g.modifyPageSettings);
+                delete window.tao.g.modifyPageSettings;
+            }
             if (!!window.tao.g.modifyVariables) {
                 // console.log(`state variables from init: `, window.tao.g.modifyVariables);
                 this.updatePageSettingsforEmphasis(window.tao.g.modifyVariables);
                 this.props.modifyVariables(tao.g.modifyVariables);
                 this.buildVariantTracking(tao.g.modifyVariables);
                 delete window.tao.g.modifyVariables;
-            }
-            if (!!window.tao.g.modifyPageSettings) {
-                // console.log(`state pageSettings from init: `, window.tao.g.modifyPageSettings);
-                this.props.modifyPageSettings(window.tao.g.modifyPageSettings);
-                delete window.tao.g.modifyPageSettings;
             }
         }
         window._mPS = (newState) => {

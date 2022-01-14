@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { durationTexts, freemiumSubscription } from '../../data/subscriptions';
 import { modifyPageSettings } from '../../actions/pageSettings';
@@ -22,24 +22,38 @@ const classesMaker = (styleName) => {
     return `container container--${styleName} offerings-style offerings-style--${styleName}`
 }
 
-const freemiumStyleAdjuster = (colorStackBreak, placement) => {
-    if (window.outerWidth >= colorStackBreak) {
-        // make sure height of freemium element matches rest of table because, well, there was no other way. :( 
-        const freemiumLabel = document.querySelector(`.offerings-placement--${placement} .offer-label--freemium`);
-        const firstOfferLabel = document.querySelector(`.offerings-placement--${placement} .offer-label`);
-        if (!!freemiumLabel) {
-            // setTimeout(() => {
-                const extraRows = [].slice.call(document.querySelectorAll(`.offerings-placement--${placement} .offers-grid__row--duration:not(.offers-grid__row--position-first):not(.offers-grid__row--position-only)`))
-                if (extraRows.length > 0) {
-                    let margin = 0;
-                    extraRows.forEach((row) => {
-                        margin += row.offsetHeight;
-                    })
-                    freemiumLabel.style.marginBottom = `-${margin}px`;
-                }
-            // }, 50)
-        } else if (firstOfferLabel.style.marginBottom !== '') {
-            firstOfferLabel.style.marginBottom = '';
+const freemiumStyleAdjuster = ({ breakPoint, placement }) => {
+    if (window.outerWidth >= breakPoint) {
+        const name = `offeringsFreemiumLabelAdjustment__${placement}`;
+        if (!!window.windu && !window.windu.data[`${name}_mutationStandard`]) {
+            window.windu.create({
+                name,
+                when: () => {
+                    const freemiumLabel = document.querySelector(`.offerings-placement--${placement} .offer-label--freemium`);
+                    const firstOfferLabel = document.querySelector(`.offerings-placement--${placement} .offer-label`);
+                    const rowsTest = [].slice.call(document.querySelectorAll(`.offerings-placement--${placement} .offers-grid__row--duration`)).length > 1;
+                    const freemiumTest = !!freemiumLabel && rowsTest
+                    const firstLabelTest = !!firstOfferLabel && firstOfferLabel.style.marginBottom !== '';
+                    return freemiumTest || firstLabelTest;
+                },
+                do: () => {
+                    const freemiumLabel = document.querySelector(`.offerings-placement--${placement} .offer-label--freemium`);
+                    const firstOfferLabel = document.querySelector(`.offerings-placement--${placement} .offer-label`);
+                    if (!!freemiumLabel) {
+                        const extraRows = [].slice.call(document.querySelectorAll(`.offerings-placement--${placement} .offers-grid__row--duration:not(.offers-grid__row--position-first):not(.offers-grid__row--position-only)`))
+                        if (extraRows.length > 0) {
+                            let margin = 0;
+                            extraRows.forEach((row) => {
+                                margin += row.offsetHeight;
+                            })
+                            freemiumLabel.style.marginBottom = `-${margin}px`;
+                        }
+                    } else if (firstOfferLabel.style.marginBottom !== '') {
+                        firstOfferLabel.style.marginBottom = '';
+                    }
+                },
+                maxTimes: 10000
+            })
         }
     }
 }
@@ -173,12 +187,13 @@ const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, of
     // Other stuffs
     const offer = subs.display.offersMap.find((ofr) => {
         const packageTest = pkgData.id === ofr.packageID;
+        if (freemiumTest && packageTest) {
+            return true;
+        }
         const renewMonthsTest = duration.num === ofr.renewalPeriod.renewMonths;
         const ldbmTest = duration.ldbm === ofr.ldbm;
-        const freemiumMatch = packageTest && freemiumTest;
-        const fullMatch = packageTest && renewMonthsTest && ldbmTest;
         // console.log(freemiumMatch, fullMatch);
-        return freemiumMatch || fullMatch;
+        return packageTest && renewMonthsTest && ldbmTest;
     });
     const savingsVars = offer.promoSavings ? {
         display: `promoSavings`,
@@ -224,18 +239,6 @@ const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, of
                     onClick={offerCellOnclick}
                 >
 
-                    {!!offer.promoSavings && 
-                        <span className={priceInfoClasses}>
-                            <span className="strike-through-price">
-                                <span className="price-group__currency">{offer.currency}</span>
-                                {(!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP).toString().split('.').map((num, index) => {
-                                    const useClass = index === 0 ? `price-group__integer` : `price-group__decimal`;
-                                    return <span key={index} className={useClass}>{num}</span>
-                                })}
-                                <br />
-                            </span>
-                        </span>
-                    }
                     {freemiumTest ?  
                         <span className={priceInfoClasses}>
                             <span className="currency-symbol">$</span>
@@ -244,6 +247,20 @@ const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, of
                             <span className="decimal-number">00</span>
                         </span> :
                         <span className={priceInfoClasses}>
+                            {!!offer.promoSavings && 
+                                <span className="strike-through-price">
+                                    <span className="currency-symbol">{offer.currency}</span>
+                                    {(!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP).toString().split('.').map((num, index) => {
+                                        const integerTest = index === 0;
+                                        const useClass = integerTest ? `integer` : `decimal-number`;
+                                        return <span key={index} className={useClass}>
+                                            {num}
+                                            {integerTest && <span className="decimal-point">.</span>}
+                                        </span>
+                                    })}
+                                </span>
+                            }
+                            {!!offer.promoSavings && <br />}
                             <span className="currency-symbol">{offer.currency}</span>
                             {(!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP).toString().split('.').map((num, index) => {
                                 const integerTest = index === 0;
@@ -298,12 +315,19 @@ const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, of
 
 export class PrettyGrid extends React.Component {
     componentDidMount() {
-        freemiumStyleAdjuster(this.props.pageSettings.breaks.prettyGrid.tablet, this.props.placement);
+        freemiumStyleAdjuster({
+            breakPoint: this.props.pageSettings.breaks.prettyGrid.tablet, 
+            placement: this.props.placement
+        });
     }
     componentDidUpdate() {
-        freemiumStyleAdjuster(this.props.pageSettings.breaks.prettyGrid.tablet, this.props.placement);
+        freemiumStyleAdjuster({
+            breakPoint: this.props.pageSettings.breaks.prettyGrid.tablet, 
+            placement: this.props.placement
+        });
     }
     render() {
+        // useEffect(freemiumStyleAdjuster);
         const pS = this.props.pageSettings;
         if (this.props.pageSettings.windowWidth < this.props.pageSettings.breaks.prettyGrid.tablet) {
             // Color Stack for Phone on all offer pages
@@ -341,7 +365,7 @@ export class PrettyGrid extends React.Component {
             <div className={`${classesMaker('prettygrid')} offerings-placement--${this.props.placement}${/bottom/.test(this.props.placement) ? ` scroll-tracking--lowerOfferings` : ``}`}>
                 <section className="offers-container">
                     <form className="offers-form" action="/checkout/mli?" 
-                        ref={(ref) => { this.sparklyDragonForm = ref }}
+                        ref={(ref) => { this.prettyGridForm = ref }}
                         onSubmit={(e) => {
                             adobeTargetTrackEvent({
                                 eventType: 'offersFormSubmit',
@@ -352,7 +376,7 @@ export class PrettyGrid extends React.Component {
                             // console.log(e.target.offers.value);
 
                             if (/O-Reg/.test(e.target.offers.value)) {
-                                window.location.href = '/account/create?treebuilder=true';
+                                window.location.href = `/account/create?treebuilder=true&returnUrl=${document.location.origin}/begin/family-tree`;
                             } else {
                                 e.target.submit();
                             }
@@ -435,7 +459,7 @@ export class PrettyGrid extends React.Component {
                             <a href="" className="ancBtn orange lrg submit-button"
                                 onClick={(e) => { 
                                     e.preventDefault();
-                                    this.sparklyDragonForm.dispatchEvent(new Event('submit')); 
+                                    this.prettyGridForm.dispatchEvent(new Event('submit')); 
                                 }}
                             >
                                 {/treebuilder/.test(subs.selectedOffer.packageID) ? 

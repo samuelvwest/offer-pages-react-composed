@@ -21,15 +21,6 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
         offerElligibilityType: pageSettings.elligibility === `freetrial` ? `initial` : 'renewal'
     }
 
-    // // Add in Freemium package types to display since they won't be found in the offers themselves
-    
-    pageSettings.displayPackages.forEach((pkgID) => {
-        const pkgData = pageSettings.packagesData.find(pData => pData.id === pkgID);
-        if (pkgData.type === 'freemium') {
-            data.display.packages.push(pkgData);
-        }
-    })
-
     // Build OfferMap based on Page Settings
     data.display.offersMap = [...subscriptions.filter((offer) => {
         // Define if offer is a longer duration billed monthly
@@ -59,6 +50,7 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
             data.ldbms = true;
         }
         // Log packages to be displayed
+        // console.log(data.display);
         if (!data.display.packages.find((packageData) => packageData.id === offer.packageID)) {
             data.display.packages.push(offer.packageData);
         }
@@ -139,7 +131,12 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
     const findOfferTypeOrClosestToIt = (matchOffer, minOrMax) => {
         // check for freemium offer
         let offer = data.display.offersMap.find((ofr) => ofr.packageID === matchOffer.packageID);
-        if (!!offer && 'freemium' === offer.packageData.type) { return offer; }
+        if (!!offer && 'freemium' === offer.packageData.type) { 
+            offer.ldbm = matchOffer.ldbm;
+            offer.renewalPeriod.renewMonths = matchOffer.renewMonths;
+            // console.log(matchOffer, offer);
+            return offer; 
+        }
         // if not freemium offer, do regular stuff below
         const ldbmTest = (ldbm) => ldbm ? /front|side|only/.test(pageSettings.LDBM) : false;
         // find exact match if can be found

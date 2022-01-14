@@ -13,7 +13,7 @@ export const packagesData = [
     {
         id: `treebuilder`,
         order: 1,
-        name: `Tree Builder`,
+        name: `Family Tree`,
         descName: `Family Tree Builder`,
         description: `Build your family tree and access free record collections`,
         denyStr: `Tree_Builder`,
@@ -28,7 +28,7 @@ export const packagesData = [
         description: `Access all U.S. records on Ancestry`, // package descriptions
         denyStr: `Ancestry_US_Deluxe`, // Record deny string for this package
         icon: 'USMap', // Icon that should be used to represent this package
-        color: `blue`, // Color that should be used in association with this package
+        color: `green`, // Color that should be used in association with this package
         type: `exclusive-entitlements-bundle` // type of entitlements bundle – I.e.: 'freemium', 'exclusive-entitlements-bundle', 'mixable-entitlements-bundle'
     }, {
         id: `worldexplorer`,
@@ -38,7 +38,7 @@ export const packagesData = [
         description: `Access all U.S. & international records on Ancestry`,
         denyStr: `Ancestry_World_Deluxe`,
         icon: 'Globe',
-        color: `green`,
+        color: `blue`,
         type: `exclusive-entitlements-bundle`
     }, {
         id: `allaccess`,
