@@ -1,0 +1,20 @@
+1.	Review of base SPA framework
+    a.	Structure
+        Data Layers
+        Redux
+        Page
+        Components
+    b.	Development Processes
+        Debugging
+        Updated
+        Git management
+        Compiling
+    c.	New capabilities
+        In-page hard targeting
+        Variant/AI “switches”
+2.	Review in-test implementation
+    a.	How and when to serve SPA vs integrate
+    b.	Supporting overlapping tests
+3.	Start on-page implementation (magnolia)
+    a.	Review roll process and purpose
+    b.	Implement (to stage) FTLP default page
