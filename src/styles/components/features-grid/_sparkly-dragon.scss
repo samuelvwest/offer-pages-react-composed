@@ -105,6 +105,11 @@
                         &.package-heading--blue {
                             color:#0079a3;
                         }
+                        &.package-heading--lightgreen {
+                            // color:#181a1c;
+                            // font-size:94%;
+                            color: #9cbe31;
+                        }
                         &.package-heading--green {
                             color:#6ba410;
                         }
@@ -141,6 +146,11 @@
                                     fill: #0079a3;
                                 }
                             }
+                            &.package-icon--lightgreen {
+                                .black-fill {
+                                    fill: #9cbe31;
+                                }
+                            }
                             &.package-icon--green {
                                 .black-fill {
                                     fill: #6ba410;
@@ -165,6 +175,10 @@
                         &.records-heading-cell--blue {
                             color: #0079a3;
                             background-color:#c5ecf9;
+                        }
+                        &.records-heading-cell--lightgreen {
+                            color:#9cbe31;
+                            background-color: #b7d94c26;
                         }
                         &.records-heading-cell--green {
                             color: #6ba410;
@@ -273,14 +287,17 @@
                                 padding: 10px 10px 10px 28px;
                             }
                             .feature-img-new {
-                                display:block;
-                                margin: 0px auto 10px auto;
-                                width: 18px;
-                                height: 18px;
+                                display:inline-block;
+                                margin: 0 10px 0 0;
+                                width: 15px;
+                                height: 15px;
                                 @media (min-width: 768px) {
                                     position:absolute;
+                                    display:block;
                                     top:12px;
                                     left:0;
+                                    width: 18px;
+                                    height: 18px;
                                     margin: 0;
                                 }
                             }
@@ -435,6 +452,14 @@
                 > svg.inclusion-icon {
                     .black-fill {
                         fill:#0079a3;
+                    }
+                }
+            }
+            &.inclusion-wrapper--lightgreen {
+                background-color: #b7d94c26;
+                > svg.inclusion-icon {
+                    .black-fill {
+                        fill:#9cbe31;
                     }
                 }
             }

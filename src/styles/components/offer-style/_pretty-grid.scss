@@ -156,7 +156,7 @@
                     + label {
                         display: flex;
                         flex-wrap: wrap;
-                        align-content: flex-start;
+                        align-content: center;
                         font-weight: 400;
                         max-width: 100%;
                         font-size: 200%;
@@ -321,6 +321,11 @@
             }
             &.offers-grid__cell--blue {
                 background-color: #0079a3;
+            }
+            &.offers-grid__cell--lightgreen {
+                color:#181a1c;
+                font-size:94%;
+                background-color: #b7d94c80;
             }
             &.offers-grid__cell--green {
                 background-color: #6ba410;

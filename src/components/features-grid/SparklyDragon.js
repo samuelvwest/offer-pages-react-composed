@@ -52,9 +52,9 @@ const featuresData = [
         text: <div>
                 <img className="feature-img-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/people_man_comment.png" />
                 Ancestry Member Community
-                <div className="topSpacing plan-para-color">Connect with millions of other Ancestry© members to ask for help, share ideas, and make&nbps;discoveries.</div>
+                <div className="topSpacing plan-para-color">Connect with millions of other Ancestry© members to ask for help, share ideas, and make&nbsp;discoveries.</div>
             </div>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -68,9 +68,9 @@ const featuresData = [
     }, {
         type: `record-access`,
         text: <div>
-                <span className="bold">Census records</span>
+                <span className="bold">Free record collections</span>
                 <br />
-                <div className="topSpacing plan-para-color">Public census&nbsp;records.</div>
+                <div className="topSpacing plan-para-color">Access <a href="https://www.ancestry.com/search/categories/freeindexacom/" target="_blank">free U.S. and international records</a> including census, marriage, and immigration&nbsp;collections.</div>
             </div>,
         appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
     }, {

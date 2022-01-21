@@ -55,7 +55,8 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
             data.display.packages.push(offer.packageData);
         }
         // Log bill and/or commitment durations to be displayed
-        if (offer.renewalPeriod.renewMonths !== 0
+        // console.log(offer.packageData)
+        if (!/freemium/.test(offer.packageData.type)
             && !data.durations.find((duration) => duration.num === offer.renewalPeriod.renewMonths && duration.ldbm === offer.ldbm)
         ) {
             const durationText = durationTexts[`dur${offer.renewalPeriod.renewMonths}`];

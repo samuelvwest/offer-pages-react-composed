@@ -35,21 +35,28 @@ const ColorStack = connect(mapStateToProps)(( { pageSettings: pS } ) => (
         {[
             'winback_days55_58_90_bau', // Email Winback Discount Test Cell
             'noydb_g3rdljj5qa', // Onsite Winback Discount Test Cell
-        ].some((audience) => pS.audiences.indexOf(audience) > -1) && winbackHeaderText}
-        Choose a membership to&nbsp;try
+        ].some((audience) => pS.audiences.indexOf(audience) > -1) 
+            && winbackHeaderText
+        }
         {/initial/.test(pS.elligibility) ? 
-            <span> 
-                <strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} />
-            </span> : 
-            <span>.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
+            (!!pS.subscriptions.display.packages.find(pkgData => /freemium/.test(pkgData.type)) ? 
+                <span>
+                    Try Ancestry® for&nbsp;<strong>FREE</strong>.<LegalSup supRef="freeTrial" goToOnClick={true} />
+                </span> :
+                <span> 
+                    Choose a membership to&nbsp;try
+                    <strong className="header-text__free-for">FREE for 14&nbsp;days.</strong><LegalSup supRef="freeTrial" goToOnClick={true} />
+                </span>
+            ) : 
+            <span>Choose a membership.<LegalSup supRef="hardOffer" goToOnClick={true} /></span>
         }
     </span>
 ));
 
-const SparklyDragon = connect(simpleMapStateToProps)(({ elligibility }) => (
+const SparklyDragon = connect(mapStateToProps)(({ pageSettings: pS }) => (
     <span className={classesMaker('sparklydragon')}>
         Connect with your ancestors through historical documents. 
-        {/initial/.test(elligibility) ? 
+        {(/initial/.test(pS.elligibility) && !pS.subscriptions.display.packages.find(pkgData => /freemium/.test(pkgData.type))) ? 
             <span className="header-text__free-for">Free for 14 days<LegalSup supRef="freeTrial" goToOnClick={true} /></span> :
             <span><LegalSup supRef="hardOffer" goToOnClick={true} /></span>
         }
@@ -62,13 +69,17 @@ const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
         return <ColorStack/>
     }
     // Control text for Bonsai Grid design – desktop on FTLP & HOLP
-    return /initial/.test(pS.elligibility) ? (
+    return /initial/.test(pS.elligibility) ? 
+        (!!pS.subscriptions.display.packages.find(pkgData => /freemium/.test(pkgData.type)) ? 
+            <span>
+                Try Ancestry® for&nbsp;<span className="coloraltgreen">FREE</span>.<LegalSup supRef="freeTrial" goToOnClick={true} />
+            </span> :
+            <span className={classesMaker('prettygrid')}>
+                Try us <span className="coloraltgreen">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
+            </span>
+        ) : (
         <span className={classesMaker('prettygrid')}>
-            Try us <span className="coloraltgreen">FREE for 14&nbsp;days.<LegalSup supRef="freeTrial" goToOnClick={true} /></span>
-        </span>
-    ) : (
-        <span className={classesMaker('prettygrid')}>
-            Start tracing your family&nbsp;tree.<LegalSup supRef="hardOffer" goToOnClick={true} />
+            Start exploring your family&nbsp;tree.<LegalSup supRef="hardOffer" goToOnClick={true} />
         </span>
     )
 });

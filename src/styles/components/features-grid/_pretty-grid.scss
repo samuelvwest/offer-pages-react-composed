@@ -34,10 +34,13 @@
     tr {
         display:flex;
         .package-heading-cell {
+            display:flex;
             color: #ffffff;
             font-size:20px;
             text-align: center;
             background-color:#767676;
+            align-items: center;
+            justify-content: center;
             &.package-heading-cell--smaller {
                 font-size:15px;
             }
@@ -48,6 +51,11 @@
             }
             &.package-heading-cell--blue {
                 background-color:#0079a3;
+            }
+            &.package-heading-cell--lightgreen {
+                color:#181a1c;
+                font-size:94%;
+                background-color: #b7d94c80;
             }
             &.package-heading-cell--green {
                 background-color:#6ba410;

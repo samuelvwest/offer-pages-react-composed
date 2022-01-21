@@ -112,7 +112,7 @@ const OfferRow = ({ pkgData, pS, subs, periodText, returnColorStackForm, modifyP
                         {/Basic/.test(pkgData.descName) && <LegalSup supRef="newspapersBasic" goToOnClick={true} />}
                     </span>
                     <span className="icon iconArrowRight package-row__arrow"></span>
-                    <span className={`ancCol package-row__price-text ${offer.ldbm ? `package-row__price-text--ldbm` : ``}${(offer.promoSavings && !/initial/.test(pS.elligibility)) ? ` package-row__price-text--promo` : ``}`}>
+                    <span className={`ancCol package-row__price-text ${offer.ldbm ? `package-row__price-text--ldbm` : ``}${!!offer.promoSavings ? ` package-row__price-text--promo` : ``}`}>
                         {(/initial/.test(pS.elligibility) && !freemiumTest) && 
                             <span>
                                 {offer.initialPeriod.duration}&nbsp;
@@ -151,7 +151,7 @@ const OfferRow = ({ pkgData, pS, subs, periodText, returnColorStackForm, modifyP
                         {freemiumTest && <span>Access free records only</span>}
                     </span> 
                     {!freemiumTest && 
-                        <span className="package-row__support-text">
+                        <span className={`package-row__support-text${!!offer.promoSavings ? ` package-row__support-text--promo` : ``}`}>
                             {!savingsVars ? 
                                 `Cancel anytime` :
                                 <strong>

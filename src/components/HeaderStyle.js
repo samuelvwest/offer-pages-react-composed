@@ -34,15 +34,15 @@ const HeaderStyle = connect(mapStateToProps)((props) => {
                             <h1 className="offerPageTitle text6xlrg light">
                                 <HeaderText/>
                             </h1>
-                            {/initial/.test(pS.elligibility) ? 
+                            {/initial/.test(pS.elligibility) ?
                                 <p className="offerPageIntro text2xlrg topSpacingBlock">
-                                    Trace your family tree with millions of fascinating&nbsp;records. 
-                                    <br />Pick the membership below for your 14 day free&nbsp;trial.
+                                    Access millions of fascinating records and discover details about your family's&nbsp;past. 
+                                    <br />Choose a membership&nbsp;below <span>for your 14-day free&nbsp;trial</span>.
                                 </p> :
                                 <p className="offerPageIntro text2xlrg topSpacingBlock">
-                                    Explore millions of fascinating records and delve into your family’s past.
-                                    <br />Just pick the membership that’s right for you below.
-                                </p>
+                                    Access millions of fascinating records and discover details about your family's&nbsp;past. 
+                                    <br />Just pick the membership that's right for you. 
+                                </p> 
                             }
                         </div>
                     </div>

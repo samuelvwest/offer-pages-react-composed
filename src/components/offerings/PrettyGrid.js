@@ -123,7 +123,7 @@ const PackageHeadingCell = ({ pkgData, pS, offerStyles }) => {
                 <div className={`badge badgeSize2 badge--tier${offerStyles.cells.fontSize}`}>
                     {pS.bestOffer.packageID === pkgData.id ? 
                         `MOST POPULAR` : 
-                        `BEST VAlUE`
+                        `RECOMMENDED`
                     }
                 </div>
             }
@@ -143,12 +143,12 @@ const ColumnRenewalTextCell = ({ pkgData, ftTest }) => {
         <div className={`offers-grid__cell offers-grid__column-renewal-text`}>
             {ftTest && 
                 <span className="column-free-text">
-                    {/treebuilder/.test(pkgData.id) ? `Free` : <span>Free for 14&nbsp;days</span>}
+                    {/treebuilder/.test(pkgData.id) ? `Free account` : <span>Free for 14&nbsp;days</span>}
                 </span>
             }
             {/treebuilder/.test(pkgData.id) ? 
                 <span>
-                    Limited access to records
+                    {!/treebuilder/.test(pkgData.id) ? `Free account` : `Limited access to records`}
                 </span> : 
                 <span>
                     Auto renewing, cancel&nbsp;anytime
@@ -181,7 +181,18 @@ const RowLabelCell = ({ duration, rowPosition, ldbmToggleButtonTest, modifyPageS
     )
 }
 
-const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, offerStyles, ldbmToggleButtonTest, rowPosition, modifyPageSettings }) => {
+const OfferCell = ({ 
+    pS, 
+    subs, 
+    duration, 
+    pkgData, 
+    durIndex, 
+    displayRowLabels, 
+    offerStyles, 
+    ldbmToggleButtonTest, 
+    rowPosition, 
+    modifyPageSettings 
+}) => {
     // Freemium stuffs
     const freemiumTest = /freemium/.test(pkgData.type);
     // Other stuffs
@@ -192,9 +203,9 @@ const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, of
         }
         const renewMonthsTest = duration.num === ofr.renewalPeriod.renewMonths;
         const ldbmTest = duration.ldbm === ofr.ldbm;
-        // console.log(freemiumMatch, fullMatch);
         return packageTest && renewMonthsTest && ldbmTest;
     });
+    // console.log(offer);
     const savingsVars = offer.promoSavings ? {
         display: `promoSavings`,
         legalSup: `promoSave`
@@ -272,7 +283,7 @@ const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, of
                             })}
                             {!displayRowLabels &&
                                 <span className="per-duration">
-                                    {offer.renewalPeriod.billMonths > 1 ? `${offer.renewalPeriod.billMonths} mo.` : `month`}
+                                    {offer.renewalPeriod.billMonths > 1 ? `${offer.renewalPeriod.billMonths} mos.` : `mo.`}
                                 </span>
                             }
                             {offer.ldbm && 
@@ -300,11 +311,16 @@ const OfferCell = ({ pS, subs, duration, pkgData, durIndex, displayRowLabels, of
                     }
                     {freemiumTest && 
                         <span className="registration-list-items">
+                            {/* Includes free record collections.
+                            <ul className="bulleted">
+                                <li>Free record collections</li>
+                                <li>Family tree building and research&nbsp;tools</li>
+                            </ul>
+                            <br /> */}
                             Does <strong>not</strong>&nbsp;include:
                             <ul className="bulleted">
-                                <li>Premium US&nbsp;records</li>
+                                <li>Access to 20 billion US and international records</li>
                                 <li>Direct messaging other&nbsp;members</li>
-                                <li>Access to over 20 billion global&nbsp;records</li>
                             </ul>
                         </span>
                     }

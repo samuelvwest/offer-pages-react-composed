@@ -13,12 +13,12 @@ export const packagesData = [
     {
         id: `treebuilder`,
         order: 1,
-        name: `Family Tree`,
+        name: `Family Tree Builder`,
         descName: `Family Tree Builder`,
         description: `Build your family tree and access free record collections`,
         denyStr: `Tree_Builder`,
-        icon: 'MiniTree',
-        color: `grey`,
+        icon: 'TreeNodes',
+        color: `lightgreen`,
         type: `freemium`
     }, {
         id: `usdiscovery`, // Unique ID for package type
@@ -45,7 +45,7 @@ export const packagesData = [
         order: 4,
         name: `All Access`,
         descName: `Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic</strong>`,
-        description: `Get full membership to: Ancestry.com, Fold3.com, & Newspapers.com Basic`,
+        description: `Get full membership to: Ancestry, Fold3, & Newspapers.com™ Basic`,
         denyStr: `All_Access`,
         icon: 'GlobePlus',
         color: `purple`,
