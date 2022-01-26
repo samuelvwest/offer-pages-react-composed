@@ -162,7 +162,7 @@ const RowLabelCell = ({ duration, rowPosition, ldbmToggleButtonTest, modifyPageS
     return (
         <div className={`offers-grid__cell offers-grid__cell--row-label position-${rowPosition}`}>
             <span className="duration-text">
-                {duration.num === 1 ? `Monthly` : `${duration.num} month`}
+                {duration.num === 1 ? `Monthly` : `${duration.num}-month`}
             </span>
             {(duration.num === 1 || !ldbmToggleButtonTest) && 
                 <button type="button" className="link renew-cancel-text" 
