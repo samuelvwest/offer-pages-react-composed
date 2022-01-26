@@ -333,6 +333,12 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingValue="allaccess" 
                     displayText="All Access" 
                 />
+                <SettingsButton 
+                    settingGroup="pageSettings"
+                    settingAttribute="displayPackages" 
+                    settingValue="aaextra" 
+                    displayText="All Access+Extra" 
+                />
             </div>
             <div className="settings__group">
                 <h5 className="settings__group__name">Durations</h5>

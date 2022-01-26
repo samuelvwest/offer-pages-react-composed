@@ -39,7 +39,7 @@ const faqs = [
             </p>,
         elligibility: `all`
     }, {
-        question: <span>How do I cancel my free&nbsp;trial?</span>,
+        question: <span>How do I cancel my subscription?</span>,
         answer: <p>
                 Cancel anytime at least two days before your renewal date by visiting the My Account section or by <a href="https://support.ancestry.com/s/ancestry-support" target="_blank">contacting us</a>
             </p>,

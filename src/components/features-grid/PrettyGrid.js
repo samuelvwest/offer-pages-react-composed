@@ -16,41 +16,44 @@ const classesMaker = (styleName) => {
 
 const featuresData = [
     {
-        text: <span>Find stories among 142 million plus articles on Newspapers.com <LegalNewspapersBasic /></span>,
+        text: <span>Find stories among 8 billion articles, dating back to the 1700s, on Newspapers.com™ with Publisher&nbsp;Extra.</span>,
+        appliesTo: [ 'aaextra' ]
+    }, {
+        text: <span>Find stories among 2 billion articles, dating back to the 1700s with Newspapers.com™&nbsp;Basic. <LegalNewspapersBasic /></span>,
         appliesTo: [ 'allaccess' ]
     }, {
-        text: <span>Explore more than 537 million records on Fold3, our historical military records&nbsp;website</span>,
-        appliesTo: [ 'allaccess' ]
+        text: <span>Explore millions of global military records on Fold3®, including many from WWII and the US&nbsp;Civil&nbsp;War.</span>,
+        appliesTo: [ 'allaccess', 'aaextra' ]
     }, {
         text: <span>Enjoy unlimited access to more than 3 billion international birth, marriage, death, census, military, church and other&nbsp;records</span>,
-        appliesTo: [ 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Discover your immigrant ancestors and learn more about your family’s homeland in detailed passenger lists, border crossings and&nbsp;more</span>,
-        appliesTo: [ 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Travel back to the 16th century in popular UK birth, marriage and death records and see original hand-written&nbsp;documents</span>,
-        appliesTo: [ 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Learn about your ancestors in more than 80 countries outside the U.S., including the UK, Ireland, Canada, Germany, Australia, France, Denmark, Norway, Sweden and&nbsp;more</span>,
-        appliesTo: [ 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Explore all our U.S. record collections including birth, marriage, death and census records detailing occupations, ages, siblings, birthplaces, addresses, and more – even maiden&nbsp;names</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Connect with millions of other Ancestry members to ask for help, share ideas, make discoveries and possibly discover living relatives you never knew you&nbsp;had</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Organize, preserve and share your family tree online with advanced tools that help you grow your tree and upload photos and&nbsp;stories</span>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Learn from our exclusive Ancestry Hints – where we do the searching for you to expand your family&nbsp;tree</span>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Make discoveries in Ancestry special collections with records and help focusing on African-American and Jewish family&nbsp;history</span>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Get simple-to-understand guidance every step of the way so you can start making discoveries on day&nbsp;one</span>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }
 ]
 

@@ -319,7 +319,7 @@ const OfferCell = ({
                             <br /> */}
                             Does <strong>not</strong>&nbsp;include:
                             <ul className="bulleted">
-                                <li>Access to 20 billion US and international records</li>
+                                <li>Access to over 30 billion global records on Ancestry®</li>
                                 <li>Direct messaging other&nbsp;members</li>
                             </ul>
                         </span>

@@ -44,8 +44,18 @@ export const packagesData = [
         id: `allaccess`,
         order: 4,
         name: `All Access`,
-        descName: `Everything above, <br /><strong>plus Fold3 and Newspapers.com™ Basic</strong>`,
-        description: `Get full membership to: Ancestry, Fold3, & Newspapers.com™ Basic`,
+        descName: `Everything above, <br /><strong>plus Fold3® and Newspapers.com™ Basic</strong>`,
+        description: `Get full membership to: Ancestry, Fold3®, & Newspapers.com™ Basic`,
+        denyStr: `All_Access`,
+        icon: 'GlobePlus',
+        color: `purple`,
+        type: `exclusive-entitlements-bundle`
+    }, {
+        id: `aaextra`,
+        order: 4.1,
+        name: `All Access`,
+        descName: `Everything above, <br /><strong>plus Fold3® and Newspapers.com™</strong>`,
+        description: `Get full membership to: Ancestry, Fold3®, & Newspapers.com™`,
         denyStr: `All_Access`,
         icon: 'GlobePlus',
         color: `purple`,
@@ -494,6 +504,146 @@ export const subscriptions = [
             initial: 'TD_AA-12MR-1MB_I',
             renewal: 'TD_AA-12MR-1MB_R',
             migration: 'TD_AA-12MR-1MB_M'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 1,
+            billMonths: 1,
+            displayPrice: 59.99,
+            MSRP: 59.99
+        },
+        offerIDs: {
+            initial: 'O-26727',
+            renewal: 'O-26722',
+            migration: 'TD_AAE-1MR-1MB_M'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 3,
+            displayPrice: 119.95,
+            MSRP: 119.95
+        },
+        offerIDs: {
+            initial: 'TD_AAE-3MR-3MB_I',
+            renewal: 'TD_AAE-3MR-3MB_R',
+            migration: 'TD_AAE-3MR-3MB_M'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 3,
+            billMonths: 1,
+            displayPrice: 119.95,
+            MSRP: 119.95
+        },
+        offerIDs: {
+            initial: 'TD_AAE-3MR-1MB_I',
+            renewal: 'TD_AAE-3MR-1MB_R',
+            migration: 'TD_AAE-3MR-1MB_M'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 6,
+            displayPrice: 239,
+            MSRP: 239
+        },
+        offerIDs: {
+            initial: 'O-26728',
+            renewal: 'O-26723',
+            migration: 'TD_AAE-6MR-6MB_M'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 1,
+            displayPrice: 239,
+            MSRP: 239
+        },
+        offerIDs: {
+            initial: 'O-26730',
+            renewal: 'O-26725',
+            migration: 'TD_AAE-6MR-1MB_M'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 12,
+            displayPrice: 469,
+            MSRP: 469
+        },
+        offerIDs: {
+            initial: 'TD_AAE-12MR-12MB_I',
+            renewal: 'TD_AAE-12MR-12MB_R',
+            migration: 'TD_AAE-12MR-12MB_M'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 12,
+            billMonths: 1,
+            displayPrice: 469,
+            MSRP: 469
+        },
+        offerIDs: {
+            initial: 'TD_AAE-12MR-1MB_I',
+            renewal: 'TD_AAE-12MR-1MB_R',
+            migration: 'TD_AAE-12MR-1MB_M'
         }
     }
 ]

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
 import { SVGAsset, USMap, Globe, GlobePlus, CheckIcon, XIcon } from '../SVGs';
-import { LegalNewspapersBasic } from '../LegalText';
+import { LegalSup, LegalNewspapersBasic } from '../LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -22,7 +22,7 @@ const featuresData = [
                 Ancestry Hints®
                 <div className="topSpacing plan-para-color">Where we do the searching for you to expand your family&nbsp;tree.</div>
             </div>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -30,7 +30,7 @@ const featuresData = [
                 Family Tree Building&nbsp;Tools
                 <div className="topSpacing plan-para-color">See how you're related to family members across&nbsp;generations.</div>
             </div>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -38,7 +38,7 @@ const featuresData = [
                 Family Tree Sharing
                 <div className="topSpacing plan-para-color">Invite other family and friends to view or edit your&nbsp;tree.</div>
             </div>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -46,15 +46,15 @@ const featuresData = [
                 Family Media Upload
                 <div className="topSpacing plan-para-color">Save and preserve family records, stories, and photos to your&nbsp;account.</div>
             </div>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `global-feature`,
         text: <div>
                 <img className="feature-img-new lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.36/images/people_man_comment.png" />
                 Ancestry Member Community
-                <div className="topSpacing plan-para-color">Connect with millions of other Ancestry© members to ask for help, share ideas, and make&nbsp;discoveries.</div>
+                <div className="topSpacing plan-para-color">Connect with millions of other Ancestry® members to ask for help, share ideas, and make&nbsp;discoveries.</div>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `global-feature`,
         text: <div>
@@ -64,15 +64,15 @@ const featuresData = [
                 <span className="bamboo4 help-contact">1-800-ANCESTRY</span>
                 <br /><span className="support-timings-txt">7 days a week, 9am–11pm&nbsp;ET</span>
             </div>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `record-access`,
         text: <div>
                 <span className="bold">Free record collections</span>
                 <br />
-                <div className="topSpacing plan-para-color">Access <a href="https://www.ancestry.com/search/categories/freeindexacom/" target="_blank">free U.S. and international records</a> including census, marriage, and immigration&nbsp;collections.</div>
+                <div className="topSpacing plan-para-color">Access <a href="https://www.ancestry.com/search/categories/freeindexacom/" target="_blank">free U.S. and international records</a> including census and select marriage and immigration collections.</div>
             </div>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `record-access`,
         text: <div>
@@ -80,16 +80,16 @@ const featuresData = [
                 <br />
                 <div className="topSpacing plan-para-color">Explore the billions of records in our U.S. record collection including birth, marriage, death&nbsp;records.</div>
             </div>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `record-access`,
         text: <div>
                 <span>
                     <span>Access to all <span className="bold">international records</span> on&nbsp;Ancestry</span> 
                 </span>
-                <div className="topSpacing plan-para-color">Access more than 3 billion international birth, marriage, death, census, military, religious, and other&nbsp;records.</div>
+                <div className="topSpacing plan-para-color">Access more than 5 billion international birth, marriage, death, census, military, religious, and other&nbsp;records.</div>
             </div>,
-        appliesTo: [ 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         type: `record-access`,
         text: <div>
@@ -105,9 +105,19 @@ const featuresData = [
                         <LegalNewspapersBasic />
                     </span>
                 </div>
-                <div className="topSpacing plan-para-color">Search for family stories in more than 142 million U.S. and world articles on&nbsp;Newspapers.com™.</div>
+                <div className="topSpacing plan-para-color">Find stories among 2 billion articles, dating back to the 1700s with Newspapers.com™&nbsp;Basic.<LegalSup supRef="newspapersBasic" goToOnClick={true} /></div>
             </div>,
         appliesTo: [ 'allaccess' ]
+    }, {
+        type: `record-access`,
+        text: <div>
+                <span className="table-row-head">
+                    <img className="table-newspapers-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.17/images/newspapers.svg" /> 
+                </span>
+                {/* <span className="mr-1">Publisher Extra</span> */}
+                <div className="topSpacing plan-para-color">Find stories among 8 billion articles, dating back to the 1700s, on Newspapers.com™ with Publisher Extra.</div>
+            </div>,
+        appliesTo: [ 'aaextra' ]
     }, {
         type: `record-access`,
         text: <div>
@@ -115,9 +125,9 @@ const featuresData = [
                     <img className="table-fold-img lazyImg" src="https://www.ancestrycdn.com/ui-static/i/loading/1/loading.png" data-src="https://www.ancestrycdn.com/pro-treeinteractions/prototypes/plan-select-mobile/0.0.17/images/fold-3.svg" /> 
                 </span>
                 <span className="textsml">Additional military records</span>
-                <div className="topSpacing plan-para-color">Search for family stories in more than 537 million U.S. military records on&nbsp;Fold3®.</div>
+                <div className="topSpacing plan-para-color">Explore millions of global military records on Fold3®, including many from WWII and the US&nbsp;Civil&nbsp;War.</div>
             </div>,
-        appliesTo: [ 'allaccess' ]
+        appliesTo: [ 'allaccess', 'aaextra' ]
     }
 ];
 
@@ -287,7 +297,7 @@ export class SparklyDragon extends React.Component {
                                     <span className="text3xlrg">Plan Comparison</span>
                                     <br />
                                     <div className="topSpacingBlock includedInPlanText">
-                                        Included in All Plans
+                                        Features &amp; Tools
                                         <button type="button" className={`showHideBtn link iconAfter textlrg btn-pointer ${this.state.showIncludedInAll ? `iconArrowUpAfter` : `iconArrowDownAfter`}`} onClick={this.toggleAllIncludedState}>
                                             <span className="mr-1 textlrg">{this.state.showIncludedInAll ? `Hide` : `Show`} All</span>
                                         </button>
