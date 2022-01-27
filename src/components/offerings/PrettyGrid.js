@@ -389,7 +389,6 @@ export class PrettyGrid extends React.Component {
                                 offerID: subs.selectedOffer.id,
                                 offeringsCreative: `prettygrid`
                             })
-                            // console.log(e.target.offers.value);
 
                             if (/O-Reg/.test(e.target.offers.value)) {
                                 window.location.href = `/account/create?treebuilder=true&returnUrl=${document.location.origin}/begin/family-tree`;

@@ -76,16 +76,8 @@ const OfferRow = ({ pkgData, pS, subs, periodText, returnColorStackForm, modifyP
                         })
                         setTimeout(() => {
                             const colorStackForm = returnColorStackForm();
-                            // console.log(colorStackForm.offers.value);
-                            // console.log('form submit', returnColorStackForm());
-                            if (/O-Reg/.test(colorStackForm.offers.value)) {
-                                // console.log('send to create account');
-                                window.location.href = `/account/create?treebuilder=true&returnUrl=${document.location.origin}/begin/family-tree`;
-                            } else {
-                                // console.log('submit form')
-                                colorStackForm.dispatchEvent(new Event('submit'));
-                            }
-                        }, 250);
+                            colorStackForm.dispatchEvent(new Event('submit'));
+                        }, 150);
                     }
                 }
             >
@@ -191,7 +183,12 @@ export class ColorStack extends React.Component {
                             offerID: subs.selectedOffer.id,
                             offeringsCreative: `colorstack`
                         })
-                        e.target.submit();
+
+                        if (/O-Reg/.test(e.target.offers.value)) {
+                            window.location.href = `/account/create?treebuilder=true&returnUrl=${document.location.origin}/begin/family-tree`;
+                        } else {
+                            e.target.submit();
+                        }
                     }}
                 >
                     {!!pS.returnURL && <input type="hidden" name="returnUrl" value={pS.returnURL} />}
