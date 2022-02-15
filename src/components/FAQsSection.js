@@ -29,7 +29,7 @@ const faqs = [
     }, {
         question: <span>When will my subscription&nbsp;renew?</span>,
         answer: <p>
-                Unless you’ve canceled your membership, it will automatically renew on the Ends On date on your Account Options page, where your current membership is displayed and from which page you can also upgrade and cancel your subscription. When you upgrade from an annual subscription, your new subscription will begin immediately, and you'll receive a refund for the time remaining on your current subscription. When you upgrade from a monthly subscription, a month will be added to the new subscription to compensate for the days remaining on the prior subscription. If you cancel, your subscription will end on your Ends On&nbsp;date.
+                Unless you've canceled your membership, it will automatically renew on the Ends On date on your Account Options page, where your current membership is displayed and from which page you can also upgrade and cancel your subscription. When you upgrade from an annual subscription, your new subscription will begin immediately, and you'll receive a refund for the time remaining on your current subscription. When you upgrade from a monthly subscription, a month will be added to the new subscription to compensate for the days remaining on the prior subscription. If you cancel, your subscription will end on your Ends On&nbsp;date.
             </p>,
         elligibility: `hard-offer`
     }, {

@@ -32,9 +32,9 @@ export const pageSettings = getPageSettingsLocal() || {
     displayDurations,
     displayPackages,
     selectedOffer: {
-        renewMonths: 1, // must be included in 'displayDurations' setting
-        packageID: 'usdiscovery', // must be included in the 'displayPackages' setting
-        ldbm: false // true/false value only factored in if 'LDBM' setting is 'side-by-side'
+        renewMonths: 6, // must be included in 'displayDurations' setting
+        packageID: 'worldexplorer', // must be included in the 'displayPackages' setting
+        ldbm: true // true/false value only factored in if 'LDBM' setting is 'side-by-side'
     },
     bestOffer: {
         renewMonths: 6, // must be included in 'displayDurations' setting

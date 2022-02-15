@@ -14,9 +14,9 @@ const classesMaker = (styleName) => {
 
 export const MaryDQuote = connect(mapStateToProps)((props) => (
     <span>
-        I tried a{/initial/.test(props.pageSettings.elligibility) ? ` 2-week free trial` : ``} membership and I’m so glad I&nbsp;did. 
+        I tried a{/initial/.test(props.pageSettings.elligibility) ? ` 2-week free trial` : ``} membership and I'm so glad I&nbsp;did. 
         {!!props.brk ? <br className="hide768" /> : ` `} 
-        I can’t believe how much I&nbsp;discovered.
+        I can't believe how much I&nbsp;discovered.
     </span>
 ))
 

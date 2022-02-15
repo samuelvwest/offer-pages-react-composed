@@ -539,13 +539,28 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="featuresGrid" 
-                    settingValue="pretty-grid" 
-                    displayText="Pretty Grid" 
+                    settingValue="sparkly-dragon" 
+                    displayText="Sparkly Dragon" 
                 />
                 <SettingsButton 
                     settingGroup="variables"
                     settingAttribute="featuresGrid" 
                     settingValue="not-included" 
+                    displayText="Not Included" 
+                />
+            </div>
+            <div className="settings__group">
+                <h5 className="settings__group__name">Info Sections</h5>
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="infoSections" 
+                    settingValue={true} 
+                    displayText="Control" 
+                />
+                <SettingsButton 
+                    settingGroup="variables"
+                    settingAttribute="infoSections" 
+                    settingValue={false} 
                     displayText="Not Included" 
                 />
             </div>
