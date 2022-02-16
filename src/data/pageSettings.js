@@ -3,7 +3,7 @@ import { getLocalStorageItem } from '../actions/utilities';
 import { subscriptions, packagesData } from './subscriptions';
 import { buildDisplayOffersData, filterDisplayPackages } from '../actions/subscriptions';
 
-export const displayPackages = ['usdiscovery', 'worldexplorer', 'allaccess'] // 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' 
+export const displayPackages = ['usdiscovery', 'worldexplorer', 'aaextra'] // 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' 
 export const displayDurations = [1, 6] // 1, 3, 6, 12
 
 export const pageSettings = getPageSettingsLocal() || {
