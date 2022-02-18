@@ -16,19 +16,22 @@ const classesMaker = (styleName) => {
 const featuresData = [
     {
         text: <span>Build your family&nbsp;tree</span>,
-        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Discover new details with Ancestry&nbsp;Hints®</span>,
-        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Search over 3 billion international historical&nbsp;records</span>,
-        appliesTo: [ 'worldexplorer', 'allaccess' ]
+        appliesTo: [ 'worldexplorer', 'allaccess', 'aaextra' ]
     }, {
         text: <span>Read over 1 billion historical articles with Newspapers.com™&nbsp;Basic<LegalSup supRef="newspapersBasic" /></span>,
         appliesTo: [ 'allaccess' ]
     }, {
+        text: <span>Find stories among 8 billion articles on Newspapers.com™ with Publisher&nbsp;Extra.</span>,
+        appliesTo: [ 'allaccess', 'aaextra' ]
+    }, {
         text: <span>Discover more than 500 million military records on&nbsp;Fold3.com®</span>,
-        appliesTo: [ 'allaccess' ]
+        appliesTo: [ 'allaccess', 'aaextra' ]
     }
 ]
 
