@@ -74,9 +74,12 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
         if (offer.renewalPeriod.displayPrice < offer.renewalPeriod.MSRP) {
             data.promoSaveOffers = data.promoSaveOffers || [];
             const savings = offer.renewalPeriod.MSRP - offer.renewalPeriod.displayPrice;
+            const ppt = (savings / offer.renewalPeriod.MSRP) * 100;
             offer.promoSavings = {
                 actual: savings,
-                display: Math.floor(savings)
+                display: Math.floor(savings),
+                actualPPT: ppt,
+                displayPPT: Math.floor(ppt)
             }
             data.promoSaveOffers.push(offer);
         }
@@ -115,7 +118,9 @@ export const buildDisplayOffersData = (pageSettings, subscriptions) => {
                         display: Math.floor(savings),
                         compareOffer: shortDurationCompareOffer
                     }
-                    data.durationSaveOffers.push(offer);
+                    if (!offer.promoSavings) {
+                        data.durationSaveOffers.push(offer);
+                    }
                 }
             }
         } else if (!!offer.durationSavings) {

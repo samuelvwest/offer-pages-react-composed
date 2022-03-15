@@ -38,7 +38,18 @@ const ColorStack = connect(mapStateToProps)(( { pageSettings: pS } ) => (
         ].some((audience) => pS.audiences.indexOf(audience) > -1) 
             && winbackHeaderText
         }
-        {/initial/.test(pS.elligibility) ? 
+        {(!!pS.promoEndDate && !!pS.subscriptions.promoSaveOffers) ? 
+            <span className="stpats-campaign__header-text">
+                <span>
+                    Save up to {Math.max.apply(null, pS.subscriptions.promoSaveOffers.map(ofr => ofr.promoSavings.displayPPT))}%<LegalSup supRef="promoSave" goToOnClick={true} /> 
+                    <br />on an Ancestry<sup className="trademark-sup">®</sup>
+                    <br />6-month membership.
+                </span>
+                <span>
+                    Continue the St. Patrick's Day 
+                    <br />celebration with this family history&nbsp;offer.
+                </span>
+            </span> : /initial/.test(pS.elligibility) ? 
             (!!pS.subscriptions.display.packages.find(pkgData => /freemium/.test(pkgData.type)) ? 
                 <span>
                     Try Ancestry® for&nbsp;<strong>FREE</strong>.<LegalSup supRef="freeTrial" goToOnClick={true} />
@@ -69,7 +80,10 @@ const PrettyGrid = connect(mapStateToProps)(( { pageSettings: pS } ) => {
         return <ColorStack/>
     }
     // Control text for Bonsai Grid design – desktop on FTLP & HOLP
-    return /initial/.test(pS.elligibility) ? 
+    return (!!pS.promoEndDate && !!pS.subscriptions.promoSaveOffers) ? 
+        <span>
+            Save up to {Math.max.apply(null, pS.subscriptions.promoSaveOffers.map(ofr => ofr.promoSavings.displayPPT))}%<LegalSup supRef="promoSave" goToOnClick={true} /> on an Ancestry<sup className="trademark-sup">®</sup>&nbsp;6&#8209;month&nbsp;membership.
+        </span> : /initial/.test(pS.elligibility) ? 
         (!!pS.subscriptions.display.packages.find(pkgData => /freemium/.test(pkgData.type)) ? 
             <span>
                 Try Ancestry® for&nbsp;<span className="coloraltgreen">FREE</span>.<LegalSup supRef="freeTrial" goToOnClick={true} />

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { SVGAsset } from '../SVGs';
 import { modifyPageSettings } from '../../actions/pageSettings';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
-import { LegalSup, LegalLongDurationBilledMonthly } from '../LegalText';
+import { LegalSup, LegalLongDurationBilledMonthly, LegalPromoSaves } from '../LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -198,19 +198,24 @@ export class ColorStack extends React.Component {
                     <input type="hidden" name="flow" value="3" />
                     <section className="all-options">
                         <section className="all-options__durations">
-                            <div className="pill-buttons">
-                                {subs.display.durations.map((duration) => (
-                                    <DurationButton
-                                        key={duration.id}
-                                        duration={duration}
-                                        pS={pS}
-                                        subs={subs}
-                                        toggleTest={toggleTest}
-                                        sbsTest={sbsTest}
-                                        modifyPageSettings={this.props.modifyPageSettings}
-                                    />
-                                ))}
-                            </div>
+                            {subs.durations.length > 1 ?
+                                <div className="pill-buttons">
+                                    {subs.display.durations.map((duration) => (
+                                        <DurationButton
+                                            key={duration.id}
+                                            duration={duration}
+                                            pS={pS}
+                                            subs={subs}
+                                            toggleTest={toggleTest}
+                                            sbsTest={sbsTest}
+                                            modifyPageSettings={this.props.modifyPageSettings}
+                                        />
+                                    ))}
+                                </div> : 
+                                <div className="select-a-membership">
+                                    Select a membership:
+                                </div>
+                            }
                             {toggleTest && pS.selectedOffer.renewMonths !== 1 && 
                                 <p className="ldbm-buttons">
                                     <button type="button" onClick={() => this.props.modifyPageSettings({
@@ -221,7 +226,7 @@ export class ColorStack extends React.Component {
                                             ldbm: !pS.selectedOffer.ldbm
                                         }
                                     })}>
-                                        Or pay {pS.selectedOffer.ldbm ? `all ${pS.selectedOffer.renewMonths} months upfront` : `monthly`}
+                                        or{(!!pS.subscriptions.promoSaveOffers && /toggle-front/.test(pS.LDBM)) ? ` save and` : ``} pay {/toggle-front/.test(pS.LDBM) ? `upfront` : `${!!pS.subscriptions.promoSaveOffers ? `full price ` : ``}monthly`}
                                     </button>
                                 </p>
                             }
@@ -242,6 +247,7 @@ export class ColorStack extends React.Component {
                     </section>
                 </form>
                 {(pS.selectedOffer.ldbm && subs.ldbms) && <LegalLongDurationBilledMonthly/>}
+                {(!pS.selectedOffer.ldbm && !!pS.promoEndDate && !!subs.promoSaveOffers) && <LegalPromoSaves saveOffers={subs.promoSaveOffers} inModal={false} />}
             </div>
         )
     }

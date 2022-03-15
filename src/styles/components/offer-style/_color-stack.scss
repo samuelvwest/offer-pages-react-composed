@@ -72,6 +72,14 @@
                     border:none;
                 }
             }
+
+            .select-a-membership {
+                display:block;
+                color:#54534f;
+                font-size:92%;
+                text-align:center;
+                padding:5px;
+            }
         }
 
         .all-options__packages {
@@ -267,9 +275,13 @@
                     }
                 }
                 // &.package-row__price-text--promo {
-                //     .strike-through-price {
-                //         line-height:112%;
-                //     }
+                .strike-through-price {
+                    font-size: 82%;
+                    &:before {
+                        border-color: #ffffff;
+                        border-width: 0 0 1px 0;
+                    }
+                }
                 // }
             }
 

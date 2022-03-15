@@ -1,6 +1,22 @@
 .header-text {
     display: inherit;
+
+    .stpats-campaign__header-text {
+        display:block;
+        padding: 10px;
+        > span {
+            display:block;
+            font-size:123%;
+            &:first-of-type {
+                font-size: 185%;
+                font-weight: 300;
+                line-height: 123%;
+                margin-bottom: 10px;
+            }
+        }
+    }
 }
+
 
 .header-text__intro {
     display:block;

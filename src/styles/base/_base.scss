@@ -2,12 +2,33 @@
     position:relative;
 }
 
+sup {
+    &.trademark-sup {
+        font-size:61%;
+    }
+}
+
 .strike-through-price {
     position:relative;
     display: inline-block;
     font-weight:400;
     font-size: 72%;
+    line-height: 123%;
     margin-right: 5px;
+    // vertical-align: text-bottom;
+    // text-decoration: line-through;
+    // &:before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 1px;
+    //     left: -2px;
+    //     display: block;
+    //     width: calc(100% + 4px);
+    //     height: 50%;
+    //     border: solid .1em #c14139;
+    //     border-width: 0 0 .1em 0;
+    //     transform: rotate(10deg);
+    // }
     &:before {
         content: '';
         position: absolute;
@@ -16,9 +37,9 @@
         display: block;
         width: calc(100% + 4px);
         height: 50%;
-        border: solid .1em #c14139;
-        border-width: 0 0 .1em 0;
-        transform: rotate(10deg);
+        border: solid .05em #181a1c;
+        border-width: 0 0 .05em 0;
+        // transform: rotate(10deg);
     }
 }
 

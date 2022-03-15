@@ -1,6 +1,6 @@
 import { showSettingsTest, getPageSettingsLocal, getLocation, getElligibility, getReturnURL } from '../actions/pageSettings';
 import { getLocalStorageItem } from '../actions/utilities';
-import { subscriptions, packagesData } from './subscriptions';
+import { subscriptions, packagesData, stPats } from './subscriptions';
 import { buildDisplayOffersData, filterDisplayPackages } from '../actions/subscriptions';
 
 export const displayPackages = ['usdiscovery', 'worldexplorer', 'aaextra'] // 'treebuilder', 'usdiscovery', 'worldexplorer', 'allaccess', 'aaextra' 
@@ -29,6 +29,8 @@ export const pageSettings = getPageSettingsLocal() || {
     },
     audiences: [ ], // any audience the CDP views as qualified can be placed as a 'string' in this array to be targeted by any and all components on the page. 
     LDBM: 'toggle-front', // false, 'toggle-front', 'toggle-back', 'side-by-side', 'only'
+    durationSavingsDisplayType: 'volume',
+    promoSavingsDisplayType: 'percent',
     displayDurations,
     displayPackages,
     selectedOffer: {
@@ -46,6 +48,7 @@ export const pageSettings = getPageSettingsLocal() || {
         packageID: 'worldexplorer', // must be included in 'displayPackages' setting
         ldbm: false // true/false value only factored in if 'LDBM' setting is 'side-by-side'
     },
+    promoEndDate: false,
     packagesData
 }
 
@@ -72,5 +75,6 @@ if (pageSettings.windowWidth < pageSettings.breaks.prettyGrid.tablet) {
 pageSettings.returnURL = getReturnURL();
 pageSettings.displayPackages = filterDisplayPackages(pageSettings.displayPackages, packagesData, pageSettings.denyLevel);
 pageSettings.subscriptions = buildDisplayOffersData(pageSettings, subscriptions);
+// pageSettings.subscriptions = buildDisplayOffersData(pageSettings, stPats);
 
 export default pageSettings;

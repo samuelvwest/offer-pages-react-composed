@@ -5,7 +5,7 @@ import { modifyPageSettings } from '../../actions/pageSettings';
 import { scrollTo } from '../../actions/utilities';
 import { adobeTargetTrackEvent } from '../../actions/tracking';
 import ColorStack from './ColorStack';
-import { LegalSup, LegalLongDurationBilledMonthly } from '../LegalText';
+import { LegalSup, LegalLongDurationBilledMonthly, LegalPromoSaves } from '../LegalText';
 
 const mapStateToProps = (state) => {
     return {
@@ -112,7 +112,7 @@ const LDBMToggleButton = connect(mapStateToProps, mapDispatchToProps)(({ pageSet
             modifyPageSettings(pSUpdate);
         }}
     >
-            or pay {ldbmTest ? `upfront` : `monthly`}
+            or{(!!pS.subscriptions.promoSaveOffers && /toggle-front/.test(pS.LDBM)) ? ` save and` : ``} pay {ldbmTest ? `upfront` : `${!!pS.subscriptions.promoSaveOffers ? `full price ` : ``}monthly`}
     </a>
 ));
 
@@ -176,7 +176,11 @@ const RowLabelCell = ({ duration, rowPosition, ldbmToggleButtonTest, modifyPageS
                     Auto Renewing, Cancel&nbsp;Anytime.
                 </button>
             } 
-            {ldbmToggleButtonTest && <LDBMToggleButton ldbmTest={duration.ldbm} />}
+            {ldbmToggleButtonTest && 
+                <LDBMToggleButton 
+                    ldbmTest={duration.ldbm} 
+                />
+            }
         </div>
     )
 }
@@ -208,10 +212,14 @@ const OfferCell = ({
     // console.log(offer);
     const savingsVars = offer.promoSavings ? {
         display: `promoSavings`,
-        legalSup: `promoSave`
+        legalSup: `promoSave`,
+        displayType: pS.promoSavingsDisplayType,
+        supClickable: true
     } : !!offer.durationSavings ? {
         display: `durationSavings`,
-        legalSup: `durationSave`
+        legalSup: `durationSave`,
+        displayType: pS.durationSavingsDisplayType,
+        supClickable: false
     } : false;
     const selectedTest = freemiumTest ? pS.selectedOffer.packageID === pkgData.id : (offer.renewalPeriod.renewMonths === subs.selectedOffer.renewalPeriod.renewMonths && offer.packageID === subs.selectedOffer.packageID && (/side-by-side/.test(pS.LDBM) ? offer.ldbm === subs.selectedOffer.ldbm : true));
     const offerCellClasses = `offers-grid__cell--offer position-${rowPosition}`;
@@ -258,6 +266,29 @@ const OfferCell = ({
                             <span className="decimal-number">00</span>
                         </span> :
                         <span className={priceInfoClasses}>
+                            {/* {!!offer.promoSavings && 
+                                <span className="strike-through-price">
+                                    <span className="currency-symbol">{offer.currency}</span>
+                                    {(!offer.ldbm ? offer.renewalPeriod.MSRP : offer.renewalPeriod.MSRPMEP).toString().split('.').map((num, index) => {
+                                        const integerTest = index === 0;
+                                        const useClass = integerTest ? `integer` : `decimal-number`;
+                                        return <span key={index} className={useClass}>
+                                            {num}
+                                            {integerTest && <span className="decimal-point">.</span>}
+                                        </span>
+                                    })}
+                                </span>
+                            }
+                            {!!offer.promoSavings && <br />} */}
+                            <span className="currency-symbol">{offer.currency}</span>
+                            {(!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP).toString().split('.').map((num, index) => {
+                                const integerTest = index === 0;
+                                const useClass = integerTest ? `integer` : `decimal-number`;
+                                return <span key={index} className={useClass}>
+                                    {num}
+                                    {integerTest && <span className="decimal-point">.</span>}
+                                </span>
+                            })}
                             {!!offer.promoSavings && 
                                 <span className="strike-through-price">
                                     <span className="currency-symbol">{offer.currency}</span>
@@ -271,16 +302,6 @@ const OfferCell = ({
                                     })}
                                 </span>
                             }
-                            {!!offer.promoSavings && <br />}
-                            <span className="currency-symbol">{offer.currency}</span>
-                            {(!offer.ldbm ? offer.renewalPeriod.displayPrice : offer.renewalPeriod.displayPriceMEP).toString().split('.').map((num, index) => {
-                                const integerTest = index === 0;
-                                const useClass = integerTest ? `integer` : `decimal-number`;
-                                return <span key={index} className={useClass}>
-                                    {num}
-                                    {integerTest && <span className="decimal-point">.</span>}
-                                </span>
-                            })}
                             {!displayRowLabels &&
                                 <span className="per-duration">
                                     {offer.renewalPeriod.billMonths > 1 ? `${offer.renewalPeriod.billMonths} mos.` : `mo.`}
@@ -305,8 +326,11 @@ const OfferCell = ({
                     }
                     {!!savingsVars && 
                         <span className="savings-text">
-                            SAVE {offer.currency}{offer[savingsVars.display].display}
-                            <LegalSup supRef={savingsVars.legalSup} />
+                            SAVE {/volume/.test(savingsVars.displayType) ? 
+                                <span>{offer.currency}{offer[savingsVars.display].display}</span> :
+                                <span>{offer[savingsVars.display].displayPPT}%</span>
+                            }
+                            <LegalSup supRef={savingsVars.legalSup}  goToOnClick={savingsVars.supClickable} />
                         </span>
                     }
                     {freemiumTest && 
@@ -460,13 +484,23 @@ export class PrettyGrid extends React.Component {
                                     </div>
                                 )
                             })}
-                            {subs.ldbms && 
-                                <div 
-                                    className="legal-wrapper"
-                                    style={{maxWidth: `${offerStyles.gridArea.needed.max}px`}}
-                                >
-                                    <LegalLongDurationBilledMonthly/>
-                                </div>
+                            <div 
+                                className="legal-wrapper"
+                                style={{maxWidth: `${offerStyles.gridArea.needed.max}px`}}
+                            >
+                                <LegalLongDurationBilledMonthly/>
+                                {(!/toggle-front|only/.test(pS.LDBM) && !!pS.promoEndDate && !!subs.promoSaveOffers) &&
+                                    <LegalPromoSaves saveOffers={subs.promoSaveOffers} inModal={false} />
+                                }
+                            </div>
+                            {/* {(!/toggle-front|only/.test(pS.LDBM) && !!pS.promoEndDate) &&  */
+                                // !!pS.promoEndDate &&
+                                // <div 
+                                //     className="legal-wrapper"
+                                //     style={{maxWidth: `${offerStyles.gridArea.needed.max}px`}}
+                                // >
+                                    
+                                // </div>
                             }
                         </div>
                         <div className={`offers-form__cta offers-form__cta--placement-${offerStyles.ctaArea.placement} offers-form__cta--row-labels-${displayRowLabels}`}>

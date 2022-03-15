@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { durationTexts, subscriptions, winbackSubscriptions, noABMorQBM, promoSubscriptions, semiDiscountTest } from '../data/subscriptions';
+import { durationTexts, subscriptions, winbackSubscriptions, noABMorQBM, stPats, semiDiscountTest } from '../data/subscriptions';
 import { modifyPageSettings, removePageSettingsLocal } from '../actions/pageSettings';
 import { modifyVariables, removeVariablesLocal } from '../actions/variables';
 
@@ -52,7 +52,7 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
             modifications[props.settingAttribute].splice(modifications[props.settingAttribute].length, 0, durationData.renewMonths);
         }
     } else if (/subscriptions/.test(props.settingAttribute)) {
-        activeTest = !(props.pageSettings.subscriptions.offersMap.length < 7);
+        activeTest = !(props.pageSettings.subscriptions.offersMap.length < 9);
         modifications.subscriptions = subscriptions;
         if (/winback/.test(props.settingValue)) {
             activeTest = props.pageSettings.subscriptions.offersMap.length < 7;
@@ -74,6 +74,11 @@ const SettingsButton = connect(mapStateToProps, mapDispatchToProps)((props) => {
             modifications.subscriptions = offersMap;
         } else if (/noABMorQBM/.test(props.settingValue)) {
             const offersMap = noABMorQBM;
+            // console.log(offersMap);
+            activeTest = offersMap.length === props.pageSettings.subscriptions.offersMap.length;
+            modifications.subscriptions = offersMap;
+        } else if (/stpats/.test(props.settingValue)) {
+            const offersMap = stPats;
             // console.log(offersMap);
             activeTest = offersMap.length === props.pageSettings.subscriptions.offersMap.length;
             modifications.subscriptions = offersMap;
@@ -456,13 +461,13 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingValue="noABMorQBM" 
                     displayText="No ABM or QBM"
                 />
-                <SettingsButton 
+                {/* <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 
                     settingValue="sa30sabm30" 
                     displayText="SA:30 | SABM:30"
                 />
-                {/* <SettingsButton 
+                <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 
                     settingValue="sa25sabm25" 
@@ -497,19 +502,19 @@ const SettingsControl = connect(mapStateToProps)((props) => (
                     settingAttribute="subscriptions" 
                     settingValue="sa30sabm15" 
                     displayText="SA:30 | SABM:15"
-                />
+                /> */}
                 <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 
                     settingValue="sa25sabm15" 
                     displayText="SA:25 | SABM:15"
-                /> */}
-                {/* <SettingsButton 
+                />
+                <SettingsButton 
                     settingGroup="pageSettings"
                     settingAttribute="subscriptions" 
-                    settingValue="promo" 
-                    displayText="Promo Offers"
-                /> */}
+                    settingValue="stpats" 
+                    displayText="St. Pat's"
+                />
             </div>
         </SettingsGrouping>
         <SettingsGrouping collapsable={true} groupName="Display Options">

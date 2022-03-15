@@ -25,7 +25,7 @@ export const packagesData = [
         order: 2, // list order (top-left to bottom-right) compared to other packages
         name: `U.S. Discovery`, // Package name
         descName: `All U.S. records`, // Descriptive package name
-        description: `Access all U.S. records on Ancestry`, // package descriptions
+        description: `Access all U.S. records on Ancestry®`, // package descriptions
         denyStr: `Ancestry_US_Deluxe`, // Record deny string for this package
         icon: 'USMap', // Icon that should be used to represent this package
         color: `green`, // Color that should be used in association with this package
@@ -34,8 +34,8 @@ export const packagesData = [
         id: `worldexplorer`,
         order: 3,
         name: `World Explorer`,
-        descName: `Everything on Ancestry`,
-        description: `Access all U.S. & international records on Ancestry`,
+        descName: `Everything on Ancestry®`,
+        description: `Access all U.S. & international records on Ancestry®`,
         denyStr: `Ancestry_World_Deluxe`,
         icon: 'Globe',
         color: `blue`,
@@ -45,7 +45,7 @@ export const packagesData = [
         order: 4,
         name: `All Access`,
         descName: `Everything above, <br /><strong>plus Fold3® and Newspapers.com™ Basic</strong>`,
-        description: `Get full membership to: Ancestry, Fold3®, & Newspapers.com™ Basic`,
+        description: `Get full membership to: Ancestry®, Fold3®, & Newspapers.com™ Basic`,
         denyStr: `All_Access`,
         icon: 'GlobePlus',
         color: `purple`,
@@ -55,7 +55,7 @@ export const packagesData = [
         order: 4.1,
         name: `All Access`,
         descName: `Everything above, <br /><strong>plus Fold3® and Newspapers.com™</strong>`,
-        description: `Get full membership to: Ancestry, Fold3®, & Newspapers.com™`,
+        description: `Get full membership to: Ancestry®, Fold3®, & Newspapers.com™`,
         denyStr: `All_Access`,
         icon: 'GlobePlus',
         color: `purple`,
@@ -2967,5 +2967,199 @@ export const semiDiscountTest = {
         }
     ]
 }
+
+export const stPats = [
+    {
+        packageID: 'familytreebuilder',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 0,
+            billMonths: 0,
+            displayPrice: 0,
+            MSRP: 0
+        },
+        offerIDs: {
+            initial: 'O-Registration',
+            renewal: 'O-Registration'
+        }
+    }, {
+        packageID: 'usdiscovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 1,
+            billMonths: 1,
+            displayPrice: 24.99,
+            MSRP: 24.99
+        },
+        offerIDs: {
+            initial: 'TID_usd-1MR-1MB_I',
+            renewal: 'TID_usd-1MR-1MB_R'
+        }
+    }, {
+        packageID: 'usdiscovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 6,
+            displayPrice: 69,
+            MSRP: 99
+        },
+        offerIDs: {
+            initial: 'TID_usd-6MR-6MB_I',
+            renewal: 'TID_usd-6MR-6MB_R'
+        }
+    }, {
+        packageID: 'usdiscovery',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 1,
+            displayPrice: 99,
+            MSRP: 99
+        },
+        offerIDs: {
+            initial: 'TID_usd-6MR-1MB_I',
+            renewal: 'TID_usd-6MR-1MB_R'
+        }
+    }, {
+        packageID: 'worldexplorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 1,
+            billMonths: 1,
+            displayPrice: 39.99,
+            MSRP: 39.99
+        },
+        offerIDs: {
+            initial: 'TID_wor-1MR-1MB_I',
+            renewal: 'TID_wor-1MR-1MB_R'
+        }
+    }, {
+        packageID: 'worldexplorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 6,
+            displayPrice: 74,
+            MSRP: 149
+        },
+        offerIDs: {
+            initial: 'TID_wor-6MR-6MB_I',
+            renewal: 'TID_wor-6MR-6MB_R'
+        }
+    }, {
+        packageID: 'worldexplorer',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 1,
+            displayPrice: 149,
+            MSRP: 149
+        },
+        offerIDs: {
+            initial: 'TID_wor-6MR-1MB_I',
+            renewal: 'TID_wor-6MR-1MB_R'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 1,
+            billMonths: 1,
+            displayPrice: 59.99,
+            MSRP: 59.99
+        },
+        offerIDs: {
+            initial: 'TID_aae-1MR-1MB_I',
+            renewal: 'TID_aae-1MR-1MB_R'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 6,
+            displayPrice: 119,
+            MSRP: 239
+        },
+        offerIDs: {
+            initial: 'TID_aae-6MR-6MB_I',
+            renewal: 'TID_aae-6MR-6MB_R'
+        }
+    }, {
+        packageID: 'aaextra',
+        currency: '$',
+        initialPeriod: {
+            duration: 14,
+            durationType: 'Day',
+            type: 'Trial',
+            displayPrice: '0'
+        },
+        renewalPeriod: {
+            renewMonths: 6,
+            billMonths: 1,
+            displayPrice: 239,
+            MSRP: 239
+        },
+        offerIDs: {
+            initial: 'TID_aae-6MR-1MB_I',
+            renewal: 'TID_aae-6MR-1MB_R'
+        }
+    }
+]
 
 export default subscriptions;

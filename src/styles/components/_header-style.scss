@@ -35,6 +35,10 @@
         background-image: linear-gradient(to right, #f7ede3 0%, #f7ede3 60%, #885d4e 40%, #885d4e 100%);
         /* min-height: 225px; */
         overflow: hidden;
+        &.offerPageHeader--stpats {
+            background-image:none;
+            background-color:#ece9e4;
+        }
     }
 
     .page {
@@ -68,6 +72,15 @@
             height:100%;
             background: rgb(247,237,227);
             background: linear-gradient(90deg, rgba(247,237,227,1) 0%, rgba(247,237,227,0) 100%);
+        }
+        &.offerPageHeaderImg--stpats {
+            background-image: url(https://www.ancestrycdn.com/mars/landing/st-patricks/2022/us-st-patricks-offerpages-header-2022-01.png);
+            @media only screen and (max-width: 1180px) {
+                background-position: left;
+            }
+            &:after {
+                display:none;
+            }
         }
     }
 

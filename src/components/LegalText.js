@@ -97,11 +97,11 @@ export const LegalLongDurationBilledMonthly = connect(mapStateToProps)((props) =
                 {legalSups.freeTrial.counts.sups === 0 && legalSups.hardOffer.counts.sups === 0 && 
                     `Your membership will automatically renew at the end of your subscription at list price. `
                 }
-                <span>You are committing to {durWords} subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.</span>   
+                You are committing to {durWords} subscription, but you will be billed on a monthly basis. If you cancel before the end of your subscription, an early termination fee of up to $25 may apply. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for more&nbsp;details.
             </p>
         )
     }
-    return <div></div>
+    return ``
 });
 
 export const LegalNewspapersBasic = ({ fromFullLegal, inModal }) => (
@@ -138,30 +138,36 @@ export const LegalDurationSaves = connect(mapStateToProps)((props) => {
     )
 })
 
-export const LegalPromoSaveLine = ({ offer }) => <span className={classesMaker(`legal-text__line`,`promo-save`)}>A {offer.renewalPeriod.renewMonths}-month {offer.packageData.name} subscription {offer.ldbm && `paid monthly `}has a regular list price of {offer.currency}{offer.renewalPeriod.MSRP} every&nbsp;{offer.renewalPeriod.renewMonths === 1 ? `month` : `${offer.renewalPeriod.renewMonths}-months`}.</span>
+export const LegalPromoSaveLine = ({ offer }) => <span className={classesMaker(`legal-text__line`,`promo-save`)}>&nbsp;{offer.currency}{offer.renewalPeriod.displayPrice} for a 6-month subscription to {offer.packageData.name}</span>
 
-export const LegalPromoSaves = ({ saveOffers, inModal }) => {
+export const LegalPromoSaves = connect(mapStateToProps)((props) => {
+    const pS = props.pageSettings;
+    const subs = pS.subscriptions;
     const uniqueSaves = [];
-    saveOffers.forEach((offer) => {
+    // console.log(!!subs.promoSaveOffers)
+    subs.promoSaveOffers.forEach((offer) => {
         if (!uniqueSaves.find((uOfr) => uOfr.renewalPeriod.renewMonths === offer.renewalPeriod.renewMonths && uOfr.renewalPeriod.displayPrice === offer.renewalPeriod.displayPrice)) {
             uniqueSaves.push(offer);
         }
     })
     return (
-        <div>
-            <p className={classesMaker(`legal-text__paragraph`, `promoSave`, inModal)}>
-                <LegalSup supRef="promoSave" para={true} />
+        <p className={classesMaker(`legal-text__paragraph`, `promoSave`, props.inModal)}>
+            <LegalSup supRef="promoSave" para={true} />
+            <span>
+                {!!pS.promoEndDate && <span>Offers end {pS.promoEndDate}. </span>} 
+                Offers only applicable for 6-month subscriptions billed upfront. Offers available for new and returning subscribers only and not for renewal of current subscriptions. Billed in one payment of 
                 {uniqueSaves.map((offer, index) => (
                     <span key={index}>
-                        {index > 0 && <br />}
+                        {(uniqueSaves.length > 1 && (index + 1) === uniqueSaves.length) ? ` or` : ``}
                         <LegalPromoSaveLine offer={offer} />
+                        {(uniqueSaves.length > 2 && (index + 1 !== uniqueSaves.length)) ? `,` : ``}
                     </span>
-                ))}
-            </p>
-            <LegalHardOffer inModal={inModal} />
-        </div>
+                ))}.
+                Your subscription will automatically renew at list price after the introductory offer unless you are notified otherwise. If you don't want to renew, cancel at least two days before your renewal date by visiting your Account Settings or by contacting us. See our <a target="_blank" href="/cs/legal/renewal-cancellation-terms">Renewal and Cancellation Terms</a> for further details. 
+            </span>
+        </p>
     )
-}
+})
 
 export const LegalTextWrapper = connect(mapStateToProps)((props) => (
     <div className={`legal-text-wrap offerings-variable--${props.variables.offerings}`}>
@@ -174,7 +180,7 @@ export const LegalTextWrapper = connect(mapStateToProps)((props) => (
 export const LegalText = connect(mapStateToProps)((props) => {
     const pS = props.pageSettings;
     const subs = pS.subscriptions;
-    const joinControlTest = !(window.innerWidth < pS.breaks.control.tablet) && !props.inModal && /join/.test(pS.location) && /control/.test(props.variables.offerings)
+    const joinControlTest = !(window.innerWidth < pS.breaks.control.tablet) && !props.inModal && /join/.test(pS.location)
     return (
         <LegalTextWrapper>
                 {!ldbmLegalRendered && subs.ldbms && 
@@ -183,14 +189,14 @@ export const LegalText = connect(mapStateToProps)((props) => {
                 {/initial/.test(pS.elligibility) && 
                     <LegalFreeTrial inModal={props.inModal} />
                 }
-                {(!/initial/.test(pS.elligibility) && !subs.promoSaveOffers) &&
+                {(!/initial/.test(pS.elligibility)) &&
                     <LegalHardOffer inModal={props.inModal} />
                 }
-                {(!joinControlTest && subs.durationSaveOffers && !subs.promoSaveOffers) && 
+                {(!joinControlTest && subs.durationSaveOffers) && 
                     <LegalDurationSaves saveOffers={subs.durationSaveOffers} inModal={props.inModal} />
                 }
-                {subs.promoSaveOffers && 
-                    <LegalPromoSaves saveOffers={subs.promoSaveOffers} inModal={props.inModal} />
+                {(!!subs.promoSaveOffers && !!pS.promoEndDate) &&
+                    <LegalPromoSaves inModal={props.inModal} />
                 }
                 {!joinControlTest && !!subs.display.packages.find((pkg) => pkg.id === `allaccess`) && 
                     <LegalNewspapersBasic fromFullLegal={true} inModal={props.inModal} />
